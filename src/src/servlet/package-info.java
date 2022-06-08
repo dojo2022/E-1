@@ -3,7 +3,7 @@
  */
 /**
  * @author User
- * サーブレットファルダの空ファイルです
+ * servletファルダの空ファイルです
  *
  */
 package servlet;
