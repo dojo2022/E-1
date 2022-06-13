@@ -7,7 +7,8 @@
 		<title>ログイン</title>
 	</head>
 	<body>
-		<a href="/dokogacha/RegistServlet"></a>
+
+		<a href="/dokogacha/RegistServlet"><img src="/dokogacha/img/new_resist.png"></a>
 		<form method="POST" action="/dokogacha/LoginServlet">
 			<img src="/dokogacha/img/cap_username.png">
 			<input type="text" name="user_name">
