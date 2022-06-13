@@ -1,1 +1,24 @@
 @charset "UTF-8";
+body{
+	background-image:url("/dokogacha/img/template_gacha.png");
+}
+.img_regist{
+	width:50px;
+	margin-left:700px;
+}
+.div_username{
+	margin-left:500px;
+}
+.img_username{
+	width:50px;
+}
+.div_password{
+	margin-left:500px;
+}
+.img_password{
+	width:50px;
+}
+.submit_login{
+	margin-left:500px;
+	width:50px;
+}
