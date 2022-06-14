@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="wrapper">
-	<form method="POST" action="/simpleBC/RegistServlet">
+	<form method="POST" action="/dokogacha/FavoriteUserListServlet">
 		<table border="1" style="border-collapse: collapse">
 			<tr><th class="fhead" colspan="10">お気に入り一覧</th></tr>
 			<tr class="tab">
@@ -17,20 +17,8 @@
 			</tr>
 			<c:forEach var="e" items="${faorite_user_list}" >
 			<tr class="data">
-				<td class="icon" colspan="2"><a href="https://www.yahoo.co.jp/">icon</a></td>
-				<td class="uname" colspan="8"><a href="https://www.yahoo.co.jp/">鈴木<input type="checkbox" name="follow_state" value="お気に入り解除" class="check"></a></td>
-			</tr>
-			<tr class="data">
-				<td class="icon" colspan="2"><a href="https://www.yahoo.co.jp/">icon</a></td>
-				<td class="uname" colspan="8"><a href="https://www.yahoo.co.jp/">山田<input type="checkbox" name="follow_state" value="お気に入り解除" class="check"></a></td>
-			</tr>
-			<tr class="data">
-				<td class="icon" colspan="2"><a href="https://www.yahoo.co.jp/">icon</a></td>
-				<td class="uname" colspan="8"><a href="https://www.yahoo.co.jp/">田川<input type="checkbox" name="follow_state" value="お気に入り解除" class="check"></a></td>
-			</tr>
-			<tr class="data">
-				<td class="icon" colspan="2"><a href="https://www.yahoo.co.jp/">icon</a></td>
-				<td class="uname" colspan="8"><a href="https://www.yahoo.co.jp/">中村<input type="checkbox" name="follow_state" value="お気に入り解除" class="check"></a></td>
+				<td class="icon" colspan="2"><a href="https://www.yahoo.co.jp/">${e.icon}</a></td>
+				<td class="uname" colspan="8"><a href="https://www.yahoo.co.jp/">${e.reviewer_profile}<input type="checkbox" name="follow_state" value="お気に入り解除" class="check"></a></td>
 			</tr>
 			</c:forEach>
 			<tr class="menu">
