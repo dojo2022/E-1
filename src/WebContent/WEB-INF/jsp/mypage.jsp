@@ -31,6 +31,7 @@
 <div class="user_inf2">
 	<div class="total_good">累積いいね数 <!--ページスコープで持ってくる？--></div>
 	<div class="Favorite_Genre">お気に入りジャンル<br></div><!-- 繰り返しN文字異常なら折り返し -->
+	あとう
 </div>
 
 <!-- 編集ボタンと自分の最新投稿、自分の投稿一覧リンクの表示 -->

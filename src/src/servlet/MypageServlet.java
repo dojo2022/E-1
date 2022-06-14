@@ -35,7 +35,7 @@ public class MypageServlet extends HttpServlet {
 		}
 		*/
 		doPost( request , response);
-		return;
+		return;//aaa
 	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
