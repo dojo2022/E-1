@@ -40,6 +40,7 @@ body{
 .capsule_logout{
 	display: flex;
 	justify-content: flex-end;
+	width=100px
 }
 
 .user_inf1{
@@ -85,18 +86,23 @@ body{
 }
 .total_good2{
 	display: flex;
+	justify-content:center;
+	border: 1px solid black;
+	border-radius: 10px;
+	background-color: white;
 	position:relative;
 	right:50px;
-	width : 5em;
-
+	width : 6em;
+	height: 1.5em;
 }
 .Favorite_Genre2{
 	display: flex;
 	justify-content:center;
-	outline: 1px solid black;
+	border: 1px solid black;
+	border-radius: 10px;
 	background-color: white;
 	position:relative;
-	left  : 40px;
+	left  : 25px;
 	width : 200px;
 	height: 120px;
 	overflow: auto;/* はみ出した場合は、スクロールバーを表示する */
@@ -106,10 +112,12 @@ body{
 	display: flex;
 	margin: 10px auto 0 auto;
 }
-
 .do_change{
 	display: flex;
-	margin: 35px  0 0 43px;
+	margin: 45px 0 0 43px;
+}
+.botton_edit{
+	width:40%;
 }
 
 .my_review{
@@ -122,5 +130,5 @@ body{
 	height:30px;
 	display: flex;
 }
-
+/*--------------------------------*/
 
