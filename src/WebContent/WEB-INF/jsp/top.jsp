@@ -10,7 +10,6 @@
 </head>
 <body>
 <script src="${pageContext.request.contextPath}/js/top.js"></script>
-<div class="wrapper">
 <!-- ヘッダー -->
 <header class="header">
   <h1 class="logo">トップページ</h1>
@@ -27,8 +26,7 @@
     </ul>
     </nav>
     </header>
-    </div>
-
+    <img class="button_null" src="/dokogacha/img/button_null.png">
     <!-- トレンド表示 -->
 </body>
 
