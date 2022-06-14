@@ -7,16 +7,23 @@ body{
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position:center center;
-	background-image: url(/img/template_gacha.png);
+	background-image: url(../img/template_gacha.png);
 	width:100%;
 	height:800px;
 	margin: 0 0 0 0;
 	background-color: #eeece9;
 }
-.header {
+header nav{
 	text-align: center;
 	position: relative;
 	top: 120px;
+}
+.capsule_logout{
+	position: relative;
+	bottom: 580px;
+	left:200px;
+	width: 6%;
+	height: 6%;
 }
 .nav li {
 	display: inline;
@@ -27,4 +34,46 @@ body{
 .nav a{
 	color: #ffd700;
 	text-decoration: none;
+}
+
+.capsule_genre img{
+	width: 6%;
+	height: 6%;
+}
+.capsule_word img{
+	width: 6%;
+	height: 6%;
+
+}
+.capsule_address img{
+	width: 6%;
+	height: 6%;
+}
+
+form{
+	position:relative;
+	top:130px;
+	left:470px;
+}
+
+select{
+	position:relative;
+	bottom:45px;
+	left:30px;
+	font-size:120%;
+}
+input{
+	position:relative;
+	bottom:45px;
+	left:30px;
+	font-size:120%;
+
+}
+
+.button_search{
+	position:relative;
+	top:60px;
+	right:45px;
+	width: 12%;
+	height: 12%;
 }
