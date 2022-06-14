@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ログアウト || どこがちゃ</title>
+<title>どこがちゃ || ログアウト</title>
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/common.css">
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/logout.css">
 </head>
