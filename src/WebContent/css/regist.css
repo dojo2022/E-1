@@ -1,51 +1,90 @@
 @charset "UTF-8";
-body{
-	background-repeat: no-repeat;
-	background-size: contain;
-	background-position:center center;
-	background-image: url(/dokogacha/img/template_gacha.png);
-	width:100%;
-	height:780px;
-	margin: 0 0 0 0;
-	background-color: #eeece9;
+body {
+		width: 960px;
+		margin-left: 200px;
+		background: #D9E5FF;
 }
-.div_username{
-	position:relative;
-	top:85px;
-	margin-left:450px;
+
+h1 {
+    padding: 0.5em 1em;
+    font-weight: bold;
+    color: black;
+    background: #FFF;
+    border: solid 3px orange;
+    border-radius: 10px;/*角の丸み*/
+		text-align: center;
+    margin: 0 auto 0 auto;
 }
-.div_password{
-	position:relative;
-	top:105px;
-	margin-left:450px;
+
+/*input枠なくす、サイズ*/
+input[name="product_name"] {
+	border: none;
+	width: 70em;
+	height: 30px;
 }
-.h1_regist{
-	position:relative;
-	top:100px;
-	margin-left:590px;
+input[name="title"] {
+	border: none;
+	width: 70em;
+	height: 30px;
 }
-.text_username{
-	position:relative;
-	bottom:50px;
-	width:300px;
-	font-size:120%;
+input[name="series"] {
+	border: none;
+	width: 70em;
+	height: 30px;
 }
-.password_password{
-	position:relative;
-	bottom:50px;
-	width:300px;
-	font-size:120%;
+input[name="price"] {
+	border: none;
+	width: 70em;
+	height: 30px;
 }
-.submit_regist{
-	width:140px;
-	position:relative;
-	top:195px;
-	margin-left:440px;
+input[name="address"] {
+	border: none;
+	width: 70em;
+	height: 30px;
 }
-.img_username{
-	width:100px;
-	margin-top:30px;
+
+input[type="submit"] {
+	color: red;
+	border: none;
+	background: #FF9872;
+	width: 70em;
+	height: 30px;
 }
-.img_password{
-	width:100px;
+
+textarea {
+	width: 70em;
+	height: 7em;
+}
+
+::placeholder {
+	text-align: center;
+}
+
+/*select*/
+select {
+	width: 70em;
+	height: 30px;
+}
+option {
+	text-align: center;
+}
+
+/*infoクラステーブル*/
+.info {
+		border-collapse: collapse;
+}
+.info th, .info td {
+	padding: 8px;
+	border: 3px solid #bec2c7;
+	text-align: center;
+}
+
+/*detailクラステーブル*/
+.detail {
+		border-collapse: collapse;
+}
+.detail th, .detail td {
+	padding: 8px;
+	border: 3px solid #bec2c7;
+	text-align: center;
 }
