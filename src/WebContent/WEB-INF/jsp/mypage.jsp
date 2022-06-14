@@ -8,15 +8,15 @@
 <title>マイページ</title>
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/common.css">
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/mypage.css">
-<!-- --><style>*{outline: 1px solid #ff0000;}</style>
-
+<!-- <style>*{outline: 1px solid #ff0000;}</style>
+-->
 
 </head>
 <body>
 <div class="wapper">
 <div class="capsule_logout" >
 <a href="/dokogacha/LogoutServlet">
-	<img src="/dokogacha/img/cap_logout.png" alt="ログアウト" width=100px ></a>
+	<img src="/dokogacha/img/cap_logout.png" alt="ログアウト" ></a>
 </div>
 <!-- ナビゲーションバー -->
 <header class="header">
@@ -52,18 +52,18 @@
 </div>
 <div class="user_inf2-2">
 	<div class="total_good2">
-	 ${e.total_good}100いいね
+		${e.total_good}いいね
 	</div>
 	<div class="Favorite_Genre2">
-	<c:forEach var="Ganre" items="${Ganre_list}" >
-	${Ganre}<br>
-	</c:forEach>
+		<c:forEach var="Ganre" items="${Ganre_list}" >
+		${Ganre}<br>
+		</c:forEach>
 	</div>
 </div>
 <!-- 編集ボタンと自分の最新投稿、自分の投稿一覧リンクの表示 -->
 <div class="user_inf3">
 	<div class="do_change"><a href="/dokogacha/MypageChangeServlet">
-			<img src="/dokogacha/img/button_edit.png" alt="編集" width=170px class="botton_edit" ></a></div>
+			<img src="/dokogacha/img/button_edit.png" alt="編集"  class="botton_edit" ></a></div>
 	<div class="my_review">
 	<span class ="my_rnew_eview">＃ジャンル<br>金額　商品名　<br>♡いいね数　<br></span>
 	<a href="/dokogacha/MyReviewListServlet">自分の投稿一覧へ</a>
@@ -71,5 +71,6 @@
 </div>
 <!-- フッター -->
 </div>
+
 </body>
 </html>
