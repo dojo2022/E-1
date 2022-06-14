@@ -4,14 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>どこがちゃ</title>
+<title>ログアウト||どこがちゃ</title>
+<link rel= "stylesheet" type="text/css" href ="/dokogacha/css/common.css">
+<link rel= "stylesheet" type="text/css" href ="/dokogacha/css/logout.css">
 </head>
 <body>
   <img src="/dokogacha/img/cap_success.png">
   <a>ログアウト完了したよ</a>
-  <form action="#">
-  <input type="image"src="../img/button_login.png">
-  </form>
+  <a href="/dokogacha/LoginServlet"><img src="/dokogacha/img/button_tologin.png"></a>
   <img src="/dokogacha/img/capin_panda.png">
   <a>またきてね！</a>
 </body>
