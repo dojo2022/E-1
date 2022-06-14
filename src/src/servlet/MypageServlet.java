@@ -45,6 +45,7 @@ public class MypageServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 
 		//Userテーブルからuser_Idに該当するレコードを取得
+		//Fテーブルからuser_Idに該当するレコードを取得
 
 		//
 
