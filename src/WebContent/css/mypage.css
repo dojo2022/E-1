@@ -18,12 +18,12 @@ body{
 }
 .wapper{
   margin: 0 auto 0 auto;
-  max-width: 580px;
+  width: 580px ; /*580px*/
 }
 .header {
 	text-align: center;
 	position: relative;
-	top: 0; /*変更120px→0*/
+	bottom: 10px; /*変更120px→0*/
 }
 .nav li {
 	display: inline;
@@ -38,14 +38,14 @@ body{
 
 /*mypage.jsp*/
 .capsule_logout{
-	display: flex;
+	display:flex;
 	justify-content: flex-end;
-	width=100px
 }
-
+.capsule_logout img{
+	width:18%;
+}
 .user_inf1{
 	display: flex;
-
 	font-size: 30px;
 }
 
@@ -116,7 +116,8 @@ body{
 	display: flex;
 	margin: 45px 0 0 43px;
 }
-.botton_edit{
+
+.do_change img{
 	width:40%;
 }
 
