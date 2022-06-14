@@ -1,1 +1,90 @@
 @charset "UTF-8";
+body {
+		width: 960px;
+		margin-left: 200px;
+		background: #D9E5FF;
+}
+
+h1 {
+    padding: 0.5em 1em;
+    font-weight: bold;
+    color: black;
+    background: #FFF;
+    border: solid 3px orange;
+    border-radius: 10px;/*角の丸み*/
+		text-align: center;
+    margin: 0 auto 0 auto;
+}
+
+/*input枠なくす、サイズ*/
+input[name="product_name"] {
+	border: none;
+	width: 70em;
+	height: 30px;
+}
+input[name="title"] {
+	border: none;
+	width: 70em;
+	height: 30px;
+}
+input[name="series"] {
+	border: none;
+	width: 70em;
+	height: 30px;
+}
+input[name="price"] {
+	border: none;
+	width: 70em;
+	height: 30px;
+}
+input[name="address"] {
+	border: none;
+	width: 70em;
+	height: 30px;
+}
+
+input[type="submit"] {
+	color: red;
+	border: none;
+	background: #FF9872;
+	width: 70em;
+	height: 30px;
+}
+
+textarea {
+	width: 70em;
+	height: 7em;
+}
+
+::placeholder {
+	text-align: center;
+}
+
+/*select*/
+select {
+	width: 70em;
+	height: 30px;
+}
+option {
+	text-align: center;
+}
+
+/*infoクラステーブル*/
+.info {
+		border-collapse: collapse;
+}
+.info th, .info td {
+	padding: 8px;
+	border: 3px solid #bec2c7;
+	text-align: center;
+}
+
+/*detailクラステーブル*/
+.detail {
+		border-collapse: collapse;
+}
+.detail th, .detail td {
+	padding: 8px;
+	border: 3px solid #bec2c7;
+	text-align: center;
+}
