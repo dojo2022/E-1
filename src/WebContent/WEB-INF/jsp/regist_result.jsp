@@ -4,8 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>どこがちゃ</title>
-<link rel="stylesheet" type="text/css" href="/dokogacha/css/style.css">
+<title>登録完了||どこがちゃ</title>
+<link rel= "stylesheet" type="text/css" href ="/dokogacha/css/common.css">
+<link rel= "stylesheet" type="text/css" href ="/dokogacha/css/logout.css">
 </head>
 <body>
   <img src="/dokogacha/img/cap_success.png">

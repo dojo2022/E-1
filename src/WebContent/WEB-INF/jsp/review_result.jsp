@@ -6,11 +6,11 @@
 <meta charset="UTF-8">
 <title>投稿完了||どこがちゃ</title>
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/common.css">
-<link rel= "stylesheet" type="text/css" href ="/dokogacha/css/logout.css">
+<link rel= "stylesheet" type="text/css" href ="/dokogacha/css/review_result.css">
 </head>
 <body>
-<img src="/dokogacha/img/cap_comp.png">
+<img class="cap_comp" src="/dokogacha/img/cap_comp.png">
   <a>投稿できたよ！</a>
-  <a href="/dokogacha/TopServlet"><img src="/dokogacha/img/button_totop.png"></a>
+  <a href="/dokogacha/TopServlet"><img class="button_top" src="/dokogacha/img/button_totop.png"></a>
 </body>
 </html>
