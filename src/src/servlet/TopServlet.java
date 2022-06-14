@@ -10,13 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class MypageServlet
- * マイページへの遷移　LoginUserのUser_Idを入手し、ログイン状態を判定
- * ログインしていなければログインページへリダイレクトさせる
- *
+ * Servlet implementation class TopServlet
  */
-@WebServlet("/MypageServlet")
-public class MypageServlet extends HttpServlet {
+@WebServlet("/TopServlet")
+public class TopServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -25,17 +22,16 @@ public class MypageServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-		/*
-		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/dokogacha/LoginServlet");
-			return;
-		}
-		else {
-		}
-		*/
-		doPost( request , response);
-		return;//aaa
+				/*HttpSession session = request.getSession();
+				/*if (session.getAttribute("id") == null) {
+					response.sendRedirect("/dokogacha/LoginServlet");
+					return;
+				}*/
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/top.jsp");
+				dispatcher.forward(request, response);
+	}
+		/*doPost( request , response);
+		return;
 	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -43,15 +39,13 @@ public class MypageServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
-		//Userテーブルからuser_Idに該当するレコードを取得
-		//Fテーブルからuser_Idに該当するレコードを取得
-
-		//
+		doGet(request, response);
 
 		// メニューページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
-		dispatcher.forward(request, response);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/top.jsp");
+				dispatcher.forward(request, response);
 
 	}
 }
+
+

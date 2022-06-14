@@ -9,10 +9,10 @@
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/logout.css">
 </head>
 <body>
-  <img src="/dokogacha/img/cap_success.png">
+  <img class="cap_success" src="/dokogacha/img/cap_success.png">
   <a>ログアウト完了したよ</a>
-  <a href="/dokogacha/LoginServlet"><img src="/dokogacha/img/button_tologin.png"></a>
-  <img src="/dokogacha/img/capin_panda.png">
+  <a href="/dokogacha/LoginServlet"><img class="button_login" src="/dokogacha/img/button_tologin.png"></a>
+  <img class="cap_panda" src="/dokogacha/img/capin_panda.png">
   <a>またきてね！</a>
 </body>
 </html>

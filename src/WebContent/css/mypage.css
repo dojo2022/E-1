@@ -1,6 +1,126 @@
 @charset "UTF-8";
 
 html{
-  font-family: sans-serif;
-  background-image:url
+	font-family: Meiryo;
 }
+html *{
+  box-sizing: border-box;
+}
+body{
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position:center center;
+	background-image: url(../img/template_gacha.png);
+	width:100%;
+	height:800px;
+	margin: 0 auto ;
+	background-color: #eeece9;
+}
+.wapper{
+  margin: 0 auto 0 auto;
+  max-width: 580px;
+}
+.header {
+	text-align: center;
+	position: relative;
+	top: 0; /*変更120px→0*/
+}
+.nav li {
+	display: inline;
+	font-size: 30px;
+	list-style-type: none;
+	padding-right: 30px;
+}
+.menu a{
+	color: #ffd700;
+	text-decoration: none;
+}
+
+/*mypage.jsp*/
+.capsule_logout{
+	display: flex;
+	justify-content: flex-end;
+}
+
+.user_inf1{
+	display: flex;
+
+	font-size: 30px;
+}
+
+.user_image	{
+	margin: 0 10px 0 30px;
+	padding-top: 30px;
+	width :150px;
+	height:150px;
+}
+
+.user_name_title{
+	margin: auto ;
+}
+
+.user_name_title a{
+	color: ブラック;
+	text-decoration: none;
+}
+
+.user_inf2{
+	display: flex;
+	justify-content:center;
+	font-size: 30px;
+}
+.total_good1{
+	display: flex;
+	position:relative;
+	right:15px;
+}
+.Favorite_Genre1{
+	position:relative;
+	left:25px
+}
+.user_inf2-2{
+	display: flex;
+	justify-content:center;
+	font-size: 30px;
+}
+.total_good2{
+	display: flex;
+	position:relative;
+	right:50px;
+	width : 5em;
+
+}
+.Favorite_Genre2{
+	display: flex;
+	justify-content:center;
+	outline: 1px solid black;
+	background-color: white;
+	position:relative;
+	left  : 40px;
+	width : 200px;
+	height: 120px;
+	overflow: auto;/* はみ出した場合は、スクロールバーを表示する */
+}
+
+.user_inf3{
+	display: flex;
+	margin: 10px auto 0 auto;
+}
+
+.do_change{
+	display: flex;
+	margin: 35px  0 0 43px;
+}
+
+.my_review{
+	margin: 35px  0 0 43px;
+}
+
+.my_new_review{
+	background-image: url(../img/opcap_null.png);
+	width:50%;
+	height:30px;
+	display: flex;
+}
+
+
