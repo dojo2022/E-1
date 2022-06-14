@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>どこがちゃ|| トップメニュー</title>
+<title>どこがちゃ || トップメニュー</title>
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/common.css">
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/top.css">
 </head>
