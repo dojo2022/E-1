@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="css/search.css">
 </head>
 <body>
+<div class="wrapper">
 	<header class="header">
 		<nav class="nav">
 		<ul>
@@ -19,6 +20,29 @@
 		</nav>
 	</header>
 
-
+<form method="GET" action="result.html">
+    <table>
+      <tr>
+        <td>
+          <label><img src="/img/cap_genre.png" alt="genre">
+          <input type="text" name="businesscard_id">
+          </label>
+        </td>
+        <td>
+          <label><img src="/img/cap_word.png" alt="word">
+          <input type="text" name="zip_code">
+          </label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>
+          <input type="text" name="company_name">
+          </label>
+        </td>
+		</tr>
+	</table>
+</form>
+</div>
 </body>
 </html>
