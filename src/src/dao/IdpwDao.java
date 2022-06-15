@@ -9,6 +9,26 @@ import java.sql.SQLException;
 import model.Idpw;
 
 public class IdpwDao {
+	public boolean insert(Idpw card) {
+		Connection conn = null;
+		boolean result = false;
+
+		try {
+			Class.forName("org.h2.Driver");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/dokogacha", "sa", "");
+
+			String sql = "INSERT INTO USER (id,pw) VALUES (?,?)";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			String id = card.getId();
+
+		}
+		catch() {
+
+		}
+
+		return result;
+	}
+
 	public boolean isLoginOK(Idpw idpw) {
 		Connection conn = null;
 		boolean loginResult = false;
