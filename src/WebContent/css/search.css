@@ -13,18 +13,17 @@ body{
 	margin: 0 0 0 0;
 	background-color: #eeece9;
 }
+
+.wrapper{
+	max-width: 100%;
+}
+
 header nav{
 	text-align: center;
 	position: relative;
 	top: 120px;
 }
-.capsule_logout{
-	position: relative;
-	bottom: 580px;
-	left:200px;
-	width: 6%;
-	height: 6%;
-}
+
 .nav li {
 	display: inline;
 	font-size: 30px;
@@ -70,10 +69,39 @@ input{
 
 }
 
-.button_search{
-	position:relative;
-	top:60px;
-	right:45px;
+.btn img {
+	position: absolute;
+	top: 650px;
+	left: 37.5%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 	width: 12%;
-	height: 12%;
+	display: block;
+	-webkit-transition: .4s ease-in-out;
+	transition: .4s ease-in-out;
+}
+.btn:hover img:nth-of-type(2) {
+	opacity: 0;
+}
+
+.opcap img {
+	position: absolute;
+	top: 59px;
+	left: 66%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	display: block;
+	-webkit-transition: .4s ease-in-out;
+	transition: .4s ease-in-out;
+}
+.opcap:hover img:nth-of-type(2) {
+	opacity: 0;
+}
+.opcapsule_logout{
+	width: 7%;
+
+}
+.capsule_logout{
+	width: 8%;
+
 }

@@ -10,7 +10,8 @@
 </head>
 <body>
 <img class="cap_comp" src="/dokogacha/img/cap_comp.png">
-  <a>投稿できたよ！</a>
-  <a href="/dokogacha/TopServlet"><img class="button_top" src="/dokogacha/img/button_totop.png"></a>
+<img class="comment_post" src="/dokogacha/img/comment_post.png">
+  <a href="/dokogacha/TopServlet">
+  <img class="button_top" src="/dokogacha/img/button_totop.png"></a>
 </body>
 </html>
