@@ -1,4 +1,29 @@
 @charset "UTF-8";
 @import url("mypage.css");
 
+.capsule_back{
+	position: relative;
+	left :30px;
+}
+.capsule_back img{
+	width: 15.9%;
+}
+
+.capsule_logout{
+	position: relative;
+	left :360px;
+}
+
+.submit_follow{
+	width: 60%;
+	position: relative;
+	left :43px;
+	top : 40px;
+}
+
+.review{
+	position: relative;
+	bottom : 30px;
+
+}
 
