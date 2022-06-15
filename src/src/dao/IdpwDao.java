@@ -9,6 +9,52 @@ import java.sql.SQLException;
 import model.Idpw;
 
 public class IdpwDao {
+	public boolean insert(Idpw card) {
+		Connection conn = null;
+		boolean result = false;
+
+		try {
+			Class.forName("org.h2.Driver");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
+
+			String sql = "INSERT INTO user (id,pw) VALUES (?,?)";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			String id = card.getId();
+			String pw = card.getPw();
+
+			if(id != null && !id.equals("")) {
+				pStmt.setString(1, id);
+			}else {
+				pStmt.setString(1, null);
+			}
+			if(pw != null && !pw.equals("")) {
+				pStmt.setString(2, pw);
+			}else {
+				pStmt.setString(2, null);
+			}
+			if(pStmt.executeUpdate() == 1) {
+				result = true;
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		catch(ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally{
+			if(conn != null) {
+				try {
+					conn.close();
+				}catch(SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		return result;
+	}
+
 	public boolean isLoginOK(Idpw idpw) {
 		Connection conn = null;
 		boolean loginResult = false;

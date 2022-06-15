@@ -1,14 +1,10 @@
 @charset "UTF-8";
 
-html{
-	font-family: Meiryo;
-}
-
 body{
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position:center center;
-	background-image: url(../img/template_gacha.png);
+	background-image: url(/dokogacha/img/template_gacha.png);
 	width:100%;
 	height:800px;
 	margin: 0 0 0 0;
@@ -16,16 +12,30 @@ body{
 }
 .cap_success{
 	position:relative;
-	bottom:-105px;
-	width:90px;
+	bottom:-250px;
+	width:150px;
+	margin-left:450px;
 }
 .button_login{
+	width:160px;
 	position:relative;
-	bottom:-110px;
-	width:90px;
+	margin-left:430px;
+	bottom:-300px;
 }
 .cap_panda{
-	position:relative;
-	bottom:-120px;
 	width:100px;
+	position:relative;
+	bottom:-150px;
+	margin-left:670px;
 }
+.logout{
+	width:500px;
+    margin-left:600px;
+    bottom:-700px;
+}
+.goodbye{
+	width:400px;
+    margin-left:800px;
+    bottom:-6000px;
+}
+

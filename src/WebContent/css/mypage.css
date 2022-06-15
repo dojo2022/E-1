@@ -13,17 +13,26 @@ body{
 	background-image: url(../img/template_gacha.png);
 	width:100%;
 	height:800px;
-	margin: 0 auto ;
+	margin: 0 0 0 0;
 	background-color: #eeece9;
 }
 .wapper{
-  margin: 0 auto 0 auto;
-  max-width: 580px;
+  margin: 0 auto;
+  width: 580px ; /*580px*/
+}
+.capsule_logout{
+	display: flex;
+	justify-content: flex-end;
+	position: relative;
+	right :40px;
+}
+.capsule_logout img{
+	width:17.5%;
 }
 .header {
 	text-align: center;
 	position: relative;
-	top: 0; /*変更120px→0*/
+	bottom: 10px; /*変更120px→0*/
 }
 .nav li {
 	display: inline;
@@ -36,16 +45,9 @@ body{
 	text-decoration: none;
 }
 
-/*mypage.jsp*/
-.capsule_logout{
-	display: flex;
-	justify-content: flex-end;
-	width=100px
-}
-
+/* main ------------------------*/
 .user_inf1{
 	display: flex;
-
 	font-size: 30px;
 }
 
@@ -114,21 +116,40 @@ body{
 }
 .do_change{
 	display: flex;
-	margin: 45px 0 0 43px;
+	margin: 48px 0 0 43px;
 }
-.botton_edit{
-	width:40%;
+
+.do_change img{
+	width:65%;
 }
 
 .my_review{
-	margin: 35px  0 0 43px;
+	position:relative;
+	top : 30px;
+	left: 43px;
 }
 
-.my_new_review{
-	background-image: url(../img/opcap_null.png);
+.my_review img{
 	width:50%;
-	height:30px;
+}
+
+.my_new_review {
+	width :15em;
 	display: flex;
+	justify-content:center;
+	border: 1px solid black;
+	border-radius: 10px;
+	background-color: white;
+	position:relative;
+	bottom: 150px;
+	right : 50px;
+}
+.my_review_list{
+	display: flex;
+	justify-content:center;
+	position:relative;
+	bottom: 150px;
+	right : 70px;
 }
 /*--------------------------------*/
 
