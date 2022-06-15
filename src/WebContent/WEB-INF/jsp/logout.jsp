@@ -12,10 +12,11 @@
 <script src="${pageContext.request.contextPath}/js/top.js"></script>
 <header class="header">
   <img class="cap_success" src="/dokogacha/img/cap_success.png">
-  <a>ログアウト完了したよ</a>
-  <a href="/dokogacha/LoginServlet"><img class="button_login" src="/dokogacha/img/button_tologin.png"></a>
-  <img class="cap_panda" src="/dokogacha/img/capin_panda.png">
-  <a>またきてね！</a>
+  <img class="comment_logout" src="/dokogacha/img/comment_logout.png">
+  <a href="/dokogacha/LoginServlet">
+  <img class="button_login" src="/dokogacha/img/button_tologin.png"></a>
   </header>
+  <img class="cap_panda" src="/dokogacha/img/capin_panda.png">
+  <a class="goodbye">またきてね！</a>
 </body>
 </html>
