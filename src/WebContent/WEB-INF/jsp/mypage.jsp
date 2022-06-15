@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>マイページ</title>
+<title>どこがちゃ｜マイページ</title>
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/common.css">
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/mypage.css">
 <!-- <style>*{outline: 1px solid #ff0000;}</style>
@@ -66,7 +66,7 @@
 	<div class="my_review">
 		<img src="/dokogacha/img/opcap_null.png" >
 		<div class ="my_new_review">
-			＃${review.ganre}<br>${review.price}　${review.product_name}　<br>${review.good}　<br>
+			＃${review.ganre}<br>${review.price},${review.product_name}<br>${review.good}<br>
 		</div>
 		<div class ="my_review_list">
 			<a href="/dokogacha/MyReviewListServlet"><br>自分の投稿一覧へ</a>
@@ -75,7 +75,5 @@
 </div>
 <!-- フッター -->
 </div>
-
-
 </body>
 </html>

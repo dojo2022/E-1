@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ResistResultServlet
  */
-@WebServlet("/ResistResultServlet")
-public class ResistResultServlet extends HttpServlet {
+@WebServlet("/RegistResultServlet")
+public class RegistResultServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

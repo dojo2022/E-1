@@ -22,9 +22,9 @@
 			</tr>
 			</c:forEach>
 			<tr class="menu">
-				<td colspan="2" class="back"><a href="/dokogacha/MypageServlet"><img src="images/cap_back.png" alt="戻る"></a></td>
+				<td colspan="2" class="back"><a href="/dokogacha/MypageServlet"><img src="/dokogacha/img/cap_back.png" alt="戻る"></a></td>
 				<td colspan="6" class="emp"></td>
-				<td colspan="2" class="top"><a href="/dokogacha/TopServlet"><img src="images/cap_top.png" alt="トップ"></a></td>
+				<td colspan="2" class="top"><a href="/dokogacha/TopServlet"><img src="/dokogacha/img/cap_top.png" alt="トップ"></a></td>
 			</tr>
 		</table>
 		<script>
@@ -41,11 +41,10 @@
 		table {
 			margin-left: auto;
 			margin-right: auto;
-			text-align: left;
 			table-layout: fixed;
 			width: 80%;
 		}
-		.fhead {
+		.fhead,.tab,.back,.top {
 			text-align: center;
 		}
 		.tab {
@@ -55,8 +54,9 @@
 			background-color: #ff6347;
 		}
 		.check {
-			position: relative;
-			left: 300px;
+			position: absolute;
+			right: 100px;
+			top: 50px;
 		}
 		.fhead, .tab, .empty {
 			height: 50px;
@@ -69,6 +69,7 @@
 			height: 120px;
 		}
 		.data {
+			position: relative;
 			padding: max;
 			height: 100px;
 		}
