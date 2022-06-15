@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.security.MessageDigest;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -26,15 +27,29 @@ public class LoginServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
+		byte[] cipher_byte;
 
-		IdpwDao iDao = new IdpwDao();
-		if(iDao.isLoginOK(new Idpw(id,pw))) {
-			HttpSession session = request.getSession();
-			session.setAttribute("id", new LoginUser(id));
-			response.sendRedirect("/dokogacha/TopServlet");
+		try {
+			MessageDigest md = MessageDigest.getInstance("SHA-256");
+			md.update(pw.getBytes());
+			cipher_byte=md.digest();
+			StringBuilder sb = new StringBuilder(2 * cipher_byte.length);
+			for(byte b: cipher_byte) {
+				sb.append(String.format("%02x", b&0xff));
+			}
+			pw = sb.toString();
+		}catch(Exception e) {
+			e.printStackTrace();
 		}
-		else {
-			//エラー文
-		}
+
+	IdpwDao iDao = new IdpwDao();
+	if(iDao.isLoginOK(new Idpw(id,pw))) {
+		HttpSession session = request.getSession();
+		session.setAttribute("id", new LoginUser(id));
+		response.sendRedirect("/dokogacha/TopServlet");
 	}
+	else {
+		//エラー文
+	}
+}
 }
