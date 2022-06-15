@@ -4,38 +4,44 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>投稿一覧</title>
+<title>自分の投稿一覧</title>
 <link rel="stylesheet" type="text/css" href="css/user_review_list.css">
-
 </head>
 <body>
-			<p>投稿一覧</p>
-			<p><div id="user">他ユーザー</div>投稿一覧
-
-<form method="POST" action="/simpleBC/RegistServlet">
+<div class="wrapper">
+<h1>投稿一覧</h1>
+<h2>他ユーザーの投稿</h2>
+<div class="">
 	<table class="review">
-		<tr>
-			<td class="icon"><a href="review_detail.jsp">image</a></td>
-			<td class="uname"><a href="review_detail.jsp">内容</a></td>
+		<tr data-href="review_detail.jsp">
+			<td class="photo"><img src="img/icon_camera.png" id=""></td>
+			<td class="nakami">内容</td>
 		</tr>
-		<tr>
-			<td class="icon"><a href="review_detail.jsp">image</a></td>
-			<td class="uname"><a href="review_detail.jsp">内容</a></td>
+		<tr data-href="review_detail.jsp">
+			<td class="photo"><img src="img/icon_camera.png" id=""></td>
+			<td class="nakami">内容</td>
 		</tr>
-		<tr>
-			<td class="icon"><a href="review_detail.jsp">image</a></td>
-			<td class="uname"><a href="review_detail.jsp">内容</a></td>
+		<tr data-href="review_detail.jsp">
+			<td class="photo"><img src="img/icon_camera.png" id=""></td>
+			<td class="nakami">内容</td>
 		</tr>
-		<tr>
-			<td class="icon"><a href="review_detail.jsp">image</a></td>
-			<td class="uname"><a href="review_detail.jsp">内容</a></td>
+		<tr data-href="review_detail.jsp">
+			<td class="photo"><img src="img/icon_camera.png" id=""></td>
+			<td class="nakami">内容</td>
 		</tr>
-		<tr class="menu">
-			<td><a href="mypage.jsp"></a></td>
-			<td><a href="top.jsp"></a></td>
+		<tr data-href="review_detail.jsp">
+			<td class="photo"><img src="img/icon_camera.png" id=""></td>
+			<td class="nakami">内容</td>
 		</tr>
 	</table>
-</form>
-
+<footer class="footer">
+	<table>
+		<tr class="menu">
+			<td><a href="mypage.jsp"><img src="img/cap_back.png"></a></td>
+			<td><a href="top.jsp"><img src="img/cap_top.png"></a></td>
+		</tr>
+	</table>
+</footer>
+</div>
 </body>
 </html>

@@ -1,5 +1,6 @@
 package dao;
 
+import java.security.MessageDigest;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -21,6 +22,7 @@ public class IdpwDao {
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			String id = card.getId();
 			String pw = card.getPw();
+			byte[] cipher_byte;
 
 			if(id != null && !id.equals("")) {
 				pStmt.setString(1, id);
@@ -28,6 +30,18 @@ public class IdpwDao {
 				pStmt.setString(1, null);
 			}
 			if(pw != null && !pw.equals("")) {
+				try {
+					MessageDigest md = MessageDigest.getInstance("SHA-256");
+					md.update(pw.getBytes());
+					cipher_byte=md.digest();
+					StringBuilder sb = new StringBuilder(2 * cipher_byte.length);
+					for(byte b: cipher_byte) {
+						sb.append(String.format("%02x", b&0xff));
+					}
+					pw = sb.toString();
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
 				pStmt.setString(2, pw);
 			}else {
 				pStmt.setString(2, null);
