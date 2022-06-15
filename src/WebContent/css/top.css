@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+html *{
+  box-sizing: border-box;
+}
+
 body{
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -27,9 +31,9 @@ body{
 }
 .img_logout{
 	position:relative;
-	bottom:-10px;
+	bottom:15px;
 	width:100px;
-	margin-left:350px;
+	margin-left:800px;
 }
 .logo{
 	position:relative;
@@ -41,6 +45,7 @@ body{
 	position:relative;
 	bottom:10px;
 	margin-left:420px
+
 }
 .button_null{
 	width:140px;

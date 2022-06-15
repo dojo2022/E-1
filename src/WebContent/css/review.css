@@ -76,7 +76,7 @@ option {
 }
 .info th, .info td {
 	padding: 8px;
-	border: 3px solid #bec2c7;
+	border: 2px solid black;
 	text-align: center;
 }
 
@@ -84,8 +84,36 @@ option {
 .detail {
 		border-collapse: collapse;
 }
-.detail th, .detail td {
+.detail tr, .detail td {
 	padding: 8px;
-	border: 3px solid #bec2c7;
+	border: 2px solid black;
 	text-align: center;
+}
+/*5段階評価*/
+.stars{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: right;
+  padding-right: 360px;
+}
+.stars input[type='radio']{
+  display: none;
+}
+.stars label{
+  padding-right: 10px;
+  color: #ccc;
+  font-size: 30px;
+  cursor: pointer;
+}
+.stars label:hover,
+.stars label:hover ~ label,
+.stars input[type='radio']:checked ~ label{
+  color: #fc0;
+}
+p {
+		text-align: left;
+}
+/*画像アップロード*/
+div figure{
+    display: inline-block;
 }

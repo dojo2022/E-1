@@ -29,10 +29,10 @@ public class RegistServlet extends HttpServlet {
 
 		IdpwDao iDao = new IdpwDao();
 		if(iDao.insert(new Idpw(id,pw))) {
-			response.sendRedirect("/dokogacha/LoginServlet");
+			response.sendRedirect("/dokogacha/RegistResultServlet");
 		}
 		else {
-			response.sendRedirect("/dokogacha/LogoutServlet");
+			response.sendRedirect("/dokogacha/LoginServlet");
 		}
 	}
 
