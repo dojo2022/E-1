@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>マイページ</title>
+<title>どこがちゃ｜マイページ</title>
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/common.css">
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/mypage.css">
 <!-- <style>*{outline: 1px solid #ff0000;}</style>
@@ -14,10 +14,7 @@
 </head>
 <body>
 <div class="wapper">
-<div class="capsule_logout" >
-<a href="/dokogacha/LogoutServlet">
-	<img src="/dokogacha/img/cap_logout.png" alt="ログアウト" ></a>
-</div>
+<a href="/dokogacha/LogoutServlet" class="capsule_logout"><img src="/dokogacha/img/cap_logout.png" alt="ログアウト"></a>
 <!-- ナビゲーションバー -->
 <header class="header">
 	<nav class="nav">
@@ -62,15 +59,21 @@
 </div>
 <!-- 編集ボタンと自分の最新投稿、自分の投稿一覧リンクの表示 -->
 <div class="user_inf3">
+	<!-- 編集ボタン -->
 	<div class="do_change"><a href="/dokogacha/MypageChangeServlet">
 			<img src="/dokogacha/img/button_edit.png" alt="編集"  class="botton_edit" ></a></div>
+	<!-- 自分の最新投稿、自分の投稿一覧リンクの表示 -->
 	<div class="my_review">
-	<span class ="my_rnew_eview">＃ジャンル<br>金額　商品名　<br>♡いいね数　<br></span>
-	<a href="/dokogacha/MyReviewListServlet">自分の投稿一覧へ</a>
+		<img src="/dokogacha/img/opcap_null.png" >
+		<div class ="my_new_review">
+			＃${review.ganre}<br>${review.price},${review.product_name}<br>${review.good}<br>
+		</div>
+		<div class ="my_review_list">
+			<a href="/dokogacha/MyReviewListServlet"><br>自分の投稿一覧へ</a>
+		</div>
 	</div>
 </div>
 <!-- フッター -->
 </div>
-
 </body>
 </html>

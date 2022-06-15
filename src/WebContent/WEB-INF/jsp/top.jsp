@@ -29,6 +29,8 @@
     <img class="button_null" src="/dokogacha/img/button_null.png">
     <!-- トレンド表示 -->
 </body>
-
-<!-- ヘッダー -->
+<div class ="my_new_review">
+			＃${review.ganre}<br>${review.price}　${review.product_name}　<br>${review.good}　<br>
+		</div>
+<!-- フッター -->
 </html>

@@ -11,20 +11,20 @@
 		<table border="1" style="border-collapse: collapse">
 			<tr><th class="fhead" colspan="10">お気に入り一覧</th></tr>
 			<tr class="tab">
-				<td colspan="5"><a href="https://www.yahoo.co.jp/">お気に入り投稿一覧</a></td>
-				<td colspan="5" class="selecting"><a href="https://www.yahoo.co.jp/">お気に入りユーザ一覧</a></td>
-			<tr><td class="empty" colspan="10"></td></tr>
+				<td colspan="5"><a href="/dokogacha/FavoriteReviewListServlet">お気に入り投稿一覧</a></td>
+				<td colspan="5" class="selecting"><a href="/dokogacha/FavoriteUserListServlet">お気に入りユーザ一覧</a></td>
 			</tr>
+			<tr><td class="empty" colspan="10"></td></tr>
 			<c:forEach var="e" items="${faorite_user_list}" >
 			<tr class="data">
-				<td class="icon" colspan="2"><a href="https://www.yahoo.co.jp/">${e.icon}</a></td>
-				<td class="uname" colspan="8"><a href="https://www.yahoo.co.jp/">${e.reviewer_profile}<input type="checkbox" name="follow_state" value="お気に入り解除" class="check"></a></td>
+				<td class="icon" colspan="2"><a href="/dokogacha/UserDatailServlet">${e.icon}</a></td>
+				<td class="uname" colspan="8"><a href="/dokogacha/UserDatailServlet">${e.reviewer_profile}<input type="checkbox" name="follow_state" value="お気に入り解除" class="check"></a></td>
 			</tr>
 			</c:forEach>
 			<tr class="menu">
-				<td colspan="2" class="back"><a href="https://www.yahoo.co.jp/"><img src="images/cap_back.png" alt="戻る"></a></td>
+				<td colspan="2" class="back"><a href="/dokogacha/MypageServlet"><img src="images/cap_back.png" alt="戻る"></a></td>
 				<td colspan="6" class="emp"></td>
-				<td colspan="2" class="top"><a href="https://www.yahoo.co.jp/"><img src="images/cap_top.png" alt="トップ"></a></td>
+				<td colspan="2" class="top"><a href="/dokogacha/TopServlet"><img src="images/cap_top.png" alt="トップ"></a></td>
 			</tr>
 		</table>
 		<script>
