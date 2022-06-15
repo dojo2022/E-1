@@ -21,9 +21,9 @@
     <img class="img_post" src="/dokogacha/img/cap_post.png" alt="投稿"></a></li>
     <li><a href="/dokogacha/MypageServlet">
     <img class="img_mypage" src="/dokogacha/img/cap_mypage.png" alt="マイページ"></a></li>
-    <li><a href="/dokogacha/LogoutServlet">
-    <img class="img_logout" src="/dokogacha/img/cap_logout.png" alt="ログアウト"></a></li>
     </ul>
+    <a href="/dokogacha/LogoutServlet">
+    <img class="img_logout" src="/dokogacha/img/cap_logout.png" alt="ログアウト"></a>
     </nav>
     </header>
     <img class="button_null" src="/dokogacha/img/button_null.png">
