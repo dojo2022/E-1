@@ -59,8 +59,10 @@
 </div>
 <!-- 編集ボタンと自分の最新投稿、自分の投稿一覧リンクの表示 -->
 <div class="user_inf3">
+	<!-- 編集ボタン -->
 	<div class="do_change"><a href="/dokogacha/MypageChangeServlet">
 			<img src="/dokogacha/img/button_edit.png" alt="編集"  class="botton_edit" ></a></div>
+	<!-- 自分の最新投稿、自分の投稿一覧リンクの表示 -->
 	<div class="my_review">
 		<img src="/dokogacha/img/opcap_null.png" >
 		<div class ="my_new_review">
