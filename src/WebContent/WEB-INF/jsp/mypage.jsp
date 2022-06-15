@@ -36,7 +36,7 @@
 
 <div class ="user_inf1">
 	<div class ="user_image	">
-		<img src="${user.title}" alt="アイコン" >
+		<img src="${user.title}" alt="アイコン" > <!-- /dokogacha/img/icon_panda.png -->
 	</div>
 	<div class ="user_name_title">
 		<span class ="user_name">name${user.name}</span>

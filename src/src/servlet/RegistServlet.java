@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.IdpwDao;
+
+
+
+
 @WebServlet("/RegistServlet")
 public class RegistServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -17,7 +22,12 @@ public class RegistServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
+		request.setCharacterEncoding("UTF-8");
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+
+		IdpwDao iDao = new IdpwDao();
+
 	}
 
 }
