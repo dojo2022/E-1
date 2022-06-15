@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/*全体を中央寄せ*/
+
 body{
 	background-size: contain;
 	width:100%;
@@ -8,6 +8,8 @@ body{
 	margin: 0 0 0 0;
 	background-color: #eeece9;
 }
+
+/*全体を中央寄せ*/
 .wrapper {
 	margin: 0 auto 0 auto;
 }
@@ -16,16 +18,21 @@ body{
 table {
 	margin-left: auto;
 	margin-right: auto;
-	text-align: center;
 	table-layout: fixed;
-	width: 80%;
+	width: 60%;
+}
+
+/*テーブルの要素を中央寄せ*/
+.fhead,.tab,.back,.top {
+	text-align: center;
 }
 td.selecting {
 	background-color: #ff6347;
 }
 .check {
-	position: relative;
-	left: 300px;
+	position: absolute;
+	right: 100px;
+	top: 50px;
 }
 .fhead, .tab, .empty {
 	height: 50px;
@@ -37,7 +44,17 @@ tr.menu{
 	background-color: #c0c0c0;
 	height: 120px;
 }
+th.fhead {
+	background-color: white;
+}
+.unselecting {
+	background-color: white;
+}
 .data {
+	background-color: white;
+}
+.data {
+	position: relative;
 	padding: max;
 	height: 100px;
 }
@@ -74,8 +91,18 @@ tr.menu{
 	font-size: 150%;
 }
 .back img,.top img{
-	text-align:center;
-	vertical-align:middle;
-	width: 80px;
-	height: 80px;
+	vertical-align: middle;
+	width: 120px;
+	height: 120px;
+}
+.check {
+  display: none; /* デフォルトのチェックボックスを非表示 */
+  background-image: url("./img/icon_trash.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: "";
+  height: 30px;
+  position: relative;
+  width: 30px;
 }

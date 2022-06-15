@@ -1,1 +1,84 @@
 @charset "UTF-8";
+
+body{
+	background-size: contain;
+	width:100%;
+	height:800px;
+	margin: 0 0 0 0;
+	background-color: #eeece9;
+}
+
+/*全体を中央寄せ*/
+.wrapper {
+	margin: 0 auto 0 auto;
+}
+
+
+table {
+	margin-left: auto;
+	margin-right: auto;
+	table-layout: fixed;
+	width: 60%;
+}
+
+/*テーブルの要素を中央寄せ*/
+.fhead,.back,.top {
+	text-align: center;
+}
+.fhead, .empty1 {
+	height: 50px;
+}
+.empty2 {
+	height: 20px;
+}
+td.empty1{
+	background-color: #ffb6c1;
+}
+td.empty2{
+	background-color: #c0c0c0;
+}
+tr.menu{
+	background-color: #c0c0c0;
+	height: 120px;
+}
+th.fhead {
+	background-color: white;
+}
+.data {
+	background-color: white;
+}
+.data {
+	position: relative;
+	padding: max;
+	height: 100px;
+}
+.data:hover {
+    background: gray;
+}
+.data td a {
+	display: block;
+	height: 100px;
+}
+.emp {
+	border-right: none;
+	border-left: none;
+}
+.back {
+	border-right: none;
+}
+.top {
+	border-left: none;
+}
+.icon {
+}
+p {
+	display: inline-block;
+	width: 33%;
+	height: 50px;
+	vertical-align: text-top;
+}
+.back img,.top img{
+	vertical-align: middle;
+	width: 120px;
+	height: 120px;
+}
