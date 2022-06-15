@@ -6,11 +6,15 @@
 <meta charset="UTF-8">
 <title>登録完了||どこがちゃ</title>
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/common.css">
-<link rel= "stylesheet" type="text/css" href ="/dokogacha/css/logout.css">
+<link rel= "stylesheet" type="text/css" href ="/dokogacha/css/regist_result.css">
 </head>
 <body>
-  <img src="/dokogacha/img/cap_success.png">
-  <a>どこがちゃへようこそ</a>
-  <a href="/dokogacha/LoginServlet"><img src="/dokogacha/img/capin_panda.png">ログインページへ</a>
+<script src="${pageContext.request.contextPath}/js/top.js"></script>
+<header class="header">
+  <img class="cap_success" src="/dokogacha/img/cap_success.png">
+  <a class="welcome">どこがちゃへようこそ</a>
+  <a href="/dokogacha/LoginServlet">
+  <img class = "cap_panda" src="/dokogacha/img/capin_panda.png">ログインページへ</a>
+  </header>
 </body>
 </html>

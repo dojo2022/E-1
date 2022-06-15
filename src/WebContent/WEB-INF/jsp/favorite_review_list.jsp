@@ -3,28 +3,30 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>お気に入り一覧(ユーザ)</title>
+<title>お気に入り一覧(レビュー)</title>
 </head>
 <body>
 <div class="wrapper">
-	<form method="POST" action="/dokogacha/FavoriteUserListServlet">
+	<form method="POST" action="/dokogacha/FavoriteReviewListServlet">
 		<table border="1" style="border-collapse: collapse">
 			<tr><th class="fhead" colspan="10">お気に入り一覧</th></tr>
 			<tr class="tab">
-				<td colspan="5"><a href="https://www.yahoo.co.jp/">お気に入り投稿一覧</a></td>
-				<td colspan="5" class="selecting"><a href="https://www.yahoo.co.jp/">お気に入りユーザ一覧</a></td>
-			<tr><td class="empty" colspan="10"></td></tr>
+				<td colspan="5" class="selecting"><a href="/dokogacha/FavoriteReviewListServlet">お気に入り投稿一覧</a></td>
+				<td colspan="5"><a href="/dokogacha/FavoriteUserListServlet">お気に入りユーザ一覧</a></td>
 			</tr>
-			<c:forEach var="e" items="${faorite_user_list}" >
+			<tr><td class="empty" colspan="10"></td></tr>
+			<c:forEach var="e" items="${favorite_review_list}" >
+
 			<tr class="data">
-				<td class="icon" colspan="2"><a href="https://www.yahoo.co.jp/">${e.icon}</a></td>
-				<td class="uname" colspan="8"><a href="https://www.yahoo.co.jp/">${e.reviewer_profile}<input type="checkbox" name="follow_state" value="お気に入り解除" class="check"></a></td>
+				<td class="icon" colspan="2"><a href="/dokogacha/ReviewDetailServlet">review_image</a></td>
+				<td class="detail" colspan="6"><a href="/dokogacha/ReviewDetailServlet"><p class="one">${e.genre}/${e.price}</p><p class="two">${e.product_code}</p><p class="three">${e.good}</p></a></td>
+				<td class="delete" colspan="2"><a href="/dokogacha/ReviewDetailServlet"><p class="one"><input type="checkbox" name="follow_state" value="お気に入り解除" class="check"></a>
 			</tr>
 			</c:forEach>
 			<tr class="menu">
-				<td colspan="2" class="back"><a href="https://www.yahoo.co.jp/"><img src="images/cap_back.png" alt="戻る"></a></td>
+				<td colspan="2" class="back"><a href="/dokogacha/MypageServlet"><img src="images/cap_back.png" alt="戻る"></a></td>
 				<td colspan="6" class="emp"></td>
-				<td colspan="2" class="top"><a href="https://www.yahoo.co.jp/"><img src="images/cap_top.png" alt="トップ"></a></td>
+				<td colspan="2" class="top"><a href="/dokogacha/TopServlet"><img src="images/cap_top.png" alt="トップ"></a></td>
 			</tr>
 		</table>
 		<script>
@@ -56,7 +58,7 @@
 		}
 		.check {
 			position: relative;
-			left: 300px;
+			left: 30px;
 		}
 		.fhead, .tab, .empty {
 			height: 50px;
@@ -69,8 +71,7 @@
 			height: 120px;
 		}
 		.data {
-			padding: max;
-			height: 100px;
+
 		}
 		.tab td:hover {
 		    background: gray;
@@ -86,7 +87,7 @@
 		}
 		.data td a {
 			display: block;
-			height: 100px;
+			height: 30px;
 		}
 		.emp {
 			border-right: none;
@@ -99,16 +100,30 @@
 			border-left: none;
 		}
 		.icon {
+			height: 100px;
+			line-height: 100px;
 		}
-		.uname {
-			text-align: center;
-			font-size: 150%;
+		.detail {
+			line-height: 100px;
+			font-size: 100%;
+		}
+		.delete {
+			height: 100px;
+			line-height: 100px;
+			font-size: 100%;
 		}
 		.back img,.top img{
 			text-align:center;
 			vertical-align:middle;
 			width: 80px;
 			height: 80px;
+		}
+		p {
+			display: inline-block;
+
+		}
+		.one {
+			vertical-align: middle;
 		}
 		</style>
 	</form>

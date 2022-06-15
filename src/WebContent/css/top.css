@@ -48,3 +48,14 @@ body{
 	top:50px;
 	margin-left:440px;
 }
+.my_new_review {
+	width :15em;
+	display: flex;
+	justify-content:center;
+	border: 1px solid black;
+	border-radius: 10px;
+	background-color: white;
+	position:relative;
+	bottom: 80px;
+	left : 670px;
+}

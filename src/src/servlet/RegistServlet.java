@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.IdpwDao;
+import model.Idpw;
 
 
 
@@ -27,7 +28,12 @@ public class RegistServlet extends HttpServlet {
 		String pw = request.getParameter("pw");
 
 		IdpwDao iDao = new IdpwDao();
-
+		if(iDao.insert(new Idpw(id,pw))) {
+			response.sendRedirect("/dokogacha/LoginServlet");
+		}
+		else {
+			response.sendRedirect("/dokogacha/LogoutServlet");
+		}
 	}
 
 }
