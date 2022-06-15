@@ -15,16 +15,15 @@ body{
 	height:800px;
 	margin: 0 0 0 0;
 	background-color: #eeece9;
+
 }
 .wapper{
   margin: 0 auto;
   width: 580px ; /*580px*/
 }
 .capsule_logout{
-	display: flex;
-	justify-content: flex-end;
 	position: relative;
-	right :40px;
+	left :450px;
 }
 .capsule_logout img{
 	width:17.5%;
@@ -115,25 +114,27 @@ body{
 	margin: 10px auto 0 auto;
 }
 .do_change{
-	display: flex;
-	margin: 48px 0 0 43px;
+	position:relative;
+	top : 40px;
+	left: 40px;
 }
+
 
 .do_change img{
-	width:65%;
+	width:60%;
 }
 
-.my_review{
+.review{
 	position:relative;
-	top : 30px;
-	left: 43px;
+	top : 20px;
+	left: 45px;
 }
 
-.my_review img{
+.review img{
 	width:50%;
 }
 
-.my_new_review {
+.new_review {
 	width :15em;
 	display: flex;
 	justify-content:center;
@@ -144,7 +145,7 @@ body{
 	bottom: 150px;
 	right : 50px;
 }
-.my_review_list{
+.review_list{
 	display: flex;
 	justify-content:center;
 	position:relative;
