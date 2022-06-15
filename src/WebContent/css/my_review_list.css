@@ -1,1 +1,64 @@
 @charset "UTF-8";
+
+html{
+	font-family: Meiryo;
+}
+
+body{
+	margin: 0 0 0 0;
+	background-color: #eeece9;
+}
+
+h1 {
+    padding: 0.5em 1em;
+    font-weight: bold;
+    color: black;
+    background: #FFF;
+    border: solid 3px orange;
+    border-radius: 10px;
+		text-align: center;
+    margin: 0 auto 0 auto;
+}
+h2 {
+    padding: 0.5em 1em;
+    font-weight: bold;
+    color: black;
+    background: #ffb6c1;
+    border: solid 3px black;
+		text-align: center;
+    margin: 0 auto 0 auto;
+}
+table {		position: relative;
+			top:30px;
+			margin-left: auto;
+			margin-right: auto;
+			text-align: center;
+			table-layout: fixed;
+			width: 80%;
+
+		}
+
+.review {
+		border-collapse: collapse;
+}
+.photo {
+	padding: 8px;
+	border: 3px solid #bec2c7;
+}
+.nakami{
+	padding: 8px;
+	border: 3px solid #bec2c7;
+}
+.menu{
+	text-align: center;
+
+}
+.menu img{
+	width: 10%;
+	height: 10%;
+}
+.photo img{
+	width: 20%;
+	height: 10%;
+
+}
