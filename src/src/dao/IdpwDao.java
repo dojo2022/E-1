@@ -15,15 +15,41 @@ public class IdpwDao {
 
 		try {
 			Class.forName("org.h2.Driver");
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/dokogacha", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
 
-			String sql = "INSERT INTO USER (id,pw) VALUES (?,?)";
+			String sql = "INSERT INTO user (id,pw) VALUES (?,?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			String id = card.getId();
+			String pw = card.getPw();
 
+			if(id != null && !id.equals("")) {
+				pStmt.setString(1, id);
+			}else {
+				pStmt.setString(1, null);
+			}
+			if(pw != null && !pw.equals("")) {
+				pStmt.setString(2, pw);
+			}else {
+				pStmt.setString(2, null);
+			}
+			if(pStmt.executeUpdate() == 1) {
+				result = true;
+			}
 		}
-		catch() {
-
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		catch(ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally{
+			if(conn != null) {
+				try {
+					conn.close();
+				}catch(SQLException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 
 		return result;
