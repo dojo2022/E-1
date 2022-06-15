@@ -10,14 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *1.マイページへの遷移 LoginUserのUser_Idを入手し、ログイン状態を判定
- * ->ログインしていなければログインページへリダイレクトさせる
- *2.Userテーブルからuser_Idに該当するレコードを取得
- *3.Fテーブルからuser_Idに該当するレコードを取得
-
+ *1.マイページ変更画面への遷移 LoginUserのUser_Idを入手し、ログイン状態を判定
+ *→ログインしていなければログインページへリダイレクトさせる
+ *
  */
-@WebServlet("/MypageServlet")
-public class MypageServlet extends HttpServlet {
+@WebServlet("/MypageChangeServlet")
+public class MypageChangeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -35,8 +33,8 @@ public class MypageServlet extends HttpServlet {
 		else {
 		}
 		*/
-		// マイメニュー画面にフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
+		//マイページ変更画面にフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage_change.jsp");
 		dispatcher.forward(request, response);
 	}
 }

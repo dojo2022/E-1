@@ -12,7 +12,7 @@
 <script src="${pageContext.request.contextPath}/js/top.js"></script>
 <header class="header">
   <img class="cap_success" src="/dokogacha/img/cap_success.png">
-  <h2 class="logout">ログアウト完了したよ</h2>
+  <img class="comment_logout" src="/dokogacha/img/comment_logout.png">
   <a href="/dokogacha/LoginServlet">
   <img class="button_login" src="/dokogacha/img/button_tologin.png"></a>
   </header>

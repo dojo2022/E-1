@@ -20,7 +20,7 @@ body{
 	width:160px;
 	position:relative;
 	margin-left:430px;
-	bottom:-300px;
+	bottom:-250px;
 }
 .cap_panda{
 	width:100px;
@@ -28,14 +28,15 @@ body{
 	bottom:-150px;
 	margin-left:670px;
 }
-.logout{
-	width:500px;
-    margin-left:600px;
-    bottom:-700px;
+.comment_logout{
+	position:relative;
+	bottom:-50px;
+	width:300px;
+	margin-left:600px;
 }
+
 .goodbye{
 	width:400px;
     margin-left:800px;
     bottom:-6000px;
 }
-
