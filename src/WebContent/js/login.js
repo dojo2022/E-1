@@ -1,8 +1,8 @@
 var formObj = document.getElementById('form_login');
 var errorMessageObj = document.getElementById('error_message');
 
-formObj.onsubmit = function(){
-
+function submit_login(){
+	console.log('function動作完了！');
 	if(!formObj.id.value || !formObj.pw.value){
 	errorMessageObj.textContent = 'ユーザ名とパスワードを両方入力してください。';
 	return false;
