@@ -89,3 +89,30 @@ option {
 	border: 3px solid #bec2c7;
 	text-align: center;
 }
+/*5段階評価*/
+.stars{
+  display: inline-block;
+  flex-direction: row-reverse;
+  justify-content: right;
+}
+.stars input[type='radio']{
+  display: none;
+}
+.stars label{
+  padding-right: 10px;
+  color: #ccc;
+  font-size: 30px;
+  cursor: pointer;
+}
+.stars label:hover,
+.stars label:hover ~ label,
+.stars input[type='radio']:checked ~ label{
+  color: #fc0;
+}
+p {
+		text-align: left;
+}
+/*画像アップロード*/
+div figure{
+    display: inline-block;
+}
