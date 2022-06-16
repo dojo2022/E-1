@@ -6,24 +6,24 @@
 <head>
 <meta charset="UTF-8">
 <title>どこがちゃ｜他ユーザの詳細</title>
-<link rel= "stylesheet" type="text/css" href ="/dokogacha/css/common.css">
-<link rel= "stylesheet" type="text/css" href ="/dokogacha/css/mypage.css">
+<link rel= "stylesheet" type="text/css" href ="/dokogacha/css/user_detail.css">
 <!-- <style>*{outline: 1px solid #ff0000;}</style>
 -->
-
 </head>
 <body>
 <div class="wapper">
+<!-- 修正が必要 reviewIDを渡せたら行けそう-->
+<a href="#" onclick="history(-1);return false;"class="capsule_back"><img src="/dokogacha/img/cap_back.png" alt="戻る"></a>
 <a href="/dokogacha/LogoutServlet" class="capsule_logout"><img src="/dokogacha/img/cap_logout.png" alt="ログアウト"></a>
 <!-- ナビゲーションバー -->
 <header class="header">
 	<nav class="nav">
 	<div class="menu">
 	<ul>
-	    <li><a href="index.html">トップ</a><li>
-	    <li><a href="about.html">検索</a></li>
-	    <li><a href="access.html">投稿</a></li>
-	    <li><a href="menu.html">マイページ</a></li>
+	    <li><a href="/dokogacha/TopServlet">トップ</a></li>
+	    <li><a href="/dokogacha/SearchServlet">検索</a></li>
+	    <li><a href="/dokogacha/ReviewServlet">投稿</a></li>
+	    <li><a href="/dokogacha/MypageServlet">マイページ</a></li>
 	</ul>
 	</div>
 	</nav>
@@ -33,7 +33,7 @@
 
 <div class ="user_inf1">
 	<div class ="user_image	">
-		<img src="${user.title}" alt="アイコン" > <!-- /dokogacha/img/icon_panda.png -->
+		<img src="${user.image}" alt="アイコン" > <!-- /dokogacha/img/icon_panda.png -->
 	</div>
 	<div class ="user_name_title">
 		<span class ="user_name">name${user.name}</span>
@@ -57,22 +57,26 @@
 		</c:forEach>
 	</div>
 </div>
-<!-- 編集ボタンと自分の最新投稿、自分の投稿一覧リンクの表示 -->
+<!-- お気に入りボタンと最新投稿、投稿一覧リンクの表示 -->
 <div class="user_inf3">
-	<!-- 編集ボタン -->
-	<div class="do_change"><a href="/dokogacha/MypageChangeServlet">
-			<img src="/dokogacha/img/button_edit.png" alt="編集"  class="botton_edit" ></a></div>
-	<!-- 自分の最新投稿、自分の投稿一覧リンクの表示 -->
-	<div class="my_review">
+	<!-- お気に入りボタン -->
+	<div class="follow">
+		<form method="POST" action="/dokogacha/UserDetailServlet">
+			<input class="submit_follow" type="image" name="follow" src="/dokogacha/img/button_userfavo.png"  >
+		</form>
+	</div>
+	<!-- 最新投稿、投稿一覧リンクの表示 -->
+	<div class="review">
 		<img src="/dokogacha/img/opcap_null.png" >
-		<div class ="my_new_review">
+		<div class ="new_review">
 			＃${review.ganre}<br>${review.price},${review.product_name}<br>${review.good}<br>
 		</div>
-		<div class ="my_review_list">
-			<a href="/dokogacha/MyReviewListServlet"><br>自分の投稿一覧へ</a>
+		<div class ="review_list">
+			<a href="/dokogacha/MyReviewListServlet"><br>${user.name}の全投稿を表示</a>
 		</div>
 	</div>
 </div>
+
 <!-- フッター -->
 </div>
 </body>

@@ -1,1 +1,37 @@
 @charset "UTF-8";
+@import url("mypage.css");
+
+.form{
+	font-size: 25px;
+	position: relative;
+	left :20px;
+	top : 200px;
+}
+.formtable{
+	border-collapse: collapse; /* 隣り合うセルの線を結合 */
+}
+
+.image{
+	position: relative;
+	bottom : 10px;
+}
+
+#preview{
+	max-width: 200px;
+	max-height:200px;
+	border: 1px solid black;
+	border-radius: 10px;
+}
+
+input[name="user_id"]{
+	font-size: 30px;
+	width :9em;
+
+}
+
+input[type=submit]{
+	font-size: 25px;
+	position: relative;
+	left :60px;
+	top : 400px;
+}
