@@ -27,7 +27,8 @@ h2 {
 		text-align: center;
     margin: 0 auto 0 auto;
 }
-table {		position: relative;
+.review {
+			position: relative;
 			top:30px;
 			margin-left: auto;
 			margin-right: auto;
@@ -48,16 +49,63 @@ table {		position: relative;
 	padding: 8px;
 	border: 3px solid #bec2c7;
 }
-.menu{
-	text-align: center;
 
-}
-.menu img{
-	width: 10%;
-	height: 10%;
-}
+
 .photo img{
 	width: 20%;
 	height: 10%;
 
+}
+.kinngaku{
+	text-align: left;
+
+}
+.naiyou{
+	text-align: center;
+
+}
+.iine{
+	text-align: right;
+}
+.back img {
+	position: absolute;
+	top: 1000px;
+	left: 350px;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	display: block;
+	-webkit-transition: .4s ease-in-out;
+	transition: .4s ease-in-out;
+}
+.back:hover img:nth-of-type(2) {
+	opacity: 0;
+}
+
+.cap_back{
+	width: 10%;
+
+}
+.opcap_back{
+	width: 9%;
+}
+
+
+.totop img {
+	position: absolute;
+	top: 1000px;
+	left: 1000px;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	display: block;
+	-webkit-transition: .4s ease-in-out;
+	transition: .4s ease-in-out;
+}
+.totop:hover img:nth-of-type(2) {
+	opacity: 0;
+}
+.opcapsule_top{
+	width: 9%;
+}
+.capsule_top{
+	width: 10%;
 }
