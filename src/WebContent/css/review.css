@@ -114,6 +114,6 @@ p {
 		text-align: left;
 }
 /*画像アップロード*/
-div figure{
-    display: inline-block;
+#insert_image {
+	display: inline-block;
 }
