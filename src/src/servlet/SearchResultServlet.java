@@ -28,20 +28,20 @@ public class SearchResultServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// ‚à‚µ‚àƒƒOƒCƒ“‚µ‚Ä‚¢‚È‚©‚Á‚½‚çƒƒOƒCƒ“ƒT[ƒuƒŒƒbƒg‚ÉƒŠƒ_ƒCƒŒƒNƒg‚·‚é
+		// ã‚‚ã—ã‚‚ãƒ­ã‚°ã‚¤ãƒ³ã—ã¦ã„ãªã‹ã£ãŸã‚‰ãƒ­ã‚°ã‚¤ãƒ³ã‚µãƒ¼ãƒ–ãƒ¬ãƒƒãƒˆã«ãƒªãƒ€ã‚¤ãƒ¬ã‚¯ãƒˆã™ã‚‹
 		/*HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
 		}*/
 
-		//ƒŒƒrƒ…[ƒe[ƒuƒ‹‚©‚çƒf[ƒ^‚ğæ“¾
+		//ãƒ¬ãƒ“ãƒ¥ãƒ¼ãƒ†ãƒ¼ãƒ–ãƒ«ã‹ã‚‰ãƒ‡ãƒ¼ã‚¿ã‚’å–å¾—
 		/*ReviewDao RDao = new ReviewDao();
 		List<Review> review_list = RDao.revselect();
 
 		request.setAttribute("review_list", review_list);
 		*/
-		//‚¨‹C‚É“ü‚èƒ†[ƒUˆê——ƒy[ƒW‚ÉƒtƒHƒ[ƒh‚·‚é
+		//ãŠæ°—ã«å…¥ã‚Šãƒ¦ãƒ¼ã‚¶ä¸€è¦§ãƒšãƒ¼ã‚¸ã«ãƒ•ã‚©ãƒ¯ãƒ¼ãƒ‰ã™ã‚‹
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/search_result.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -50,14 +50,14 @@ public class SearchResultServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// ‚à‚µ‚àƒƒOƒCƒ“‚µ‚Ä‚¢‚È‚©‚Á‚½‚çƒƒOƒCƒ“ƒT[ƒuƒŒƒbƒg‚ÉƒŠƒ_ƒCƒŒƒNƒg‚·‚é
+		// ã‚‚ã—ã‚‚ãƒ­ã‚°ã‚¤ãƒ³ã—ã¦ã„ãªã‹ã£ãŸã‚‰ãƒ­ã‚°ã‚¤ãƒ³ã‚µãƒ¼ãƒ–ãƒ¬ãƒƒãƒˆã«ãƒªãƒ€ã‚¤ãƒ¬ã‚¯ãƒˆã™ã‚‹
 		/*HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
 		}*/
 
-		// ƒŠƒNƒGƒXƒgƒpƒ‰ƒ[ƒ^‚ğæ“¾‚·‚é
+		// ãƒªã‚¯ã‚¨ã‚¹ãƒˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å–å¾—ã™ã‚‹
 		/*
 		request.setCharacterEncoding("UTF-8");
 		String review_id = request.getParameter("${e.review_id}");
@@ -76,14 +76,14 @@ public class SearchResultServlet extends HttpServlet {
 		String price = request.getParameter("DEPARTMENT");
 		String product_detail = request.getParameter("URL");
 
-		// ŒŸõˆ—‚ğs‚¤
+		// æ¤œç´¢å‡¦ç†ã‚’è¡Œã†
 		ReviewDao RDao = new ReviewDao();
 		List<Review> review_list = RDao.revselect(new Review(review_id, user_name, nickname,genre_id,review_day,title,series_name,thought,evolition,good,address,url,product_name,price,product_detail));
 
-		// ŒŸõŒ‹‰Ê‚ğƒŠƒNƒGƒXƒgƒXƒR[ƒv‚ÉŠi”[‚·‚é
+		// æ¤œç´¢çµæœã‚’ãƒªã‚¯ã‚¨ã‚¹ãƒˆã‚¹ã‚³ãƒ¼ãƒ—ã«æ ¼ç´ã™ã‚‹
 		request.setAttribute("review_list", review_list);
 */
-		// Œ‹‰Êƒy[ƒW‚ÉƒtƒHƒ[ƒh‚·‚é
+		//æ¤œç´¢çµæœã«ãƒ•ã‚©ãƒ¯ãƒ¼ãƒ‰ã™ã‚‹
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/review_detail.jsp");
 		dispatcher.forward(request, response);
 
