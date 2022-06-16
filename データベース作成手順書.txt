@@ -1,0 +1,24 @@
+【ドライバ】
+org.h2.Driver
+
+【JDBC URL】
+jdbc:h2:file:C:/data/dokogacha
+
+【ユーザー名】	【パスワード】
+			sa					（なし）
+
+１．Slackより配布したdokogacha.mv.dbをダウンロード
+
+２．エクスプローラーを起動
+３．PC→Windows(C)へ移動
+４．C直下に新しいフォルダ「data」を作成
+    (右クリック→新規作成→フォルダーを順番にクリック)
+    (メニューバー→新しいフォルダーをクリック)
+５．ダウンロードしたdokogacha.mv.dbを「data」フォルダに移動
+
+テーブルの作成,データの挿入はgacha_SQL.txtを参照
+
+
+conn = DriverManager.getConnection("jdbc:h2:file:C://data/dokogacha", "sa", "");
+
+
