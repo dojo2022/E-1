@@ -23,11 +23,11 @@ table {
 }
 
 /*テーブルの要素を中央寄せ*/
-.fhead,.tab,.back,.top {
+.fhead,.tab,.back,.top,.icon {
 	text-align: center;
 }
 td.selecting {
-	background-color: #ff6347;
+	background-color: #ffd700;
 }
 .check {
 	position: absolute;
@@ -41,10 +41,10 @@ td.selecting {
 	height: 50px;
 }
 td.empty{
-	background-color: #c0c0c0;
+	background-color: #f5f5f5;
 }
 tr.menu{
-	background-color: #c0c0c0;
+	background-color: #f5f5f5;
 	height: 120px;
 }
 th.fhead {
@@ -58,22 +58,19 @@ th.fhead {
 }
 .data {
 	position: relative;
-	height: 100px;
 }
 .tab td:hover {
-    background: gray;
-}
-.ne:hover {
-    background: gray;
+    background-color: #dcdcdc;
 }
 .data:hover {
-    background: gray;
+    background-color: #dcdcdc;
 }
 .tab td a {
 	display: block;
 }
 .data td a {
 	display: block;
+	height: 100px;
 }
 .emp {
 	border-right: none;
@@ -85,11 +82,14 @@ th.fhead {
 .top {
 	border-left: none;
 }
-.icon {
+.icon img {
+	vertical-align: middle;
+	width: 100px;
+	height: 100px;
 }
 .uname {
 	text-align: center;
-	font-size: 150%;
+	font-size: 100%;
 }
 .back img,.top img{
 	vertical-align: middle;

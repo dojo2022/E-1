@@ -21,7 +21,7 @@
 					<tr class="data">
 						<input type="hidden" name="review" value="change">
 						<c:set var="no" value="${e.reviewer_name}"/>
-						<td class="icon" colspan="2"><a href="javascript:document.f.submit()">${e.icon}ユーザ画像</a></td>
+						<td class="icon" colspan="2"><a href="javascript:document.f.submit()"><img src="/dokogacha/img/cap_top.png" alt="トップ"></a></td>
 						<td class="uname" colspan="8"><a href="javascript:document.f.submit()">${e.reviewer_profile}ユーザ名<input type="checkbox" name="follow_state" value="お気に入り解除" class="check"></a></td>
 					</tr>
 				</c:forEach>

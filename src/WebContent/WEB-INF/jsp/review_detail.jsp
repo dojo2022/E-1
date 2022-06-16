@@ -8,9 +8,9 @@
 <link rel="stylesheet" type="text/css" href="/dokogacha/css/review_detail.css">
 </head>
 <body>
-	<div class="insert_image"><input type="file" name="insert_image" accept="image/jpeg, image/png"></div>
-	<h2 class="goodbutton"><img src="/dokogacha/img/good_shiro.png" height="80" width="180" alt="good"></h2>
-	<h2 class="favoritebutton"><img src="/dokogacha/img/favo_shiro.png" height="80" width="180" alt="favorite"></h2>
+	<div class="insert_image"><input type="file" value="${e.insert_image}"></div>
+	<h2 class="goodbutton"><img id="goodbutton" src="/dokogacha/img/good_shiro.png" height="80" width="180" onclick=”change()”></h2>
+	<h2 class="favoritebutton"><img id="favoritebutton" src="/dokogacha/img/favo_shiro.png" height="80" width="180" onclick=”change()”></h2>
 
 	<c:forEach var="e" items="${review_detailList}" >
 	 <form method="POST" action="/dokogacha/ReviewDetailServlet">
@@ -29,14 +29,13 @@
 	 </table>
 	 </form>
   </c:forEach>
-  <hr>
 
   <nav class="nav">
    <ul>
-    <li><a href="/dokogacha/SearchResultServlet"><img class="return" src="/dokogacha/img/cap_back.png" height="80" width="140"></a></li>
-    <li><a href="/dokogacha/TopServlet"><img class="top" src="/dokogacha/img/cap_top.png" height="80" width="140"></a></li>
+    <li><a href="/dokogacha/SearchResultServlet"><img class="return" src="/dokogacha/img/cap_back.png" height="100" width="140"></a></li>
+    <li><a href="/dokogacha/TopServlet"><img class="top" src="/dokogacha/img/cap_top.png" height="100" width="140"></a></li>
    </ul>
   </nav>
-
+<script type="text/javascript" src="/dokogacha/js/review_detail.js"></script>
 </body>
 </html>
