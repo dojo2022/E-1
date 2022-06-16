@@ -19,6 +19,7 @@
 				<c:forEach var="e" items="${review_list}" >
 					<tr class="data">
 						<input type="hidden" name="review" value="change">
+						<c:set var="no" value="${e.reviewer_name}"/>
 						<td class="icon" colspan="2"><a href="javascript:document.f.submit()">review_image</a></td>
 						<td class="detail" colspan="8"><a href="javascript:document.f.submit()"><p class="one">${e.genre}ジャンル/値段${e.price}</p><p class="two">${e.product_code}商品名</p><p class="three">${e.good}いいね数</p></a></td>
 					</tr>
