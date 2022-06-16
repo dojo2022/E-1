@@ -7,8 +7,8 @@ jdbc:h2:file:C:/data/dokogacha
 【ユーザー名】	【パスワード】
 			sa					（なし）
 
-１．Slackより配布したdokogacha.mv.dbをダウンロード
 
+１．Slackより配布したdokogacha.mv.dbをダウンロード
 ２．エクスプローラーを起動
 ３．PC→Windows(C)へ移動
 ４．C直下に新しいフォルダ「data」を作成
