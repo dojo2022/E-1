@@ -3,6 +3,7 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="css/favorite_user_list.css">
+<script src="js/favorite_user_list.js"></script>
 <meta charset="UTF-8">
 <title>お気に入り一覧(ユーザ)</title>
 </head>
@@ -28,13 +29,6 @@
 				<td colspan="2" class="top"><a href="/dokogacha/TopServlet"><img src="/dokogacha/img/cap_top.png" alt="トップ"></a></td>
 			</tr>
 		</table>
-		<script>
-		  $('tr[data-href]').click(function (e) {
-		      if (!$(e.target).is('a')) {
-		        window.location = $(e.target).data('href');
-		      };
-		  });
-		</script>
 	</form>
 </div>
 </body>

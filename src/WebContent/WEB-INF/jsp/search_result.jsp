@@ -15,16 +15,19 @@
 			<tr><th class="fhead" colspan="10"><c:out value="${g}" /><c:out value="${w}" /><c:out value="${a}" />の検索結果</th></tr>
 			<tr><td class="empty1" colspan="10"></td></tr>
 			<tr><td class="empty2" colspan="10"></td></tr>
-			<c:forEach var="e" items="${favorite_review_list}" >
-			<tr class="data">
-				<td class="icon" colspan="2"><a href="/dokogacha/ReviewDetailServlet">review_image</a></td>
-				<td class="detail" colspan="8"><a href="/dokogacha/ReviewDetailServlet"><p class="one">${e.genre}/${e.price}</p><p class="two">${e.product_code}</p><p class="three">${e.good}</p></a></td>
-			</tr>
-			</c:forEach>
+			<form name=f method=POST action="/dokogacha/SearchResultServlet">
+				<c:forEach var="e" items="${review_list}" >
+					<tr class="data">
+						<input type="hidden" name="review" value="change">
+						<td class="icon" colspan="2"><a href="javascript:document.f.submit()">review_image</a></td>
+						<td class="detail" colspan="8"><a href="javascript:document.f.submit()"><p class="one">${e.genre}ジャンル/値段${e.price}</p><p class="two">${e.product_code}商品名</p><p class="three">${e.good}いいね数</p></a></td>
+					</tr>
+				</c:forEach>
+			</form>
 			<tr class="menu">
-				<td colspan="2" class="back"><a href="/dokogacha/MypageServlet"><img src="images/cap_back.png" alt="戻る"></a></td>
+				<td colspan="2" class="back"><a href="/dokogacha/MypageServlet"><img src="/dokogacha/img/cap_back.png" alt="戻る"></a></td>
 				<td colspan="6" class="emp"></td>
-				<td colspan="2" class="top"><a href="/dokogacha/TopServlet"><img src="images/cap_top.png" alt="トップ"></a></td>
+				<td colspan="2" class="top"><a href="/dokogacha/TopServlet"><img src="/dokogacha/img/cap_top.png" alt="トップ"></a></td>
 			</tr>
 		</table>
 		<script>
