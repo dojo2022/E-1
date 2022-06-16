@@ -78,7 +78,6 @@ create table review (
   puroduct_name varchar(255) not null,
   price int,
   product_detail varchar(255),
-  review_update date,
   foreign key(user_name) references user(id)
 );
 
