@@ -29,20 +29,17 @@ public class FavoriteReviewListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		/*HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
 		}*/
 
-		//お気に入り投稿テーブルからデータを取得
 		/*Favorite_ReviewDao FRDao = new Favorite_ReviewDao();
 		List<Favorite_Review> faorite_review_list = FRDao.favrevselect();
 
 		request.setAttribute("faorite_review_list", faorite_review_list);
 		*/
-		//お気に入りユーザ一覧ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/favorite_review_list.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -51,14 +48,11 @@ public class FavoriteReviewListServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/simpleBC/LoginServlet");
 			return;
 		}
-
-		// リクエストパラメータを取得する
 		/*
 		request.setCharacterEncoding("UTF-8");
 		String review_id = request.getParameter("${e.review_id}");
@@ -77,14 +71,11 @@ public class FavoriteReviewListServlet extends HttpServlet {
 		String price = request.getParameter("DEPARTMENT");
 		String product_detail = request.getParameter("URL");
 
-		// 検索処理を行う
 		ReviewDao RDao = new ReviewDao();
 		List<Review> review_list = RDao.revselect(new Review(review_id, user_name, nickname,genre_id,review_day,title,series_name,thought,evolition,good,address,url,product_name,price,product_detail));
 
-		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("review_list", review_list);
 */
-		// 結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/review_detail.jsp");
 		dispatcher.forward(request, response);
 		/*
@@ -92,11 +83,11 @@ public class FavoriteReviewListServlet extends HttpServlet {
 		String review_id = request.getParameter("${e.review_id}");
 
 		Favorite_ReviewerDao FRDao = new Favorite_ReviewerDao();
-		if (request.getParameter("follow_state").equals("お気に入り解除")) {
+		if (request.getParameter("follow_state").equals("縺頑ｰ励↓蜈･繧願ｧ｣髯､")) {
 			if (FRDao.delete(review_id)) {
 			}
 		}
-		//お気に入りユーザ一覧ページに戻る
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/favorite_user_list.jsp");
 		dispatcher.forward(request, response);
 		*/
