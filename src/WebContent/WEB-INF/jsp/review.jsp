@@ -45,13 +45,12 @@
    </div></form></td></tr>
   <tr><td><p><strong>画像の挿入</strong><br></p>
           <form>
-            <input type="file" name="insert_image" accept="image/*" multiple=" multiple" onchange="loadImage(this);">
+            <input type="file" accept='image/*' multiple="multiple" onchange="loadImage(this);">
           </form>
-          <div id="insert_image"></div>
-          <br>
-          <script type="text/javascript" src="./js/main.js">
-          </script></td></tr>
+          <p id="insert_image"></p>
+          </td></tr>
   <tr><td><input type="submit" id="review" name="submit" value="投稿"></td></tr>
  </table>
+ <script type="text/javascript" src="/dokogacha/js/review.js"></script>
 </body>
 </html>
