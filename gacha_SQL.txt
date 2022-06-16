@@ -114,7 +114,7 @@ insert into genre (genre_id, genre_name) values (, '');
 
 レビュー
 insert into review (review_id, user_name, nickname, genre_id, review_day, title, series_name, thought, evalution, good, address, url, puroduct_name, review_update, ) 
-            values ( 1, 'あ', 'あ', 1,'あ','あ','あ','あ', 1,1 ,'あ','あ','あ',1 ,'あ','あ');
+            values ( 1, 'あ', 'あ', 1,'あ','あ','あ','あ', 1,1 ,'あ','あ','あ',1 ,'あ's);
 
 レビュー画像
 insert into review_image (review_id, image) values ( , '');
