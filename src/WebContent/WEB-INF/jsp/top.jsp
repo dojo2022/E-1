@@ -14,16 +14,33 @@
 <header class="header">
   <h1 class="logo">トップページ</h1>
   <nav class="nav">
-  <ul>
+  <div class="opcap">
+    <ul>
     <li><a href="/dokogacha/SearchServlet">
-    <img class="img_search" src="/dokogacha/img/cap_search.png" alt="検索"></a></li>
+    <img class="opcap_search" src="/dokogacha/img/opcap_search.png" alt="検索">
+    <img class="cap_search" src="/dokogacha/img/cap_search.png" alt="検索"></a></li>
+   </ul>
+    </div>
+    <div class="opcap2">
+    <ul>
     <li><a href="/dokogacha/ReviewServlet">
-    <img class="img_post" src="/dokogacha/img/cap_post.png" alt="投稿"></a></li>
-    <li><a href="/dokogacha/MypageServlet">
-    <img class="img_mypage" src="/dokogacha/img/cap_mypage.png" alt="マイページ"></a><li>
-    <a href="/dokogacha/LogoutServlet">
-    <img class="img_logout" src="/dokogacha/img/cap_logout.png" alt="ログアウト"></a>
+    <img class="opcap_post" src="/dokogacha/img/opcap_post.png" alt="投稿">
+    <img class="cap_post" src="/dokogacha/img/cap_post.png" alt="投稿"></a></li>
     </ul>
+    </div>
+    <div class="opcap3">
+    <ul>
+    <li><a href="/dokogacha/MypageServlet">
+    <img class="opcap_mypage" src="/dokogacha/img/opcap_mypage.png" alt="マイページ">
+    <img class="cap_mypage" src="/dokogacha/img/cap_mypage.png" alt="マイページ"></a></li>
+    </ul>
+    </div>
+    <div class="opcap4">
+    <a href="/dokogacha/LogoutServlet">
+    <img class="opcap_logout" src="/dokogacha/img/opcap_logout.png" alt="ログアウト">
+    <img class="cap_logout" src="/dokogacha/img/cap_logout.png" alt="ログアウト">
+    </a>
+    </div>
     </nav>
     </header>
     <img class="button_null" src="/dokogacha/img/button_null.png">
