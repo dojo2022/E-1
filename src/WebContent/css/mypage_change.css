@@ -14,13 +14,18 @@
 .image{
 	position: relative;
 	bottom : 10px;
+	vertical-align :top;
 }
 
 #preview{
 	max-width: 200px;
-	max-height:200px;
+	height:200px;
 	border: 1px solid black;
 	border-radius: 10px;
+}
+.table1{
+	vertical-align :top;
+
 }
 
 input[name="user_id"]{
@@ -29,9 +34,13 @@ input[name="user_id"]{
 
 }
 
-input[type=submit]{
+input[name="button_change" ]{
 	font-size: 25px;
+	width :28%;
 	position: relative;
-	left :60px;
-	top : 400px;
+	left :25px;
+	top : 110px;
+
 }
+
+
