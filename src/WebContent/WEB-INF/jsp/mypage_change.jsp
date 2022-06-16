@@ -6,22 +6,22 @@
 
 <title>どこがちゃ｜マイページ変更</title>
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/mypage_change.css">
-<!----> <style>*{outline: 1px solid #ff0000;}</style>
-
+<!-- <style>*{outline: 1px solid #ff0000;}</style>
+-->
 </head>
 <body>
 
 <div class="wapper">
-<form action="/Nyample/FileUploadSampleServlet" method="post" enctype="multipart/form-data" class="form">
+<form action="/dokogacha/MypageChangeServlet" method="post" enctype="multipart/form-data" class="form">
 <table class="formtable">
 	<tr>
-		<td rowspan="4" class="image" >
-			<input type="file" name="IMAGE" accept="image/*" onchange="previewImage(this);"><br>
-			<canvas id="preview" ></canvas><br></td>
-		<td>ユーザネーム<br><input type="text" name="user_id" ></td>
+	<td rowspan="3" class="image" >
+		<input type="file" name="IMAGE" accept="image/*" onchange="previewImage(this);"><br>
+		<canvas id="preview" ></canvas><br></td>
+	<td class = "table1" >ユーザネーム<br><input type="text" name="user_id" ></td>
 	</tr>
 	<tr><td>お気に入り公開/非公開</td></tr>
-	<tr><td>
+	<tr><td class = "table1">
 	<div>
 	    <input type="radio" id="ublic" name="chose_public" value="yes">
     	<label for="ublic">公開</label>
@@ -29,9 +29,8 @@
     	<label for="no_public">非公開</label>
     </div>
 	</tr>
-	<tr><td>　</td></tr>
 </table>
-<input type="submit" value="送信">
+<input type="image" src="/dokogacha/img/button_change.png" name="button_change" alt="変更"  >
 </form>
 </div>
 </body>
