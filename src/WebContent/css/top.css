@@ -21,7 +21,7 @@ body{
 .cap_search{
 	position:relative;
 	bottom:20px;
-	width:115px;
+	width:110px;
 	left:420px;
 	vertical-align: top;
 }
@@ -49,14 +49,14 @@ body{
 .cap_mypage{
 	position:relative;
 	bottom:5px;
-	width:115px;
+	width:120px;
 	vertical-align: top;
 	left:420px;
 }
 .opcap_mypage{
 	position:relative;
 	bottom:5px;
-	width:100px;
+	width:110px;
 	vertical-align: top;
 	left:420px;
 }
@@ -69,13 +69,22 @@ body{
 .opcap_logout{
 	position:relative;
 	bottom:120px;
-	width:100px;
+	width:95px;
 	left:830px;
 }
 .logo{
 	position:relative;
 	bottom:-100px;
 	margin-left:580px;
+	font-size:2em;
+	font-weight:bold;
+	color: #FFF;
+	text-shadow:
+		0 0 0.05em #F06292,
+		0 0 0.10em #F06292,
+		0 0 0.15em #F06292,
+		0 0 0.30em #F06292;
+	filter: saturate(80%);
 }
 
 .button_null{
