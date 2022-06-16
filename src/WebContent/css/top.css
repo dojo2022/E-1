@@ -1,9 +1,5 @@
 @charset "UTF-8";
 
-html *{
-  box-sizing: border-box;
-}
-
 body{
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -14,44 +10,52 @@ body{
 	margin: 0 0 0 0;
 	background-color: #eeece9;
 }
+.nav a{
+	position: relative;
+	top: 120px;
+	display:inline-block;
+}
+.nav li{
+	list-style-type:none;
+}
 .img_search{
 	position:relative;
-	bottom:-105px;
+	bottom:25px;
 	width:90px;
+	left:400px;
+	vertical-align: top;
 }
 .img_post{
 	position:relative;
-	bottom:-110px;
+	bottom:15px;
 	width:90px;
+	left:400px;
+	vertical-align: top;
 }
 .img_mypage{
 	position:relative;
-	bottom:-120px;
+	bottom:5px;
 	width:100px;
+	vertical-align: top;
+	left:400px;
 }
 .img_logout{
 	position:relative;
-	bottom:15px;
+	bottom:100px;
 	width:100px;
-	margin-left:800px;
+	left:800px;
 }
 .logo{
 	position:relative;
 	bottom:-100px;
 	margin-left:580px;
 }
-.nav li{
-	list-style-type:none;
-	position:relative;
-	bottom:10px;
-	margin-left:420px
 
-}
 .button_null{
 	width:140px;
 	position:relative;
 	top:50px;
-	margin-left:440px;
+	left:440px;
 }
 .my_new_review {
 	width :15em;
