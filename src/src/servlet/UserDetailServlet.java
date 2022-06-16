@@ -10,31 +10,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *1.他ユーザの詳細画面への遷移 LoginUserのUser_Idを入手し、ログイン状態を判定
- *→ログインしていなければログインページへリダイレクトさせる
- *
+ * Servlet implementation class UserDetailServlet
  */
-@WebServlet("/UserDerailServlet")
+@WebServlet("/UserDetailServlet")
 public class UserDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		/*
-		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/dokogacha/LoginServlet");
-			return;
-		}
-		else {
-		}
-		*/
-		//他ユーザの詳細画面にフォワードする
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//マイページ変更画面にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/user_detail.jsp");
 		dispatcher.forward(request, response);
 	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
+	}
+
 }

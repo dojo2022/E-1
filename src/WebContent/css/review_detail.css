@@ -1,1 +1,64 @@
 @charset "UTF-8";
+
+body {
+		width: 960px;
+		margin-left: 200px;
+		background: #D9E5FF;
+}
+.insert_image {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    border: solid 3px #000000;
+}
+/*いいね、お気に入りボタン配置*/
+h2 {
+    display: inline-block;
+}
+.goodbutton {
+	padding-left: 100px;
+}
+.favoritebutton {
+ padding-left: 400px;
+}
+
+/*review_detailクラステーブル*/
+.review_detail {
+		border-collapse: collapse;
+}
+.review_detail th, .review_detail td {
+	padding: 8px;
+	border: 2px solid black;
+	text-align: center;
+}
+
+input[type="text"] {
+	border: none;
+	width: 70em;
+	height: 30px;
+  text-align: center;
+}
+input[name="user_name"] {
+	border: none;
+	width: 40em;
+	height: 30px;
+}
+textarea {
+	width: 70em;
+	height: 7em;
+}
+/*戻る、トップボタン*/
+.nav li {
+	display: inline;
+	list-style-type: none;}
+
+.return {
+  position: relative;
+}
+.top {
+  position: relative;
+  margin-left:600px;
+}
+.nav {
+	border-top: 2px solid black;
+}

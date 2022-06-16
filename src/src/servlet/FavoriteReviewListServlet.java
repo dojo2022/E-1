@@ -10,18 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-
 /**
- * Servlet implementation class FavoriteUserListServlet
+ * Servlet implementation class FavoriteReviewListServlet
  */
-@WebServlet("/FavoriteUserListServlet")
-public class FavoriteUserListServlet extends HttpServlet {
+@WebServlet("/FavoriteReviewListServlet")
+public class FavoriteReviewListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FavoriteUserListServlet() {
+    public FavoriteReviewListServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,14 +36,14 @@ public class FavoriteUserListServlet extends HttpServlet {
 			return;
 		}*/
 
-		//お気に入りユーザテーブルからデータを取得
-		/*Favorite_ReviewerDao FUDao = new Favorite_ReviewerDao();
-		List<Favorite_Reviewer> faorite_user_list = FUDao.favuserselect();
+		//お気に入り投稿テーブルからデータを取得
+		/*Favorite_ReviewDao FRDao = new Favorite_ReviewDao();
+		List<Favorite_Review> faorite_review_list = FRDao.favrevselect();
 
-		request.setAttribute("faorite_user_list", faorite_user_list);
+		request.setAttribute("faorite_review_list", faorite_review_list);
 		*/
 		//お気に入りユーザ一覧ページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/favorite_user_list.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/favorite_review_list.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -60,11 +59,11 @@ public class FavoriteUserListServlet extends HttpServlet {
 		}
 		/*
 		request.setCharacterEncoding("UTF-8");
-		String reviewer_profile = request.getParameter("${e.reviewer_profile}");
+		String review_id = request.getParameter("${e.review_id}");
 
-		Favorite_ReviewerDao FUDao = new Favorite_ReviewerDao();
+		Favorite_ReviewerDao FRDao = new Favorite_ReviewerDao();
 		if (request.getParameter("follow_state").equals("お気に入り解除")) {
-			if (FUDao.delete(reviewer_profile)) {
+			if (FRDao.delete(review_id)) {
 			}
 		}
 		//お気に入りユーザ一覧ページに戻る
