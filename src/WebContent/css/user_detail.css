@@ -14,7 +14,7 @@
 	left :360px;
 }
 
-.submit_follow{
+input[name="follow"]{
 	width: 60%;
 	position: relative;
 	left :43px;

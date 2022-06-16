@@ -1,2 +1,7 @@
 eclipse.preferences.version=1
+encoding//src/model/Favorite_Review.java=UTF-8
+encoding//src/model/Favorite_Reviewer.java=UTF-8
+encoding//src/servlet/FavoriteReviewListServlet.java=UTF-8
+encoding//src/servlet/FavoriteUserListServlet.java=UTF-8
 encoding//src/servlet/MypageServlet.java=UTF-8
+encoding//src/servlet/SearchResultServlet.java=UTF-8

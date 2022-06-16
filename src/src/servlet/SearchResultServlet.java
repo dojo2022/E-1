@@ -9,18 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 /**
- * Servlet implementation class FavoriteUserListServlet
+ * Servlet implementation class SearchResultServlet
  */
-@WebServlet("/FavoriteUserListServlet")
-public class FavoriteUserListServlet extends HttpServlet {
+@WebServlet("/SearchResultServlet")
+public class SearchResultServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FavoriteUserListServlet() {
+    public SearchResultServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,18 +28,21 @@ public class FavoriteUserListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		/*HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
 		}*/
 
-		/*Favorite_ReviewerDao FUDao = new Favorite_ReviewerDao();
-		List<Favorite_Reviewer> faorite_user_list = FUDao.favuserselect();
+		//レビューテーブルからデータを取得
+		/*ReviewDao RDao = new ReviewDao();
+		List<Review> review_list = RDao.revselect();
 
-		request.setAttribute("faorite_user_list", faorite_user_list);
+		request.setAttribute("review_list", review_list);
 		*/
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/favorite_user_list.jsp");
+		//お気に入りユーザ一覧ページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/search_result.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -48,12 +50,14 @@ public class FavoriteUserListServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		/*HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/simpleBC/LoginServlet");
+			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
 		}*/
 
+		// リクエストパラメータを取得する
 		/*
 		request.setCharacterEncoding("UTF-8");
 		String review_id = request.getParameter("${e.review_id}");
@@ -72,26 +76,17 @@ public class FavoriteUserListServlet extends HttpServlet {
 		String price = request.getParameter("DEPARTMENT");
 		String product_detail = request.getParameter("URL");
 
-		UserDao UDao = new UserDao();
-		List<User> user_list = UDao.userselect(new Review(review_id, user_name, nickname,genre_id,review_day,title,series_name,thought,evolition,good,address,url,product_name,price,product_detail));
+		// 検索処理を行う
+		ReviewDao RDao = new ReviewDao();
+		List<Review> review_list = RDao.revselect(new Review(review_id, user_name, nickname,genre_id,review_day,title,series_name,thought,evolition,good,address,url,product_name,price,product_detail));
 
+		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("review_list", review_list);
 */
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/user_detail.jsp");
+		//詳細にフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/review_detail.jsp");
 		dispatcher.forward(request, response);
 
-		/*
-		request.setCharacterEncoding("UTF-8");
-		String reviewer_profile = request.getParameter("${e.reviewer_profile}");
-
-		Favorite_ReviewerDao FUDao = new Favorite_ReviewerDao();
-		if (request.getParameter("follow_state").equals("お気に入り解除")) {
-			if (FUDao.delete(reviewer_profile)) {
-			}
-		}
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/favorite_user_list.jsp");
-		dispatcher.forward(request, response);
-		*/
 	}
 
 }

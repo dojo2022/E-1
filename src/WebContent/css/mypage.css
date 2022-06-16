@@ -66,6 +66,10 @@ body{
 	text-decoration: none;
 }
 
+.user_name_title img{
+	width:60px;
+}
+
 .user_inf2{
 	display: flex;
 	justify-content:center;
@@ -127,7 +131,7 @@ body{
 .review{
 	position:relative;
 	top : 20px;
-	left: 45px;
+	left: 60px;
 }
 
 .review img{

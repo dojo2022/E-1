@@ -16,16 +16,29 @@ body{
 	width:150px;
 	margin-left:450px;
 }
+.btn img {
+	position: absolute;
+	top: 650px;
+	left: 37.5%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	display: block;
+	-webkit-transition: .4s ease-in-out;
+	transition: .4s ease-in-out;
+}
+.btn:hover img:nth-of-type(2) {
+	opacity: 0;
+}
 .button_login{
-	width:160px;
-	position:relative;
-	margin-left:430px;
-	bottom:-250px;
+	width:13%
+}
+.button_login2{
+	width:11%
 }
 .cap_panda{
 	width:100px;
 	position:relative;
-	bottom:-150px;
+	bottom:-300px;
 	margin-left:670px;
 }
 .comment_logout{
@@ -36,7 +49,16 @@ body{
 }
 
 .goodbye{
-	width:400px;
-    margin-left:800px;
-    bottom:-6000px;
+	position:relative;
+	margin-left:730px;
+	bottom:-80px;
+	font-size:2em;
+	font-weight:bold;
+	color: #FFF;
+	text-shadow:
+		0 0 0.05em #F06292,
+		0 0 0.10em #F06292,
+		0 0 0.15em #F06292,
+		0 0 0.30em #F06292;
+	filter: saturate(80%);
 }

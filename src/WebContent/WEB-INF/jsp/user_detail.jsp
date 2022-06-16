@@ -20,7 +20,7 @@
 	<nav class="nav">
 	<div class="menu">
 	<ul>
-	    <li><a href="/dokogacha/TopServlet">トップ</a><li>
+	    <li><a href="/dokogacha/TopServlet">トップ</a></li>
 	    <li><a href="/dokogacha/SearchServlet">検索</a></li>
 	    <li><a href="/dokogacha/ReviewServlet">投稿</a></li>
 	    <li><a href="/dokogacha/MypageServlet">マイページ</a></li>
@@ -61,7 +61,6 @@
 <div class="user_inf3">
 	<!-- お気に入りボタン -->
 	<div class="follow">
-		<a href="/dokogacha/UserDetailServlet">aaaa</a>
 		<form method="POST" action="/dokogacha/UserDetailServlet">
 			<input class="submit_follow" type="image" name="follow" src="/dokogacha/img/button_userfavo.png"  >
 		</form>
@@ -77,6 +76,7 @@
 		</div>
 	</div>
 </div>
+
 <!-- フッター -->
 </div>
 </body>
