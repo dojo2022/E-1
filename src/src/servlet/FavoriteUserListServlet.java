@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 
 /**
@@ -49,11 +48,11 @@ public class FavoriteUserListServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
+		/*HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/simpleBC/LoginServlet");
 			return;
-		}
+		}*/
 
 		/*
 		request.setCharacterEncoding("UTF-8");
@@ -77,7 +76,7 @@ public class FavoriteUserListServlet extends HttpServlet {
 		List<User> user_list = UDao.userselect(new Review(review_id, user_name, nickname,genre_id,review_day,title,series_name,thought,evolition,good,address,url,product_name,price,product_detail));
 
 		request.setAttribute("review_list", review_list);
-
+*/
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/user_detail.jsp");
 		dispatcher.forward(request, response);
 

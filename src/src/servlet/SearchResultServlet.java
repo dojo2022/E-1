@@ -83,7 +83,7 @@ public class SearchResultServlet extends HttpServlet {
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("review_list", review_list);
 */
-		//検索結果にフォワードする
+		//詳細にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/review_detail.jsp");
 		dispatcher.forward(request, response);
 
