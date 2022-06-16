@@ -22,7 +22,7 @@ table {
 }
 
 /*テーブルの要素を中央寄せ*/
-.fhead,.tab,.back,.top {
+.fhead,.tab,.back,.top,.icon {
 	text-align: center;
 }
 td.selecting {
@@ -68,7 +68,7 @@ th.fhead {
 }
 .data td a {
 	display: block;
-	height: 50px;
+
 }
 .emp {
 	border-right: none;
@@ -80,13 +80,14 @@ th.fhead {
 .top {
 	border-left: none;
 }
-.icon {
+.icon img{
+	vertical-align: middle;
+	width: 120px;
+	height: 120px;
 }
 p {
 	display: inline-block;
 	width: 33%;
-	height: 50px;
-	vertical-align: text-top;
 }
 .back img,.top img{
 	vertical-align: middle;
@@ -106,6 +107,14 @@ p {
   position: relative;
   width: 30px;
 }
-.three {
-	vertical-align: top;
+.top{
+	text-align: left;
+
+}
+.middle{
+	text-align: center;
+
+}
+.bottom{
+	text-align: right;
 }

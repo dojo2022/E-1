@@ -21,9 +21,9 @@
 			<tr class="data">
 				<input type="hidden" name="review" value="change">
 						<c:set var="no" value="${e.reviewer_name}"/>
-				<td class="icon" colspan="2"><a href="javascript:document.f.submit()">投稿画像</a></td>
-				<td class="detail" colspan="6"><a href="javascript:document.f.submit()"><p class="one">${e.genre}ジャンル/値段${e.price}</p><p class="two">${e.product_code}商品名</p><p class="three">${e.good}いいね数</p></a></td>
-				<td class="delete" colspan="2"><a href="javascript:document.f.submit()"><p class="one"><input type="checkbox" name="follow_state" value="お気に入り解除" class="check"></a>
+				<td class="icon" colspan="2"><a href="javascript:document.f.submit()"><img src="/dokogacha/img/cap_back.png" alt="戻る"></a></td>
+				<td class="detail" colspan="6"><a href="javascript:document.f.submit()"><div class="one">${e.genre}ジャンル/値段${e.price}</div><br><div class="middle">${e.product_code}商品名</div><br><div class="bottom">${e.good}いいね数</div></a></td>
+				<td class="delete" colspan="2"><a href="javascript:document.f.submit()"><input type="checkbox" name="follow_state" value="お気に入り解除" class="check"></a>
 			</tr>
 			</c:forEach>
 			</form>
