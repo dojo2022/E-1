@@ -45,7 +45,7 @@
    </div></form></td></tr>
   <tr><td><p><strong>画像の挿入</strong><br></p>
           <form>
-            <input type="file" accept='image/*' multiple="multiple" onchange="loadImage(this);">
+            <input type="file" name="insert_image" accept='image/*' multiple="multiple" onchange="loadImage(this);">
           </form>
           <p id="insert_image"></p>
           </td></tr>

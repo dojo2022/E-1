@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>検索画面</title>
-<link rel="stylesheet" type="text/css" href="css/dokogacha_search.css">
+<link rel="stylesheet" type="text/css" href="/dokogacha/css/search.css">
 </head>
 <body>
 <div class="wrapper">
@@ -20,20 +21,18 @@
 		</nav>
 	</header>
 
-<form method="GET" action="result.html">
+<form method="POST" action="result.html">
 		<div class="capsule_genre"><img src="img/cap_genre.png" alt="genre" >
  		  <select name="genre" required>
           <option value="">----ジャンルを選択する----</option>
-          <option value="1" >1</option>
-          <option value="2" >2</option>
-          <option value="3" >3</option>
-          <option value="4" >4</option>
-          <option value="5" >5</option>
+          <c:forEach var="genre" items="${genreList}" varStatus="N">
+          <option value="${N.count}" >${genre.name}</option>
+          </c:forEach>
           </select>
 		</div>
 		<div class="capsule_word">
           <img src="img/cap_word.png" alt="word" >
-          <input type="text" name="cap_word.png">
+          <input type="text" name="cap_word">
  		</div>
 		<div class="capsule_address">
           <img src="img/cap_loc.png" alt="address" >

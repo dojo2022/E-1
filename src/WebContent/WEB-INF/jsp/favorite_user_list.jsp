@@ -17,7 +17,7 @@
 			</tr>
 			<tr><td class="empty" colspan="10"></td></tr>
 			<form name=f method=POST action="/dokogacha/FavoriteUserListServlet">
-				<c:forEach var="e" items="${faorite_user_list}" >
+				<c:forEach var="e" items="${favorite_user_list}" >
 					<tr class="data">
 						<input type="hidden" name="review" value="change">
 						<c:set var="no" value="${e.reviewer_name}"/>

@@ -23,12 +23,20 @@ public class SearchServlet extends HttpServlet {
      */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+/*
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
 		}
 
+		// 検索処理を行う
+		GenreDao gDao = new GenreDao();
+		List<Genre> genreList = gDao.select(new Genre(-1)); //改造する
+
+		// 検索結果をリクエストスコープに格納する
+		request.setAttribute("genreList", genreList);
+*/
 		// 検索ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/search.jsp");
 		dispatcher.forward(request, response);
@@ -47,23 +55,18 @@ public class SearchServlet extends HttpServlet {
 
 		// リクエストパラメータを取得する 改造する
 		request.setCharacterEncoding("UTF-8");
-		String number = request.getParameter("number");
-		String name = request.getParameter("name");
-		String phonetic = request.getParameter("phonetic");
-		String telephonenumber = request.getParameter("telephonenumber");
-		String emailaddress = request.getParameter("emailaddress");
-		String zipcode = request.getParameter("zipcode");
-		String address = request.getParameter("address");
-		String companyname = request.getParameter("companyname");
-		String departmentname = request.getParameter("departmentname");
+		String genre = request.getParameter("genre");
+		String cap_word = request.getParameter("cap_word");
+		String capsule_address = request.getParameter("capsule_address");
+
 
 
 		// 検索処理を行う
-		IdpwDAO bDao = new IdpwDAO();
-		List<Bc> cardList = bDao.select(new Bc(number, name, phonetic, telephonenumber, emailaddress, zipcode, address, companyname, departmentname)); //改造する
+		ReviewDao rDao = new ReviewDao();
+		List<Review> reviewList = rDao.select(new Review(genre, cap_word, capsule_address)); //改造する
 
 		// 検索結果をリクエストスコープに格納する
-		request.setAttribute("cardList", cardList);
+		request.setAttribute("reviewList", reviewList);
 
 		// 結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/search_result.jsp");

@@ -53,8 +53,9 @@
 		${e.total_good}いいね
 	</div>
 	<div class="Favorite_Genre2">
-		<c:forEach var="Ganre" items="${Ganre_list}" >
-		${Ganre}<br>
+		<c:set var="numnum" value="1"/>
+		<c:forEach var="num" begin="1" end="10" step="1" varStatus="N">
+		${N.index}<br>
 		</c:forEach>
 	</div>
 </div>
