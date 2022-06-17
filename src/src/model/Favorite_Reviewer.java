@@ -10,6 +10,10 @@ public class Favorite_Reviewer {
 		this.reviewer_id = reviewer_id;
 	}
 
+	public Favorite_Reviewer(int reviewer_id) {
+		this.reviewer_id = reviewer_id;
+	}
+
 	public Favorite_Reviewer() {
 		this.user_name = "";
 		this.reviewer_id = 0;

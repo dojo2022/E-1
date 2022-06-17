@@ -33,6 +33,8 @@ public class ReviewDetailServlet extends HttpServlet {
 		List<Review> review_detailList = iDao.select(new Review(review_id));
 		request.setAttribute("review_detailList", review_detailList);
 
+		
+		
 		// レビュー詳細ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/review_detail.jsp");
 		dispatcher.forward(request, response);

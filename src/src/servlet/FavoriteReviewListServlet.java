@@ -33,6 +33,7 @@ public class FavoriteReviewListServlet extends HttpServlet {
 			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
 		}*/
+		
 
 		/*Favorite_ReviewDao FRDao = new Favorite_ReviewDao();
 		List<Favorite_Review> faorite_review_list = FRDao.favrevselect();
