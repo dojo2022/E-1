@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>検索画面</title>
-<link rel="stylesheet" type="text/css" href="dokogacha/css/search.css">
+<link rel="stylesheet" type="text/css" href="/dokogacha/css/search.css">
 </head>
 <body>
 <div class="wrapper">
