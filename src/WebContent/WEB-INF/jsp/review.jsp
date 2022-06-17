@@ -10,6 +10,7 @@
 <body>
 <h1>投稿情報の入力</h1>
   <h4 class="gacha_name">ガチャ名※全項目必須</h4>
+ <form method="POST" action="">
  <table class="info">
   <tr><td><input type="text" name="product_name" placeholder="商品名" required></td></tr>
   <tr><td><input type="text" name="title" placeholder="タイトル" required></td></tr>
@@ -30,7 +31,6 @@
   <tr><td><input type="text" name="price" placeholder="金額"></td></tr>
   <tr><td><input type="text" name="address" placeholder="目撃位置情報"></td></tr>
   <tr><td><strong>五段階評価</strong>
-	 <form type="get" action="">
    <div class="stars">
     <input id="star5" type="radio" name="star" value="5" />
     <label for="star5">★</label>
@@ -42,15 +42,14 @@
     <label for="star2">★</label>
     <input id="star1" type="radio" name="star" value="1" />
     <label for="star1">★</label>
-   </div></form></td></tr>
+   </div></td></tr>
   <tr><td><p><strong>画像の挿入</strong><br></p>
-          <form>
-            <input type="file" accept='image/*' multiple="multiple" onchange="loadImage(this);">
-          </form>
+            <input type="file" name="insert_image" accept='image/*' multiple="multiple" onchange="loadImage(this);b" >
           <p id="insert_image"></p>
           </td></tr>
   <tr><td><input type="submit" id="review" name="submit" value="投稿"></td></tr>
  </table>
+  </form>
  <script type="text/javascript" src="/dokogacha/js/review.js"></script>
 </body>
 </html>

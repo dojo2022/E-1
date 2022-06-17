@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
 		response.sendRedirect("/dokogacha/TopServlet");
 	}
 	else {
-		//エラー文
+		request.setAttribute("error","d");
 	}
 }
 }
