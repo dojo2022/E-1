@@ -34,11 +34,15 @@ public class FavoriteUserListServlet extends HttpServlet {
 			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
 		}*/
+		/*
+		User U = new User();
+		request.setCharacterEncoding("UTF-8");
+		String user_name = request.getParameter(U.getId());
 
-		/*Favorite_ReviewerDao FUDao = new Favorite_ReviewerDao();
-		List<Favorite_Reviewer> faorite_user_list = FUDao.favuserselect();
+		Favorite_ReviewerDao FUDao = new Favorite_ReviewerDao();
+		List<Favorite_Reviewer> favorite_user_list = FUDao.favuserselect(user_name);
 
-		request.setAttribute("faorite_user_list", faorite_user_list);
+		request.setAttribute("favorite_user_list", favorite_user_list);
 		*/
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/favorite_user_list.jsp");
 		dispatcher.forward(request, response);
@@ -93,5 +97,4 @@ public class FavoriteUserListServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 		*/
 	}
-
 }
