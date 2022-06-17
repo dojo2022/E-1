@@ -18,7 +18,7 @@ public class ReviewDao {
 
 		try {
 			Class.forName("org.h2.Driver");
-			conn = DriverManager.getConnection("jdbc:h2:file:C://data/dokogacha", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
 
 			String sql = "SELECT * FROM review WHERE review_id = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
@@ -86,7 +86,7 @@ public class ReviewDao {
 				Class.forName("org.h2.Driver");
 
 				// データベースに接続する
-				conn = DriverManager.getConnection("jdbc:h2:file:C://data/dokogacha", "sa", "");
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
 
 				// SQL文を準備する<<ここを改造する>>
 				String sql = "INSERT INTO Review (user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, product_name, price, product_detail)\r\n"
