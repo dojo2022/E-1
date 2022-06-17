@@ -61,9 +61,9 @@
 <div class="user_inf3">
 	<!-- お気に入りボタン -->
 	<div class="follow">
-		<form method="POST" action="/dokogacha/UserDetailServlet">
-			<input class="submit_follow" type="image" name="follow" src="/dokogacha/img/button_userfavo.png"  >
-		</form>
+	<form method="post" action="/dokogacha/UserDetailServlet" enctype="multipart/form-data" class="form">
+		<input type="image" name="follow" src="/dokogacha/img/button_userfavo.png" alt="お気に入り">
+	</form>
 	</div>
 	<!-- 最新投稿、投稿一覧リンクの表示 -->
 	<div class="review">
