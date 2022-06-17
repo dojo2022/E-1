@@ -34,18 +34,26 @@ public class MypageChangeServlet extends HttpServlet {
 		{
 		request.setCharacterEncoding("UTF-8");
 
+		String name = request.getParameter("user_id");
+
+		String chose_public = request.getParameter("chose_public");
+
+		System.out.println(name + chose_public);
+
 		Part part = request.getPart("IMAGE"); // getPartで取得
 
 		String image = this.getFileName(part);
 		request.setAttribute("image", image);
 		// サーバの指定のファイルパスへファイルを保存
-        //場所はクラス名↑の上に指定してある
+		//場所はクラス名↑の上に指定してある
 		part.write(image);
-        //ディスパッチ
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
+		//ディスパッチ
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/upload_result.jsp");
 		dispatcher.forward(request, response);
 		}
 
+
+/*----------------------------------------------------------------------------------------------*/
 	//ファイルの名前を取得してくる
 	private String getFileName(Part part) {
         String name = null;
