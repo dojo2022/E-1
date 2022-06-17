@@ -1,4 +1,4 @@
-package dao;
+package test;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Favorite_Review;
-import model.test;
 
 public class testDao {
 ]
