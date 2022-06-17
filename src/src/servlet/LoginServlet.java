@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
 		response.sendRedirect("/dokogacha/TopServlet");
 	}
 	else {
-		request.setAttribute("error","d");
+		request.setAttribute("error_message","ユーザ名またはパスワードが間違っています。");
 	}
 }
 }

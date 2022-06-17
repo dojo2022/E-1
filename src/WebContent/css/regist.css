@@ -40,7 +40,7 @@ body{
 .submit_regist{
 	width:140px;
 	position:relative;
-	top:195px;
+	top:180px;
 	margin-left:440px;
 }
 .img_username{
@@ -49,4 +49,10 @@ body{
 }
 .img_password{
 	width:100px;
+}
+#error_message{
+	color:red;
+	position:relative;
+	top:100px;
+	margin-left:500px;
 }
