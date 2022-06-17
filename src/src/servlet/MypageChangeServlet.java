@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,7 +19,7 @@ import javax.servlet.http.Part;
  *
  */
 //↓アップロードファイルの一時的な保存先
-@MultipartConfig(location = "C:\\dojo6\\src\\WebContent\\img\\")
+@MultipartConfig(location = "C:\\dojo6\\src\\WebContent\\img")
 @WebServlet("/MypageChangeServlet")
 public class MypageChangeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -38,18 +40,27 @@ public class MypageChangeServlet extends HttpServlet {
 
 		String chose_public = request.getParameter("chose_public");
 
-		System.out.println(name + chose_public);
+		System.out.println(name + chose_public);//ちゃんととってきている
 
+		List<String> userchange = new ArrayList<String>();
+
+		request.setAttribute("userchange", userchange);
+
+		//画像関係の処理
 		Part part = request.getPart("IMAGE"); // getPartで取得
 
 		String image = this.getFileName(part);
+
 		request.setAttribute("image", image);
 		// サーバの指定のファイルパスへファイルを保存
 		//場所はクラス名↑の上に指定してある
 		part.write(image);
-		//ディスパッチ
+		//「マイメニュー」へのフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/upload_result.jsp");
 		dispatcher.forward(request, response);
+		//response.sendRedirect("/dokogacha/MypageServlet");
+
+
 		}
 
 
@@ -63,7 +74,7 @@ public class MypageChangeServlet extends HttpServlet {
                 name = name.substring(name.lastIndexOf("\\") + 1);
                 break;
             }
-        }		// TODO 自動生成されたメソッド・スタブ
+        }
 		return name;
 	}
 
