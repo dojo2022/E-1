@@ -9,49 +9,45 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Favorite_Review;
+import model.Favorite_Reviewer;
 
 public class Favorite_ReviewDao {
 
-	public List<Favorite_Review> favselect() {
+	public List<Favorite_Review> favselect(int user_name) {
 		Connection conn = null;
-		List<Favorite_Review> cardList = new ArrayList<Favorite_Review>();
+		List<Favorite_Review> favorite_user_list = new ArrayList<Favorite_Review>();
 
 		try {
 			// JDBCドライバを読み込む
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
 
 			// SQL文を準備する
-			String sql = "select * from MYBC";
+			String sql = "select * from favorite_reviewer where id = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			pStmt.setInt(1, user_name);
 
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
 
 			// 結果表をコレクションにコピーする
 			while (rs.next()) {
-				Mybc card = new Mybc(
-				rs.getString("NUMBER"),
-				rs.getString("NAME"),
-				rs.getString("ADDRESS"),
-				rs.getString("CNAME"),
-				rs.getString("DEPARTMENT"),
-				rs.getString("URL"),
-				rs.getString("EMAIL"),
-				rs.getString("TEL")
-				);
-				cardList.add(card);
+			Favorite_Reviewer id = new Favorite_Reviewer(
+			rs.getInt("reviewer_id")
+			);
+			favorite_user_list.add(id);
 			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-			cardList = null;
+			favorite_user_list = null;
 		}
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			cardList = null;
+			favorite_user_list = null;
 		}
 		finally {
 			// データベースを切断
@@ -61,13 +57,13 @@ public class Favorite_ReviewDao {
 				}
 				catch (SQLException e) {
 					e.printStackTrace();
-					cardList = null;
+					favorite_user_list = null;
 				}
 			}
 		}
 
 		// 結果を返す
-		return cardList;
+		return favorite_user_list;
 	}
 
 }
