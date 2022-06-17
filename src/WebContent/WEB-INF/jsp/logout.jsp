@@ -9,7 +9,6 @@
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/logout.css">
 </head>
 <body>
-<script src="${pageContext.request.contextPath}/js/top.js"></script>
 <header class="header">
   <img class="cap_success" src="/dokogacha/img/cap_success.png">
   <img class="comment_logout" src="/dokogacha/img/comment_logout.png">

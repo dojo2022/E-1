@@ -8,7 +8,6 @@
 <link rel= "stylesheet" type="text/css" href ="css/regist_result.css">
 </head>
 <body>
-<script src="${pageContext.request.contextPath}/js/top.js"></script>
 <header class="header">
   <img class="cap_success" src="/dokogacha/img/cap_success.png">
   <h2 class="welcome">どこがちゃへようこそ</h2>
