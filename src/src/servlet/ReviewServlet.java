@@ -24,8 +24,13 @@ public class ReviewServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	/*
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		/*HttpSession session = request.getSession();
+		if (session.getAttribute("id") == null) {
+			response.sendRedirect("/dokogacha/LoginServlet");
+			return;
+		}*/
 		request.setCharacterEncoding("UTF-8");
 		String product_name = request.getParameter("product_name");
 		String title = request.getParameter("title");
@@ -34,15 +39,18 @@ public class ReviewServlet extends HttpServlet {
 		String thought = request.getParameter("thought");
 		String price = request.getParameter("price");
 		String address = request.getParameter("address");
+		String star = request.getParameter("star");
+		String insert_image = request.getParameter("insert_image");
+
 
 		ReviewDao iDao = new ReviewDao();
-		if(rDao.insert(new Review(product_name, title, genre, series, thought, price, address))) {
+		if(rDao.insert(new Review(product_name, title, genre, series, thought, price, address, star, insert_image))) {
 			response.sendRedirect("/dokogacha/ReviewResultServlet");
 			return;
 		}
 
 	}
-	*/
+
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// レビュー投稿ページにフォワードする

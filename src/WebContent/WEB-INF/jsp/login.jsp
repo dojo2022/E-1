@@ -22,11 +22,11 @@
 			<input class="password_password" type="password" name="pw"
 				placeholder="半角英数８文字以上１６文字以内">
 		</div>
-		<p></p>
-		<input class="submit_login" type="image" name="login"
-			src="/dokogacha/img/button_login.png" onclick="submit_login">
-		<br> <img class="img_panda" src="/dokogacha/img/capout_panda.png">
+		<span id="error_message"></span>
+		<input class="submit_login" type="image" name="login" src="/dokogacha/img/button_login.png" onclick="submit_login()">
 	</form>
+		<br>
+		<img class="img_panda"src="/dokogacha/img/capout_panda.png">
 
 </body>
 </html>
