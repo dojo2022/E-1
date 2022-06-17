@@ -63,7 +63,6 @@ public class MypageChangeServlet extends HttpServlet {
 
 		}
 
-
 /*----------------------------------------------------------------------------------------------*/
 	//ファイルの名前を取得してくる
 	private String getFileName(Part part) {
