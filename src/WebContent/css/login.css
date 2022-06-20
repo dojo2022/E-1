@@ -11,12 +11,12 @@ body{
 }
 .div_username{
 	position:relative;
-	bottom:60px;
+	bottom:80px;
 	margin-left:450px
 }
 .div_password{
 	position:relative;
-	bottom:40px;
+	bottom:60px;
 	margin-left:450px;
 }
 .h1_login{
@@ -39,7 +39,7 @@ body{
 .submit_login{
 	width:140px;
 	position:relative;
-	top:50px;
+	top:30px;
 	margin-left:440px;
 }
 .img_regist{
@@ -58,6 +58,12 @@ body{
 .img_panda{
 	width:170px;
 	position:relative;
-	bottom:100px;
+	bottom:150px;
 	margin-left:710px;
+}
+#error_message{
+	color:red;
+	position:relative;
+	top:240px;
+	margin-left:500px;
 }
