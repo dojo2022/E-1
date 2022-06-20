@@ -9,3 +9,4 @@
 		fileReader.readAsDataURL(obj.files[i]);
 	}
 }
+

@@ -10,7 +10,7 @@
 <body>
 <h1>投稿情報の入力</h1>
   <h4 class="gacha_name">ガチャ名※全項目必須</h4>
- <form method="POST" action="">
+ <form method="POST" action="" id="review_form">
  <table class="info">
   <tr><td><input type="text" name="product_name" placeholder="商品名" required></td></tr>
   <tr><td><input type="text" name="title" placeholder="タイトル" required></td></tr>
@@ -50,6 +50,7 @@
   <tr><td><input type="submit" id="review" name="submit" value="投稿"></td></tr>
  </table>
   </form>
+  <span id="error_message"></span>
  <script type="text/javascript" src="/dokogacha/js/review.js"></script>
 </body>
 </html>

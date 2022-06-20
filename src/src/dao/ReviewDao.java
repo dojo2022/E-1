@@ -10,6 +10,7 @@ import java.util.List;
 
 import model.Review;
 
+//select文
 public class ReviewDao {
 	public List<Review> select(Review review_id) {
 		Connection conn = null;
@@ -75,6 +76,7 @@ public class ReviewDao {
 			return reviewList;
 		}
 
+		//insert文
 	// 引数cardで指定されたレコードを登録し、成功したらtrueを返す
 		public boolean insert(Review review_id) {
 
@@ -194,4 +196,60 @@ public class ReviewDao {
 			// 結果を返す
 			return result;
 		}
+
+		//いいねボタン
+		public boolean goodcount(Review review_id) {
+			Connection conn = null;
+			boolean result = false;
+
+			try {
+				int good=0;
+				List<Review> review_detailList = select(review_id);
+				for (Review review_detail :  review_detailList) {
+					good = review_detail.getGood();
+				}
+				good++;
+
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
+
+				// SQL文を準備する<<改造する>>
+				String sql = "UPDATE Review set good=? WHERE review_id=?";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				// SQL文を完成させる<<改造する>>
+					pStmt.setInt(1, good);
+
+					pStmt.setInt(2, review_id.getReview_id());
+
+				// SQL文を実行する
+				if (pStmt.executeUpdate() == 1) {
+					result = true;
+				}
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+
+			// 結果を返す
+			return result;
+		}
+
 }

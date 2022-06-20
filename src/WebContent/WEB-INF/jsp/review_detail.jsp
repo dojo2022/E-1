@@ -9,7 +9,7 @@
 </head>
 <body>
 
-	<c:forEach var="e" items="${review_detailList}" >
+	<c:out var="e" items="${review_detailList}" >
 	 <form method="POST" action="/dokogacha/ReviewDetailServlet">
 	 <div class="insert_image"><input type="file" value="${e.insert_image}"></div>
 	 <h2 class="goodbutton"><img id="goodbutton" name="goodbutton" value="いいねボタン" src="/dokogacha/img/good_shiro.png" height="80" width="180" onclick=”change()”></h2>
@@ -22,13 +22,13 @@
 	  <tr><td><input type="text" name="address" value="${e.address}"></td></tr>
 	  <tr><td><input type="radio" name="star" value="${e.evalution}"></td></tr>
 	 </table>
-   <table cellspacing="20" class="user_detail">
+   <table class="user_detail" >
     <tr><td class="icon"><img src="/dokogacha/UserDatailServlet" alt="icon"></td>
 		 	  <td class="user_name"><input type="text" name="user_name" value="${e.user_name}"></td>
 			  <td class="user_detail"><a href="/dokogacha/UserDatailResultServlet"><img src="/dokogacha/img/detail_user.png" height="50" width="180"></a></td></tr>
 	 </table>
 	 </form>
-  </c:forEach>
+  </c:out>
 
   <nav class="nav">
    <ul>
