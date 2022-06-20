@@ -17,7 +17,7 @@
 <form name=f method=POST action="/dokogacha/ReviewDetailServlet">
 <input type="hidden" name="review" value="change">
 
-<c:forEach var="u" items="${review}" varStatus="s" >
+<c:forEach var="s" items="${review}" varStatus="s" >
 <table class="review">
 		<tr  class="deta">
 			<td class="photo"><a href="javascript:document.f.submit()"><img src="img/icon_camera.png" id=""></a></td>
@@ -26,7 +26,6 @@
 			${s.product_code}商品名<br>
 			${s.good}いいね数 </a></td>
 		</tr>
-
 </table>
 </c:forEach>
 </form>
