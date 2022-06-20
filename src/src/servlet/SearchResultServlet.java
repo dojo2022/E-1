@@ -62,7 +62,6 @@ public class SearchResultServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String review_id = request.getParameter("${e.review_id}");
 		String user_name = request.getParameter("NAME");
-		String nickname = request.getParameter("ADDRESS");
 		String genre_id = request.getParameter("CNAME");
 		String review_day = request.getParameter("DEPARTMENT");
 		String title = request.getParameter("URL");
@@ -71,10 +70,8 @@ public class SearchResultServlet extends HttpServlet {
 		String evolition = request.getParameter("CNAME");
 		String good = request.getParameter("DEPARTMENT");
 		String address = request.getParameter("URL");
-		String url = request.getParameter("EMAIL");
 		String product_name = request.getParameter("TEL");
 		String price = request.getParameter("DEPARTMENT");
-		String product_detail = request.getParameter("URL");
 
 		// 検索処理を行う
 		ReviewDao RDao = new ReviewDao();

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>登録完了||どこがちゃ</title>
+<title>登録完了</title>
 <link rel= "stylesheet" type="text/css" href ="css/regist_result.css">
 </head>
 <body>

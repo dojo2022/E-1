@@ -21,8 +21,8 @@
 				<c:forEach var="e" items="${favorite_user_list}" >
 					<tr class="data">
 						<input type="hidden" name="review" value="change">
-						<td class="icon" colspan="2"><a href="javascript:document.f.submit()"><img src= "${e.user_icon}" alt="トップ"></a></td>
-						<td class="uname" colspan="8"><a href="javascript:document.f.submit()">${e.user_id}<input type="checkbox" name="follow_state" value="お気に入り解除" class="check"></a></td>
+						<td class="icon" colspan="2"><a href="javascript:document.f.submit()">${e.user_image}</a></td>
+						<td class="uname" colspan="8"><a href="javascript:document.f.submit()">${e.id}<input type="checkbox" name="follow_state" value="お気に入り解除" class="check"></a></td>
 					</tr>
 				</c:forEach>
 			<tr class="menu">
