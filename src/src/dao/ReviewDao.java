@@ -45,8 +45,7 @@ public class ReviewDao {
 					rs.getInt("good"),
 					rs.getString("address"),
 					rs.getString("product_name"),
-					rs.getInt("price"),
-					rs.getString("product_detail")
+					rs.getInt("price")
 					);
 					reviewList.add(review);
 				}
@@ -78,6 +77,7 @@ public class ReviewDao {
 
 	// 引数cardで指定されたレコードを登録し、成功したらtrueを返す
 		public boolean insert(Review review_id) {
+
 			Connection conn = null;
 			boolean result = false;
 
@@ -89,8 +89,8 @@ public class ReviewDao {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
 
 				// SQL文を準備する<<ここを改造する>>
-				String sql = "INSERT INTO Review (user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, product_name, price, product_detail)\r\n"
-							+ "VALUES (?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?, ?)";
+				String sql = "INSERT INTO Review (user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, product_name, price)\r\n"
+							+ "VALUES (?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?)";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる<<改造する>>
@@ -136,14 +136,14 @@ public class ReviewDao {
 				else {
 					pStmt.setString(7, null);
 				}
-				if (review_id.getEvalution() != null && !review_id.getEvalution().equals("")) {
-					pStmt.setString(8, review_id.getEvalution());
+				if (review_id.getEvalution() != 0) {
+					pStmt.setInt(8, review_id.getEvalution());
 				}
 				else {
 					pStmt.setString(8, null);
 				}
-				if (review_id.getGood() != null && !review_id.getGood().equals("")) {
-					pStmt.setString(9, review_id.getGood());
+				if (review_id.getGood() != 0) {
+					pStmt.setInt(9, review_id.getGood());
 				}
 				else {
 					pStmt.setString(9, null);
@@ -160,17 +160,11 @@ public class ReviewDao {
 				else {
 					pStmt.setString(11, null);
 				}
-				if (review_id.getPrice() != null && !review_id.getPrice().equals("")) {
-					pStmt.setString(12, review_id.getPrice());
+				if (review_id.getPrice() != 0) {
+					pStmt.setInt(12, review_id.getPrice());
 				}
 				else {
 					pStmt.setString(12, null);
-				}
-				if (review_id.getProduct_detail() != null && !review_id.getProduct_detail().equals("")) {
-					pStmt.setString(13, review_id.getProduct_detail());
-				}
-				else {
-					pStmt.setString(13, null);
 				}
 
 

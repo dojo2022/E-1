@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -63,11 +65,19 @@ public class ReviewServlet extends HttpServlet {
 			price = Integer.parseInt(price_Str);
 		}
 		String address = request.getParameter("address");
-		String star = request.getParameter("star");
+		int star = Integer.parseInt(request.getParameter("star"));
+		int good = 0;
 		String insert_image = request.getParameter("insert_image");
 
+		SimpleDateFormat f =
+				new SimpleDateFormat("yyyy/MM/dd HH:mm:88");
+		Date now = new Date();
+		String review_day = f.format(now);
+
 		ReviewDao rDao = new ReviewDao();
-		if(rDao.insert(new Review("",user_name, genre_id, product_name, title, genre, series, thought, price, address, star, insert_image))) {
+
+
+		if(rDao.insert(new Review(0, user_name, genre_id, review_day, title, series, thought, star, good, address,product_name, price))) {
 			response.sendRedirect("/dokogacha/ReviewResultServlet");
 			return;
 		}
