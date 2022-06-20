@@ -19,16 +19,16 @@ public class test {
 		this.user_image = "";
 	}
 
-	public String getUser_name() {
+	public String getId() {
 		return id;
 	}
-	public void setUser_name(String user_name) {
+	public void setId(String user_name) {
 		this.id = user_name;
 	}
-	public String getReviewer_id() {
+	public String getUser_image() {
 		return user_image;
 	}
-	public void setReviewer_id(String user_image) {
+	public void setUser_image(String user_image) {
 		this.user_image = user_image;
 	}
 }

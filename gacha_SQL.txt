@@ -99,7 +99,7 @@ insert into title (total_good, title_image, title_name) values (, '', '');
 insert into favorite_genre (user_name, genre_id, genre_name) values ('', , '');
 
 お気に入り投稿
-insert into favorite_review (user_name, review_id) values ('', '');
+insert into favorite_review (user_name, review_id) values ('', );
 
 お気に入り投稿者
 insert into favorite_reviewer (user_name, reviewer_id) values ('', '');
@@ -109,7 +109,7 @@ insert into genre (genre_id, genre_name) values (, '');
 
 レビュー
 <<<<<<< HEAD
-insert into review (review_id, user_name, nickname, genre_id, review_day, title, series_name, thought, evalution, good, address, url, puroduct_name, review_update, ) 
+insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address,  puroduct_name) 
             values ( 1, 'あ', 1,'あ','あ','あ','あ', 1,1 ,'あ','あ',1 ,'あ');
 =======
 insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
@@ -132,5 +132,16 @@ drop table genre;
 drop table review_image;
 drop table review;
 drop table user;
+
+
+
+insert into user (id, pw, user_image, public ) values ('yamada', 'yamada123', 'a', 'no');
+insert into user (id, pw, user_image, public ) values ('suzuki', 'suzuki123', 'b', 'no');
+insert into user (id, pw, user_image, public ) values ('ishida', 'ishida123', 'c', 'no');
+insert into user (id, pw, user_image, public ) values ('inoue', 'inoue1234', 'd', 'no');
+insert into user (id, pw, user_image, public ) values ('maura', 'maura1234', 'e', 'no');
+insert into favorite_reviewer (user_name, reviewer_id) values ('maura', 'yamada');
+insert into favorite_reviewer (user_name, reviewer_id) values ('maura', 'suzuki');
+insert into favorite_reviewer (user_name, reviewer_id) values ('maura', 'takeda');
 
 

@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 /**
  * Servlet implementation class FavoriteReviewListServlet
  */
@@ -34,9 +33,27 @@ public class FavoriteReviewListServlet extends HttpServlet {
 			return;
 		}*/
 
+		/*
+		User U = new User();
+		request.setCharacterEncoding("UTF-8");
+		String user_name = request.getParameter(U.getId());
+		*/
 
-		/*Favorite_ReviewDao FRDao = new Favorite_ReviewDao();
-		List<Favorite_Review> faorite_review_list = FRDao.favrevselect();
+		/*
+		Favorite_ReviewDao FRDao = new Favorite_ReviewDao();
+		List<Favorite_Review> faorite_reviewimg_list = FRDao.favrevimgselect(user_name);
+
+		request.setAttribute("faorite_reviewimg_list", faorite_reviewimg_list);
+		
+		
+		
+		List<Favorite_Review> faorite_reviewgnr_list = FRDao.favrevgnrselect(user_name);
+
+		request.setAttribute("faorite_reviewgnr_list", faorite_reviewgnr_list);
+		
+		
+		
+		List<Favorite_Review> faorite_review_list = FRDao.favrevselect(user_name);
 
 		request.setAttribute("faorite_review_list", faorite_review_list);
 		*/

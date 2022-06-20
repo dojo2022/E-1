@@ -65,11 +65,11 @@ public class FavoriteUserListServlet extends HttpServlet {
 
 		/*
 		request.setCharacterEncoding("UTF-8");
-		String reviewer_profile = request.getParameter("${e.reviewer_profile}");
+		String reviewer_id = request.getParameter("${e.id}");
 
 		Favorite_ReviewerDao FUDao = new Favorite_ReviewerDao();
 		if (request.getParameter("follow_state").equals("お気に入り解除")) {
-			if (FUDao.delete(reviewer_profile)) {
+			if (FUDao.delete(reviewer_id)) {
 			}
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/favorite_user_list.jsp");
