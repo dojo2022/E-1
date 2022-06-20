@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -29,12 +30,12 @@ public class ReviewDetailServlet extends HttpServlet {
 			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
 		}*/
-			ReviewDao iDao = new ReviewDao();
-		List<Review> review_detailList = iDao.select(new Review(review_id));
+			ReviewDao rDao = new ReviewDao();
+		List<Review> review_detailList = rDao.select(new Review(review_id));
 		request.setAttribute("review_detailList", review_detailList);
 
-		
-		
+
+
 		// レビュー詳細ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/review_detail.jsp");
 		dispatcher.forward(request, response);
@@ -48,14 +49,14 @@ public class ReviewDetailServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		String review_id = request.getParameter("${e.review_id}");
 
-		ReviewDao FRDao = new ReviewDao();
+		ReviewDao rDao = new ReviewDao();
 		if (request.getParameter("goodbutton").equals("いいねボタン")) {
-			 FRDao.goodcount(review_id) ;
+			 rDao.goodcount(review_id) ;
 
 		} else if (request.getParameter("favoritebutton").equals("お気に入りボタン")){
-			FRDao.favoriteregist(review_id) ;
+			rDao.favoriteregist(review_id) ;
 		} else {
-			List<Review> review_detailList = FRDao.select(new Review(review_id));
+			List<Review> review_detailList = rDao.select(new Review(review_id));
 			request.setAttribute("review_detailList", review_detailList);
 
 			// レビュー詳細ページにフォワードする
