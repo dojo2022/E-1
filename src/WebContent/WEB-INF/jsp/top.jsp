@@ -4,12 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>どこがちゃ || トップメニュー</title>
+<title>トップページ</title>
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/common.css">
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/top.css">
 </head>
 <body>
-<script src="${pageContext.request.contextPath}/js/top.js"></script>
 <!-- ヘッダー -->
 <header class="header">
   <h1 class="logo">トップページ</h1>
@@ -44,7 +43,6 @@
     </nav>
     </header>
     <img class="button_null" src="/dokogacha/img/button_null.png">
-    <!-- トレンド表示 -->
 </body>
 <div class ="my_new_review">
 			＃${review.ganre}<br>${review.price}　${review.product_name}　<br>${review.good}　<br>

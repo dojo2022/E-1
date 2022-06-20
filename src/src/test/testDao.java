@@ -34,8 +34,8 @@ public class testDao {
 				// 結果表をコレクションにコピーする
 				while (rs.next()) {
 				test card = new test(
-				rs.getString("user_id"),
-				rs.getString("user_icon")
+				rs.getString("id"),
+				rs.getString("user_image")
 				);
 				favorite_user_list.add(card);
 				}

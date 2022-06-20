@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.ReviewDao;
 import model.Review;
@@ -29,12 +31,13 @@ public class ReviewDetailServlet extends HttpServlet {
 			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
 		}*/
-			ReviewDao iDao = new ReviewDao();
-		List<Review> review_detailList = iDao.select(new Review(review_id));
+		int review_id = 0;
+			ReviewDao rDao = new ReviewDao();
+		List<Review> review_detailList = rDao.select(new Review(review_id));
 		request.setAttribute("review_detailList", review_detailList);
 
-		
-		
+
+
 		// レビュー詳細ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/review_detail.jsp");
 		dispatcher.forward(request, response);
@@ -46,17 +49,19 @@ public class ReviewDetailServlet extends HttpServlet {
 			return;
 		}*/
 		request.setCharacterEncoding("UTF-8");
-		String review_id = request.getParameter("${e.review_id}");
-
-		ReviewDao FRDao = new ReviewDao();
+		HttpSession session = request.getSession();
+		int review_id = (int) session.getAttribute("review_id");
+		boolean goodcount;
+		ReviewDao rDao = new ReviewDao();
 		if (request.getParameter("goodbutton").equals("いいねボタン")) {
-			 FRDao.goodcount(review_id) ;
-
+			 goodcount = rDao.goodcount(new Review(review_id));
+/*
 		} else if (request.getParameter("favoritebutton").equals("お気に入りボタン")){
-			FRDao.favoriteregist(review_id) ;
+			rDao.favoriteregist(review_id) ;
 		} else {
-			List<Review> review_detailList = FRDao.select(new Review(review_id));
+			List<Review> review_detailList = rDao.select(new Review(review_id));
 			request.setAttribute("review_detailList", review_detailList);
+			*/
 
 			// レビュー詳細ページにフォワードする
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/review_detail.jsp");
