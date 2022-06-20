@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+
 /**
  *1.マイページ変更画面への遷移 LoginUserのUser_Idを入手し、ログイン状態を判定
  *→ログインしていなければログインページへリダイレクトさせる
@@ -26,14 +27,36 @@ public class MypageChangeServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		//
+		/*
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		HttpSession session = request.getSession();
+		if (session.getAttribute("id") == null) {
+			response.sendRedirect("/dokogacha/LoginServlet");
+			return;
+		}
+		//*/
 		//マイページ変更画面にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage_change.jsp");
 		dispatcher.forward(request, response);
 	}
 
 	/*--doPost----------------------------------------------------------------*/
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException
 		{
+		//
+		/*
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		HttpSession session = request.getSession();
+		if (session.getAttribute("id") == null) {
+			response.sendRedirect("/dokogacha/LoginServlet");
+			return;
+		}
+		//*/
+
+
+
 		request.setCharacterEncoding("UTF-8");
 
 		String name = request.getParameter("user_id");
