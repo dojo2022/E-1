@@ -32,7 +32,9 @@ public class RegistServlet extends HttpServlet {
 			response.sendRedirect("/dokogacha/RegistResultServlet");
 		}
 		else {
-			response.sendRedirect("/dokogacha/LoginServlet");
+			request.setAttribute("error_message","このユーザ名はすでに登録されています。");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+			dispatcher.forward(request, response);
 		}
 	}
 
