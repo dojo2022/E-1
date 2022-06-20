@@ -31,6 +31,11 @@ public class Review {
 		this.product_name = product_name;
 		this.price = price;
 	}
+	public Review(int review_id) {
+		super();
+		this.review_id = review_id;
+
+	}
 
 	public Review() {
 		super();
