@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>投稿完了||どこがちゃ</title>
+<title>投稿完了</title>
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/common.css">
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/review_result.css">
 </head>
