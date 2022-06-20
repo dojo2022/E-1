@@ -40,7 +40,6 @@ create table favorite_review (
 
 
 
-
 お気に入り投稿者
 create table favorite_reviewer (
   user_name varchar(255) not null,
@@ -75,14 +74,11 @@ create table review (
   address varchar(255),
   puroduct_name varchar(255) not null,
   price int,
-  product_detail varchar(255),
   foreign key(user_name) references user(id)
 );
 
 
-
-
-レビュー画像
+--レビュー画像
 create table review_image (
   review_id int primary key not null,
   image varchar(255),
@@ -93,7 +89,7 @@ create table review_image (
 挿入
 
 ユーザ
-insert into user (id, pw, user_image) values ('', '', '');
+insert into user (id, pw, user_image, public ) values ('', '', '', 'no'); /*publicは初期値'no'*/
 
 称号
 insert into title (total_good, title_image, title_name) values (, '', '');
@@ -111,8 +107,13 @@ insert into favorite_reviewer (user_name, reviewer_id) values ('', '');
 insert into genre (genre_id, genre_name) values (, '');
 
 レビュー
+<<<<<<< HEAD
 insert into review (review_id, user_name, nickname, genre_id, review_day, title, series_name, thought, evalution, good, address, url, puroduct_name, review_update, ) 
             values ( 1, 'あ', 1,'あ','あ','あ','あ', 1,1 ,'あ','あ',1 ,'あ');
+=======
+insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
+            values (1, '太郎', 1, '20220620', 'タイトル', '車', 'かっこいい', 5, 10, '東京駅', 'トミカ', 200 );
+>>>>>>> f4ec45e1af740ed3c48db6ef3e6e5cbd88221718
 
 レビュー画像
 insert into review_image (review_id, image) values ( , '');
