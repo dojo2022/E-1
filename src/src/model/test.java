@@ -2,33 +2,33 @@ package model;
 
 public class test {
 
-	private String user_name;
-	private String reviewer_id;
+	private String id;
+	private String user_image;
 
-	public test(String user_name, String reviewer_id) {
-		this.user_name = user_name;
-		this.reviewer_id = reviewer_id;
+	public test(String user_name, String user_image) {
+		this.id = user_name;
+		this.user_image = user_image;
 	}
 
-	public test(String reviewer_id) {
-		this.reviewer_id = reviewer_id;
+	public test(String user_image) {
+		this.user_image = user_image;
 	}
 
 	public test() {
-		this.user_name = "";
-		this.reviewer_id = "";
+		this.id = "";
+		this.user_image = "";
 	}
 
 	public String getUser_name() {
-		return user_name;
+		return id;
 	}
 	public void setUser_name(String user_name) {
-		this.user_name = user_name;
+		this.id = user_name;
 	}
 	public String getReviewer_id() {
-		return reviewer_id;
+		return user_image;
 	}
-	public void setReviewer_id(String reviewer_id) {
-		this.reviewer_id = reviewer_id;
+	public void setReviewer_id(String user_image) {
+		this.user_image = user_image;
 	}
 }
