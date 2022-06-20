@@ -1,7 +1,7 @@
 /**
  *
  */
- $('tr[data-href]').click(function (e) {
+ $('tr[data]').click(function (e) {
 	if (!$(e.target).is('a')) {
 		window.location = $(e.target).data('href');
 	};
