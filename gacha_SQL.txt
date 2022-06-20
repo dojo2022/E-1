@@ -80,7 +80,7 @@ create table review (
 );
 
 
-レビュー画像
+--レビュー画像
 create table review_image (
   review_id int primary key not null,
   image varchar(255),
