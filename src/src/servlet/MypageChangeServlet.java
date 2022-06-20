@@ -1,8 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -65,9 +63,9 @@ public class MypageChangeServlet extends HttpServlet {
 
 		System.out.println(name + chose_public);//ちゃんととってきている
 
-		List<String> userchange = new ArrayList<String>();
+		//ArrayList<String> userchange = new ArrayList<String>(); スコープ渡しのお試し1
 
-		request.setAttribute("userchange", userchange);
+		//request.setAttribute("userchange", name); スコープ渡しのお試し2
 
 		//画像関係の処理
 		Part part = request.getPart("IMAGE"); // getPartで取得
@@ -82,8 +80,6 @@ public class MypageChangeServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/upload_result.jsp");
 		dispatcher.forward(request, response);
 		//response.sendRedirect("/dokogacha/MypageServlet");
-
-
 		}
 
 /*----------------------------------------------------------------------------------------------*/
