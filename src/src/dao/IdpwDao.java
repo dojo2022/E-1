@@ -16,7 +16,7 @@ public class IdpwDao {
 
 		try {
 			Class.forName("org.h2.Driver");
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C://data/dokogacha", "sa", "");
 
 			String sql = "INSERT INTO user (id,pw) VALUES (?,?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
@@ -75,7 +75,7 @@ public class IdpwDao {
 
 		try {
 			Class.forName("org.h2.Driver");
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C://data/dokogacha", "sa", "");
 			String sql = "SELECT COUNT(*) FROM USER WHERE ID = ? AND PW = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, idpw.getId());
