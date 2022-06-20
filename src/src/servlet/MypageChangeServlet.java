@@ -57,8 +57,6 @@ public class MypageChangeServlet extends HttpServlet {
 		}
 		//*/
 
-
-
 		request.setCharacterEncoding("UTF-8");
 
 		String name = request.getParameter("user_id");
