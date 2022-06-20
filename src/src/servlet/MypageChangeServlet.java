@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-
 /**
  *1.マイページ変更画面への遷移 LoginUserのUser_Idを入手し、ログイン状態を判定
  *→ログインしていなければログインページへリダイレクトさせる
@@ -33,6 +32,11 @@ public class MypageChangeServlet extends HttpServlet {
 			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
 		}
+
+
+
+
+
 		//*/
 		//マイページ変更画面にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage_change.jsp");
@@ -61,7 +65,7 @@ public class MypageChangeServlet extends HttpServlet {
 
 		String chose_public = request.getParameter("chose_public");
 
-		System.out.println(name + chose_public);//ちゃんととってきている
+		//System.out.println(name + chose_public);//ちゃんととってきている
 
 		//ArrayList<String> userchange = new ArrayList<String>(); スコープ渡しのお試し1
 
