@@ -41,11 +41,10 @@ create table favorite_review (
 
 
 
-
 お気に入り投稿者
 create table favorite_reviewer (
   user_name varchar(255) not null,
-  reviewer_id int null,
+  reviewer_id varchar(255) null,
   primary key(user_name,reviewer_id),
   foreign key(user_name) references user(id)
 );
