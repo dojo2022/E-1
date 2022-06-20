@@ -1,20 +1,20 @@
 package model;
 
-public class Favorite_Reviewer {
+public class test {
 
 	private String user_name;
 	private String reviewer_id;
 
-	public Favorite_Reviewer(String user_name, String reviewer_id) {
+	public test(String user_name, String reviewer_id) {
 		this.user_name = user_name;
 		this.reviewer_id = reviewer_id;
 	}
 
-	public Favorite_Reviewer(String reviewer_id) {
+	public test(String reviewer_id) {
 		this.reviewer_id = reviewer_id;
 	}
 
-	public Favorite_Reviewer() {
+	public test() {
 		this.user_name = "";
 		this.reviewer_id = "";
 	}

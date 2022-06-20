@@ -20,6 +20,6 @@ jdbc:h2:file:C:/data/dokogacha
 テーブルの作成,データの挿入はgacha_SQL.txtを参照
 
 データベースへのアクセスソースコード
-conn = DriverManager.getConnection("jdbc:h2:file:C://data/dokogacha", "sa", "");
+conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
 
 

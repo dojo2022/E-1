@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import model.test;
+import test.testDao;
 
 
 /**
@@ -38,12 +42,13 @@ public class FavoriteUserListServlet extends HttpServlet {
 		User U = new User();
 		request.setCharacterEncoding("UTF-8");
 		String user_name = request.getParameter(U.getId());
+		*/
 
-		Favorite_ReviewerDao FUDao = new Favorite_ReviewerDao();
-		List<Favorite_Reviewer> favorite_user_list = FUDao.favuserselect(user_name);
+		testDao FUDao = new testDao();
+		List<test> favorite_user_list = FUDao.favselect("maura");
 
 		request.setAttribute("favorite_user_list", favorite_user_list);
-		*/
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/favorite_user_list.jsp");
 		dispatcher.forward(request, response);
 	}
