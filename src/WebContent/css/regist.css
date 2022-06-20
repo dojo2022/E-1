@@ -12,12 +12,12 @@ body{
 }
 .div_username{
 	position:relative;
-	top:85px;
+	top:60px;
 	margin-left:450px;
 }
 .div_password{
 	position:relative;
-	top:105px;
+	top:75px;
 	margin-left:450px;
 }
 .h1_regist{
@@ -53,6 +53,6 @@ body{
 #error_message{
 	color:red;
 	position:relative;
-	top:100px;
+	top:380px;
 	margin-left:500px;
 }
