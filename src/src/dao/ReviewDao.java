@@ -13,6 +13,9 @@ import model.Review;
 //--------------------------------------------------------------------------------------------
 //select文
 public class ReviewDao {
+	//↓↓searchメソッドの作成開始
+	public 
+	
 	public List<Review> select(Review review_id) {
 	/*public List<Review> select(Stirng genre, ){*/ //バラバラに呼び出すやり方
 
