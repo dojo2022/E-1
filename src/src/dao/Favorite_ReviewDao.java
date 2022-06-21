@@ -24,7 +24,7 @@ public class Favorite_ReviewDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
 
 			// SQL文を準備する
-			String sql = "select genre_name , price , puroduct_name , good , image "
+			String sql = "select review.review_id , genre_name , price , puroduct_name , good , image "
 					+ "from review join review_image on review.review_id = review_image.review_id "
 					+ "right join genre on review.genre_id = genre.genre_id "
 					+ "where review.review_id in (select favorite_review.review_id from favorite_review where user_name = ?)";
@@ -38,6 +38,7 @@ public class Favorite_ReviewDao {
 			// 結果表をコレクションにコピーする
 			while (rs.next()) {
 			Review_List detail = new Review_List(
+			rs.getInt("review_id"),
 			rs.getString("image"),
 			rs.getString("genre_name"),
 			rs.getInt("price"),
@@ -70,5 +71,50 @@ public class Favorite_ReviewDao {
 
 		// 結果を返す
 		return favorite_review_list;
+	}
+
+	public boolean delete(int review_id) {
+		Connection conn = null;
+		boolean result = false;
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
+
+			// SQL文を準備する
+			String sql = "delete from favorite_review where review_id = ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+			pStmt.setInt(1, review_id);
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		// 結果を返す
+		return result;
 	}
 }
