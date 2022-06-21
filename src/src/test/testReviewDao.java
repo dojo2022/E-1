@@ -8,7 +8,7 @@ import model.Review;
 public class TestReviewDao {
 	public static void main(String[] args) {
 		ReviewDao rDao = new ReviewDao();
-		if (rDao.insert(new Review(0, "user_name", 1, "review_day", "title", "series", "thought", 1, 0, "address", "product_name", 100))){
+		if (rDao.insert(new Review(0, "user_name", 1, "review_day", "title", "series", "thought", 1, 0, "address", "puroduct_name", 100))){
 			System.out.println("登録成功！");
 			List<Review> ReviewList1 = rDao.allselect();
 			for (Review review : ReviewList1) {
