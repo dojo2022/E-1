@@ -13,22 +13,26 @@ body{
 	margin: 0 0 0 0;
 	background-color: #eeece9;
 }
+.wapper{
+  margin: 0 auto;
+  width: 580px ; /*580px*/
+}
 .cap_success {
 	position:relative;
 	bottom:-250px;
 	width:150px;
-	margin-left:400px;
+	left:60px;
 }
 .cap_panda {
 	width:100px;
 	position:relative;
-	bottom:-150px;
-	margin-left:820px;
+	bottom:-300px;
+	left:300px;
 }
 .welcome{
 	position:relative;
 	width:300px;
-    margin-left:600px;
+    left:250px;
     bottom:-100px;
     font-size:30px;
     font-weight:bold;
@@ -38,14 +42,14 @@ body{
 .button_null{
 	width:140px;
 	position:relative;
-	margin-left:440px;
-	bottom:-300px;
+	left:55px;
+	bottom:-280px;
 }
 .login_page{
 	position:relative;
-	bottom:-70px;
+	bottom:-300px;
 	width:300px;
-    margin-left:660px;
+    left:70px;
     color:yellow;
     font-weight:bold;
 }
