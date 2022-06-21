@@ -65,7 +65,7 @@ public class Favorite_ReviewerDao {
 			return favorite_user_list;
 		}
 
-		public boolean delete(int user_name) {
+		public boolean delete(String user_name, String reviewer_id) {
 			Connection conn = null;
 			boolean result = false;
 
@@ -77,11 +77,12 @@ public class Favorite_ReviewerDao {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
 
 				// SQL文を準備する
-				String sql = "delete from favorite_reviewer where user_name = ?";
+				String sql = "delete from favorite_reviewer where user_name = ? and reviewer_id = ?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
-				pStmt.setInt(1, user_name);
+				pStmt.setString(1, user_name);
+				pStmt.setString(2, reviewer_id);
 
 				// SQL文を実行する
 				if (pStmt.executeUpdate() == 1) {

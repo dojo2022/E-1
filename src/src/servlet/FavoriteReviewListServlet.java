@@ -69,14 +69,18 @@ public class FavoriteReviewListServlet extends HttpServlet {
 		request.setAttribute("review_id", review_id);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/dokogacha/ReviewDetailServlet");
-		dispatcher.forward(request, response);
+		//dispatcher.forward(request, response);
 
 		if (request.getParameter("follow_state").equals("お気に入り解除")) {
+			/*
+			LoginUser LU = new LoginUser();
+			request.setCharacterEncoding("UTF-8");
+			String my_name = request.getParameter(LU.getId());
+			*/
 			Favorite_ReviewDao FRDao = new Favorite_ReviewDao();
-			FRDao.delete(review_id);
+			FRDao.delete("yamada",review_id);
 
-			RequestDispatcher dispatcher2 = request.getRequestDispatcher("/dokogacha/FavoriteReviewListServlet");
-			dispatcher2.forward(request, response);
+			response.sendRedirect("/dokogacha/FavoriteReviewListServlet");
 		}
 
 	}

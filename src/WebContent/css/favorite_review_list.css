@@ -30,8 +30,8 @@ td.selecting {
 }
 .check {
 	position: absolute;
-	top: 48%;
-    left: 88%;
+	top: 45%;
+    left: 83%;
 }
 .fhead, .tab, .empty {
 	height: 50px;
@@ -88,19 +88,7 @@ th.fhead {
 	width: 120px;
 	height: 120px;
 }
-.check input {
-  display: none; /* デフォルトのチェックボックスを非表示 */
-}
-.check input :before {
-  background-image: url("/dokogacha/img/icon_trash.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  content: "";
-  height: 30px;
-  position: relative;
-  width: 30px;
-}
+
 .top{
 	text-align: left;
 
