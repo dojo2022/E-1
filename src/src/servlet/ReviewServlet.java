@@ -61,7 +61,7 @@ public class ReviewServlet extends HttpServlet {
 		else if( !price_Str.chars().allMatch( Character::isDigit) ){
 			//		↑id_Strに文字が含まれているか判定する(文字が含まれるとFalseを返す)
 			// 結果ページにフォワードする
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/reviw.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/review.jsp");
 			dispatcher.forward(request, response);
 			return;
 		}
