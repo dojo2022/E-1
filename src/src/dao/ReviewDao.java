@@ -10,6 +10,7 @@ import java.util.List;
 
 import model.Review;
 
+//--------------------------------------------------------------------------------------------
 //select文
 public class ReviewDao {
 	public List<Review> select(Review review_id) {
@@ -77,7 +78,7 @@ public class ReviewDao {
 			// 結果を返す
 			return reviewList;
 		}
-
+//--------------------------------------------------------------------------------------------
 		//insert文
 	// 引数cardで指定されたレコードを登録し、成功したらtrueを返す
 		public boolean insert(Review review_id) {
@@ -150,7 +151,7 @@ public class ReviewDao {
 					pStmt.setString(9, null);
 				}
 				if (review_id.getPrice() != 0) {
-					pStmt.setInt(10, review_id.getPrice());
+					pStmt.setInt(11, review_id.getPrice());
 				}
 				else {
 					pStmt.setInt(10, 0);
@@ -183,7 +184,7 @@ public class ReviewDao {
 			// 結果を返す
 			return result;
 		}
-
+	//--------------------------------------------------------------------------------------------
 		//いいねボタン
 		public boolean goodcount(Review review_id) {
 			Connection conn = null;
@@ -238,5 +239,67 @@ public class ReviewDao {
 			// 結果を返す
 			return result;
 		}
+//--------------------------------------------------------------------------------------------
+		//すべての投稿を呼び出す
+		public List<Review> allselect() {
+			/*public List<Review> select(Stirng genre, ){*/ //バラバラに呼び出すやり方
 
+				Connection conn = null;
+				List<Review> reviewList = new ArrayList<Review>();
+
+				try {
+					Class.forName("org.h2.Driver");
+					conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
+
+					String sql = "SELECT * FROM review ";//変更部分
+					PreparedStatement pStmt = conn.prepareStatement(sql);
+
+						// SQL文を実行し、結果表を取得する
+						ResultSet rs = pStmt.executeQuery();
+
+						// 結果表をコレクションにコピーする<<ここ改造>>//変更部分
+						while (rs.next()) {
+							Review review  = new Review(
+							rs.getInt("review_id"),
+							rs.getString("user_name"),
+							rs.getInt("genre_id"),
+							rs.getString("review_day"),
+							rs.getString("title"),
+							rs.getString("series_name"),
+							rs.getString("thought"),
+							rs.getInt("evalution"),
+							rs.getInt("good"),
+							rs.getString("address"),
+							rs.getString("product_name"),
+							rs.getInt("price")
+							);
+							reviewList.add(review);
+						}
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+						reviewList = null;
+					}
+					catch (ClassNotFoundException e) {
+						e.printStackTrace();
+						reviewList = null;
+					}
+					finally {
+						// データベースを切断
+						if (conn != null) {
+							try {
+								conn.close();
+							}
+							catch (SQLException e) {
+								e.printStackTrace();
+								reviewList = null;
+							}
+						}
+					}
+					// 結果を返す
+					return reviewList;
+				}
 }
+
+
+
