@@ -13,6 +13,8 @@ import model.Review;
 //select文
 public class ReviewDao {
 	public List<Review> select(Review review_id) {
+	/*public List<Review> select(Stirng genre, ){*/ //バラバラに呼び出すやり方
+
 		Connection conn = null;
 		List<Review> reviewList = new ArrayList<Review>();
 
@@ -21,18 +23,18 @@ public class ReviewDao {
 			Class.forName("org.h2.Driver");
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
 
-			String sql = "SELECT * FROM review WHERE review_id = ?";
+			String sql = "SELECT * FROM review WHERE review_id = ?";//変更部分
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			int id = review_id.getReview_id();
+			int id = review_id.getReview_id();//変更部分
 
 
-				pStmt.setInt(1, id);
+				pStmt.setInt(1, id);//変更部分
 
 
 				// SQL文を実行し、結果表を取得する
 				ResultSet rs = pStmt.executeQuery();
 
-				// 結果表をコレクションにコピーする<<ここ改造>>
+				// 結果表をコレクションにコピーする<<ここ改造>>//変更部分
 				while (rs.next()) {
 					Review review  = new Review(
 					rs.getInt("review_id"),
