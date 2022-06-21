@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.test;
-import test.testDao;
+import dao.Favorite_ReviewerDao;
+import model.User;
 
 
 /**
@@ -39,13 +39,13 @@ public class FavoriteUserListServlet extends HttpServlet {
 			return;
 		}*/
 		/*
-		User U = new User();
+		LoginUser LU = new LoginUser();
 		request.setCharacterEncoding("UTF-8");
-		String user_name = request.getParameter(U.getId());
+		String user_name = request.getParameter(LU.getId());
 		*/
 
-		testDao FUDao = new testDao();
-		List<test> favorite_user_list = FUDao.favselect("maura");
+		Favorite_ReviewerDao FUDao = new Favorite_ReviewerDao();
+		List<User> favorite_user_list = FUDao.favselect("maura");
 
 		request.setAttribute("favorite_user_list", favorite_user_list);
 

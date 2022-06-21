@@ -42,15 +42,19 @@ public class ReviewServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		LoginUser user = new LoginUser();
 		user = (LoginUser)session.getAttribute("id");
-		String user_name = user.getId();
 
+		int price;
+		int genre_id = Integer.parseInt(request.getParameter("genre"));
+		int star = Integer.parseInt(request.getParameter("star"));
+		int good = 0;
+		String user_name = "Kojima";//user.getId();
 		String product_name = request.getParameter("product_name");
 		String title = request.getParameter("title");
-		int genre_id = Integer.parseInt(request.getParameter("genre"));
 		String series = request.getParameter("series");
 		String thought = request.getParameter("thought");
 		String price_Str = request.getParameter("price");
-		int price;
+		String address = request.getParameter("address");
+		//String insert_image = request.getParameter("insert_image");
 		if( price_Str.equals("") || price_Str == null ){
 			price = 0;
 		}
@@ -64,10 +68,6 @@ public class ReviewServlet extends HttpServlet {
 		else{
 			price = Integer.parseInt(price_Str);
 		}
-		String address = request.getParameter("address");
-		int star = Integer.parseInt(request.getParameter("star"));
-		int good = 0;
-		String insert_image = request.getParameter("insert_image");
 
 		SimpleDateFormat f =
 				new SimpleDateFormat("yyyy/MM/dd HH:mm:88");
@@ -80,6 +80,10 @@ public class ReviewServlet extends HttpServlet {
 		if(rDao.insert(new Review(0, user_name, genre_id, review_day, title, series, thought, star, good, address,product_name, price))) {
 			response.sendRedirect("/dokogacha/ReviewResultServlet");
 			return;
+		}
+		else {
+			doGet(request,response);
+
 		}
 
 	}
