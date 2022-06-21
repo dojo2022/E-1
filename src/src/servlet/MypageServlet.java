@@ -1,7 +1,7 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -40,15 +40,24 @@ public class MypageServlet extends HttpServlet {
 			return;
 		}
 		//*/
+		//ログインユーザ名の取得
 		request.setCharacterEncoding("UTF-8");
-		LoginUser user = new LoginUser();
-		user = (LoginUser)session.getAttribute("id");
-		String user_name = user.getId();
+		LoginUser loginuser = new LoginUser();
+		loginuser = (LoginUser)session.getAttribute("id");
+		String loginuser_name = loginuser.getId();
 
+		//user_nameに該当するレコードを検出する。
 		UserDao Dao = new UserDao();
-		ArrayList<User> userList =Dao.select(user_name);
+		List<User> userList =Dao.select(loginuser_name);
 
-		request.setAttribute("userList", userList);
+		User user = new User();
+
+		for(User user2:userList){
+			user.setId(user2.getId());
+			user.setImage(user2.getImage());
+			user.setC_public(user2.getC_public());
+		}
+		request.setAttribute("user", user);
 
 		// マイメニュー画面にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
