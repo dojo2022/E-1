@@ -1,5 +1,7 @@
 @charset "UTF-8";
-
+html *{
+  box-sizing: border-box;
+}
 body{
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -9,6 +11,10 @@ body{
 	height:800px;
 	margin: 0 0 0 0;
 	background-color: #eeece9;
+}
+.wapper{
+  margin: 0 auto;
+  width: 580px ; /*580px*/
 }
 .nav a{
 	position: relative;
@@ -22,49 +28,49 @@ body{
 	position:relative;
 	bottom:20px;
 	width:110px;
-	left:420px;
+	left:40px;
 }
 .opcap_search{
 	position:relative;
 	bottom:20px;
 	width:100px;
-	left:420px;
+	left:40px;
 }
 .cap_post{
 	position:relative;
 	bottom:45px;
 	width:115px;
-	left:550px;
+	left:160px;
 }
 .opcap_post{
 	position:relative;
 	bottom:45px;
 	width:100px;
-	left:550px;
+	left:160px;
 }
 .cap_mypage{
 	position:relative;
 	bottom:60px;
 	width:120px;
-	left:420px;
+	left:40px;
 }
 .opcap_mypage{
 	position:relative;
 	bottom:60px;
 	width:110px;
-	left:420px;
+	left:40px;
 }
 .cap_logout{
 	position:relative;
 	bottom:140px;
 	width:115px;
-	left:830px;
+	left:450px;
 }
 .opcap_logout{
 	position:relative;
 	bottom:140px;
 	width:95px;
-	left:830px;
+	left:450px;
 }
 .logo{
 	position:relative;
@@ -86,7 +92,7 @@ body{
 	width:140px;
 	position:relative;
 	bottom:-500px;
-	left:435px;
+	left:50px;
 }
 .my_new_review {
 	width :15em;
@@ -97,7 +103,7 @@ body{
 	background-color: white;
 	position:relative;
 	bottom: -450px;
-	left : 670px;
+	left : 300px;
 }
 .opcap img {
 	top: 3em;
