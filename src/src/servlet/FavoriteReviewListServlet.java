@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +9,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import dao.Favorite_ReviewDao;
+import model.Review_List;
 /**
  * Servlet implementation class FavoriteReviewListServlet
  */
@@ -39,24 +43,12 @@ public class FavoriteReviewListServlet extends HttpServlet {
 		String user_name = request.getParameter(LU.getId());
 		*/
 
-		/*
+
 		Favorite_ReviewDao FRDao = new Favorite_ReviewDao();
-		List<Favorite_Review> faorite_reviewimg_list = FRDao.favrevimgselect(user_name);
+		List<Review_List> favorite_review_list = FRDao.favrevselect("yamada");
 
-		request.setAttribute("faorite_reviewimg_list", faorite_reviewimg_list);
+		request.setAttribute("favorite_review_list", favorite_review_list);
 
-
-
-		List<Favorite_Review> faorite_reviewgnr_list = FRDao.favrevgnrselect(user_name);
-
-		request.setAttribute("faorite_reviewgnr_list", faorite_reviewgnr_list);
-
-
-
-		List<Favorite_Review> faorite_review_list = FRDao.favrevselect(user_name);
-
-		request.setAttribute("faorite_review_list", faorite_review_list);
-		*/
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/favorite_review_list.jsp");
 		dispatcher.forward(request, response);
 	}

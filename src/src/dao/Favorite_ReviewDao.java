@@ -8,13 +8,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Favorite_Review;
+import model.Review_List;
 
 public class Favorite_ReviewDao {
 
-	public List<Favorite_Review> favrevimgselect(String user_name) {
+	public List<Review_List> favrevselect(String user_name) {
 		Connection conn = null;
-		List<Favorite_Review> favorite_user_list = new ArrayList<Favorite_Review>();
+		List<Review_List> favorite_review_list = new ArrayList<Review_List>();
 
 		try {
 			// JDBCドライバを読み込む
@@ -24,7 +24,10 @@ public class Favorite_ReviewDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
 
 			// SQL文を準備する
-			String sql = "select image from review_image where review_id in (select review_id from favorite_review where user_name = ?";
+			String sql = "select genre_name , price , puroduct_name , good , image "
+					+ "from review join review_image on review.review_id = review_image.review_id "
+					+ "right join genre on review.genre_id = genre.genre_id "
+					+ "where review.review_id in (select favorite_review.review_id from favorite_review where user_name = ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			pStmt.setString(1, user_name);
@@ -34,19 +37,23 @@ public class Favorite_ReviewDao {
 
 			// 結果表をコレクションにコピーする
 			while (rs.next()) {
-			Review_image image = new Review_image(
-			rs.getString("image")
+			Review_List detail = new Review_List(
+			rs.getString("image"),
+			rs.getString("genre_name"),
+			rs.getInt("price"),
+			rs.getString("puroduct_name"),
+			rs.getInt("good")
 			);
-			favorite_user_list.add(image);
+			favorite_review_list.add(detail);
 			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-			favorite_user_list = null;
+			favorite_review_list = null;
 		}
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			favorite_user_list = null;
+			favorite_review_list = null;
 		}
 		finally {
 			// データベースを切断
@@ -56,66 +63,12 @@ public class Favorite_ReviewDao {
 				}
 				catch (SQLException e) {
 					e.printStackTrace();
-					favorite_user_list = null;
+					favorite_review_list = null;
 				}
 			}
 		}
 
 		// 結果を返す
-		return favorite_user_list;
+		return favorite_review_list;
 	}
-	
-	public List<Favorite_Review> favrevgnrselect(String user_name) {
-		Connection conn = null;
-		List<Favorite_Review> favorite_user_list = new ArrayList<Favorite_Review>();
-
-		try {
-			// JDBCドライバを読み込む
-			Class.forName("org.h2.Driver");
-
-			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
-
-			// SQL文を準備する
-			String sql = "select genre_name from genre where genre_id in (select gnre_id from favorite_review where user_name = ?";
-			PreparedStatement pStmt = conn.prepareStatement(sql);
-
-			pStmt.setString(1, user_name);
-
-			// SQL文を実行し、結果表を取得する
-			ResultSet rs = pStmt.executeQuery();
-
-			// 結果表をコレクションにコピーする
-			while (rs.next()) {
-			Review_image image = new Review_image(
-			rs.getString("image")
-			);
-			favorite_user_list.add(image);
-			}
-		}
-		catch (SQLException e) {
-			e.printStackTrace();
-			favorite_user_list = null;
-		}
-		catch (ClassNotFoundException e) {
-			e.printStackTrace();
-			favorite_user_list = null;
-		}
-		finally {
-			// データベースを切断
-			if (conn != null) {
-				try {
-					conn.close();
-				}
-				catch (SQLException e) {
-					e.printStackTrace();
-					favorite_user_list = null;
-				}
-			}
-		}
-
-		// 結果を返す
-		return favorite_user_list;
-	}
-
 }
