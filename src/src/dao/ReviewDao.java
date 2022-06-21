@@ -98,77 +98,62 @@ public class ReviewDao {
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる<<改造する>>
-				if (review_id.getProduct_name() != null && !review_id.getProduct_name().equals("")) {
-					pStmt.setString(1, review_id.getProduct_name());
+				if (review_id.getUser_name() != null && !review_id.getUser_name().equals("")) {
+					pStmt.setString(1, review_id.getUser_name());
 				}
 				else {
 					pStmt.setString(1, null);
 				}
-				if (review_id.getUser_name() != null && !review_id.getUser_name().equals("")) {
-					pStmt.setString(2, review_id.getUser_name());
-				}
-				else {
-					pStmt.setString(2, null);
-				}
 				if (review_id.getGenre_id() != 0) {
-					pStmt.setInt(3, review_id.getGenre_id());
+					pStmt.setInt(2, review_id.getGenre_id());
+				}
+				if (review_id.getReview_day() != null && !review_id.getReview_day().equals("")) {
+					pStmt.setString(3, review_id.getReview_day());
 				}
 				else {
 					pStmt.setString(3, null);
 				}
-				if (review_id.getReview_day() != null && !review_id.getReview_day().equals("")) {
-					pStmt.setString(4, review_id.getReview_day());
+				if (review_id.getTitle() != null && !review_id.getTitle().equals("")) {
+					pStmt.setString(4, review_id.getTitle());
 				}
 				else {
 					pStmt.setString(4, null);
 				}
-				if (review_id.getTitle() != null && !review_id.getTitle().equals("")) {
-					pStmt.setString(5, review_id.getTitle());
+				if (review_id.getSeries_name() != null && !review_id.getSeries_name().equals("")) {
+					pStmt.setString(5, review_id.getSeries_name());
 				}
 				else {
 					pStmt.setString(5, null);
 				}
-				if (review_id.getSeries_name() != null && !review_id.getSeries_name().equals("")) {
-					pStmt.setString(6, review_id.getSeries_name());
+				if (review_id.getThought() != null && !review_id.getThought().equals("")) {
+					pStmt.setString(6, review_id.getThought());
 				}
 				else {
 					pStmt.setString(6, null);
 				}
-				if (review_id.getThought() != null && !review_id.getThought().equals("")) {
-					pStmt.setString(7, review_id.getThought());
+				if (review_id.getEvalution() != 0) {
+					pStmt.setInt(7, review_id.getEvalution());
 				}
 				else {
 					pStmt.setString(7, null);
 				}
-				if (review_id.getEvalution() != 0) {
-					pStmt.setInt(8, review_id.getEvalution());
+				if (review_id.getAddress() != null && !review_id.getAddress().equals("")) {
+					pStmt.setString(8, review_id.getAddress());
 				}
 				else {
 					pStmt.setString(8, null);
 				}
-				if (review_id.getGood() != 0) {
-					pStmt.setInt(9, review_id.getGood());
+				if (review_id.getProduct_name() != null && !review_id.getProduct_name().equals("")) {
+					pStmt.setString(9, review_id.getProduct_name());
 				}
 				else {
 					pStmt.setString(9, null);
 				}
-				if (review_id.getAddress() != null && !review_id.getAddress().equals("")) {
-					pStmt.setString(10, review_id.getAddress());
-				}
-				else {
-					pStmt.setString(10, null);
-				}
-				if (review_id.getProduct_name() != null && !review_id.getProduct_name().equals("")) {
-					pStmt.setString(11, review_id.getProduct_name());
-				}
-				else {
-					pStmt.setString(11, null);
-				}
 				if (review_id.getPrice() != 0) {
-					pStmt.setInt(12, review_id.getPrice());
+					pStmt.setInt(11, review_id.getPrice());
 				}
 				else {
-					pStmt.setString(12, null);
+					pStmt.setInt(10, 0);
 				}
 
 
