@@ -32,12 +32,12 @@ public class MypageChangeServlet extends HttpServlet {
 			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
 		}
-
-
-
-
-
 		//*/
+
+
+
+
+
 		//マイページ変更画面にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage_change.jsp");
 		dispatcher.forward(request, response);
@@ -63,10 +63,9 @@ public class MypageChangeServlet extends HttpServlet {
 
 		String chose_public = request.getParameter("chose_public");
 
-		//System.out.println(name + chose_public);//ちゃんととってきている
+
 
 		//ArrayList<String> userchange = new ArrayList<String>(); スコープ渡しのお試し1
-
 		//request.setAttribute("userchange", name); スコープ渡しのお試し2
 
 		//画像関係の処理
