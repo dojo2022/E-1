@@ -1,14 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>どこがちゃ｜マイページ</title>
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/mypage.css">
-<!-- <style>*{outline: 1px solid #ff0000;}</style>
--->
+<!----> <style>*{outline: 1px solid #ff0000;}</style>
+
 </head>
 <body>
 <div class="wapper">
@@ -30,14 +32,12 @@
 <!-- ユーザアイコン、ユーザ名、お気に入り投稿リンクの表示 -->
 
 <div class ="user_inf1">
-	<div class ="user_image	">
-		<img src="${user.image}" alt="アイコン" > <!-- /dokogacha/img/icon_panda.png -->
+	<div class ="user_image">
+		<img src="${'/dokogacha/img/user_image/'+= user.user_image}" alt="アイコン" height=120px > <!-- /dokogacha/img/shiro_panda.png -->
 	</div>
 	<div class ="user_name_title">
-		<span class ="user_name">name${user.name}</span>
-<!--		 <img src="${user.title}" alt="称号" class="title"><br>
--->
-		<img src="${user.image}" alt="称号"  class="title"><br> <!-- /dokogacha/img/shiro_panda.png -->
+		<span class ="user_name">${user.id}</span>
+		<img src="+${'/dokogacha/img/'+=title}" alt="称号なし"  class="title" ><br> <!-- /dokogacha/img/shiro_panda.png -->
 
 		 <a href="/dokogacha/FavoriteReviewListServlet" class="favorite_review_list">お気に入り投稿一覧</a>
 	</div>
@@ -50,13 +50,12 @@
 </div>
 <div class="user_inf2-2">
 	<div class="total_good2">
-		${e.total_good}いいね
+		${total_good}いいね
 	</div>
 	<div class="Favorite_Genre2">
-		<c:set var="numnum" value="1"/>
-		<c:forEach var="num" begin="1" end="10" step="1" varStatus="N">
-		${N.index}<br>
-		</c:forEach>
+	<c:forEach var="genre" items="${GenreList}">
+		${genre}<br>
+	</c:forEach>
 	</div>
 </div>
 <!-- 編集ボタンと自分の最新投稿、自分の投稿一覧リンクの表示 -->

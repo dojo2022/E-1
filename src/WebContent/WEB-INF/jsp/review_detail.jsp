@@ -11,9 +11,9 @@
 
 	<c:out var="e" items="${review_detailList}" >
 	 <form method="POST" action="/dokogacha/ReviewDetailServlet">
-	 <div class="insert_image"><input type="file" value="${e.insert_image}"></div>
-	 <h2 class="goodbutton"><img id="goodbutton" name="goodbutton" value="いいねボタン" src="/dokogacha/img/good_shiro.png" height="80" width="180" onclick=”change()”></h2>
-	 <h2 class="favoritebutton"><img id="favoritebutton" name="favoritebutton" value="お気に入りボタン" src="/dokogacha/img/favo_shiro.png" height="80" width="180" onclick=”change()”></h2>
+	 <div class="insert_image"><input type="file" value="${e.insert_image}" alt="Not Image"></div>
+	 <h2 class="goodbutton"><img id="goodbutton" name="goodbutton" value="いいねボタン" src="/dokogacha/img/good_shiro.png" height="80" width="180" onclick="change1()"></h2>
+	 <h2 class="favoritebutton"><img id="favoritebutton" name="favoritebutton" value="お気に入りボタン" src="/dokogacha/img/favo_shiro.png" height="80" width="180" onclick="change2()"></h2>
 	 <table class="review_detail">
 	  <tr><td><input type="text" name="product_code" value="${e.product_code}"></td></tr>
 	  <tr><td><input type="text" name="title" value="${e.title}"></td></tr>
@@ -25,7 +25,7 @@
    <table class="user_detail" >
     <tr><td class="icon"><img src="/dokogacha/UserDatailServlet" alt="icon"></td>
 		 	  <td class="user_name"><input type="text" name="user_name" value="${e.user_name}"></td>
-			  <td class="user_detail"><a href="/dokogacha/UserDatailResultServlet"><img src="/dokogacha/img/detail_user.png" height="50" width="180"></a></td></tr>
+			  <td class="user_detail"><a href="/dokogacha/UserDetailServlet"><img src="/dokogacha/img/detail_user.png" height="50" width="180"></a></td></tr>
 	 </table>
 	 </form>
   </c:out>

@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,8 +8,8 @@
 
 <title>どこがちゃ｜マイページ変更</title>
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/mypage_change.css">
-<!-- <style>*{outline: 1px solid #ff0000;}</style>
--->
+<!-- --><style>*{outline: 1px solid #ff0000;}</style>
+
 </head>
 <body>
 
@@ -17,15 +19,17 @@
 	<tr>
 	<td rowspan="3" class="image" >
 		<input type="file" name="IMAGE" accept="image/*" onchange="previewImage(this);"><br>
-		<canvas id="preview" ></canvas><br></td>
-	<td class = "table1" >ユーザネーム<br><input type="text" name="user_id" ></td>
+		<canvas id="preview" ></canvas><br>
+		<img src="${'/dokogacha/img/user_image/'+= user.user_image}" alt="アイコン" height=120px> <!-- /dokogacha/img/shiro_panda.png -->
+	</td>
+	<td class = "table1" >ユーザネーム<br><input type="text" name="user_id" value="${user.id}"></td>
 	</tr>
 	<tr><td>お気に入り公開/非公開</td></tr>
 	<tr><td class = "table1">
-	<div>
-	    <input type="radio" id="ublic" name="chose_public" value="yes">
-    	<label for="ublic">公開</label>
-    	<input type="radio" id="" name="chose_public" value="no">
+	<div > <!-- JSで取ってきたpublicからどちらかにデフォルトを付ける-->
+	    <input type="radio" id="yes_ublic" name="chose_public" value="yes">
+    	<label for="yes_ublic">公開</label>
+    	<input type="radio" id="no_public" name="chose_public" value="no">
     	<label for="no_public">非公開</label>
     </div>
 	</tr>

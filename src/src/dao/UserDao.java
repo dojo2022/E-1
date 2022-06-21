@@ -24,12 +24,12 @@ public class UserDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
 
 			// SQL文を準備する
-			String sql = "SELECT *  FROM User WHERE id LIKE ? ORDER BY id ASC" ;
+			String sql = "SELECT *  FROM User WHERE id = ? ORDER BY id ASC" ;
 
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			// SQL文を完成させる
 			//ID----------------------------------------------
-				pStmt.setString(1, "%"+ id +"%");
+				pStmt.setString(1, id );
 
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
@@ -38,7 +38,7 @@ public class UserDao {
 			while (rs.next()) {
 				User user = new User();
 				user.setId(rs.getString("id"));
-				user.setImage(rs.getString("user_image"));
+				user.setUser_image(rs.getString("user_image"));
 				user.setC_public(rs.getString("public"));
 				UserList.add(user);
 			}

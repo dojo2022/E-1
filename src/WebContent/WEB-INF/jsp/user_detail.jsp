@@ -36,7 +36,7 @@
 		<img src="${user.image}" alt="アイコン" > <!-- /dokogacha/img/icon_panda.png -->
 	</div>
 	<div class ="user_name_title">
-		<span class ="user_name">name${user.name}</span>
+		<span class ="user_name">name${user.id}</span>
 		 <img src="${user.title}" alt="称号" width=50px class="title"><br>
 		 <a href="/dokogacha/FavoriteReviewListServlet" class="favorite_review_list">お気に入り投稿一覧</a>
 	</div>
