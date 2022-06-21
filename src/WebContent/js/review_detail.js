@@ -1,9 +1,10 @@
- var img_src = new Array('/dokogacha/img/good_pink.png');
-      var i = 0;
- function change() {
+  var change1 = function(){
+   var good = document.getElementById('goodbutton');
+   good.src = '/dokogacha/img/good_pink.png';
+   }
 
-        if (i == 1) {
-          i = 0;
-        }
-        document.getElementById('goodbutton').src = img_src[i];
-      }
+  var change2 = function(){
+   var favorite = document.getElementById('favoritebutton');
+   favorite.src = '/dokogacha/img/favo_gold.png';
+   }
+
