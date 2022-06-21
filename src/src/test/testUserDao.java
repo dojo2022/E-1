@@ -13,7 +13,7 @@ public class TestUserDao {
 	List<User> recordList2 = dao.select("");
 	for (User record : recordList2) {
 		System.out.println("　id：" + record.getId());
-		System.out.println("　User_image：" + record.getImage());
+		System.out.println("　User_image：" + record.getUser_image());
 		System.out.println("　public：" + record.getC_public());
 		System.out.println();
 		}
@@ -25,7 +25,7 @@ public class TestUserDao {
 		List<User> recordList3 = dao.select("");
 		for (User record : recordList3) {
 			System.out.println("　id：" + record.getId());
-			System.out.println("　User_image：" + record.getImage());
+			System.out.println("　User_image：" + record.getUser_image());
 			System.out.println("　public：" + record.getC_public());
 			System.out.println();
 			}
@@ -42,7 +42,7 @@ public class TestUserDao {
 			List<User> recordList3 = dao.select("");
 			for (User record : recordList3) {
 				System.out.println("　id：" + record.getId());
-				System.out.println("　User_image：" + record.getImage());
+				System.out.println("　User_image：" + record.getUser_image());
 				System.out.println("　public：" + record.getC_public());
 				System.out.println();
 				}
