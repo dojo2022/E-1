@@ -15,19 +15,19 @@
 <h2>他ユーザーの投稿</h2>
 
 <form name=f method=POST action="/dokogacha/ReviewDetailServlet">
-<input type="hidden" name="review" value="change">
-
-<c:forEach var="s" items="${review}" varStatus="s" >
 <table class="review">
-		<tr  class="deta">
-			<td class="photo"><a href="javascript:document.f.submit()"><img src="img/icon_camera.png" id=""></a></td>
-			<td class="nakami"><a href="javascript:document.f.submit()">
-			${s.genre}ジャンル/値段${s.price}<br>
-			${s.product_code}商品名<br>
-			${s.good}いいね数 </a></td>
-		</tr>
+			<c:forEach var="u" items="${user_review_list}" >
+			<tr class="data">
+				<input type="hidden" name="review_id" value=${u.review_id}>
+				<input type="hidden" name="review" value="change">
+				<td class="photo"><a href="javascript:document.f.submit()">${u.image}</a></td>
+				<td class="nakami" ><a href="javascript:document.f.submit()">
+				<div class="kinngaku">${u.genre_name} / ${u.price}</div><br>
+				<div class="naiyou">${u.puroduct_name}</div><br>
+				<div class="iine">${u.good}</div></a></td>
+			</tr>
+			</c:forEach>
 </table>
-</c:forEach>
 </form>
 
 	<div class="back">
