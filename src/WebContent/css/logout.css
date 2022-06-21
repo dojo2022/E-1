@@ -10,16 +10,20 @@ body{
 	margin: 0 0 0 0;
 	background-color: #eeece9;
 }
+.wapper{
+  margin: 0 auto;
+  width: 580px ; /*580px*/
+}
 .cap_success{
 	position:relative;
 	bottom:-250px;
 	width:150px;
-	margin-left:450px;
+	left:100px;
 }
 .btn img {
 	position: absolute;
 	top: 650px;
-	left: 37.5%;
+	left:37.8%;
 	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 	display: block;
@@ -30,28 +34,28 @@ body{
 	opacity: 0;
 }
 .button_login{
-	width:13%
+	width:180px
 }
 .button_login2{
-	width:11%
+	width:150px
 }
 .cap_panda{
 	width:100px;
 	position:relative;
-	bottom:-300px;
-	margin-left:670px;
+	bottom:-430px;
+	left:300px;
 }
 .comment_logout{
 	position:relative;
-	bottom:-50px;
+	bottom:-150px;
 	width:300px;
-	margin-left:600px;
+	left:100px;
 }
 
 .goodbye{
 	position:relative;
-	margin-left:730px;
-	bottom:-80px;
+	left:350px;
+	bottom:-200px;
 	font-size:2em;
 	font-weight:bold;
 	color: #FFF;
