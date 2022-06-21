@@ -151,7 +151,7 @@ public class ReviewDao {
 					pStmt.setString(9, null);
 				}
 				if (review_id.getPrice() != 0) {
-					pStmt.setInt(11, review_id.getPrice());
+					pStmt.setInt(10, review_id.getPrice());
 				}
 				else {
 					pStmt.setInt(10, 0);
