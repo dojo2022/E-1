@@ -6,14 +6,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import model.User;
 /*------------------------SELECT----------------------------------*/
 // 引数idで検索項目を指定し、検索結果のリストを返す
 public class UserDao {
-	public ArrayList<User> select(String id) {
+	public List<User> select(String id) {
 		Connection conn = null;
-		ArrayList<User> UserList = new ArrayList<User>();;
+		List<User> UserList = new ArrayList<User>();;
 
 		try {
 			// JDBCドライバを読み込む
