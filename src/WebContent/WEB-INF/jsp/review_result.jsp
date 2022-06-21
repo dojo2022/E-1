@@ -12,7 +12,7 @@
 <div class="wapper">
 <img class="cap_comp" src="/dokogacha/img/cap_comp.png">
 <img class="comment_post" src="/dokogacha/img/comment_post.png">
-<div class="btn">
+  <div class="btn">
   <a href="/dokogacha/TopServlet">
   <img class="button_top2" src="/dokogacha/img/button_totop2.png">
   <img class="button_top" src="/dokogacha/img/button_totop.png"></a>
