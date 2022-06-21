@@ -13,10 +13,10 @@
 	<header class="header">
 		<nav class="nav">
 		<ul>
-		    <li><a href="index.html">トップ</a><li>
-		    <li><a href="about.html">検索</a></li>
-		    <li><a href="access.html">投稿</a></li>
-		    <li><a href="menu.html">マイページ</a></li>
+		    <li><a href="TopServlet.java">トップ</a><li>
+		    <li><a href="SearchServlet.java">検索</a></li>
+		    <li><a href="ReviewServlet.java">投稿</a></li>
+		    <li><a href="MypageServlet.java">マイページ</a></li>
 		</ul>
 		</nav>
 	</header>
