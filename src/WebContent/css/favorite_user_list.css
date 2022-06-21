@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-
 body{
 	background-size: contain;
 	width:100%;
@@ -31,11 +30,8 @@ td.selecting {
 }
 .check {
 	position: absolute;
-	right: 100px;
-	top: 50px;
-}
-.fhead, .tab, .empty {
-	height: 50px;
+	top: 45%;
+    left: 83%;
 }
 .fhead, .tab, .empty {
 	height: 50px;
@@ -95,15 +91,4 @@ th.fhead {
 	vertical-align: middle;
 	width: 120px;
 	height: 120px;
-}
-.check {
-  display: none; /* デフォルトのチェックボックスを非表示 */
-  background-image: url("./img/icon_trash.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  content: "";
-  height: 30px;
-  position: relative;
-  width: 30px;
 }

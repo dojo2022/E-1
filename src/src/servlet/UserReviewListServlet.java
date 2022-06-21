@@ -47,7 +47,7 @@ public class UserReviewListServlet extends HttpServlet {
 
 
 		ReviewDao rDao = new ReviewDao();
-		List<Review> reviewList = rDao.select(Review);
+		List<Review> reviewList = rDao.select("Review review_id");
 
 		request.setAttribute("reviewList", reviewList);
 

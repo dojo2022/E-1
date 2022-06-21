@@ -24,7 +24,7 @@
 				<input type="hidden" name="review" value="change">
 				<td class="icon" colspan="2"><a href="javascript:document.f.submit()">${e.image}</a></td>
 				<td class="detail" colspan="6"><a href="javascript:document.f.submit()"><div class="top">${e.genre_name} / ${e.price}</div><br><div class="middle">${e.puroduct_name}</div><br><div class="bottom">${e.good}</div></a></td>
-				<td class="delete" colspan="2"><input type="checkbox" name="follow_state" value="お気に入り解除" class="check">
+				<td class="delete" colspan="2"><input type="submit" name="follow_state" value="お気に入り解除" class="check" formaction="/dokogacha/FavoriteReviewListServlet"></td>
 			</tr>
 			</c:forEach>
 
