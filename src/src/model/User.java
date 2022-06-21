@@ -5,18 +5,23 @@ import java.io.Serializable;
 public class User implements Serializable {
 	private String id;
 	private String pw;
-	private String image;
+	private String user_image;
 
-	public User(String id, String pw, String image) {
+	public User(String id, String pw, String user_image) {
 		this.id = id;
 		this.pw = pw;
-		this.image = image;
+		this.user_image = user_image;
+	}
+
+	public User(String user_name, String user_image) {
+		this.id = user_name;
+		this.user_image = user_image;
 	}
 
 	public User() {
 		this.id = "";
 		this.pw = "";
-		this.image = "";
+		this.user_image = "";
 	}
 
 	public String getId() {
@@ -35,12 +40,12 @@ public class User implements Serializable {
 		this.pw = pw;
 	}
 
-	public String getImage() {
-		return image;
+	public String getUser_image() {
+		return user_image;
 	}
 
-	public void setImage(String image) {
-		this.image = image;
+	public void setUser_image(String user_image) {
+		this.user_image = user_image;
 	}
 
 }
