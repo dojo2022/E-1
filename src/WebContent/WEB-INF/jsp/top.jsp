@@ -9,6 +9,7 @@
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/top.css">
 </head>
 <body>
+<div class="wapper">
 <!-- ヘッダー -->
 <header class="header">
   <h1 class="logo">トップページ</h1>
@@ -43,9 +44,10 @@
     </nav>
     </header>
     <img class="button_null" src="/dokogacha/img/button_null.png">
+    <div class ="my_new_review">
+		＃${review.ganre}<br>${review.price}　${review.product_name}　<br>${review.good}　<br>
+    </div>
+    </div>
 </body>
-<div class ="my_new_review">
-			＃${review.ganre}<br>${review.price}　${review.product_name}　<br>${review.good}　<br>
-		</div>
 <!-- フッター -->
 </html>

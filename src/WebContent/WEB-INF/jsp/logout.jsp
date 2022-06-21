@@ -9,6 +9,7 @@
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/logout.css">
 </head>
 <body>
+<div class="wapper">
 <header class="header">
   <img class="cap_success" src="/dokogacha/img/cap_success.png">
   <img class="comment_logout" src="/dokogacha/img/comment_logout.png">
@@ -21,5 +22,6 @@
   </header>
   <img class="cap_panda" src="/dokogacha/img/capin_panda.png">
   <h2 class="goodbye">また来てね！</h2>
+  </div>
 </body>
 </html>

@@ -8,6 +8,7 @@
 <link rel= "stylesheet" type="text/css" href ="css/regist_result.css">
 </head>
 <body>
+<div class="wapper">
 <header class="header">
   <img class="cap_success" src="/dokogacha/img/cap_success.png">
   <h2 class="welcome">どこがちゃへようこそ</h2>
@@ -15,5 +16,6 @@
   <img class ="cap_panda" src="/dokogacha/img/capin_panda.png">
   <a class="login_page" href="/dokogacha/LoginServlet">ログインページへ</a>
   </header>
+  </div>
 </body>
 </html>
