@@ -65,7 +65,7 @@ public class SearchServlet extends HttpServlet {
 
 		// 検索処理を行う
 		ReviewDao rDao = new ReviewDao();
-		List<Review> reviewList = rDao.select(new Review(genre, cap_word, capsule_address)); //改造する
+		List<Review> reviewList = rDao.select(new Review(genre, word, address)); //改造する
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("reviewList", reviewList);

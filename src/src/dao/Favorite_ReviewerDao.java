@@ -16,22 +16,22 @@ public class Favorite_ReviewerDao {
 			List<User> favorite_user_list = new ArrayList<User>();
 
 			try {
-				// JDBCƒhƒ‰ƒCƒo‚ğ“Ç‚İ‚Ş
+				// JDBCãƒ‰ãƒ©ã‚¤ãƒã‚’èª­ã¿è¾¼ã‚€
 				Class.forName("org.h2.Driver");
 
-				// ƒf[ƒ^ƒx[ƒX‚ÉÚ‘±‚·‚é
+				// ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã«æ¥ç¶šã™ã‚‹
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
 
-				// SQL•¶‚ğ€”õ‚·‚é
+				// SQLæ–‡ã‚’æº–å‚™ã™ã‚‹
 				String sql = "select id, user_image from user where id in (select reviewer_id from favorite_reviewer where user_name = ?);";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				pStmt.setString(1, user_id);
 
-				// SQL•¶‚ğÀs‚µAŒ‹‰Ê•\‚ğæ“¾‚·‚é
+				// SQLæ–‡ã‚’å®Ÿè¡Œã—ã€çµæœè¡¨ã‚’å–å¾—ã™ã‚‹
 				ResultSet rs = pStmt.executeQuery();
 
-				// Œ‹‰Ê•\‚ğƒRƒŒƒNƒVƒ‡ƒ“‚ÉƒRƒs[‚·‚é
+				// çµæœè¡¨ã‚’ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã«ã‚³ãƒ”ãƒ¼ã™ã‚‹
 				while (rs.next()) {
 				User card = new User(
 				rs.getString("id"),
@@ -49,7 +49,7 @@ public class Favorite_ReviewerDao {
 				favorite_user_list = null;
 			}
 			finally {
-				// ƒf[ƒ^ƒx[ƒX‚ğØ’f
+				// ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’åˆ‡æ–­
 				if (conn != null) {
 					try {
 						conn.close();
@@ -61,7 +61,7 @@ public class Favorite_ReviewerDao {
 				}
 			}
 
-			// Œ‹‰Ê‚ğ•Ô‚·
+			// çµæœã‚’è¿”ã™
 			return favorite_user_list;
 		}
 }
