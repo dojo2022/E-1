@@ -65,19 +65,23 @@ public class FavoriteUserListServlet extends HttpServlet {
 
 
 		request.setCharacterEncoding("UTF-8");
-		int user_name = Integer.parseInt(request.getParameter("user"));
+		String user_name = request.getParameter("user");
 
 		request.setAttribute("user_name", user_name);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/dokogacha/UserDetailServlet");
-		dispatcher.forward(request, response);
+		//dispatcher.forward(request, response);
 
 		if (request.getParameter("follow_state").equals("お気に入り解除")) {
+			/*
+			LoginUser LU = new LoginUser();
+			request.setCharacterEncoding("UTF-8");
+			String my_name = request.getParameter(LU.getId());
+			*/
 			Favorite_ReviewerDao FRDao = new Favorite_ReviewerDao();
-			FRDao.delete(user_name);
+			FRDao.delete("maura",user_name);
 
-			RequestDispatcher dispatcher2 = request.getRequestDispatcher("/dokogacha/FavoriteUserListServlet");
-			dispatcher2.forward(request, response);
+			response.sendRedirect("/dokogacha/FavoriteUserListServlet");
 		}
 	}
 }
