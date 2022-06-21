@@ -5,7 +5,7 @@ import java.util.List;
 import dao.UserDao;
 import model.User;
 
-public class testUserDao {
+public class TestUserDao {
 	public static void main(String[] args) {
 	UserDao dao = new UserDao();
 //----------------------select()のテスト---------------------------------------------
