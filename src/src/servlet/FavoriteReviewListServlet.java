@@ -62,28 +62,23 @@ public class FavoriteReviewListServlet extends HttpServlet {
 			response.sendRedirect("/simpleBC/LoginServlet");
 			return;
 		}*/
-		/*
+
 		request.setCharacterEncoding("UTF-8");
-		String review_id = request.getParameter("${e.review_id}");
+		int review_id = Integer.parseInt(request.getParameter("review_id"));
 
 		request.setAttribute("review_id", review_id);
-*/
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/dokogacha/ReviewDetailServlet");
 		dispatcher.forward(request, response);
-		/*
-		request.setCharacterEncoding("UTF-8");
-		String review_id = request.getParameter("${e.review_id}");
 
-		Favorite_ReviewerDao FRDao = new Favorite_ReviewerDao();
 		if (request.getParameter("follow_state").equals("お気に入り解除")) {
-			if (FRDao.delete(review_id)) {
-			}
+			Favorite_ReviewDao FRDao = new Favorite_ReviewDao();
+			FRDao.delete(review_id);
+
+			RequestDispatcher dispatcher2 = request.getRequestDispatcher("/dokogacha/FavoriteReviewListServlet");
+			dispatcher2.forward(request, response);
 		}
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/favorite_user_list.jsp");
-		dispatcher.forward(request, response);
-		*/
 	}
 
 }

@@ -63,17 +63,21 @@ public class FavoriteUserListServlet extends HttpServlet {
 			return;
 		}*/
 
-		/*
-		request.setCharacterEncoding("UTF-8");
-		String reviewer_id = request.getParameter("${e.id}");
 
-		Favorite_ReviewerDao FUDao = new Favorite_ReviewerDao();
-		if (request.getParameter("follow_state").equals("お気に入り解除")) {
-			if (FUDao.delete(reviewer_id)) {
-			}
-		}
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/favorite_user_list.jsp");
+		request.setCharacterEncoding("UTF-8");
+		int user_name = Integer.parseInt(request.getParameter("user"));
+
+		request.setAttribute("user_name", user_name);
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/dokogacha/UserDetailServlet");
 		dispatcher.forward(request, response);
-		*/
+
+		if (request.getParameter("follow_state").equals("お気に入り解除")) {
+			Favorite_ReviewerDao FRDao = new Favorite_ReviewerDao();
+			FRDao.delete(user_name);
+
+			RequestDispatcher dispatcher2 = request.getRequestDispatcher("/dokogacha/FavoriteUserListServlet");
+			dispatcher2.forward(request, response);
+		}
 	}
 }
