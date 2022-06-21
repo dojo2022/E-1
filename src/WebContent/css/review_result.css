@@ -13,22 +13,26 @@ body{
 	margin: 0 0 0 0;
 	background-color: #eeece9;
 }
+.wapper{
+  margin: 0 auto;
+  width: 580px ; /*580px*/
+}
 .cap_comp {
 	position:relative;
 	bottom:-280px;
 	width:150px;
-	margin-left:400px;
+	left:40px;
 }
 .comment_post{
 	width:330px;
 	position:relative;
-	bottom:-10px;
-	margin-left:600px
+	bottom:-180px;
+	left:60px
 }
 .btn img {
 	position: absolute;
 	top: 650px;
-	left: 37.5%;
+	left: 37.8%;
 	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 	display: block;
