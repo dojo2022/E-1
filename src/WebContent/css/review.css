@@ -117,3 +117,6 @@ p {
 #insert_image {
 	display: inline-block;
 }
+#error_message{
+	color:red;
+}
