@@ -93,7 +93,7 @@ public class ReviewDao {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
 
 				// SQL文を準備する<<ここを改造する>>
-				String sql = "INSERT INTO Review (user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, product_name, price)\r\n"
+				String sql = "INSERT INTO Review (user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price)\r\n"
 							+ "VALUES (?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?)";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
@@ -150,7 +150,7 @@ public class ReviewDao {
 					pStmt.setString(9, null);
 				}
 				if (review_id.getPrice() != 0) {
-					pStmt.setInt(11, review_id.getPrice());
+					pStmt.setInt(10, review_id.getPrice());
 				}
 				else {
 					pStmt.setInt(10, 0);
