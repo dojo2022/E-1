@@ -16,15 +16,12 @@
 
 <form name=f method=POST action="/dokogacha/ReviewDetailServlet">
 <table class="review">
-			<c:forEach var="u" items="${user_review_list}" >
+			<c:forEach var="e" items="${favorite_review_list}" >
 			<tr class="data">
-				<input type="hidden" name="review_id" value=${u.review_id}>
+				<input type="hidden" name="review_id" value=${e.review_id}>
 				<input type="hidden" name="review" value="change">
-				<td class="photo"><a href="javascript:document.f.submit()">${u.image}</a></td>
-				<td class="nakami" ><a href="javascript:document.f.submit()">
-				<div class="kinngaku">${u.genre_name} / ${u.price}</div><br>
-				<div class="naiyou">${u.puroduct_name}</div><br>
-				<div class="iine">${u.good}</div></a></td>
+				<td class="photo" colspan="2"><a href="javascript:document.f.submit()">${e.image}</a></td>
+				<td class="nakami" colspan="6"><a href="javascript:document.f.submit()"><div class="top">${e.genre_name} / ${e.price}</div><br><div class="middle">${e.puroduct_name}</div><br><div class="bottom">${e.good}</div></a></td>
 			</tr>
 			</c:forEach>
 </table>
