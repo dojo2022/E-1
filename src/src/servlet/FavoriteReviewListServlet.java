@@ -72,13 +72,14 @@ public class FavoriteReviewListServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		int review_id = Integer.parseInt(request.getParameter("review_id"));
 
-		request.setAttribute("review_id", review_id);
+		session.setAttribute("review_id", review_id);
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/dokogacha/ReviewDetailServlet");
+		response.sendRedirect("/dokogacha/ReviewDetailServlet");
+		//RequestDispatcher dispatcher = request.getRequestDispatcher("/dokogacha/ReviewDetailServlet");
 		//dispatcher.forward(request, response);
 
 		//お気に入り解除ボタンが押されたら
-		if (request.getParameter("follow_state").equals("お気に入り解除")) {
+		if (request.getParameter("follow_state") != null) {
 
 			//ログイン中のユーザ名を取得
 			request.setCharacterEncoding("UTF-8");
