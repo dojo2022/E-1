@@ -34,14 +34,16 @@ public class ReviewServlet extends HttpServlet {
 			return;
 		}
 		int star;
-		if(session.getAttribute("star") == null|| session.getAttribute("star") == "") {
+		String star_Str = request.getParameter("star");
+		if( star_Str== null|| star_Str == "") {
 			star = 0;
 		}else {
 			star = Integer.parseInt(request.getParameter("star"));
 		}
 		int price;
-		if(session.getAttribute("price") == null || session.getAttribute("price") == "") {
-			price = -1;
+		String price_Str = request.getParameter("price");
+		if(price_Str == null || price_Str == "") {
+			price = 0;
 		}else {
 			price = Integer.parseInt(request.getParameter("price"));
 		}
@@ -49,7 +51,6 @@ public class ReviewServlet extends HttpServlet {
 		user = (LoginUser)session.getAttribute("id");
 		int genre_id = Integer.parseInt(request.getParameter("genre"));
 		int good = 0;
-		String price_Str = request.getParameter("price");
 		String user_name = user.getId();
 		String product_name = request.getParameter("product_name");
 		String title = request.getParameter("title");

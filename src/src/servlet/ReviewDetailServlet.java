@@ -31,7 +31,9 @@ public class ReviewDetailServlet extends HttpServlet {
 			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
 		}*/
-		int review_id = 0;
+		request.setCharacterEncoding("UTF-8");
+		HttpSession session = request.getSession();
+		int review_id = (int) session.getAttribute("review_id");
 			ReviewDao rDao = new ReviewDao();
 		List<Review> review_detailList = rDao.select(new Review(review_id));
 		request.setAttribute("review_detailList", review_detailList);

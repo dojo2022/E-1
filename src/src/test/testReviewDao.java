@@ -5,9 +5,22 @@ import java.util.List;
 import dao.ReviewDao;
 import model.Review;
 
-public class TestReviewDao {
+public class testReviewDao {
 	public static void main(String[] args) {
 		ReviewDao rDao = new ReviewDao();
+		//----------------------search()のテスト---------------------------------------------
+		System.out.println("---------- search()のテスト ----------");
+		List<Review> reviewList = rDao.search(0,"Kusanagi","d");
+		for (Review review : reviewList) {
+			System.out.println("genre_name: " +review.getGenre_id());
+			System.out.println("price：" +review.getPrice());
+			System.out.println("product_name：" +review.getProduct_name());
+			System.out.println("good:"+review.getGood());
+			System.out.println("address:"+review.getAddress());
+			System.out.println("user_name:"+review.getUser_name());
+			System.out.println();
+			}
+		/*
 		if (rDao.insert(new Review(0, "user_name", 1, "review_day", "title", "series", "thought", 1, 0, "address", "puroduct_name", 100))){
 			System.out.println("登録成功！");
 			List<Review> ReviewList1 = rDao.allselect();
@@ -32,6 +45,6 @@ public class TestReviewDao {
 		else {
 			System.out.println("登録失敗！");
 		}
-
+*/
 	}
 }
