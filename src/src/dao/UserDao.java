@@ -12,7 +12,7 @@ import model.User;
 /*------------------------SELECT----------------------------------*/
 // 引数idで検索項目を指定し、検索結果のリストを返す
 public class UserDao {
-	public List<User> select(String id) {
+	public List<User> select(String user_id) {
 		Connection conn = null;
 		List<User> UserList = new ArrayList<User>();;
 
@@ -29,7 +29,7 @@ public class UserDao {
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			// SQL文を完成させる
 			//ID----------------------------------------------
-				pStmt.setString(1, id );
+				pStmt.setString(1, user_id );
 
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
@@ -69,7 +69,7 @@ public class UserDao {
 
 	/*------------------------INSERT----------------------------------*/
 	 // 引数cardで指定されたレコードを登録し、成功したらtrueを返す
-	public boolean insert(String id, String pw){
+	public boolean insert(String User_id, String pw){
 		Connection conn = null;
 		boolean result = false;
 
@@ -87,8 +87,8 @@ public class UserDao {
 
 			// SQL文を完成させる
 			//ID----------------------------------------------
-			if (!id.equals("")) {
-				pStmt.setString(1, id);
+			if (!User_id.equals("")) {
+				pStmt.setString(1, User_id);
 			}
 			else {
 				pStmt.setString(1, null);

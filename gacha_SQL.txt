@@ -93,7 +93,7 @@ create table review_image (
 insert into user (id, pw, user_image, public ) values ('', '', '', 'no'); /*publicは初期値'no'*/
 
 称号
-insert into title (total_good, title_image, title_name) values (, '', '');
+insert into title (total_good, title_image, title_name) values (  , '', '');
 
 お気に入りジャンル
 insert into favorite_genre (user_name, genre_id, genre_name) values ('', , '');
@@ -143,5 +143,10 @@ insert into user (id, pw, user_image, public ) values ('maura', 'maura1234', 'e'
 insert into favorite_reviewer (user_name, reviewer_id) values ('maura', 'yamada');
 insert into favorite_reviewer (user_name, reviewer_id) values ('maura', 'suzuki');
 insert into favorite_reviewer (user_name, reviewer_id) values ('maura', 'takeda');
+
+称号
+insert into title (total_good, title_image, title_name) values ( 10, 'shiro_panda.png','shiro_panda');
+insert into title (total_good, title_image, title_name) values ( 50, 'silver_panda.png','silver_panda');
+insert into title (total_good, title_image, title_name) values (100, 'gold_panda.png','gold_panda');
 
 
