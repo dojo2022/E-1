@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="wrapper">
-	<form name=f method=POST action="/dokogacha/FavoriteReviewListServlet">
+
 		<table border="1" style="border-collapse: collapse">
 			<tr><th class="fhead" colspan="10">お気に入り一覧</th></tr>
 			<tr class="tab">
@@ -18,6 +18,7 @@
 				<td colspan="5" class="unselecting"><a href="/dokogacha/FavoriteUserListServlet">お気に入りユーザ一覧</a></td>
 			</tr>
 			<tr><td class="empty" colspan="10"></td></tr>
+			<form name=f method=POST action="/dokogacha/FavoriteReviewListServlet">
 			<c:forEach var="e" items="${favorite_review_list}" >
 			<tr class="data">
 				<input type="hidden" name="review_id" value=${e.review_id}>
@@ -27,14 +28,14 @@
 				<td class="delete" colspan="2"><input type="submit" name="follow_state" value="お気に入り解除" class="check" formaction="/dokogacha/FavoriteReviewListServlet"></td>
 			</tr>
 			</c:forEach>
-
+</form>
 			<tr class="menu">
 				<td colspan="2" class="back"><a href="/dokogacha/MypageServlet"><img src="/dokogacha/img/cap_back.png" alt="戻る"></a></td>
 				<td colspan="6" class="emp"></td>
 				<td colspan="2" class="top"><a href="/dokogacha/TopServlet"><img src="/dokogacha/img/cap_top.png" alt="トップ"></a></td>
 			</tr>
 		</table>
-	</form>
+
 </div>
 </body>
 </html>
