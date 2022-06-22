@@ -13,9 +13,8 @@ body{
 	background-image: url(../img/template_gacha.png);
 	width:100%;
 	height:800px;
-	margin: 0 auto;
+	margin: 0 0 0 0;
 	background-color: #eeece9;
-
 }
 .wapper{
   margin: 0 auto;
@@ -48,33 +47,48 @@ body{
 /*-----user_inf1-----*/
 .user_inf1{
 	display: flex;
+	justify-content:center;
 	font-size: 30px;
 }
+.user_image	img{
+	margin-right: 30px;
+	width :150px;
+	height:150px;
+}
+.user_name_title{
+	margin: auto 0;
+}
 
+.user_name_title a{
+	color: ブラック;
+	text-decoration: none;
+}
 .user_name_title img{
 	width:60px;
 }
 /*-----user_inf2-----*/
 .user_inf2{
 	display: flex;
+	position:relative;
+	bottom:10px;
 	justify-content:center;
 	font-size: 30px;
-	position:relative;
-	bottom: 350px;
 }
 .total_good1{
-	display: flex;
 	position:relative;
-	right:15px;
+	right:18px;
 }
 .Favorite_Genre1{
 	position:relative;
-	left:25px
+	left:20px;
 }
+/*-----user_inf2-----*/
 .user_inf2-2{
 	display: flex;
 	justify-content:center;
 	font-size: 30px;
+	position:relative;
+	bottom:10px;
 }
 .total_good2{
 	display: flex;
@@ -103,6 +117,8 @@ body{
 .user_inf3{
 	display: flex;
 	margin: 10px auto 0 auto;
+	position:relative;
+	bottom:10px;
 }
 .do_change{
 	position:relative;

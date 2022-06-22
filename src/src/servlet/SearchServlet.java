@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.GenreDao;
 import dao.ReviewDao;
+import model.Genre;
 import model.Review;
 
 /**
@@ -57,9 +60,9 @@ public class SearchServlet extends HttpServlet {
 
 		// リクエストパラメータを取得する 改造する
 		request.setCharacterEncoding("UTF-8");
-		String genre = request.getParameter("genre");
-		String cap_word = request.getParameter("cap_word");
-		String capsule_address = request.getParameter("capsule_address");
+		int genre = Integer.parseInt(request.getParameter("genre"));
+		String word = request.getParameter("cap_word");
+		String address = request.getParameter("capsule_address");
 
 
 
