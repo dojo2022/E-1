@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -33,11 +34,11 @@ public class SearchServlet extends HttpServlet {
 		}
 
 		// 検索処理を行う
-		GenreDao gDao = new GenreDao();
-		List<Genre> genreList = gDao.select(new Genre(-1)); //改造する
+		//GenreDao gDao = new GenreDao();
+		//List<Genre> genreList = gDao.select(new Genre(-1)); //改造する
 
 		// 検索結果をリクエストスコープに格納する
-		request.setAttribute("genreList", genreList);
+		//request.setAttribute("genreList", genreList);
 
 		// 検索ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/search.jsp");
@@ -57,9 +58,9 @@ public class SearchServlet extends HttpServlet {
 
 		// リクエストパラメータを取得する 改造する
 		request.setCharacterEncoding("UTF-8");
-		String genre = request.getParameter("genre");
-		String cap_word = request.getParameter("cap_word");
-		String capsule_address = request.getParameter("capsule_address");
+		int genre = Integer.parseInt(request.getParameter("genre"));
+		String word = request.getParameter("cap_word");
+		String address = request.getParameter("capsule_address");
 
 
 
