@@ -10,20 +10,35 @@ body{
 	margin: 0 0 0 0;
 	background-color: #eeece9;
 }
+.wapper{
+  margin: 0 auto;
+  width: 580px ; /*580px*/
+}
 .div_username{
 	position:relative;
-	top:60px;
-	margin-left:450px;
+	top:50px;
+	left:80px;
 }
 .div_password{
 	position:relative;
 	top:75px;
-	margin-left:450px;
+	left:80px;
 }
 .h1_regist{
 	position:relative;
-	top:100px;
-	margin-left:590px;
+	bottom:-100px;
+	margin-left:15px;
+	font-size:2.5em;
+	text-align:center;
+	line-height:0.95em;
+	font-weight:bold;
+	color: #FFF;
+	text-shadow:
+		0 0 0.05em #F06292,
+		0 0 0.10em #F06292,
+		0 0 0.15em #F06292,
+		0 0 0.30em #F06292;
+	filter: saturate(80%);
 }
 .text_username{
 	position:relative;
@@ -41,7 +56,7 @@ body{
 	width:140px;
 	position:relative;
 	top:180px;
-	margin-left:440px;
+	left:60px;
 }
 .img_username{
 	width:100px;
@@ -54,5 +69,5 @@ body{
 	color:red;
 	position:relative;
 	top:380px;
-	margin-left:500px;
+	margin-left:200px;
 }

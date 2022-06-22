@@ -17,6 +17,12 @@
 	vertical-align :top;
 }
 
+.image img{
+	position: relative;
+	bottom : 10px;
+
+	}
+
 #preview{
 	max-width: 200px;
 	height:200px;

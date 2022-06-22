@@ -40,6 +40,7 @@ public class MypageChangeServlet extends HttpServlet {
 			return;
 		}
 		//*/
+		//ログイン中のゆーざIDを取得
 		request.setCharacterEncoding("UTF-8");
 		LoginUser loginuser = new LoginUser();
 		loginuser = (LoginUser)session.getAttribute("id");
@@ -70,39 +71,50 @@ public class MypageChangeServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
 		{
-		//
-		/*
-		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/dokogacha/LoginServlet");
-			return;
-		}
-		//*/
+			HttpSession session = request.getSession();
+			//
+			/*
+			// もしもログインしていなかったらログインサーブレットにリダイレクトする
+			if (session.getAttribute("id") == null) {
+				response.sendRedirect("/dokogacha/LoginServlet");
+				return;
+			}
+			//*/
+			//ログイン中のゆーざIDを取得
+			request.setCharacterEncoding("UTF-8");
+			LoginUser loginuser = new LoginUser();
+			loginuser = (LoginUser)session.getAttribute("id");
+			String loginuser_name = "tanaka";//loginuser.getId();
 
-		request.setCharacterEncoding("UTF-8");
+			String name = request.getParameter("user_id");
 
-		String name = request.getParameter("user_id");
+			String chose_public = request.getParameter("chose_public");
 
-		String chose_public = request.getParameter("chose_public");
+			//ArrayList<String> userchange = new ArrayList<String>(); スコープ渡しのお試し1
+			//request.setAttribute("userchange", name); スコープ渡しのお試し2
 
-		//ArrayList<String> userchange = new ArrayList<String>(); スコープ渡しのお試し1
-		//request.setAttribute("userchange", name); スコープ渡しのお試し2
-
-		//画像関係の処理
-		Part part = request.getPart("IMAGE"); // getPartで取得
+			//画像関係の処理
+			Part part = request.getPart("IMAGE"); // getPartで取得
 
 
-		String image = this.getFileName(part);
+			String image = this.getFileName(part);
 
-		//request.setAttribute("image", image);
-		// サーバの指定のファイルパスへファイルを保存
-		//場所はクラス名↑の上に指定してある
-		part.write(image);
-		//「マイメニュー」へのフォワード
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/upload_result.jsp");
-		dispatcher.forward(request, response);
-		//response.sendRedirect("/dokogacha/MypageServlet");
+			UserDao UDao = new UserDao();
+			//String old_id, String new_id, String image, String c_public
+			boolean flag =  UDao.update(loginuser_name, name, image , chose_public);
+			if(flag) {
+				// サーバの指定のファイルパスへファイルを保存
+				//場所はクラス名↑の上に指定してある
+				part.write(image);
+				//「マイメニュー」へのフォワード
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/upload_result.jsp");
+				dispatcher.forward(request, response);
+				//response.sendRedirect("/dokogacha/MypageServlet");
+			}
+			else {
+				//マイページ変更画面にフォワードする
+				doGet(request,response);
+			}
 		}
 
 /*----------------------------------------------------------------------------------------------*/

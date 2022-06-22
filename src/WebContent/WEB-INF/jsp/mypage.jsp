@@ -45,7 +45,7 @@
 
 <!-- 累計いいね数とお気に入りジャンルの表示 -->
 <div class="user_inf2">
-	<div class="total_good1">累積いいね数 <!--ページスコープで持ってくる？--></div>
+	<div class="total_good1">累積いいね数 <!--リクエストスコープで持ってくる？--></div>
 	<div class="Favorite_Genre1">お気に入りジャンル</div>
 </div>
 <div class="user_inf2-2">
