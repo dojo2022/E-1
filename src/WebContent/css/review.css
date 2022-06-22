@@ -114,9 +114,8 @@ p {
 		text-align: left;
 }
 /*画像アップロード*/
-#insert_image {
-	display: inline-block;
-}
-#error_message{
-	color:red;
+img {
+	width: 200px;
+	height: 120px;
+	padding-left: 15px;
 }
