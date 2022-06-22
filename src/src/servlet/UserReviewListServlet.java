@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.ReviewDao;
+import dao.Favorite_ReviewDao;
 import model.LoginUser;
 import model.Review_List;
 
@@ -40,6 +40,7 @@ public class UserReviewListServlet extends HttpServlet {
 			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
 		}
+		
 
 
 		request.setCharacterEncoding("UTF-8");
@@ -48,11 +49,10 @@ public class UserReviewListServlet extends HttpServlet {
 		String user_name = loginuser.getId();
 
 
+		Favorite_ReviewDao FRDao = new Favorite_ReviewDao();
+		List<Review_List> favorite_review_list = FRDao.favrevselect(user_name);
 
-		ReviewDao rDao = new ReviewDao();
-		List<Review_List> user_review_list = rDao.select(user_name);
-
-		request.setAttribute("user_review_list", user_review_list);
+		request.setAttribute("favorite_review_list", favorite_review_list);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/user_review_list.jsp");
 		dispatcher.forward(request, response);

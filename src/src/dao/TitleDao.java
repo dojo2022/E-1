@@ -5,16 +5,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
-import model.User;
+import model.Title;
 
 public class TitleDao {
-	public List<User> select(String user_id) {
+	public Title select(int totalgood) {
 		Connection conn = null;
-		List<User> UserList = new ArrayList<User>();;
-
 		try {
 			// JDBCドライバを読み込む
 			Class.forName("org.h2.Driver");
@@ -23,32 +19,29 @@ public class TitleDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
 
 			// SQL文を準備する
-			String sql = "SELECT *  FROM User WHERE id = ? ORDER BY id ASC" ;
+			String sql = "SELECT *  FROM title WHERE total_good <= ? ORDER BY total_good  ASC limit 1 ;" ;
 
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			// SQL文を完成させる
 			//ID----------------------------------------------
-				pStmt.setString(1, user_id );
+				pStmt.setInt(1, totalgood );
 
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
 
 			// 結果表をコレクションにコピーする
-			while (rs.next()) {
-				User user = new User();
-				user.setId(rs.getString("id"));
-				user.setUser_image(rs.getString("user_image"));
-				user.setC_public(rs.getString("public"));
-				UserList.add(user);
+			Title title = new Title();
+			while (rs.next()){
+				title.setImage(rs.getString("title_image"));
 			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-			UserList = null;
+			title= null;
 		}
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			UserList = null;
+			title = null;
 		}
 		finally {
 			// データベースを切断
