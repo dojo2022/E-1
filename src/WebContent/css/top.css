@@ -1,7 +1,5 @@
 @charset "UTF-8";
-html *{
-  box-sizing: border-box;
-}
+
 body{
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -12,7 +10,7 @@ body{
 	margin: 0 0 0 0;
 	background-color: #eeece9;
 }
-.wapper{
+.wrapper{
   margin: 0 auto;
   width: 580px ; /*580px*/
 }

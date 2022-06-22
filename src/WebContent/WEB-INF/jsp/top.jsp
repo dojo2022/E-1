@@ -9,7 +9,7 @@
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/top.css">
 </head>
 <body>
-<div class="wapper">
+<div class="wrapper">
 <!-- ヘッダー -->
 <header class="header">
   <h1 class="logo">トップページ</h1>

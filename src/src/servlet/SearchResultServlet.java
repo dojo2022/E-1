@@ -40,10 +40,11 @@ public class SearchResultServlet extends HttpServlet {
 		List<Review> review_list = RDao.revselect();
 
 		request.setAttribute("review_list", review_list);
-		*/
-		//お気に入りユーザ一覧ページにフォワードする
+
+		//検索結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/search_result.jsp");
 		dispatcher.forward(request, response);
+		*/
 	}
 
 	/**
@@ -57,31 +58,12 @@ public class SearchResultServlet extends HttpServlet {
 			return;
 		}*/
 
-		// リクエストパラメータを取得する
-		/*
 		request.setCharacterEncoding("UTF-8");
-		String review_id = request.getParameter("${e.review_id}");
-		String user_name = request.getParameter("NAME");
-		String genre_id = request.getParameter("CNAME");
-		String review_day = request.getParameter("DEPARTMENT");
-		String title = request.getParameter("URL");
-		String series_name = request.getParameter("EMAIL");
-		String thought = request.getParameter("TEL");
-		String evolition = request.getParameter("CNAME");
-		String good = request.getParameter("DEPARTMENT");
-		String address = request.getParameter("URL");
-		String product_name = request.getParameter("TEL");
-		String price = request.getParameter("DEPARTMENT");
+		int review_id = Integer.parseInt(request.getParameter("review_id"));
 
-		// 検索処理を行う
-		ReviewDao RDao = new ReviewDao();
-		List<Review> review_list = RDao.revselect(new Review(review_id, user_name, nickname,genre_id,review_day,title,series_name,thought,evolition,good,address,url,product_name,price,product_detail));
+		request.setAttribute("review_id", review_id);
 
-		// 検索結果をリクエストスコープに格納する
-		request.setAttribute("review_list", review_list);
-*/
-		//詳細にフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/review_detail.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/dokogacha/ReviewDetailServlet");
 		dispatcher.forward(request, response);
 
 	}

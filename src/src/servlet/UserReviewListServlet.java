@@ -9,9 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.ReviewDao;
-import model.Review;
+import model.LoginUser;
+import model.Review_List;
 
 /**
  * Servlet implementation class UserReviewListServlet
@@ -33,23 +35,24 @@ public class UserReviewListServlet extends HttpServlet {
 	 */
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
-		}*/
+		}
 
-		/*
-		LoginUser LU = new LoginUser();
+
 		request.setCharacterEncoding("UTF-8");
-		String user_name = request.getParameter(LU.getId());
-		*/
+		LoginUser loginuser = new LoginUser();
+		loginuser = (LoginUser)session.getAttribute("id");
+		String user_name = loginuser.getId();
+
 
 
 		ReviewDao rDao = new ReviewDao();
-		List<Review> reviewList = rDao.select("Review review_id");
+		List<Review_List> user_review_list = rDao.select(user_name);
 
-		request.setAttribute("reviewList", reviewList);
+		request.setAttribute("user_review_list", user_review_list);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/user_review_list.jsp");
 		dispatcher.forward(request, response);
@@ -58,17 +61,12 @@ public class UserReviewListServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	/*protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-	*/
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/simpleBC/LoginServlet");
+			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
-		}*/
+		}
 
 		request.setCharacterEncoding("UTF-8");
 		int review_id = Integer.parseInt(request.getParameter("review_id"));
@@ -76,6 +74,9 @@ public class UserReviewListServlet extends HttpServlet {
 		request.setAttribute("review_id", review_id);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/dokogacha/ReviewDetailServlet");
-		dispatcher.forward(request, response);
+		//dispatcher.forward(request, response);
+
+
 	}
+
 }

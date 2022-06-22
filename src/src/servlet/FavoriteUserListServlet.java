@@ -9,8 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.Favorite_ReviewerDao;
+import model.LoginUser;
 import model.User;
 
 
@@ -33,19 +35,22 @@ public class FavoriteUserListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*HttpSession session = request.getSession();
+		//ログインしていなければログイン画面へリダイレクト
+		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
-		}*/
-		/*
-		LoginUser LU = new LoginUser();
-		request.setCharacterEncoding("UTF-8");
-		String user_name = request.getParameter(LU.getId());
-		*/
+		}
 
+		//ログイン中のユーザ名を取得
+		request.setCharacterEncoding("UTF-8");
+		LoginUser loginuser = new LoginUser();
+		loginuser = (LoginUser)session.getAttribute("id");
+		String user_name = loginuser.getId();
+
+		//ログイン中のユーザ名からお気に入り投稿者を検索してお気に入り投稿者一覧画面へフォワード
 		Favorite_ReviewerDao FUDao = new Favorite_ReviewerDao();
-		List<User> favorite_user_list = FUDao.favselect("maura");
+		List<User> favorite_user_list = FUDao.favselect(user_name);
 
 		request.setAttribute("favorite_user_list", favorite_user_list);
 
@@ -57,13 +62,14 @@ public class FavoriteUserListServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*HttpSession session = request.getSession();
+		//ログインしていなければログイン画面へリダイレクト
+		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/simpleBC/LoginServlet");
+			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
-		}*/
+		}
 
-
+		//画面遷移元からお気に入り投稿者のユーザ名を取得してユーザ詳細サーブレットへ
 		request.setCharacterEncoding("UTF-8");
 		String user_name = request.getParameter("user");
 
@@ -72,14 +78,18 @@ public class FavoriteUserListServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/dokogacha/UserDetailServlet");
 		//dispatcher.forward(request, response);
 
+		//お気に入り解除ぼやんが押されたら
 		if (request.getParameter("follow_state").equals("お気に入り解除")) {
-			/*
-			LoginUser LU = new LoginUser();
+
+			//ログイン中のユーザ名を取得
 			request.setCharacterEncoding("UTF-8");
-			String my_name = request.getParameter(LU.getId());
-			*/
+			LoginUser loginuser = new LoginUser();
+			loginuser = (LoginUser)session.getAttribute("id");
+			String my_name = loginuser.getId();
+
+			//お気に入りユーザ名とログイン中のユーザ名の両方が一致するお気に入り投稿者を削除してリロード
 			Favorite_ReviewerDao FRDao = new Favorite_ReviewerDao();
-			FRDao.delete("maura",user_name);
+			FRDao.delete(my_name,user_name);
 
 			response.sendRedirect("/dokogacha/FavoriteUserListServlet");
 		}

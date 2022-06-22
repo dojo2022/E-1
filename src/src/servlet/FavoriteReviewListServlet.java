@@ -9,8 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.Favorite_ReviewDao;
+import model.LoginUser;
 import model.Review_List;
 /**
  * Servlet implementation class FavoriteReviewListServlet
@@ -31,21 +33,23 @@ public class FavoriteReviewListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*HttpSession session = request.getSession();
+		//ログインしていなければログイン画面へリダイレクト
+		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
-		}*/
+		}
 
-		/*
-		LoginUser LU = new LoginUser();
+		//現在ログインしているユーザのユーザ名を取得
 		request.setCharacterEncoding("UTF-8");
-		String user_name = request.getParameter(LU.getId());
-		*/
+		LoginUser loginuser = new LoginUser();
+		loginuser = (LoginUser)session.getAttribute("id");
+		String user_name = loginuser.getId();
 
 
+		//ログイン中のユーザ名からお気に入り投稿を検索してお気に入り投稿一覧画面へフォワード
 		Favorite_ReviewDao FRDao = new Favorite_ReviewDao();
-		List<Review_List> favorite_review_list = FRDao.favrevselect("yamada");
+		List<Review_List> favorite_review_list = FRDao.favrevselect(user_name);
 
 		request.setAttribute("favorite_review_list", favorite_review_list);
 
@@ -57,12 +61,14 @@ public class FavoriteReviewListServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*HttpSession session = request.getSession();
+		//ログインしていなければログイン画面へリダイレクト
+		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/simpleBC/LoginServlet");
+			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
-		}*/
+		}
 
+		//画面遷移元からreview_idを取得して投稿詳細サーブレットへ
 		request.setCharacterEncoding("UTF-8");
 		int review_id = Integer.parseInt(request.getParameter("review_id"));
 
@@ -71,14 +77,18 @@ public class FavoriteReviewListServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/dokogacha/ReviewDetailServlet");
 		//dispatcher.forward(request, response);
 
+		//お気に入り解除ボタンが押されたら
 		if (request.getParameter("follow_state").equals("お気に入り解除")) {
-			/*
-			LoginUser LU = new LoginUser();
+
+			//ログイン中のユーザ名を取得
 			request.setCharacterEncoding("UTF-8");
-			String my_name = request.getParameter(LU.getId());
-			*/
+			LoginUser loginuser = new LoginUser();
+			loginuser = (LoginUser)session.getAttribute("id");
+			String my_name = loginuser.getId();
+
+			//review_idとユーザ名の両方が一致するお気に入り投稿を削除してリロード
 			Favorite_ReviewDao FRDao = new Favorite_ReviewDao();
-			FRDao.delete("yamada",review_id);
+			FRDao.delete(my_name,review_id);
 
 			response.sendRedirect("/dokogacha/FavoriteReviewListServlet");
 		}

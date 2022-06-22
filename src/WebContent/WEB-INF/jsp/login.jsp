@@ -10,6 +10,7 @@
 <script src="js/login.js"></script>
 </head>
 <body>
+<div class="wapper">
 	<a href="/dokogacha/RegistServlet"><img class="img_regist"
 		src="/dokogacha/img/new_resist.png"></a>
 	<h1 class="h1_login">ログイン</h1>
@@ -28,6 +29,6 @@
 	</form>
 		<br>
 		<img class="img_panda"src="/dokogacha/img/capout_panda.png">
-
+</div>
 </body>
 </html>

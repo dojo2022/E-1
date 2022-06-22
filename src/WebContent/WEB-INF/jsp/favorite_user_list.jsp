@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="wrapper">
-<form name=f method=POST action="/dokogacha/UserDetailtServlet">
+<form name=f method=POST action="/dokogacha/UserDetailServlet">
 	<table border="1" style="border-collapse: collapse">
 		<tr><th class="fhead" colspan="10">お気に入り一覧</th></tr>
 		<tr class="tab">
