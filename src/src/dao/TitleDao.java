@@ -22,7 +22,7 @@ public class TitleDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
 
 			// SQL文を準備する
-			String sql = "SELECT *  FROM title WHERE total_good <= ? ORDER BY total_good  ASC limit 1 ;" ;
+			String sql = "SELECT *  FROM title WHERE total_good <= ? ORDER BY total_good  ASC limit 1" ;
 
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			// SQL文を完成させる
