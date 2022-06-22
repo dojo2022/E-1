@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +10,7 @@
 </head>
 <body>
 
-	<c:out var="e" items="${review_detailList}" >
+	<c:forEach var="e" items="${review_detailList}" >
 	 <form method="POST" action="/dokogacha/ReviewDetailServlet">
 	 <div class="insert_image"><input type="file" value="${e.insert_image}" alt="Not Image"></div>
 	 <h2 class="goodbutton"><img id="goodbutton" name="goodbutton" value="いいねボタン" src="/dokogacha/img/good_shiro.png" height="80" width="180" onclick="change1()"></h2>
@@ -28,7 +29,7 @@
 			  <td class="user_detail"><a href="/dokogacha/UserDetailServlet"><img src="/dokogacha/img/detail_user.png" height="50" width="180"></a></td></tr>
 	 </table>
 	 </form>
-  </c:out>
+  </c:forEach>
 
   <nav class="nav">
    <ul>
