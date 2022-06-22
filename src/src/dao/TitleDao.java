@@ -9,7 +9,10 @@ import java.sql.SQLException;
 import model.Title;
 
 public class TitleDao {
+
+	/*-----------select--------------------------------------------------------------*/
 	public Title select(int totalgood) {
+		Title title = new Title();
 		Connection conn = null;
 		try {
 			// JDBCドライバを読み込む
@@ -30,14 +33,13 @@ public class TitleDao {
 			ResultSet rs = pStmt.executeQuery();
 
 			// 結果表をコレクションにコピーする
-			Title title = new Title();
 			while (rs.next()){
 				title.setImage(rs.getString("title_image"));
 			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-			title= null;
+			title = null;
 		}
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -51,11 +53,11 @@ public class TitleDao {
 				}
 				catch (SQLException e) {
 					e.printStackTrace();
-					UserList = null;
+					title = null;
 				}
 			}
 		}
 		// 結果を返す
-		return UserList;
+		return title;
 	}
 }
