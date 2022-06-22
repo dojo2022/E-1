@@ -33,11 +33,11 @@
 
 <div class ="user_inf1">
 	<div class ="user_image	">
-		<img src="${user.image}" alt="アイコン" > <!-- /dokogacha/img/icon_panda.png -->
+		<img src="${'/dokogacha/img/user_image/'+= user.user_image}" alt="アイコン" > <!-- /dokogacha/img/icon_panda.png -->
 	</div>
 	<div class ="user_name_title">
-		<span class ="user_name">name${user.id}</span>
-		 <img src="${user.title}" alt="称号" width=50px class="title"><br>
+		<span class ="user_name">${user.id}</span>
+		 <img src="${'/dokogacha/img/'+=title}" alt="称号" width=50px class="title"><br>
 		 <a href="/dokogacha/FavoriteReviewListServlet" class="favorite_review_list">お気に入り投稿一覧</a>
 	</div>
 </div>
@@ -72,7 +72,7 @@
 			＃${review.ganre}<br>${review.price},${review.product_name}<br>${review.good}<br>
 		</div>
 		<div class ="review_list">
-			<a href="/dokogacha/MyReviewListServlet"><br>${user.name}の全投稿を表示</a>
+			<a href="/dokogacha/MyReviewListServlet"><br>${user.id}の全投稿を表示</a>
 		</div>
 	</div>
 </div>
