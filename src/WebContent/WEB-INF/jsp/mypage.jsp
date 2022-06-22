@@ -9,8 +9,8 @@
 <meta charset="UTF-8">
 <title>どこがちゃ｜マイページ</title>
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/mypage.css">
-<!----> <style>*{outline: 1px solid #ff0000;}</style>
-
+<!--<style>*{outline: 1px solid #ff0000;}</style>
+-->
 </head>
 <body>
 <div class="wapper">
@@ -38,7 +38,6 @@
 	<div class ="user_name_title">
 		<span class ="user_name">${user.id}</span>
 		<img src="+${'/dokogacha/img/'+=title}" alt="称号なし"  class="title" ><br> <!-- /dokogacha/img/shiro_panda.png -->
-
 		 <a href="/dokogacha/FavoriteReviewListServlet" class="favorite_review_list">お気に入り投稿一覧</a>
 	</div>
 </div>
