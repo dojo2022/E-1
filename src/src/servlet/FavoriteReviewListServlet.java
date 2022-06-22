@@ -9,8 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.Favorite_ReviewDao;
+import model.LoginUser;
 import model.Review_List;
 /**
  * Servlet implementation class FavoriteReviewListServlet
@@ -31,21 +33,21 @@ public class FavoriteReviewListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
-		}*/
+		}
 
-		/*
+
 		LoginUser LU = new LoginUser();
 		request.setCharacterEncoding("UTF-8");
 		String user_name = request.getParameter(LU.getId());
-		*/
+
 
 
 		Favorite_ReviewDao FRDao = new Favorite_ReviewDao();
-		List<Review_List> favorite_review_list = FRDao.favrevselect("yamada");
+		List<Review_List> favorite_review_list = FRDao.favrevselect(user_name);
 
 		request.setAttribute("favorite_review_list", favorite_review_list);
 
@@ -57,11 +59,11 @@ public class FavoriteReviewListServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/simpleBC/LoginServlet");
+			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
-		}*/
+		}
 
 		request.setCharacterEncoding("UTF-8");
 		int review_id = Integer.parseInt(request.getParameter("review_id"));
@@ -72,13 +74,13 @@ public class FavoriteReviewListServlet extends HttpServlet {
 		//dispatcher.forward(request, response);
 
 		if (request.getParameter("follow_state").equals("お気に入り解除")) {
-			/*
+
 			LoginUser LU = new LoginUser();
 			request.setCharacterEncoding("UTF-8");
 			String my_name = request.getParameter(LU.getId());
-			*/
+
 			Favorite_ReviewDao FRDao = new Favorite_ReviewDao();
-			FRDao.delete("yamada",review_id);
+			FRDao.delete(my_name,review_id);
 
 			response.sendRedirect("/dokogacha/FavoriteReviewListServlet");
 		}

@@ -9,8 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.Favorite_ReviewerDao;
+import model.LoginUser;
 import model.User;
 
 
@@ -33,19 +35,19 @@ public class FavoriteUserListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
-		}*/
-		/*
+		}
+
 		LoginUser LU = new LoginUser();
 		request.setCharacterEncoding("UTF-8");
 		String user_name = request.getParameter(LU.getId());
-		*/
+
 
 		Favorite_ReviewerDao FUDao = new Favorite_ReviewerDao();
-		List<User> favorite_user_list = FUDao.favselect("maura");
+		List<User> favorite_user_list = FUDao.favselect(user_name);
 
 		request.setAttribute("favorite_user_list", favorite_user_list);
 
@@ -57,11 +59,11 @@ public class FavoriteUserListServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/simpleBC/LoginServlet");
+			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
-		}*/
+		}
 
 
 		request.setCharacterEncoding("UTF-8");
@@ -70,16 +72,16 @@ public class FavoriteUserListServlet extends HttpServlet {
 		request.setAttribute("user_name", user_name);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/dokogacha/UserDetailServlet");
-		//dispatcher.forward(request, response);
+		dispatcher.forward(request, response);
 
 		if (request.getParameter("follow_state").equals("お気に入り解除")) {
-			/*
+
 			LoginUser LU = new LoginUser();
 			request.setCharacterEncoding("UTF-8");
 			String my_name = request.getParameter(LU.getId());
-			*/
+
 			Favorite_ReviewerDao FRDao = new Favorite_ReviewerDao();
-			FRDao.delete("maura",user_name);
+			FRDao.delete(my_name,user_name);
 
 			response.sendRedirect("/dokogacha/FavoriteUserListServlet");
 		}
