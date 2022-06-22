@@ -40,9 +40,10 @@ public class FavoriteReviewListServlet extends HttpServlet {
 		}
 
 
-		LoginUser LU = new LoginUser();
 		request.setCharacterEncoding("UTF-8");
-		String user_name = request.getParameter(LU.getId());
+		LoginUser loginuser = new LoginUser();
+		loginuser = (LoginUser)session.getAttribute("id");
+		String user_name = loginuser.getId();
 
 
 
@@ -75,9 +76,10 @@ public class FavoriteReviewListServlet extends HttpServlet {
 
 		if (request.getParameter("follow_state").equals("お気に入り解除")) {
 
-			LoginUser LU = new LoginUser();
 			request.setCharacterEncoding("UTF-8");
-			String my_name = request.getParameter(LU.getId());
+			LoginUser loginuser = new LoginUser();
+			loginuser = (LoginUser)session.getAttribute("id");
+			String my_name = loginuser.getId();
 
 			Favorite_ReviewDao FRDao = new Favorite_ReviewDao();
 			FRDao.delete(my_name,review_id);

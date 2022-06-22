@@ -41,9 +41,10 @@ public class FavoriteUserListServlet extends HttpServlet {
 			return;
 		}
 
-		LoginUser LU = new LoginUser();
 		request.setCharacterEncoding("UTF-8");
-		String user_name = request.getParameter(LU.getId());
+		LoginUser loginuser = new LoginUser();
+		loginuser = (LoginUser)session.getAttribute("id");
+		String user_name = loginuser.getId();
 
 
 		Favorite_ReviewerDao FUDao = new Favorite_ReviewerDao();
@@ -72,13 +73,14 @@ public class FavoriteUserListServlet extends HttpServlet {
 		request.setAttribute("user_name", user_name);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/dokogacha/UserDetailServlet");
-		dispatcher.forward(request, response);
+		//dispatcher.forward(request, response);
 
 		if (request.getParameter("follow_state").equals("お気に入り解除")) {
 
-			LoginUser LU = new LoginUser();
 			request.setCharacterEncoding("UTF-8");
-			String my_name = request.getParameter(LU.getId());
+			LoginUser loginuser = new LoginUser();
+			loginuser = (LoginUser)session.getAttribute("id");
+			String my_name = loginuser.getId();
 
 			Favorite_ReviewerDao FRDao = new Favorite_ReviewerDao();
 			FRDao.delete(my_name,user_name);
