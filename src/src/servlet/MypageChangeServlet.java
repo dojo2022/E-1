@@ -84,9 +84,25 @@ public class MypageChangeServlet extends HttpServlet {
 			request.setCharacterEncoding("UTF-8");
 			LoginUser loginuser = new LoginUser();
 			loginuser = (LoginUser)session.getAttribute("id");
-			String loginuser_name = "tanaka";//loginuser.getId();
+			String LoginUserId = "tanaka";//loginuser.getId();
 
-			String name = request.getParameter("user_id");
+
+			//user_nameに該当するレコードを検出する。
+			UserDao UDao = new UserDao();
+			List<User> userList = UDao.select(LoginUserId);
+
+			User user = new User();
+
+			for(User user2 : userList){
+				user.setId(user2.getId());
+				user.setUser_image(user2.getUser_image());
+				user.setC_public(user2.getC_public());
+				//System.out.println(user2.getId() +":"+ user2.getUser_image() +":"+ user2.getC_public());
+			}
+
+			String old_image = user.getUser_image();
+
+			String new_id = request.getParameter("user_id");
 
 			String chose_public = request.getParameter("chose_public");
 
@@ -96,20 +112,30 @@ public class MypageChangeServlet extends HttpServlet {
 			//画像関係の処理
 			Part part = request.getPart("IMAGE"); // getPartで取得
 
-
 			String image = this.getFileName(part);
 
-			UserDao UDao = new UserDao();
-			//String old_id, String new_id, String image, String c_public
-			boolean flag =  UDao.update(loginuser_name, name, image , chose_public);
+			System.out.println("image"+image);
+
+			if(!image.equals("")){				//アイコンがアップロードされた場合
+				part.write(image); 					//アップロードされた画像をディスクに書き込む
+			}
+			else {
+				image = old_image;
+			}
+			boolean flag =  UDao.update(LoginUserId, new_id, image , chose_public);
 			if(flag) {
 				// サーバの指定のファイルパスへファイルを保存
 				//場所はクラス名↑の上に指定してある
-				part.write(image);
-				//「マイメニュー」へのフォワード
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/upload_result.jsp");
-				dispatcher.forward(request, response);
-				//response.sendRedirect("/dokogacha/MypageServlet");
+
+
+				///*
+				//確認セット
+				//request.setAttribute("image", image);//確認用
+				//RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/upload_result.jsp");
+				//dispatcher.forward(request, response);
+				//*/
+				//「マイメニュー」へのリダイレクト
+				response.sendRedirect("/dokogacha/MypageServlet");
 			}
 			else {
 				//マイページ変更画面にフォワードする
