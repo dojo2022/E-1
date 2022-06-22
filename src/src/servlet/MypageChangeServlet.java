@@ -42,13 +42,13 @@ public class MypageChangeServlet extends HttpServlet {
 		//*/
 		//ログイン中のゆーざIDを取得
 		request.setCharacterEncoding("UTF-8");
-		LoginUser loginuser = new LoginUser();
-		loginuser = (LoginUser)session.getAttribute("id");
-		String loginuser_name = "tanaka";//loginuser.getId();
+		LoginUser LoginUser = new LoginUser();
+		LoginUser = (LoginUser)session.getAttribute("id");
+		String LoginUserId = "tanaka";//loginuser.getId();
 
 		//user_nameに該当するレコードを検出する。
 		UserDao UDao = new UserDao();
-		List<User> userList = UDao.select(loginuser_name);
+		List<User> userList = UDao.select(LoginUserId);
 
 		User user = new User();
 
@@ -57,6 +57,11 @@ public class MypageChangeServlet extends HttpServlet {
 			user.setUser_image(user2.getUser_image());
 			user.setC_public(user2.getC_public());
 			//System.out.println(user2.getId() +":"+ user2.getUser_image() +":"+ user2.getC_public());
+		}
+		String image = user.getUser_image();
+		//ユーザアイコンがセットされていない場合
+		if(image.equals("")) {
+			user.setUser_image("icon_panda.png");
 		}
 
 		request.setAttribute("user", user);
@@ -82,8 +87,8 @@ public class MypageChangeServlet extends HttpServlet {
 			//*/
 			//ログイン中のゆーざIDを取得
 			request.setCharacterEncoding("UTF-8");
-			LoginUser loginuser = new LoginUser();
-			loginuser = (LoginUser)session.getAttribute("id");
+			LoginUser LoginUser = new LoginUser();
+			LoginUser = (LoginUser)session.getAttribute("id");
 			String LoginUserId = "tanaka";//loginuser.getId();
 
 
