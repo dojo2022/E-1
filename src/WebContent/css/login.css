@@ -9,48 +9,63 @@ body{
 	margin: 0 0 0 0;
 	background-color: #eeece9;
 }
+.wapper{
+  margin: 0 auto;
+  width: 580px ; /*580px*/
+}
 .div_username{
 	position:relative;
-	bottom:80px;
-	margin-left:450px
+	bottom:40px;
+	margin-left:50px
 }
 .div_password{
 	position:relative;
-	bottom:60px;
-	margin-left:450px;
+	bottom:10px;
+	margin-left:50px;
 }
 .h1_login{
 	position:relative;
-	bottom:45px;
-	margin-left:610px;
+	bottom:10px;
+	margin-left:15px;
+	font-size:2.5em;
+	text-align:center;
+	line-height:0.95em;
+	font-weight:bold;
+	color: #FFF;
+	text-shadow:
+		0 0 0.05em #F06292,
+		0 0 0.10em #F06292,
+		0 0 0.15em #F06292,
+		0 0 0.30em #F06292;
+	filter: saturate(80%);
 }
 .text_username{
 	position:relative;
-	bottom:50px;
+	bottom:10px;
 	width:300px;
 	font-size:120%;
 }
 .password_password{
 	position:relative;
-	bottom:50px;
+	bottom:10px;
 	width:300px;
 	font-size:120%;
 }
 .submit_login{
 	width:140px;
 	position:relative;
-	top:30px;
-	margin-left:440px;
+	top:100px;
+	left:55px;
 }
 .img_regist{
 	width:110px;
-	margin-top:40px;
-	margin-left:830px;
+	top:40px;
+	left:200px;
 
 }
 .img_username{
 	width:100px;
-	margin-top:30px;
+	top:20px;
 }
 .img_password{
 	width:100px;
@@ -58,12 +73,12 @@ body{
 .img_panda{
 	width:170px;
 	position:relative;
-	bottom:150px;
-	margin-left:710px;
+	bottom:70px;
+	margin-left:330px;
 }
 #error_message{
 	color:red;
 	position:relative;
-	top:240px;
-	margin-left:500px;
+	top:260px;
+	margin-left:200px;
 }
