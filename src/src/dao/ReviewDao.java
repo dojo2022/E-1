@@ -169,7 +169,7 @@ public class ReviewDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
 
 			String sql = "select review.review_id , genre_name , price , puroduct_name , good , image "
-					+ "from review join review_image on review.review_id = review_image.review_id"
+					+ "from review join review_image on review.review_id = review_image.review_id "
 					+ "right join genre on review.genre_id = genre.genre_id WHERE user_name = ?";//変更部分
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
