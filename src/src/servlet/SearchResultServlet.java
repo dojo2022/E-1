@@ -2,12 +2,12 @@ package servlet;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class SearchResultServlet
@@ -29,15 +29,16 @@ public class SearchResultServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-		/*HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
-		}*/
+		}
 
+		/*
 		//レビューテーブルからデータを取得
-		/*ReviewDao RDao = new ReviewDao();
-		List<Review> review_list = RDao.revselect();
+		ReviewDao RDao = new ReviewDao();
+		List<Review> review_list = RDao.select("yamada");
 
 		request.setAttribute("review_list", review_list);
 
@@ -52,20 +53,17 @@ public class SearchResultServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-		/*HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
-		}*/
+		}
 
+		//画面遷移元からreview_idを取得して投稿詳細サーブレットへ
 		request.setCharacterEncoding("UTF-8");
 		int review_id = Integer.parseInt(request.getParameter("review_id"));
-
-		request.setAttribute("review_id", review_id);
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/dokogacha/ReviewDetailServlet");
-		dispatcher.forward(request, response);
-
+		session.setAttribute("review_id", review_id);
+		response.sendRedirect("/dokogacha/ReviewDetailServlet");
 	}
 
 }

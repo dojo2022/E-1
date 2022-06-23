@@ -80,8 +80,6 @@ public class FavoriteReviewListServlet extends HttpServlet {
 		//お気に入り解除ボタンが押されたら
 		if (f == "" || f == null) {
 			response.sendRedirect("/dokogacha/ReviewDetailServlet");
-			//RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/review_detail.jsp");
-			//dispatcher.forward(request, response);
 		}else {
 
 			//ログイン中のユーザ名を取得
