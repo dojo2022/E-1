@@ -1,61 +1,91 @@
 @charset "UTF-8";
-html{
-	font-family: Meiryo;
-}
-
 body{
+	background-size: contain;
+	width:100%;
+	height:800px;
 	margin: 0 0 0 0;
 	background-color: #eeece9;
 }
 
-h1 {
-    padding: 0.5em 1em;
-    font-weight: bold;
-    color: black;
-    background: #FFF;
-    border: solid 3px orange;
-    border-radius: 10px;
-		text-align: center;
-    margin: 0 auto 0 auto;
-}
-h2 {
-    padding: 0.5em 1em;
-    font-weight: bold;
-    color: black;
-    background: #ffb6c1;
-    border: solid 3px black;
-		text-align: center;
-    margin: 0 auto 0 auto;
-}
-.review {
-			position: relative;
-			top:30px;
-			margin-left: auto;
-			margin-right: auto;
-			text-align: center;
-			table-layout: fixed;
-			width: 80%;
-
-		}
-
-.review {
-		border-collapse: collapse;
-}
-.photo {
-	padding: 8px;
-	border: 3px solid #bec2c7;
-}
-.nakami{
-	padding: 8px;
-	border: 3px solid #bec2c7;
+/*全体を中央寄せ*/
+.wrapper {
+	margin: 0 auto;
 }
 
 
-.photo img{
-	width: 20%;
-	height: 10%;
+table {
+	margin-left: auto;
+	margin-right: auto;
+	table-layout: fixed;
+	width: 60%;
+}
+
+/*テーブルの要素を中央寄せ*/
+.fhead,.tab,.back,.top,.icon {
+	text-align: center;
+}
+td.selecting {
+	background-color: #ffd700;
+}
+.check {
+	position: absolute;
+	top: 45%;
+    left: 83%;
+}
+.fhead, .tab, .empty {
+	height: 50px;
+}
+td.empty{
+	background-color: #f5f5f5;
+}
+tr.menu{
+	background-color: #f5f5f5;
+	height: 120px;
+}
+th.fhead {
+	background-color: white;
+}
+.unselecting {
+	background-color: white;
+}
+.data {
+	background-color: white;
+}
+.data {
+	position: relative;
+}
+
+.data:hover {
+    background-color: #dcdcdc;
+}
+.tab td a {
+	display: block;
+}
+.data td a {
+	display: block;
 
 }
+.emp {
+	border-right: none;
+	border-left: none;
+}
+.back {
+	border-right: none;
+}
+.top {
+	border-left: none;
+}
+.icon img{
+	vertical-align: middle;
+	width: 120px;
+	height: 120px;
+}
+.back img,.top img{
+	vertical-align: middle;
+	width: 120px;
+	height: 120px;
+}
+
 .top{
 	text-align: left;
 
@@ -66,46 +96,4 @@ h2 {
 }
 .bottom{
 	text-align: right;
-}
-.back img {
-	position: absolute;
-	top: 1000px;
-	left: 350px;
-	-webkit-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-	display: block;
-	-webkit-transition: .4s ease-in-out;
-	transition: .4s ease-in-out;
-}
-.back:hover img:nth-of-type(2) {
-	opacity: 0;
-}
-
-.cap_back{
-	width: 10%;
-
-}
-.opcap_back{
-	width: 9%;
-}
-
-
-.totop img {
-	position: absolute;
-	top: 1000px;
-	left: 1000px;
-	-webkit-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-	display: block;
-	-webkit-transition: .4s ease-in-out;
-	transition: .4s ease-in-out;
-}
-.totop:hover img:nth-of-type(2) {
-	opacity: 0;
-}
-.opcapsule_top{
-	width: 9%;
-}
-.capsule_top{
-	width: 10%;
 }

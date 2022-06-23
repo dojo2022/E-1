@@ -11,34 +11,32 @@
 </head>
 <body>
 <div class="wrapper">
-<h1>投稿一覧</h1>
-<h2>他ユーザーの投稿</h2>
-
-<form name=f method=POST action="/dokogacha/UserReviewListServlet">
-<table class="review">
+	<form name=f method=POST action="/dokogacha/UserReviewListServlet">
+		<table border="1" style="border-collapse: collapse">
+			<tr><th class="fhead" colspan="10">投稿一覧</th></tr>
+			<tr class="tab">
+				<td colspan="10" class="selecting">ユーザー投稿一覧</td>
+			</tr>
+			<tr><td class="empty" colspan="10"></td></tr>
 			<c:forEach var="e" items="${user_review_list}" >
 			<tr class="data">
 				<input type="hidden" name="review_id" value=${e.review_id}>
 				<input type="hidden" name="review" value="change">
-				<td class="photo" colspan="2"><a href="javascript:document.f.submit()">${e.image}</a></td>
-				<td class="nakami" colspan="6"><a href="javascript:document.f.submit()"><div class="top">${e.genre_name} / ${e.price}</div><br><div class="middle">${e.puroduct_name}</div><br><div class="bottom">${e.good}</div></a></td>
+				<td class="icon" colspan="2"><a href="javascript:document.f.submit()">${e.image}</a></td>
+				<td class="detail" colspan="6"><a href="javascript:document.f.submit()">
+				<div class="top">${e.genre_name} / ${e.price}</div><br>
+				<div class="middle">${e.puroduct_name}</div><br>
+				<div class="bottom">${e.good}</div></a></td>
 			</tr>
 			</c:forEach>
-</table>
-</form>
 
-	<div class="back">
-	 <a href="search_result.jsp">
-		<img src="img/opcap_back.png" alt="search" class="opcap_back">
-		<img src="img/cap_back.png" alt="search" class="cap_back">
-	 </a>
-	</div>
-	<div class="totop">
-	 <a href="logout.jsp">
-	 <img src="img/opcap_top.png" alt="logout" class="opcapsule_top">
-	 <img src="img/cap_top.png" alt="logout" class="capsule_top">
-	 </a>
-	</div>
+			<tr class="menu">
+				<td colspan="2" class="back"><a href="/dokogacha/MypageServlet"><img src="/dokogacha/img/cap_back.png" alt="戻る"></a></td>
+				<td colspan="6" class="emp"></td>
+				<td colspan="2" class="top"><a href="/dokogacha/TopServlet"><img src="/dokogacha/img/cap_top.png" alt="トップ"></a></td>
+			</tr>
+		</table>
+	</form>
 </div>
 </body>
 </html>
