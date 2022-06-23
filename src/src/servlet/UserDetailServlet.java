@@ -12,8 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.Favorite_ReviewerDao;
+import dao.ReviewDao;
+import dao.TitleDao;
 import dao.UserDao;
 import model.LoginUser;
+import model.Review;
+import model.Title;
 import model.User;
 
 /**
@@ -37,13 +41,24 @@ public class UserDetailServlet extends HttpServlet {
 			return;
 		}
 		//*/
-		//ログインユーザ名の取得
+		//ユーザ名の取得
+		/*
+		 *　review_idをセッションスコープから取得
+		 *　取得したreview_idから
+		*/
 		request.setCharacterEncoding("UTF-8");
-		User others = new User();
-		others = (User)session.getAttribute("others");
-		String others_id = "tanaka";//others.getId();
+		int review_id = (int)session.getAttribute("review_id");
+		ReviewDao RDao = new ReviewDao();
+		List<Review> reviewList  = RDao.select(new Review(review_id));
 
-		//user_nameに該当するレコードを検出する。
+		//取得したユーザIdを格納する変数
+		String others_id ="";// "tanaka";//others.getId();
+
+		for(Review review : reviewList ){
+			others_id = review.getUser_name();
+		}
+
+		//others_idに該当するレコードを検出する。
 		UserDao UDao = new UserDao();
 		List<User> userList = UDao.select(others_id);
 
@@ -62,6 +77,19 @@ public class UserDetailServlet extends HttpServlet {
 
 		request.setAttribute("user", user);
 
+		//ユーザのいいね数を調べてその数値あった称号を与える
+		/*工程
+		 * レビューテーブルからユーザIDに合致する投稿Listを取得
+		 * 取得したListからいいね数を抽出、合計を求める
+		 * 求めた合計を称号テーブルに渡し、該当する称号を取得する。
+		 */
+		TitleDao TDao = new TitleDao();
+
+		int total_good  = TDao.totalgood(others_id);
+
+		Title title = TDao.select(total_good);
+
+		request.setAttribute("title", title);
 
 		//他ユーザ詳細画面にフォワードする
 		//UserIDを取得 アイコン、名前、称号、お気に入り投稿、お気に入りジャンル累計いいね数、最新投稿、
@@ -83,20 +111,23 @@ public class UserDetailServlet extends HttpServlet {
 			//*/
 			//ログインユーザ名の取得
 			request.setCharacterEncoding("UTF-8");
-			LoginUser LoginUser = new LoginUser();
-			LoginUser = (LoginUser)session.getAttribute("id");
-			String LoginUserId = "tanaka";//loginuser.getId();
+			LoginUser login_user = new LoginUser();
+			login_user = (LoginUser)session.getAttribute("id");
+			String login_user_id = login_user.getId();//"tanaka";
+
+
+
+
 
 			User others = new User();
 			others = (User)session.getAttribute("others");
 			String othersId = "tanaka";//others.getId();
 
 		//お気に入りユーザに登録
-		//Favorite_Reviewer FRer = new Favorite_Reviewer();
-
 		Favorite_ReviewerDao FRerDao = new Favorite_ReviewerDao();
 
-		 //flag = (FRerDao.insert(LoginUserId, othersId));
+		boolean flag = (FRerDao.insert(login_user_id, othersId));
+
 
 		 //flag　=　true　=　登録完了
 
