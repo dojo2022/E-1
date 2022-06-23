@@ -340,7 +340,7 @@ public class ReviewDao {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
 
 			// SQL文を準備する<<改造する>>
 			String sql = "UPDATE Review set good=? WHERE review_id=?";
