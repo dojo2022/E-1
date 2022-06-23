@@ -40,15 +40,15 @@ public class MypageChangeServlet extends HttpServlet {
 			return;
 		}
 		//*/
-		//ログイン中のゆーざIDを取得
+		//ログイン中のユーザIDを取得
 		request.setCharacterEncoding("UTF-8");
-		LoginUser LoginUser = new LoginUser();
-		LoginUser = (LoginUser)session.getAttribute("id");
-		String LoginUserId = "tanaka";//loginuser.getId();
+		LoginUser login_user = new LoginUser();
+		login_user = (LoginUser)session.getAttribute("id");
+		String login_user_id = login_user.getId();//"tanaka";
 
 		//user_nameに該当するレコードを検出する。
 		UserDao UDao = new UserDao();
-		List<User> userList = UDao.select(LoginUserId);
+		List<User> userList = UDao.select(login_user_id);
 
 		User user = new User();
 
@@ -87,14 +87,14 @@ public class MypageChangeServlet extends HttpServlet {
 			//*/
 			//ログイン中のゆーざIDを取得
 			request.setCharacterEncoding("UTF-8");
-			LoginUser LoginUser = new LoginUser();
-			LoginUser = (LoginUser)session.getAttribute("id");
-			String LoginUserId = "tanaka";//loginuser.getId();
+			LoginUser login_user = new LoginUser();
+			login_user = (LoginUser)session.getAttribute("id");
+			String login_user_id = login_user.getId();//"tanaka";
 
 
 			//user_nameに該当するレコードを検出する。
 			UserDao UDao = new UserDao();
-			List<User> userList = UDao.select(LoginUserId);
+			List<User> userList = UDao.select(login_user_id);
 
 			User user = new User();
 
@@ -127,7 +127,7 @@ public class MypageChangeServlet extends HttpServlet {
 			else {
 				image = old_image;
 			}
-			boolean flag =  UDao.update(LoginUserId, new_id, image , chose_public);
+			boolean flag =  UDao.update(login_user_id, new_id, image , chose_public);
 			if(flag) {
 				// サーバの指定のファイルパスへファイルを保存
 				//場所はクラス名↑の上に指定してある
