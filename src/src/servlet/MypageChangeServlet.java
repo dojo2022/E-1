@@ -56,9 +56,8 @@ public class MypageChangeServlet extends HttpServlet {
 			user.setC_public(user2.getC_public());
 			//System.out.println(user2.getId() +":"+ user2.getUser_image() +":"+ user2.getC_public());
 		}
-		String image = user.getUser_image();
 		//ユーザアイコンがセットされていない場合
-		if(image.equals("")) {
+		if(user.getUser_image() == null) {
 			user.setUser_image("icon_panda.png");
 		}
 
@@ -75,8 +74,7 @@ public class MypageChangeServlet extends HttpServlet {
 			throws ServletException, IOException
 		{
 			HttpSession session = request.getSession();
-			//
-			/*
+			//			/*
 			// もしもログインしていなかったらログインサーブレットにリダイレクトする
 			if (session.getAttribute("id") == null) {
 				response.sendRedirect("/dokogacha/LoginServlet");
@@ -115,22 +113,26 @@ public class MypageChangeServlet extends HttpServlet {
 			//画像関係の処理
 			Part part = request.getPart("IMAGE"); // getPartで取得
 
-			String image = this.getFileName(part);
+			String new_image = this.getFileName(part);
 
-			System.out.println("image"+image);
+			System.out.println("image"+new_image);
 
-			if(!image.equals("")){				//アイコンがアップロードされた場合
-				part.write(image); 					//アップロードされた画像をディスクに書き込む
+			if(!new_image.equals("")){				//アイコンがアップロードされた場合
+				part.write(new_image); 					//アップロードされた画像をディスクに書き込む
 			}
 			else {
-				image = old_image;
+				new_image = old_image;
 			}
-			boolean flag =  UDao.update(login_user_id, new_id, image , chose_public);
+			boolean flag =  UDao.update(login_user_id, new_id, new_image , chose_public);
 			if(flag) {
 				// サーバの指定のファイルパスへファイルを保存
 				//場所はクラス名↑の上に指定してある
-
-
+	      //10秒待つ
+	      try {
+	          Thread.sleep(5 * 1000);
+	      } catch (InterruptedException e) {
+	          e.printStackTrace();
+	      }
 				///*
 				//確認セット
 				//request.setAttribute("image", image);//確認用
