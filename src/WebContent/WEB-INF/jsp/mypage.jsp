@@ -37,7 +37,7 @@
 	</div>
 	<div class ="user_name_title">
 		<span class ="user_name">${user.id}</span>
-		<img src="+${'/dokogacha/img/'+=title}" alt="称号なし"  class="title" ><br> <!-- /dokogacha/img/shiro_panda.png -->
+		<img src="+${'/dokogacha/img/'+=title.image}" alt="称号なし"  class="title" ><br> <!-- /dokogacha/img/shiro_panda.png -->
 		 <a href="/dokogacha/FavoriteReviewListServlet" class="favorite_review_list">お気に入り投稿一覧</a>
 	</div>
 </div>
