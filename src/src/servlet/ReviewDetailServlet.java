@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.Favorite_ReviewDao;
 import dao.ReviewDao;
 import model.Review;
 
@@ -54,17 +55,19 @@ public class ReviewDetailServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		int review_id = (int) session.getAttribute("review_id");
+		String user_name = request.getParameter("user_name");
 		boolean goodcount;
 		ReviewDao rDao = new ReviewDao();
+		Favorite_ReviewDao fDao = new Favorite_ReviewDao();
 		if (request.getParameter("goodbutton").equals("いいねボタン")) {
 			 goodcount = rDao.goodcount(new Review(review_id));
-/*
+
 		} else if (request.getParameter("favoritebutton").equals("お気に入りボタン")){
-			rDao.favoriteregist(review_id) ;
+			fDao.insert(user_name,review_id);
 		} else {
 			List<Review> review_detailList = rDao.select(new Review(review_id));
 			request.setAttribute("review_detailList", review_detailList);
-			*/
+
 
 			// レビュー詳細ページにフォワードする
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/review_detail.jsp");

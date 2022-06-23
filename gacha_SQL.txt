@@ -149,4 +149,11 @@ insert into title (total_good, title_image, title_name) values ( 10, 'shiro_pand
 insert into title (total_good, title_image, title_name) values ( 50, 'silver_panda.png','silver_panda');
 insert into title (total_good, title_image, title_name) values (100, 'gold_panda.png','gold_panda');
 
+ジャンル
+insert into genre (genre_id, genre_name) values (1, '車');
+insert into genre (genre_id, genre_name) values (2, 'トミカ');
+insert into genre (genre_id, genre_name) values (3, 'チョロQ');
+insert into genre (genre_id, genre_name) values (4, 'アクセサリ');
+insert into genre (genre_id, genre_name) values (5, '雑貨');
+insert into genre (genre_id, genre_name) values (6, '特撮');
 

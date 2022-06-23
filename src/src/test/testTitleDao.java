@@ -22,7 +22,7 @@ public class testTitleDao
 		//*/
 
 	//----------------------totalgood()のテスト---------------------------------------------
-	int totalgood = Tdao.totalgood( "user_name" );
+	int totalgood = Tdao.totalgood( "tanaka" );
 	System.out.println("totalgood= " + totalgood);
 
 	System.out.println("---------- select()のテスト ----------");

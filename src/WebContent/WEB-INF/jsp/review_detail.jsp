@@ -33,7 +33,7 @@
 
   <nav class="nav">
    <ul>
-    <li><a href="/dokogacha/SearchResultServlet"><img class="return" src="/dokogacha/img/cap_back.png" height="100" width="140"></a></li>
+    <li><a href="#" onclick="history.back(-1);return false;"><img class="return" src="/dokogacha/img/cap_back.png" height="100" width="140"></a></li>
     <li><a href="/dokogacha/TopServlet"><img class="top" src="/dokogacha/img/cap_top.png" height="100" width="140"></a></li>
    </ul>
   </nav>
