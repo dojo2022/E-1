@@ -48,9 +48,9 @@ public class MyReviewListServlet extends HttpServlet {
 		String user_name = loginuser.getId();
 */
 
-		ReviewDao mDao = new ReviewDao();
-		List<Review_List> my_review_list = mDao.favrevselect(user_name);
-		request.setAttribute("user_review_list", my_review_list);
+		ReviewDao uDao = new ReviewDao();
+		List<Review_List> my_review_list = uDao.URselect("poohh");
+		request.setAttribute("my_review_list", my_review_list);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/my_review_list.jsp");
 		dispatcher.forward(request, response);
