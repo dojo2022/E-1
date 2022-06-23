@@ -32,19 +32,17 @@ public class UserDetailServlet extends HttpServlet {
 			throws ServletException, IOException
 	{
 		HttpSession session = request.getSession();
-		//
-		/*
+		///*
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
 		}
 		//*/
-		//ユーザ名の取得
-		/*
-		 *　review_idをセッションスコープから取得
-		 *　取得したreview_idから
+		/*ユーザ名の取得
+		 *review_idをセッションスコープから取得
+		 *取得したreview_idからuser_name(id)を取得
+		 *取得してidからuser情報を取得
 		*/
 		request.setCharacterEncoding("UTF-8");
 		int review_id = (int)session.getAttribute("review_id");
@@ -77,12 +75,11 @@ public class UserDetailServlet extends HttpServlet {
 
 		request.setAttribute("user", user);
 
-		//ユーザのいいね数を調べてその数値あった称号を与える
-		/*工程
+		//ユーザの累計いいね数を取得し、その数値あった称号を与える
+		/*
 		 * レビューテーブルからユーザIDに合致する投稿Listを取得
 		 * 取得したListからいいね数を抽出、合計を求める
-		 * 求めた合計を称号テーブルに渡し、該当する称号を取得する。
-		 */
+		 * 求めた合計を称号テーブルに渡し、該当する称号を取得する。*/
 		TitleDao TDao = new TitleDao();
 
 		int total_good  = TDao.totalgood(others_id);
@@ -100,37 +97,45 @@ public class UserDetailServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException
 	{
-			HttpSession session = request.getSession(); //リクエストを受けるのに必須
-			//
-			/*
-			// もしもログインしていなかったらログインサーブレットにリダイレクトする
-			if (session.getAttribute("id") == null) {
-				response.sendRedirect("/dokogacha/LoginServlet");
-				return;
-			}
-			//*/
-			//ログインユーザ名の取得
-			request.setCharacterEncoding("UTF-8");
-			LoginUser login_user = new LoginUser();
-			login_user = (LoginUser)session.getAttribute("id");
-			String login_user_id = login_user.getId();//"tanaka";
+		HttpSession session = request.getSession(); //リクエストを受けるのに必須
+		//
+		/*
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		if (session.getAttribute("id") == null) {
+			response.sendRedirect("/dokogacha/LoginServlet");
+			return;
+		}//*/
+		//ログインユーザ名の取得
+		request.setCharacterEncoding("UTF-8");
+		LoginUser login_user = new LoginUser();
+		login_user = (LoginUser)session.getAttribute("id");
+		String login_user_id = login_user.getId();//"tanaka";
 
+		/*ユーザ名の取得
+		 *review_idをセッションスコープから取得
+		 *取得したreview_idからuser_name(id)を取得
+		 *取得してidからuser情報を取得*/
+		int review_id = (int)session.getAttribute("review_id");
+		ReviewDao RDao = new ReviewDao();
+		List<Review> reviewList  = RDao.select(new Review(review_id));
 
+		//取得したユーザIdを格納する変数
+		String others_id ="";// "tanaka";//others.getId();
 
-
-
-			User others = new User();
-			others = (User)session.getAttribute("others");
-			String othersId = "tanaka";//others.getId();
+		for(Review review : reviewList ){
+			others_id = review.getUser_name();
+		}
 
 		//お気に入りユーザに登録
 		Favorite_ReviewerDao FRerDao = new Favorite_ReviewerDao();
 
-		boolean flag = (FRerDao.insert(login_user_id, othersId));
+		if(!FRerDao.insert(login_user_id, others_id)) {
+			session.setAttribute("FavoriteRegisterMassage","フォロー登録済");
+		}
+		else{
+			session.setAttribute("FavoriteRegisterMassage","フォロー登録完了");
 
-
-		 //flag　=　true　=　登録完了
-
+		}
 		//他ユーザ詳細画面にフォワードする
 		doGet(request, response);
 	}
