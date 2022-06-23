@@ -12,8 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.Favorite_ReviewerDao;
+import dao.ReviewDao;
+import dao.TitleDao;
 import dao.UserDao;
 import model.LoginUser;
+import model.Review;
+import model.Title;
 import model.User;
 
 /**
@@ -28,22 +32,31 @@ public class UserDetailServlet extends HttpServlet {
 			throws ServletException, IOException
 	{
 		HttpSession session = request.getSession();
-		//
-		/*
+		///*
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
 		}
 		//*/
-		//ログインユーザ名の取得
+		/*ユーザ名の取得
+		 *review_idをセッションスコープから取得
+		 *取得したreview_idからuser_name(id)を取得
+		 *取得してidからuser情報を取得
+		*/
 		request.setCharacterEncoding("UTF-8");
-		User others = new User();
-		others = (User)session.getAttribute("others");
-		String others_id = "tanaka";//others.getId();
+		int review_id = (int)session.getAttribute("review_id");
+		ReviewDao RDao = new ReviewDao();
+		List<Review> reviewList  = RDao.select(new Review(review_id));
 
-		//user_nameに該当するレコードを検出する。
+		//取得したユーザIdを格納する変数
+		String others_id ="";// "tanaka";//others.getId();
+
+		for(Review review : reviewList ){
+			others_id = review.getUser_name();
+		}
+
+		//others_idに該当するレコードを検出する。
 		UserDao UDao = new UserDao();
 		List<User> userList = UDao.select(others_id);
 
@@ -56,12 +69,24 @@ public class UserDetailServlet extends HttpServlet {
 		}
 		String image = user.getUser_image();
 
-		if(image.equals("")) {
+		if(image=="") {
 			user.setUser_image("icon_panda.png");
 		}
 
 		request.setAttribute("user", user);
 
+		//ユーザの累計いいね数を取得し、その数値あった称号を与える
+		/*
+		 * レビューテーブルからユーザIDに合致する投稿Listを取得
+		 * 取得したListからいいね数を抽出、合計を求める
+		 * 求めた合計を称号テーブルに渡し、該当する称号を取得する。*/
+		TitleDao TDao = new TitleDao();
+
+		int total_good  = TDao.totalgood(others_id);
+
+		Title title = TDao.select(total_good);
+
+		request.setAttribute("title", title);
 
 		//他ユーザ詳細画面にフォワードする
 		//UserIDを取得 アイコン、名前、称号、お気に入り投稿、お気に入りジャンル累計いいね数、最新投稿、
@@ -72,34 +97,45 @@ public class UserDetailServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException
 	{
-			HttpSession session = request.getSession(); //リクエストを受けるのに必須
-			//
-			/*
-			// もしもログインしていなかったらログインサーブレットにリダイレクトする
-			if (session.getAttribute("id") == null) {
-				response.sendRedirect("/dokogacha/LoginServlet");
-				return;
-			}
-			//*/
-			//ログインユーザ名の取得
-			request.setCharacterEncoding("UTF-8");
-			LoginUser LoginUser = new LoginUser();
-			LoginUser = (LoginUser)session.getAttribute("id");
-			String LoginUserId = "tanaka";//loginuser.getId();
+		HttpSession session = request.getSession(); //リクエストを受けるのに必須
+		//
+		/*
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		if (session.getAttribute("id") == null) {
+			response.sendRedirect("/dokogacha/LoginServlet");
+			return;
+		}//*/
+		//ログインユーザ名の取得
+		request.setCharacterEncoding("UTF-8");
+		LoginUser login_user = new LoginUser();
+		login_user = (LoginUser)session.getAttribute("id");
+		String login_user_id = login_user.getId();//"tanaka";
 
-			User others = new User();
-			others = (User)session.getAttribute("others");
-			String othersId = "tanaka";//others.getId();
+		/*ユーザ名の取得
+		 *review_idをセッションスコープから取得
+		 *取得したreview_idからuser_name(id)を取得
+		 *取得してidからuser情報を取得*/
+		int review_id = (int)session.getAttribute("review_id");
+		ReviewDao RDao = new ReviewDao();
+		List<Review> reviewList  = RDao.select(new Review(review_id));
+
+		//取得したユーザIdを格納する変数
+		String others_id ="";// "tanaka";//others.getId();
+
+		for(Review review : reviewList ){
+			others_id = review.getUser_name();
+		}
 
 		//お気に入りユーザに登録
-		//Favorite_Reviewer FRer = new Favorite_Reviewer();
-
 		Favorite_ReviewerDao FRerDao = new Favorite_ReviewerDao();
 
-		 //flag = (FRerDao.insert(LoginUserId, othersId));
+		if(!FRerDao.insert(login_user_id, others_id)) {
+			session.setAttribute("FavoriteRegisterMassage","フォロー登録済");
+		}
+		else{
+			session.setAttribute("FavoriteRegisterMassage","フォロー登録完了");
 
-		 //flag　=　true　=　登録完了
-
+		}
 		//他ユーザ詳細画面にフォワードする
 		doGet(request, response);
 	}

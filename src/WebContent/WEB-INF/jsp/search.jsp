@@ -21,7 +21,7 @@
 		</nav>
 	</header>
 
-<form method="POST" action="result.html">
+<form method="POST" action="/dokogacha/SearchServlet">
 		<div class="capsule_genre"><img src="img/cap_genre.png" alt="genre" >
  		  <select name="genre" required>
           <option value="">----ジャンルを選択する----</option>
@@ -32,11 +32,11 @@
 		</div>
 		<div class="capsule_word">
           <img src="img/cap_word.png" alt="word" >
-          <input type="text" name="cap_word">
+          <input type="text" name="word">
  		</div>
 		<div class="capsule_address">
           <img src="img/cap_loc.png" alt="address" >
-          <input type="text" name="capsule_address">
+          <input type="text" name="address">
 		</div>
 </form>
 	<div class="btn">

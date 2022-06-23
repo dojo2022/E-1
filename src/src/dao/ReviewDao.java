@@ -169,7 +169,7 @@ public class ReviewDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
 
 			String sql = "select review.review_id , genre_name , price , puroduct_name , good , image "
-					+ "from review join review_image on review.review_id = review_image.review_id"
+					+ "from review join review_image on review.review_id = review_image.review_id "
 					+ "right join genre on review.genre_id = genre.genre_id WHERE user_name = ?";//変更部分
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
@@ -437,6 +437,68 @@ public class ReviewDao {
 		// 結果を返す
 		return reviewList;
 	}
+
+//------------------------------------------------------------------------------------------
+//トレンドを呼び出す
+public List<Review_List> TRselect(Review_List review_id) {
+	/*public List<Review> select(Stirng genre, ){*/ //バラバラに呼び出すやり方
+
+	Connection conn = null;
+	List<Review_List> reviewList = new ArrayList<Review_List>();
+
+
+	try {
+		Class.forName("org.h2.Driver");
+		conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
+
+		String sql = "SELECT MAX(good=?) from review WHERE date < DATE_SUB(now(), INTERVAL 1 month)";//変更部分
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+		int id = review_id.getReview_id();//変更部分
+
+
+		pStmt.setInt(1, id);//変更部分
+
+
+		// SQL文を実行し、結果表を取得する
+		ResultSet rs = pStmt.executeQuery();
+
+		// 結果表をコレクションにコピーする<<ここ改造>>//変更部分
+		while (rs.next()) {
+			Review_List review  = new Review_List(
+					rs.getInt("review_id"),
+					rs.getString("image"),
+					rs.getString("genre_name"),
+					rs.getInt("price"),
+					rs.getString("puroduct_name"),
+					rs.getInt("good")
+					);
+			reviewList.add(review);
+		}
+	}
+	catch (SQLException e) {
+		e.printStackTrace();
+		reviewList = null;
+	}
+	catch (ClassNotFoundException e) {
+		e.printStackTrace();
+		reviewList = null;
+	}
+	finally {
+		// データベースを切断
+		if (conn != null) {
+			try {
+				conn.close();
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+				reviewList = null;
+			}
+		}
+	}
+
+	// 結果を返す
+	return reviewList;
+  }
 }
 
 
