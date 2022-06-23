@@ -219,8 +219,8 @@ public class ReviewDao {
 			else {
 				pStmt.setString(8, null);
 			}
-			if (review_id.getProduct_name() != null && !review_id.getProduct_name().equals("")) {
-				pStmt.setString(9, review_id.getProduct_name());
+			if (review_id.getPuroduct_name() != null && !review_id.getPuroduct_name().equals("")) {
+				pStmt.setString(9, review_id.getPuroduct_name());
 			}
 			else {
 				pStmt.setString(9, null);
