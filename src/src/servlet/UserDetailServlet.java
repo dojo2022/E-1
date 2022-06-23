@@ -98,8 +98,7 @@ public class UserDetailServlet extends HttpServlet {
 		throws ServletException, IOException
 	{
 		HttpSession session = request.getSession(); //リクエストを受けるのに必須
-		//
-		/*
+		///*
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/dokogacha/LoginServlet");
