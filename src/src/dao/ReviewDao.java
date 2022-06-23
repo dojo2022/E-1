@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Review;
+import model.Review_List;
 
 //--------------------------------------------------------------------------------------------
 //search文
@@ -128,6 +129,68 @@ public class ReviewDao {
 						);
 				reviewList.add(review);
 			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			reviewList = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			reviewList = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					reviewList = null;
+				}
+			}
+		}
+
+		// 結果を返す
+		return reviewList;
+	}
+
+	//--------------------------------------------------------------------------------------------
+	//他人の投稿一覧select文
+	public List<Review_List> URselect(String user_name) {
+		/*public List<Review> select(Stirng genre, ){*/ //バラバラに呼び出すやり方
+
+		Connection conn = null;
+		List<Review_List> reviewList = new ArrayList<Review_List>();
+
+
+		try {
+			Class.forName("org.h2.Driver");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
+
+			String sql = "select review.review_id , genre_name , price , puroduct_name , good , image "
+					+ "from review join review_image on review.review_id = review_image.review_id"
+					+ "right join genre on review.genre_id = genre.genre_id WHERE review_id = ?";//変更部分
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			pStmt.setString(1, user_name);//変更部分
+
+
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする<<ここ改造>>//変更部分
+			while (rs.next()) {
+				Review_List detail = new Review_List(
+				rs.getInt("review_id"),
+				rs.getString("image"),
+				rs.getString("genre_name"),
+				rs.getInt("price"),
+				rs.getString("puroduct_name"),
+				rs.getInt("good")
+				);
+				reviewList.add(detail);
+				}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
