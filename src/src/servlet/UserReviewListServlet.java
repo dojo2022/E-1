@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.Favorite_ReviewDao;
-import model.LoginUser;
 import model.Review_List;
 
 /**
@@ -35,22 +34,22 @@ public class UserReviewListServlet extends HttpServlet {
 	 */
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
+		/*HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
 		}
-		
+
 
 
 		request.setCharacterEncoding("UTF-8");
 		LoginUser loginuser = new LoginUser();
 		loginuser = (LoginUser)session.getAttribute("id");
 		String user_name = loginuser.getId();
-
+*/
 
 		Favorite_ReviewDao FRDao = new Favorite_ReviewDao();
-		List<Review_List> favorite_review_list = FRDao.favrevselect(user_name);
+		List<Review_List> favorite_review_list = FRDao.favrevselect("yamada");
 
 		request.setAttribute("favorite_review_list", favorite_review_list);
 
