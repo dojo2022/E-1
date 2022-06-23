@@ -37,7 +37,7 @@ public class SearchServlet extends HttpServlet {
 
 		// 検索処理を行う
 		GenreDao gDao = new GenreDao();
-		List<Genre> genreList = gDao.select(-1); //改造する
+		List<Genre> genreList = gDao.select(); //改造する
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("genreList", genreList);

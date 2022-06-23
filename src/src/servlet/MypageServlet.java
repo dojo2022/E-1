@@ -75,11 +75,10 @@ public class MypageServlet extends HttpServlet {
 		 * 取得したListからいいね数を抽出、合計を求める
 		 * 求めた合計を称号テーブルに渡し、該当する称号を取得する。
 		 */
-		int total_good = 0;
-
-
-
 		TitleDao TDao = new TitleDao();
+
+		int total_good  = TDao.totalgood(login_user_id);
+
 		Title title = TDao.select(total_good);
 
 		request.setAttribute("title", title);
@@ -95,7 +94,7 @@ public class MypageServlet extends HttpServlet {
 	{
 		doGet(request,response );
 	}
-/*-------------------------------*/
+	/*-------------end class-----------------------------------------------------------------*/
 }
 
 
