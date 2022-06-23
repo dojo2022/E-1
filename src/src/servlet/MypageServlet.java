@@ -12,8 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.TitleDao;
 import dao.UserDao;
 import model.LoginUser;
+import model.Title;
 import model.User;
 
 /**
@@ -36,8 +38,7 @@ public class MypageServlet extends HttpServlet {
 		System.out.println("DoGet");
 
 		HttpSession session = request.getSession(); //リクエストを受けるのに必須
-		//
-		/*
+		///*
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/dokogacha/LoginServlet");
@@ -46,13 +47,13 @@ public class MypageServlet extends HttpServlet {
 		//*/
 		//ログインユーザ名の取得
 		request.setCharacterEncoding("UTF-8");
-		LoginUser LoginUser = new LoginUser();
-		LoginUser = (LoginUser)session.getAttribute("id");
-		String LoginUserId = "tanaka";//loginuser.getId();
+		LoginUser login_user = new LoginUser();
+		login_user = (LoginUser)session.getAttribute("id");
+		String login_user_id = login_user.getId();//"tanaka";
 
 		//user_nameに該当するレコードを検出する。
 		UserDao UDao = new UserDao();
-		List<User> userList = UDao.select(LoginUserId);
+		List<User> userList = UDao.select(login_user_id);
 
 		User user = new User();
 
@@ -67,18 +68,35 @@ public class MypageServlet extends HttpServlet {
 		}
 
 		request.setAttribute("user", user);
-/*
-		TitleDao TDao = new TitleDao();
-		List<Title> TitleList =TDao.select(loginuser_name);
-		Title title =new Title();
 
-		for(Title title2 : TitleList){
-			user.setId(title2.getImage());
-			}
+		//ユーザのいいね数を調べてその数値あった称号を与える
+		/*工程
+		 * レビューテーブルからユーザIDに合致する投稿Listを取得
+		 * 取得したListからいいね数を抽出、合計を求める
+		 * 求めた合計を称号テーブルに渡し、該当する称号を取得する。
+		 */
+		int total_good = 0;
+
+
+
+		TitleDao TDao = new TitleDao();
+		Title title = TDao.select(total_good);
+
 		request.setAttribute("title", title);
-*/
+
 		// マイメニュー画面にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
 		dispatcher.forward(request, response);
 	}
+	/*-------------doPost-----------------------------------------------------------------*/
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException
+	{
+		doGet(request,response );
+	}
+/*-------------------------------*/
 }
+
+
+
