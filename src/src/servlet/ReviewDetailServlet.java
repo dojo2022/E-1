@@ -34,6 +34,7 @@ public class ReviewDetailServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		int review_id = (int) session.getAttribute("review_id");
+		System.out.println(review_id);
 			ReviewDao rDao = new ReviewDao();
 		List<Review> review_detailList = rDao.select(new Review(review_id));
 		request.setAttribute("review_detailList", review_detailList);
