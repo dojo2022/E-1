@@ -33,6 +33,8 @@ public class MypageServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
 	{
+		System.out.println("DoGet");
+
 		HttpSession session = request.getSession(); //リクエストを受けるのに必須
 		//
 		/*
@@ -59,13 +61,10 @@ public class MypageServlet extends HttpServlet {
 			user.setUser_image(user2.getUser_image());
 			user.setC_public(user2.getC_public());
 		}
-
-		String image = user.getUser_image();
 		//ユーザアイコンがセットされていない場合
-		if(image.equals("")) {
+		if(user.getUser_image().equals("")) {
 			user.setUser_image("icon_panda.png");
 		}
-
 
 		request.setAttribute("user", user);
 /*
