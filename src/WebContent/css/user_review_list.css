@@ -80,11 +80,6 @@ th.fhead {
 	width: 120px;
 	height: 120px;
 }
-.back img,.top img {
-	vertical-align: middle;
-	width: 120px;
-	height: 120px;
-}
 
 .top{
 	text-align: left;
@@ -96,4 +91,47 @@ th.fhead {
 }
 .bottom{
 	text-align: right;
+}
+
+
+.opback {
+		width: 9%;
+	position: absolute;
+    left: 245px;
+}
+.capback{
+	width: 10%;
+	position: absolute;
+    left: 245px;
+}
+.opcap1 img {
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	display: block;
+	-webkit-transition: .4s ease-in-out;
+	transition: .4s ease-in-out;
+}
+.opcap1:hover img:nth-of-type(2) {
+	opacity: 0;
+}
+
+.optop {
+		width: 9%;
+	position: absolute;
+    left: 735px;
+}
+.captop{
+	width: 10%;
+	position: absolute;
+    left: 735px;
+}
+.opcap2 img {
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	display: block;
+	-webkit-transition: .4s ease-in-out;
+	transition: .4s ease-in-out;
+}
+.opcap2:hover img:nth-of-type(2) {
+	opacity: 0;
 }

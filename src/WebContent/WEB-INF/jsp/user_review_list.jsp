@@ -29,12 +29,18 @@
 				<div class="bottom">${e.good}</div></a></td>
 			</tr>
 			</c:forEach>
-			<tr class="menu">
-				<td colspan="2" class="back"><a href="/dokogacha/MypageServlet"><img src="/dokogacha/img/cap_back.png" alt="戻る"></a></td>
-				<td colspan="6" class="emp"></td>
-				<td colspan="2" class="top"><a href="/dokogacha/TopServlet"><img src="/dokogacha/img/cap_top.png" alt="トップ"></a></td>
-			</tr>
 		</table>
+				<div class="opcap1">
+				<a href="/dokogacha/MypageServlet">
+				<img src="/dokogacha/img/opcap_back.png" alt="戻る" class="opback" >
+				<img src="/dokogacha/img/cap_back.png" alt="戻る" class="capback"></a>
+				</div>
+
+				<div class="opcap2">
+				<a href="/dokogacha/TopServlet">
+				<img src="/dokogacha/img/opcap_top.png" alt="トップ" class="optop">
+				<img src="/dokogacha/img/cap_top.png" alt="トップ" class="captop"></a>
+				</div>
 	</form>
 </div>
 </body>
