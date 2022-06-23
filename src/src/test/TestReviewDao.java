@@ -14,7 +14,7 @@ public class testReviewDao {
 		for (Review review : reviewList) {
 			System.out.println("genre_name: " +review.getGenre_id());
 			System.out.println("price：" +review.getPrice());
-			System.out.println("product_name：" +review.getProduct_name());
+			System.out.println("product_name：" +review.getPuroduct_name());
 			System.out.println("good:"+review.getGood());
 			System.out.println("address:"+review.getAddress());
 			System.out.println("user_name:"+review.getUser_name());

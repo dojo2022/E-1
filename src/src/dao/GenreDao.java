@@ -12,7 +12,7 @@ import model.Genre;
 
 public class GenreDao {
 
-	public List<Genre> select(int genre_id) {
+	public List<Genre> select() {
 		Connection conn = null;
 		List<Genre> GenreList = new ArrayList<Genre>();;
 
@@ -24,12 +24,9 @@ public class GenreDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
 
 			// SQL文を準備する
-			String sql = "select * from genre where genre_id = ? ORDER BY genre_id ASC" ;
+			String sql = "select * from genre ORDER BY genre_id ASC" ;
 
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			// SQL文を完成させる
-			//ID----------------------------------------------
-				pStmt.setInt(1, genre_id );
 
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
@@ -37,9 +34,9 @@ public class GenreDao {
 			// 結果表をコレクションにコピーする
 			while (rs.next()) {
 				Genre genre = new Genre(
-				rs.getInt("genre_id"),
-				rs.getString("genre_name")
-				);
+						rs.getInt("genre_id"),
+						rs.getString("genre_name")
+						);
 				GenreList.add(genre);
 			}
 		}
