@@ -62,7 +62,7 @@ public class MypageServlet extends HttpServlet {
 		String user_image =user.getUser_image();
 
 		//ユーザアイコンがセットされていない場合
-		if( user_image == null || user_image == "" ){
+		if(user_image == ""){
 			user.setUser_image("icon_panda.png");
 		}
 
@@ -77,6 +77,8 @@ public class MypageServlet extends HttpServlet {
 		TitleDao TDao = new TitleDao();
 
 		int total_good  = TDao.totalgood(login_user_id);
+
+		request.setAttribute("total_good", total_good);
 
 		Title title = TDao.select(total_good);
 
