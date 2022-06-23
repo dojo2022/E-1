@@ -1,6 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/dao/Favorite_ReviewDao.java=UTF-8
 encoding//src/dao/Favorite_ReviewerDao.java=UTF-8
+encoding//src/dao/GenreDao.java=UTF-8
 encoding//src/dao/IdpwDao.java=UTF-8
 encoding//src/dao/ReviewDao.java=UTF-8
 encoding//src/dao/Review_ImageDao.java=UTF-8
