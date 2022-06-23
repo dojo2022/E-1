@@ -123,7 +123,7 @@ public class ReviewDao {
 						rs.getInt("evalution"),
 						rs.getInt("good"),
 						rs.getString("address"),
-						rs.getString("product_name"),
+						rs.getString("puroduct_name"),
 						rs.getInt("price")
 						);
 				reviewList.add(review);

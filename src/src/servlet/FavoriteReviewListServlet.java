@@ -73,11 +73,16 @@ public class FavoriteReviewListServlet extends HttpServlet {
 		int review_id = Integer.parseInt(request.getParameter("review_id"));
 
 		session.setAttribute("review_id", review_id);
+		String f = request.getParameter("follow_state");
 
 
 
 		//お気に入り解除ボタンが押されたら
-		if (request.getParameter("follow_state").equals("お気に入り解除")) {
+		if (f == "" || f == null) {
+			response.sendRedirect("/dokogacha/ReviewDetailServlet");
+			//RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/review_detail.jsp");
+			//dispatcher.forward(request, response);
+		}else {
 
 			//ログイン中のユーザ名を取得
 			request.setCharacterEncoding("UTF-8");
@@ -90,10 +95,6 @@ public class FavoriteReviewListServlet extends HttpServlet {
 			FRDao.delete(my_name,review_id);
 
 			response.sendRedirect("/dokogacha/FavoriteReviewListServlet");
-		}else {
-			response.sendRedirect("/dokogacha/ReviewDetailServlet");
-			//RequestDispatcher dispatcher = request.getRequestDispatcher("/dokogacha/ReviewDetailServlet");
-			//dispatcher.forward(request, response);
 		}
 
 	}
