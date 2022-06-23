@@ -30,13 +30,10 @@ import model.User;
 public class MypageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
 	{
 		System.out.println("DoGet");
-
 		HttpSession session = request.getSession(); //リクエストを受けるのに必須
 		///*
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
@@ -62,8 +59,10 @@ public class MypageServlet extends HttpServlet {
 			user.setUser_image(user2.getUser_image());
 			user.setC_public(user2.getC_public());
 		}
+		String user_image =user.getUser_image();
+
 		//ユーザアイコンがセットされていない場合
-		if(user.getUser_image().equals("")) {
+		if(user_image == ""){
 			user.setUser_image("icon_panda.png");
 		}
 
@@ -78,6 +77,8 @@ public class MypageServlet extends HttpServlet {
 		TitleDao TDao = new TitleDao();
 
 		int total_good  = TDao.totalgood(login_user_id);
+
+		request.setAttribute("total_good", total_good);
 
 		Title title = TDao.select(total_good);
 

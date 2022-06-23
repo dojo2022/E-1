@@ -45,7 +45,7 @@
     </header>
     <img class="button_null" src="/dokogacha/img/button_null.png">
     <div class ="trend_review">
-		＃${review.ganre}<br>${review.price}　${review.product_name}　<br>${review.good}　<br>
+		＃${image} ${review.genre}<br>${review.price}　${review.product_name}　<br>${review.good}　<br>
     </div>
     </div>
 </body>

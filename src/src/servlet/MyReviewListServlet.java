@@ -69,13 +69,8 @@ public class MyReviewListServlet extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		int review_id = Integer.parseInt(request.getParameter("review_id"));
-
-		request.setAttribute("review_id", review_id);
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/dokogacha/ReviewDetailServlet");
-		//dispatcher.forward(request, response);
-
-
+		session.setAttribute("review_id", review_id);
+		response.sendRedirect("/dokogacha/ReviewDetailServlet");
 	}
 
 }

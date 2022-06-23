@@ -15,24 +15,29 @@ import javax.servlet.http.HttpSession;
 import dao.ReviewDao;
 import model.LoginUser;
 import model.Review;
+import model.Review_List;
 
 @WebServlet("/ReviewServlet")
 public class ReviewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// レビュー投稿ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/review.jsp");
 		dispatcher.forward(request, response);
 	}
 
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		HttpSession session = request.getSession();
 		LoginUser user = new LoginUser();
+		//ログインしていない場合の処理
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
 		}
+		//５段階評価が入力されていない場合の処理
 		int star;
 		String star_Str = request.getParameter("star");
 		if( star_Str== null|| star_Str == "") {
@@ -40,6 +45,7 @@ public class ReviewServlet extends HttpServlet {
 		}else {
 			star = Integer.parseInt(request.getParameter("star"));
 		}
+		//金額が入力されていない場合の処理
 		int price;
 		String price_Str = request.getParameter("price");
 		if(price_Str == null || price_Str == "") {
@@ -57,7 +63,7 @@ public class ReviewServlet extends HttpServlet {
 		String series = request.getParameter("series");
 		String thought = request.getParameter("thought");
 		String address = request.getParameter("address");
-		//String insert_image = request.getParameter("insert_image");
+		String image = request.getParameter("image");
 		/*if( price_Str.equals("") || price_Str == null ){
 			price = 0;
 		}*/
@@ -78,15 +84,17 @@ public class ReviewServlet extends HttpServlet {
 
 		ReviewDao rDao = new ReviewDao();
 
+		//金額に文字が入力されていた場合のエラー処理
 		if(!price_Str.chars().allMatch(Character::isDigit)){
 			request.setAttribute("error_message","※金額は数値のみ入力してください。");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/review.jsp");
 			dispatcher.forward(request, response);
 
 		}
+		//正常に動作した場合の処理
 		else {
 			//price = Integer.parseInt(price_Str);
-			if(rDao.insert(new Review(0, user_name, genre_id, review_day, title, series, thought, star, good, address,product_name, price))) {
+			if(rDao.insert(new Review_List(0,image,genre_id,))) {
 				response.sendRedirect("/dokogacha/ReviewResultServlet");
 				return;
 			}
