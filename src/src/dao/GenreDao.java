@@ -17,24 +17,24 @@ public class GenreDao {
 		List<Genre> GenreList = new ArrayList<Genre>();;
 
 		try {
-			// JDBCƒhƒ‰ƒCƒo‚ğ“Ç‚İ‚Ş
+			// JDBCãƒ‰ãƒ©ã‚¤ãƒã‚’èª­ã¿è¾¼ã‚€
 			Class.forName("org.h2.Driver");
 
-			// ƒf[ƒ^ƒx[ƒX‚ÉÚ‘±‚·‚é
+			// ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã«æ¥ç¶šã™ã‚‹
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
 
-			// SQL•¶‚ğ€”õ‚·‚é
+			// SQLæ–‡ã‚’æº–å‚™ã™ã‚‹
 			String sql = "select * from genre where genre_id = ? ORDER BY genre_id ASC" ;
 
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			// SQL•¶‚ğŠ®¬‚³‚¹‚é
+			// SQLæ–‡ã‚’å®Œæˆã•ã›ã‚‹
 			//ID----------------------------------------------
 				pStmt.setInt(1, genre_id );
 
-			// SQL•¶‚ğÀs‚µAŒ‹‰Ê•\‚ğæ“¾‚·‚é
+			// SQLæ–‡ã‚’å®Ÿè¡Œã—ã€çµæœè¡¨ã‚’å–å¾—ã™ã‚‹
 			ResultSet rs = pStmt.executeQuery();
 
-			// Œ‹‰Ê•\‚ğƒRƒŒƒNƒVƒ‡ƒ“‚ÉƒRƒs[‚·‚é
+			// çµæœè¡¨ã‚’ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã«ã‚³ãƒ”ãƒ¼ã™ã‚‹
 			while (rs.next()) {
 				Genre genre = new Genre(
 				rs.getInt("genre_id"),
@@ -52,7 +52,7 @@ public class GenreDao {
 			GenreList = null;
 		}
 		finally {
-			// ƒf[ƒ^ƒx[ƒX‚ğØ’f
+			// ãƒ‡ãƒ¼ã‚¿ãƒ™ãƒ¼ã‚¹ã‚’åˆ‡æ–­
 			if (conn != null) {
 				try {
 					conn.close();
@@ -63,7 +63,7 @@ public class GenreDao {
 				}
 			}
 		}
-		// Œ‹‰Ê‚ğ•Ô‚·
+		// çµæœã‚’è¿”ã™
 		return GenreList;
 	}
 }
