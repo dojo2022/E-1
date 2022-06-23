@@ -23,13 +23,12 @@
 				<input type="hidden" name="review_id" value=${e.review_id}>
 				<input type="hidden" name="review" value="change">
 				<td class="icon" colspan="2"><a href="javascript:document.f.submit()">${e.image}</a></td>
-				<td class="detail" colspan="6"><a href="javascript:document.f.submit()">
+				<td class="detail" colspan="8"><a href="javascript:document.f.submit()">
 				<div class="top">${e.genre_name} / ${e.price}</div><br>
 				<div class="middle">${e.puroduct_name}</div><br>
 				<div class="bottom">${e.good}</div></a></td>
 			</tr>
 			</c:forEach>
-
 			<tr class="menu">
 				<td colspan="2" class="back"><a href="/dokogacha/MypageServlet"><img src="/dokogacha/img/cap_back.png" alt="戻る"></a></td>
 				<td colspan="6" class="emp"></td>
