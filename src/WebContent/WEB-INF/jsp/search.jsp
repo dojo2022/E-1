@@ -13,10 +13,10 @@
 	<header class="header">
 		<nav class="nav">
 		<ul>
-		    <li><a href="TopServlet.java">トップ</a><li>
-		    <li><a href="SearchServlet.java">検索</a></li>
-		    <li><a href="ReviewServlet.java">投稿</a></li>
-		    <li><a href="MypageServlet.java">マイページ</a></li>
+		    <li><a href="/dokogacha/TopServlet">トップ</a><li>
+		    <li><a href="/dokogachaSearchServlet">検索</a></li>
+		    <li><a href="/dokogacha/ReviewServlet">投稿</a></li>
+		    <li><a href="/dokogacha/MypageServlet">マイページ</a></li>
 		</ul>
 		</nav>
 	</header>
@@ -38,13 +38,13 @@
           <img src="img/cap_loc.png" alt="address" >
           <input type="text" name="address">
 		</div>
-</form>
 	<div class="btn">
 	 <a href="search_result.jsp">
 		<img src="img/button_search2.png" alt="search" class="button_search2">
 		<img src="img/button_search.png" alt="search" class="button_search">
 	 </a>
 	</div>
+</form>
 	<div class="opcap">
 	 <a href="logout.jsp">
 	 <img src="img/opcap_logout.png" alt="logout" class="opcapsule_logout">
