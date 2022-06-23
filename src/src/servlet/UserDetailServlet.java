@@ -69,7 +69,7 @@ public class UserDetailServlet extends HttpServlet {
 		}
 		String image = user.getUser_image();
 
-		if(image=="") {
+		if(image=="" ){
 			user.setUser_image("icon_panda.png");
 		}
 
