@@ -11,11 +11,11 @@ public class Review {
 	private int evalution;
 	private int good;
 	private String address;
-	private String product_name;
+	private String puroduct_name;
 	private int price;
 
 	public Review(int review_id, String user_name, int genre_id, String review_day, String title, String series_name,
-			String thought, int evalution, int good, String address, String product_name, int price
+			String thought, int evalution, int good, String address, String puroduct_name, int price
 			) {
 		super();
 		this.review_id = review_id;
@@ -28,7 +28,7 @@ public class Review {
 		this.evalution = evalution;
 		this.good = good;
 		this.address = address;
-		this.product_name = product_name;
+		this.puroduct_name = puroduct_name;
 		this.price = price;
 	}
 	public Review(int review_id) {
@@ -49,7 +49,7 @@ public class Review {
 		this.evalution = 0;
 		this.good = 0;
 		this.address = "";
-		this.product_name = "";
+		this.puroduct_name = "";
 		this.price = 0;
 	}
 
@@ -133,12 +133,12 @@ public class Review {
 		this.address = address;
 	}
 
-	public String getProduct_name() {
-		return product_name;
+	public String getPuroduct_name() {
+		return puroduct_name;
 	}
 
-	public void setProduct_name(String product_name) {
-		this.product_name = product_name;
+	public void setPuroduct_name(String puroduct_name) {
+		this.puroduct_name = puroduct_name;
 	}
 
 	public int getPrice() {

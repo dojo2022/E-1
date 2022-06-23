@@ -12,11 +12,11 @@
 
 	<c:forEach var="e" items="${review_detailList}" >
 	 <form method="POST" action="/dokogacha/ReviewDetailServlet">
-	 <div class="insert_image"><input type="file" value="${e.insert_image}" alt="Not Image"></div>
+	 <div class="insert_image"><input type="file" value="a" alt="Not Image"></div>
 	 <h2 class="goodbutton"><img id="goodbutton" name="goodbutton" value="いいねボタン" src="/dokogacha/img/good_shiro.png" height="80" width="180" onclick="change1()"></h2>
 	 <h2 class="favoritebutton"><img id="favoritebutton" name="favoritebutton" value="お気に入りボタン" src="/dokogacha/img/favo_shiro.png" height="80" width="180" onclick="change2()"></h2>
 	 <table class="review_detail">
-	  <tr><td><input type="text" name="product_code" value="${e.product_code}"></td></tr>
+	  <tr><td><input type="text" name="product_code" value="${e.puroduct_name}"></td></tr>
 	  <tr><td><input type="text" name="title" value="${e.title}"></td></tr>
 	  <tr><td><textarea name="thought" value="${e.thought}"></textarea></td></tr>
 	  <tr><td><input type="text" name="price" value="${e.price}"></td></tr>

@@ -14,9 +14,9 @@
 <h1>投稿一覧</h1>
 <h2>他ユーザーの投稿</h2>
 
-<form name=f method=POST action="/dokogacha/ReviewDetailServlet">
+<form name=f method=POST action="/dokogacha/UserReviewListServlet">
 <table class="review">
-			<c:forEach var="e" items="${favorite_review_list}" >
+			<c:forEach var="e" items="${user_review_list}" >
 			<tr class="data">
 				<input type="hidden" name="review_id" value=${e.review_id}>
 				<input type="hidden" name="review" value="change">

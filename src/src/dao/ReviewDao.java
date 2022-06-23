@@ -123,7 +123,7 @@ public class ReviewDao {
 						rs.getInt("evalution"),
 						rs.getInt("good"),
 						rs.getString("address"),
-						rs.getString("product_name"),
+						rs.getString("puroduct_name"),
 						rs.getInt("price")
 						);
 				reviewList.add(review);
@@ -219,8 +219,8 @@ public class ReviewDao {
 			else {
 				pStmt.setString(8, null);
 			}
-			if (review_id.getProduct_name() != null && !review_id.getProduct_name().equals("")) {
-				pStmt.setString(9, review_id.getProduct_name());
+			if (review_id.getPuroduct_name() != null && !review_id.getPuroduct_name().equals("")) {
+				pStmt.setString(9, review_id.getPuroduct_name());
 			}
 			else {
 				pStmt.setString(9, null);

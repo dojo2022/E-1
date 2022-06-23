@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.GenreDao;
 import dao.ReviewDao;
+import model.Genre;
 import model.Review;
 
 /**
@@ -34,12 +36,12 @@ public class SearchServlet extends HttpServlet {
 		}
 
 		// 検索処理を行う
-		/*GenreDao gDao = new GenreDao();
-		List<Genre> genreList = gDao.select(new Genre(-1)); //改造する
+		GenreDao gDao = new GenreDao();
+		List<Genre> genreList = gDao.select(-1); //改造する
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("genreList", genreList);
-*/
+
 		// 検索ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/search.jsp");
 		dispatcher.forward(request, response);
