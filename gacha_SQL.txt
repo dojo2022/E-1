@@ -1,5 +1,4 @@
 --ユーザ
---変更前
 create table user (
   id varchar(255) primary key not null,
   pw varchar(255) not null,
@@ -7,15 +6,7 @@ create table user (
   public varchar(5)
 );
 
---変更後
---ユーザ
-create table user (
-  id varchar(255)  not null,
-  pw varchar(255) not null,
-  user_image varchar(255),
-  public varchar(5),
-  UNIQUE (id)
-);
+
 --称号
 create table title (
   total_good int primary key not null,
