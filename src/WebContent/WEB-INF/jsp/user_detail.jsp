@@ -37,7 +37,7 @@
 	</div>
 	<div class ="user_name_title">
 		<span class ="user_name">${user.id}</span>
-		 <img src="${'/dokogacha/img/'+=title}" alt="称号" width=50px class="title"><br>
+		 <img src="${'/dokogacha/img/'+=title.image}" alt="称号" width=50px class="title"><br>
 		 <a href="/dokogacha/FavoriteReviewListServlet" class="favorite_review_list">お気に入り投稿一覧</a>
 	</div>
 </div>
@@ -49,11 +49,11 @@
 </div>
 <div class="user_inf2-2">
 	<div class="total_good2">
-		${e.total_good}いいね
+		${total_good}いいね
 	</div>
 	<div class="Favorite_Genre2">
-		<c:forEach var="Ganre" items="${Ganre_list}" >
-		${Ganre}<br>
+		<c:forEach var="Fgenre" items="${FGList}" >
+		＃${Fgenre}
 		</c:forEach>
 	</div>
 </div>

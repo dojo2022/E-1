@@ -1,5 +1,6 @@
 package servlet;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -30,6 +31,7 @@ public class MypageChangeServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("DoGet_MypageChangeServlet");
 		HttpSession session = request.getSession();
 		///*
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
@@ -54,7 +56,6 @@ public class MypageChangeServlet extends HttpServlet {
 			user.setId(user2.getId());
 			user.setUser_image(user2.getUser_image());
 			user.setC_public(user2.getC_public());
-			//System.out.println(user2.getId() +":"+ user2.getUser_image() +":"+ user2.getC_public());
 		}
 		//ユーザアイコンがセットされていない場合
 		if(user.getUser_image() == null) {
@@ -73,15 +74,16 @@ public class MypageChangeServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
 		{
+			System.out.println("DoPost_MypageChangeServlet");
 			HttpSession session = request.getSession();
-			//			/*
+			///*
 			// もしもログインしていなかったらログインサーブレットにリダイレクトする
 			if (session.getAttribute("id") == null) {
 				response.sendRedirect("/dokogacha/LoginServlet");
 				return;
 			}
 			//*/
-			//ログイン中のゆーざIDを取得
+			//ログイン中のユーザIDを取得
 			request.setCharacterEncoding("UTF-8");
 			LoginUser login_user = new LoginUser();
 			login_user = (LoginUser)session.getAttribute("id");
@@ -98,47 +100,46 @@ public class MypageChangeServlet extends HttpServlet {
 				user.setId(user2.getId());
 				user.setUser_image(user2.getUser_image());
 				user.setC_public(user2.getC_public());
-				//System.out.println(user2.getId() +":"+ user2.getUser_image() +":"+ user2.getC_public());
 			}
-
+			//登録情報、入力情報の取得
 			String old_image = user.getUser_image();
-
 			String new_id = request.getParameter("user_id");
-
 			String chose_public = request.getParameter("chose_public");
 
-			//ArrayList<String> userchange = new ArrayList<String>(); スコープ渡しのお試し1
-			//request.setAttribute("userchange", name); スコープ渡しのお試し2
+			//アイコンが未設定の場合の処理
+			if( old_image == null){
+				old_image = "icon_panda.png";
+			}
 
 			//画像関係の処理
 			Part part = request.getPart("IMAGE"); // getPartで取得
 
 			String new_image = this.getFileName(part);
 
-			System.out.println("image"+new_image);
+			File file = new File("C:/dojo6/src/WebContent/img/user_image/"+new_image);//絶対パス出ないとダメそう
 
-			if(!new_image.equals("")){				//アイコンがアップロードされた場合
-				part.write(new_image); 					//アップロードされた画像をディスクに書き込む
-			}
-			else {
+			if (new_image.equals("")){
+				//アイコン画像ファイルが変更されなかった場合
 				new_image = old_image;
 			}
-			boolean flag =  UDao.update(login_user_id, new_id, new_image , chose_public);
-			if(flag) {
+			else if(file.exists()) {
+				// アイコン画像ファイルが存在している場合
+				System.out.println(new_image+" has already been uploaded");
+			}
+			else{
+				// ファイルが存在していない場合
 				// サーバの指定のファイルパスへファイルを保存
 				//場所はクラス名↑の上に指定してある
-	      //10秒待つ
+				part.write(new_image);//アップロードされた画像をディスクに書き込む
+			}
+
+			if(UDao.update(login_user_id, new_id, new_image , chose_public)) {
+				//1.5秒待つ→アップロードに時間がかかるため
 	      try {
-	          Thread.sleep(5 * 1000);
+	          Thread.sleep(1 * 1500 );
 	      } catch (InterruptedException e) {
 	          e.printStackTrace();
 	      }
-				///*
-				//確認セット
-				//request.setAttribute("image", image);//確認用
-				//RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/upload_result.jsp");
-				//dispatcher.forward(request, response);
-				//*/
 				//「マイメニュー」へのリダイレクト
 				response.sendRedirect("/dokogacha/MypageServlet");
 			}
@@ -149,7 +150,7 @@ public class MypageChangeServlet extends HttpServlet {
 		}
 
 /*----------------------------------------------------------------------------------------------*/
-	//ファイルの名前を取得してくる
+	//ファイルの名前を取得してくる　パスはここで分離される。
 	private String getFileName(Part part) {
         String name = null;
         for (String dispotion : part.getHeader("Content-Disposition").split(";")) {

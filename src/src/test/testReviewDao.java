@@ -3,21 +3,20 @@ package test;
 import java.util.List;
 
 import dao.ReviewDao;
-import model.Review;
+import model.Review_List;
 
 public class testReviewDao {
 	public static void main(String[] args) {
 		ReviewDao rDao = new ReviewDao();
 		//----------------------search()のテスト---------------------------------------------
 		System.out.println("---------- search()のテスト ----------");
-		List<Review> reviewList = rDao.search(0,"Kusanagi","d");
-		for (Review review : reviewList) {
-			System.out.println("genre_name: " +review.getGenre_id());
+		List<Review_List> reviewList = rDao.search(0,"","");
+		for (Review_List review : reviewList) {
+			System.out.println("genre_name:"+review.getGenre_name());
 			System.out.println("price：" +review.getPrice());
 			System.out.println("product_name：" +review.getPuroduct_name());
 			System.out.println("good:"+review.getGood());
-			System.out.println("address:"+review.getAddress());
-			System.out.println("user_name:"+review.getUser_name());
+			System.out.println("image:"+review.getImage());
 			System.out.println();
 			}
 		/*

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import dao.GenreDao;
 import dao.ReviewDao;
 import model.Genre;
-import model.Review;
+import model.Review_List;
 
 /**
  * Servlet implementation class SearchServlet
@@ -61,14 +61,14 @@ public class SearchServlet extends HttpServlet {
 		// リクエストパラメータを取得する 改造する
 		request.setCharacterEncoding("UTF-8");
 		int genre = Integer.parseInt(request.getParameter("genre"));
-		String word = request.getParameter("cap_word");
-		String address = request.getParameter("capsule_address");
+		String word = request.getParameter("word");
+		String address = request.getParameter("address");
 
 
 
 		// 検索処理を行う
 		ReviewDao rDao = new ReviewDao();
-		List<Review> reviewList = rDao.search(genre, word, address); //改造する
+		List<Review_List> reviewList = rDao.search(genre, word, address); //改造する
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("reviewList", reviewList);
