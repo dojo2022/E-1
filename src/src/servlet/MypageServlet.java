@@ -35,9 +35,9 @@ public class MypageServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
 	{
-		System.out.println("DoGet");
+		System.out.println("DoGet_MypageServlet");
 		HttpSession session = request.getSession(); //リクエストを受けるのに必須
-		///*
+		//		/*
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/dokogacha/LoginServlet");
@@ -62,9 +62,6 @@ public class MypageServlet extends HttpServlet {
 			user.setC_public(user2.getC_public());
 		}
 		String user_image =user.getUser_image();
-
-		System.out.println("User_image" + user.getUser_image());
-		System.out.println("public" + user.getC_public());
 
 		//ユーザアイコンがセットされていない場合
 		if(user.getUser_image() == null){
