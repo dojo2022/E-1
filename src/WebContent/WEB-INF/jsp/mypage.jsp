@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>どこがちゃ｜マイページ</title>
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/mypage.css">
-<!----><style>*{outline: 1px solid #ff0000;}</style>
+<!--<style>*{outline: 1px solid #ff0000;}</style>-->
 
 </head>
 <body>
@@ -58,8 +58,12 @@
 <!-- 編集ボタンと自分の最新投稿、自分の投稿一覧リンクの表示 -->
 <div class="user_inf3">
 	<!-- 編集ボタン -->
-	<div class="do_change"><a href="/dokogacha/MypageChangeServlet">
-			<img src="/dokogacha/img/button_edit.png" alt="編集"></a></div>
+	<div class="do_change"><a href="/dokogacha/MypageChangeServlet" >
+			<img src="/dokogacha/img/button_edit.png" alt="編集"
+				onmouseout="this.src='/dokogacha/img/button_edit.png'"
+				onmouseover ="this.src='/dokogacha/img/button_edit2.png'">
+				</a></div>
+
 	<!-- 自分の最新投稿、自分の投稿一覧リンクの表示 -->
 	<div class="review">
 		<img src="/dokogacha/img/opcap_null.png" >
