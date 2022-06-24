@@ -15,10 +15,13 @@
 		<table border="1" style="border-collapse: collapse">
 			<tr><th class="fhead" colspan="10">投稿一覧</th></tr>
 			<tr class="tab">
-				<td colspan="10" class="selecting">自分の投稿一覧</td>
+			<td colspan="10" class="selecting">自分のー投稿一覧</td>
 			</tr>
+			</table>
+			<div class="slide">
+			<table border="1" style="border-collapse: collapse">
 			<tr><td class="empty" colspan="10"></td></tr>
-			<c:forEach var="e" items="${my_review_list}" >
+			<c:forEach var="e" items="${user_review_list}" >
 			<tr class="data">
 				<input type="hidden" name="review_id" value=${e.review_id}>
 				<input type="hidden" name="review" value="change">
@@ -29,13 +32,19 @@
 				<div class="bottom">${e.good}</div></a></td>
 			</tr>
 			</c:forEach>
-
-			<tr class="menu">
-				<td colspan="2" class="back"><a href="/dokogacha/MypageServlet"><img src="/dokogacha/img/cap_back.png" alt="戻る"></a></td>
-				<td colspan="6" class="emp"></td>
-				<td colspan="2" class="top"><a href="/dokogacha/TopServlet"><img src="/dokogacha/img/cap_top.png" alt="トップ"></a></td>
-			</tr>
 		</table>
+	</div>
+				<div class="opcap1">
+				<a href="/dokogacha/MypageServlet">
+				<img src="/dokogacha/img/opcap_back.png" alt="戻る" class="opback" >
+				<img src="/dokogacha/img/cap_back.png" alt="戻る" class="capback"></a>
+				</div>
+
+				<div class="opcap2">
+				<a href="/dokogacha/TopServlet">
+				<img src="/dokogacha/img/opcap_top.png" alt="トップ" class="optop">
+				<img src="/dokogacha/img/cap_top.png" alt="トップ" class="captop"></a>
+				</div>
 	</form>
 </div>
 </body>

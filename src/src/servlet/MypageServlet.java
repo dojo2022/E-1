@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.Favorite_GenreDao;
 import dao.TitleDao;
 import dao.UserDao;
 import model.LoginUser;
@@ -46,7 +48,7 @@ public class MypageServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		LoginUser login_user = new LoginUser();
 		login_user = (LoginUser)session.getAttribute("id");
-		String login_user_id = login_user.getId();//"tanaka";
+		String login_user_id = login_user.getId(); //"DOJO"; //
 
 		//user_nameに該当するレコードを検出する。
 		UserDao UDao = new UserDao();
@@ -61,8 +63,12 @@ public class MypageServlet extends HttpServlet {
 		}
 		String user_image =user.getUser_image();
 
+		System.out.println("User_image" + user.getUser_image());
+		System.out.println("public" + user.getC_public());
+
 		//ユーザアイコンがセットされていない場合
-		if(user_image == ""){
+		if(user.getUser_image() == null){
+			System.out.println(user_image);
 			user.setUser_image("icon_panda.png");
 		}
 
@@ -83,6 +89,13 @@ public class MypageServlet extends HttpServlet {
 		Title title = TDao.select(total_good);
 
 		request.setAttribute("title", title);
+
+		//login_user_idのお気に入りジャンルの取得
+		Favorite_GenreDao FGDao = new Favorite_GenreDao();
+
+		ArrayList<String> FGList = FGDao.select(login_user_id);
+
+		request.setAttribute("FGList", FGList);
 
 		// マイメニュー画面にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
