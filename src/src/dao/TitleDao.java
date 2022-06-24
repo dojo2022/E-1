@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import model.Review_List;
 import model.Title;
 
 public class TitleDao {
@@ -107,6 +108,59 @@ public class TitleDao {
 		// 結果を返す
 		return totalgood;
 	}
+	/*-----------totalgood--------------------------------------------------------------*/
+	public Review_List mynewreview(String user_id) {
 
+		Review_List review_List = new Review_List();
+		Connection conn = null;
+		try {
+			Class.forName("org.h2.Driver");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
+
+			String sql = "SELECT GENRE.genre_name, REVIEW.price, REVIEW.puroduct_name ,REVIEW.good, REVIEW_IMAGE.IMAGE \r\n"
+								 + "FROM REVIEW  join GENRE on REVIEW.GENRE_ID = GENRE.genre_id \r\n"
+								 + "right join REVIEW_IMAGE on REVIEW.REVIEW_ID  = REVIEW_IMAGE.REVIEW_ID\r\n"
+								 + "WHERE REVIEW.user_name = ?\r\n"
+								 + "ORDER BY REVIEW_DAY  limit 1";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			pStmt.setString(1, user_id);//変更部分
+
+
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする<<ここ改造>>//変更部分
+			while (rs.next()) {
+				review_List.setGenre_name(rs.getString("ganre_name"));
+				review_List.setPrice(rs.getInt("price"));
+				review_List.setPuroduct_name(rs.getString("puroduct_name"));
+				review_List.setGood(rs.getInt("good"));
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			review_List =null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			review_List =null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					review_List =null;
+				}
+			}
+		}
+
+		// 結果を返す
+		return 	review_List;
+	}
 	/*-----------end class--------------------------------------------------------------*/
 }

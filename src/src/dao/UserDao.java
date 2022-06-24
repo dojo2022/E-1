@@ -81,7 +81,7 @@ public class UserDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
 
 			// SQL文を準備する
-			String sql = "INSERT INTO User(id, pw, user_image, public) VALUES ( ?, ?, ?, ? )";
+			String sql = "INSERT INTO User (id, pw, user_image, public) VALUES ( ?, ?, ?, ? )";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 
