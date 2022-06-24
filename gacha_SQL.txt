@@ -99,13 +99,11 @@ insert into favorite_reviewer (user_name, reviewer_id) values ('', '');
 insert into genre (genre_id, genre_name) values (, '');
 
 レビュー
-<<<<<<< HEAD
 insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address,  puroduct_name) 
             values ( 1, 'あ', 1,'あ','あ','あ','あ', 1,1 ,'あ','あ',1 ,'あ');
-=======
+
 insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
             values (1, '太郎', 1, '20220620', 'タイトル', '車', 'かっこいい', 5, 10, '東京駅', 'トミカ', 200 );
->>>>>>> f4ec45e1af740ed3c48db6ef3e6e5cbd88221718
 
 レビュー画像
 insert into review_image (review_id, image) values ( , '');
