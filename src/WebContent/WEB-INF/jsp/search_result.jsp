@@ -26,7 +26,10 @@ String address = (String)request.getAttribute("address");
 						<input type="hidden" name="review_id" value=${e.review_id}>
 						<input type="hidden" name="review" value="change">
 						<td class="icon" colspan="2"><a href="javascript:document.f.submit()">${e.image}</a></td>
-						<td class="detail" colspan="8"><a href="javascript:document.f.submit()"><div class="top">ジャンル：${e.genre_name} / 値段：${e.price}円</div><br><div class="middle">商品名：${e.puroduct_name}</div><br><div class="bottom">いいね数：${e.good}</div></a></td>
+						<td class="detail" colspan="8"><a href="javascript:document.f.submit()">
+						<div class="top">ジャンル：${e.genre_name} / 値段：${e.price}円</div><br>
+						<div class="middle">商品名：${e.puroduct_name}</div><br>
+						<div class="bottom">いいね数：${e.good}</div></a></td>
 					</tr>
 				</c:forEach>
 			<tr class="menu">
