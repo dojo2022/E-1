@@ -156,3 +156,8 @@ insert into genre (genre_id, genre_name) values (4, 'アクセサリ');
 insert into genre (genre_id, genre_name) values (5, '雑貨');
 insert into genre (genre_id, genre_name) values (6, '特撮');
 
+
+いいねが一番多い投稿のreview_idを取得するsql
+
+select max(review_id) as review_id from review where good = (select max(good) from review where review_day >= (NOW() - INTERVAL 30 DAY));
+
