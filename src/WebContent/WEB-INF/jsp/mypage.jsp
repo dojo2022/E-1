@@ -68,7 +68,7 @@
 	<div class="review">
 		<img src="/dokogacha/img/opcap_null.png" >
 		<div class ="new_review">
-			＃${review.ganre}<br>${review.price},${review.product_name}<br>${review.good}<br>
+			＃${review.genre_name}<br>＄${review.price},${review.puroduct_name}<br>${review.good}<br>
 		</div>
 		<div class ="review_list">
 			<a href="/dokogacha/MyReviewListServlet"><br>自分の投稿一覧へ</a>
