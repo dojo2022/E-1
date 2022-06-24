@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,7 +46,18 @@
     </header>
     <img class="button_null" src="/dokogacha/img/button_null.png">
     <div class ="trend_review">
-		＃${image} ${review.genre}<br>${review.price}　${review.product_name}　<br>${review.good}　<br>
+	<table border="1" style="border-collapse: collapse">
+			<tr><td class="empty" colspan="10"></td></tr>
+			<c:forEach var="e" items="${trend_review}" >
+			<tr><td class="icon">${e.image}</td></tr>
+			<tr class="data">
+				<td class="detail">
+				<div class="top">${e.genre_name} / ${e.price}</div><br>
+				<div class="middle">${e.puroduct_name}</div><br>
+				<div class="bottom">${e.good}</div></td>
+			</tr>
+			</c:forEach>
+		</table>
     </div>
     </div>
 </body>
