@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.ReviewDao;
+import model.LoginUser;
 import model.Review_List;
 
 /**
@@ -34,7 +35,7 @@ public class UserReviewListServlet extends HttpServlet {
 	 */
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
@@ -46,10 +47,10 @@ public class UserReviewListServlet extends HttpServlet {
 		LoginUser loginuser = new LoginUser();
 		loginuser = (LoginUser)session.getAttribute("id");
 		String user_name = loginuser.getId();
-*/
+
 
 		ReviewDao uDao = new ReviewDao();
-		List<Review_List> user_review_list = uDao.URselect("pooh");
+		List<Review_List> user_review_list = uDao.URselect(user_name);
 		request.setAttribute("user_review_list", user_review_list);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/user_review_list.jsp");
@@ -72,7 +73,7 @@ public class UserReviewListServlet extends HttpServlet {
 		request.setAttribute("review_id", review_id);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/dokogacha/ReviewDetailServlet");
-		//dispatcher.forward(request, response);
+		//dispatcher.forward(requestt, response);
 
 
 	}

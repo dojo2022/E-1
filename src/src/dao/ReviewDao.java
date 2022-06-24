@@ -15,17 +15,17 @@ import model.Review_List;
 //search文
 public class ReviewDao {
 	//↓↓searchメソッドの作成開始
-	public List<Review> search(int genre, String word, String address){
-		List<Review> reviewList = new ArrayList<Review>();
+	public List<Review_List> search(int genre, String word, String address){
+		List<Review_List> reviewList = new ArrayList<Review_List>();
 		Connection conn = null;  //DBと接続するメソッドを宣言
 
 		try {
 			Class.forName("org.h2.Driver");
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");  //DBと接続
-			String sql = "select user_name, R.genre_id, G.genre_name, price, puroduct_name, good, address, review_id, review_day, title, series_name, thought, evalution "
-					+"from genre AS G, review AS R "
-					+"where G.genre_id = R.genre_id AND R.genre_id LIKE ? AND address LIKE ? AND user_name LIKE ? OR "
-					+"title LIKE ? OR series_name LIKE ? OR thought LIKE ? OR puroduct_name LIKE ?";
+			String sql = "select R.review_id,image,G.genre_name,price,puroduct_name,good\r\n"
+					+ "from review as R join review_image as RI on R.review_id = RI.review_id \r\n"
+					+ "right join genre as G on R.genre_id = G.genre_id\r\n"
+					+ "where R.genre_id LIKE ? AND address LIKE ? AND user_name LIKE ? OR title LIKE ? OR series_name LIKE ? OR thought LIKE ? OR puroduct_name LIKE ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			//もしも、genreに０が入力された場合、ワイルドカードの'％'を用いる。
 			//そして、genreに０以外が入力された場合、そのままその値を格納する。
@@ -46,19 +46,13 @@ public class ReviewDao {
 
 			//結果表をコレクションにコピーする
 			while (rs.next()) {
-				Review review  = new Review(
+				Review_List review  = new Review_List(
 						rs.getInt("review_id"),
-						rs.getString("user_name"),
-						rs.getInt("genre_id"),
-						rs.getString("review_day"),
-						rs.getString("title"),
-						rs.getString("series_name"),
-						rs.getString("thought"),
-						rs.getInt("evalution"),
-						rs.getInt("good"),
-						rs.getString("address"),
+						rs.getString("image"),
+						rs.getString("genre_name"),
+						rs.getInt("price"),
 						rs.getString("puroduct_name"),
-						rs.getInt("price")
+						rs.getInt("good")
 						);
 				reviewList.add(review);
 			}

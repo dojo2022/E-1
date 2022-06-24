@@ -156,3 +156,15 @@ insert into genre (genre_id, genre_name) values (4, 'アクセサリ');
 insert into genre (genre_id, genre_name) values (5, '雑貨');
 insert into genre (genre_id, genre_name) values (6, '特撮');
 
+
+いいねが一番多い投稿のreview_idを取得するsql
+
+SELECT * FROM REVIEW;
+select review_id from review where good = (select max(good) from review where review_day >= (NOW() - INTERVAL 30 DAY));
+select max(review_id) as review_id from review where good = (select max(good) from review where review_day >= (NOW() - INTERVAL 30 DAY));
+
+
+select user_name, R.genre_id, G.genre_name, price, puroduct_name, good, address, R.review_id, review_day, title, series_name, thought, evalution ,image
+from review as R join review_image as RI on R.review_id = RI.review_id 
+right join genre as G on R.genre_id = G.genre_id
+where  R.genre_id LIKE ? AND address LIKE ? AND user_name LIKE ? OR title LIKE ? OR series_name LIKE ? OR thought LIKE ? OR puroduct_name LIKE ?

@@ -94,7 +94,7 @@ public class ReviewServlet extends HttpServlet {
 		//正常に動作した場合の処理
 		else {
 			//price = Integer.parseInt(price_Str);
-			if(rDao.insert(new Review_List(0,image,genre_id,))) {
+			if(rDao.insert(new Review(0,user_name, genre_id, review_day, title, series, thought, star, good, address, product_name, price))) {
 				response.sendRedirect("/dokogacha/ReviewResultServlet");
 				return;
 			}
