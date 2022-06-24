@@ -50,7 +50,7 @@ public class UserReviewListServlet extends HttpServlet {
 
 
 		ReviewDao uDao = new ReviewDao();
-		List<Review_List> user_review_list = uDao.URselect("pooh");
+		List<Review_List> user_review_list = uDao.URselect("user_name");
 		request.setAttribute("user_review_list", user_review_list);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/user_review_list.jsp");
@@ -73,7 +73,7 @@ public class UserReviewListServlet extends HttpServlet {
 		request.setAttribute("review_id", review_id);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/dokogacha/ReviewDetailServlet");
-		//dispatcher.forward(request, response);
+		//dispatcher.forward(requestt, response);
 
 
 	}

@@ -7,7 +7,7 @@ body{
 	background-color: #eeece9;
 }
 
-/*全体を中央寄せ*/
+/*全体をno中央寄せ*/
 .wrapper {
 	margin: 0 auto;
 }

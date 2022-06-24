@@ -50,7 +50,7 @@ public class MyReviewListServlet extends HttpServlet {
 
 
 		ReviewDao uDao = new ReviewDao();
-		List<Review_List> my_review_list = uDao.URselect("omoti");
+		List<Review_List> my_review_list = uDao.URselect(user_name);
 		request.setAttribute("my_review_list", my_review_list);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/my_review_list.jsp");

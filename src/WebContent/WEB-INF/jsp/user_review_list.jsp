@@ -15,7 +15,7 @@
 		<table border="1" style="border-collapse: collapse">
 			<tr><th class="fhead" colspan="10">投稿一覧</th></tr>
 			<tr class="tab">
-			<td colspan="10" class="selecting">ユーザー投稿一覧</td>
+			<td colspan="10" class="selecting">ユーザ投稿一覧</td>
 			</tr>
 			</table>
 			<div class="slide">
