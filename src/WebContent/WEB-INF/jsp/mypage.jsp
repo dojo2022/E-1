@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,8 +50,8 @@
 		${total_good}いいね
 	</div>
 	<div class="Favorite_Genre2">
-	<c:forEach var="Fgenre" items="${FGList}">
-		${Fgenre}<br>
+	<c:forEach var="Fgenre" items="${FGList}" >
+		＃${Fgenre}
 	</c:forEach>
 	</div>
 </div>
@@ -61,7 +59,7 @@
 <div class="user_inf3">
 	<!-- 編集ボタン -->
 	<div class="do_change"><a href="/dokogacha/MypageChangeServlet">
-			<img src="/dokogacha/img/button_edit.png" alt="編集"  ></a></div>
+			<img src="/dokogacha/img/button_edit.png" alt="編集"></a></div>
 	<!-- 自分の最新投稿、自分の投稿一覧リンクの表示 -->
 	<div class="review">
 		<img src="/dokogacha/img/opcap_null.png" >
