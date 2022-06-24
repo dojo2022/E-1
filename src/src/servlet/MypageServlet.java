@@ -17,6 +17,7 @@ import dao.Favorite_GenreDao;
 import dao.TitleDao;
 import dao.UserDao;
 import model.LoginUser;
+import model.Review_List;
 import model.Title;
 import model.User;
 
@@ -93,6 +94,20 @@ public class MypageServlet extends HttpServlet {
 		ArrayList<String> FGList = FGDao.select(login_user_id);
 
 		request.setAttribute("FGList", FGList);
+
+		//login_user_idの最新投稿を取得する
+
+		Review_List review = TDao.mynewreview(login_user_id);
+
+		if(review.getImage()==null) {
+			review.setImage("icon_camera.png");
+		}
+		else if(review.getImage().equals("")){
+			review.setImage("icon_camera.png");
+		}
+
+		request.setAttribute("review", review);
+
 
 		// マイメニュー画面にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
