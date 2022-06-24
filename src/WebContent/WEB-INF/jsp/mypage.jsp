@@ -9,8 +9,8 @@
 <meta charset="UTF-8">
 <title>どこがちゃ｜マイページ</title>
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/mypage.css">
-<!--<style>*{outline: 1px solid #ff0000;}</style>
--->
+<!----><style>*{outline: 1px solid #ff0000;}</style>
+
 </head>
 <body>
 <div class="wapper">
@@ -52,8 +52,8 @@
 		${total_good}いいね
 	</div>
 	<div class="Favorite_Genre2">
-	<c:forEach var="genre" items="${GenreList}">
-		${genre}<br>
+	<c:forEach var="Fgenre" items="${FGList}">
+		${Fgenre}<br>
 	</c:forEach>
 	</div>
 </div>
