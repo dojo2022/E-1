@@ -330,9 +330,15 @@ public class ReviewDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
 			String sql = "INSERT INTO review_image (review_id, image) VALUES (?,?)";
 
-
-
 			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setInt(1,review.getReview_id());
+
+			if(review.getImage() != "" || review.getImage() != null) {
+				pStmt.setString(2, review.getImage());
+			}else {
+				pStmt.setString(2, null);
+			}
+
 
 			if (pStmt.executeUpdate() == 1) {
 				result = true;
