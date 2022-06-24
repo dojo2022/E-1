@@ -330,9 +330,15 @@ public class ReviewDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
 			String sql = "INSERT INTO review_image (review_id, image) VALUES (?,?)";
 
-
-
 			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setInt(1,review.getReview_id());
+
+			if(review.getImage() != "" || review.getImage() != null) {
+				pStmt.setString(2, review.getImage());
+			}else {
+				pStmt.setString(2, null);
+			}
+
 
 			if (pStmt.executeUpdate() == 1) {
 				result = true;
@@ -477,7 +483,54 @@ public class ReviewDao {
 
 //------------------------------------------------------------------------------------------
 //トレンドを呼び出す
-public List<Review_List> TRselect(Review_List review_id) {
+public int TRselect() {
+	/*public List<Review> select(Stirng genre, ){*/ //バラバラに呼び出すやり方
+
+	Connection conn = null;
+	int review_id = 0;
+
+
+	try {
+		Class.forName("org.h2.Driver");
+		conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
+
+		String sql = "select max(review_id) as review_id from review where good = (select max(good) from review where review_day >= (NOW() - INTERVAL 30 DAY))";
+				//変更部分
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		ResultSet rs = pStmt.executeQuery();
+
+
+		// 結果表をコレクションにコピーする<<ここ改造>>//変更部分
+		while (rs.next()) {
+				review_id = rs.getInt("review_id");
+		}
+	}
+	catch (SQLException e) {
+		e.printStackTrace();
+		review_id = 0;
+	}
+	catch (ClassNotFoundException e) {
+		e.printStackTrace();
+		review_id = 0;
+	}
+	finally {
+		// データベースを切断
+		if (conn != null) {
+			try {
+				conn.close();
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+				review_id = 0;
+			}
+		}
+	}
+
+	// 結果を返す
+	return review_id;
+  }
+public List<Review_List> Tselect(int review_id) {
 	/*public List<Review> select(Stirng genre, ){*/ //バラバラに呼び出すやり方
 
 	Connection conn = null;
@@ -488,12 +541,12 @@ public List<Review_List> TRselect(Review_List review_id) {
 		Class.forName("org.h2.Driver");
 		conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
 
-		String sql = "SELECT MAX(good=?) from review WHERE date < DATE_SUB(now(), INTERVAL 1 month)";//変更部分
+		String sql = "select review.review_id, genre_name , price , puroduct_name , good , image "
+				+ "from review join review_image on review.review_id = review_image.review_id "
+				+ "right join genre on review.genre_id = genre.genre_id WHERE review_id = ?";//変更部分
 		PreparedStatement pStmt = conn.prepareStatement(sql);
-		int id = review_id.getReview_id();//変更部分
 
-
-		pStmt.setInt(1, id);//変更部分
+		pStmt.setInt(1, review_id);//変更部分
 
 
 		// SQL文を実行し、結果表を取得する
@@ -501,16 +554,16 @@ public List<Review_List> TRselect(Review_List review_id) {
 
 		// 結果表をコレクションにコピーする<<ここ改造>>//変更部分
 		while (rs.next()) {
-			Review_List review  = new Review_List(
-					rs.getInt("review_id"),
-					rs.getString("image"),
-					rs.getString("genre_name"),
-					rs.getInt("price"),
-					rs.getString("puroduct_name"),
-					rs.getInt("good")
-					);
-			reviewList.add(review);
-		}
+			Review_List detail = new Review_List(
+			rs.getInt("review_id"),
+			rs.getString("image"),
+			rs.getString("genre_name"),
+			rs.getInt("price"),
+			rs.getString("puroduct_name"),
+			rs.getInt("good")
+			);
+			reviewList.add(detail);
+			}
 	}
 	catch (SQLException e) {
 		e.printStackTrace();
@@ -535,7 +588,7 @@ public List<Review_List> TRselect(Review_List review_id) {
 
 	// 結果を返す
 	return reviewList;
-  }
+}
 }
 
 

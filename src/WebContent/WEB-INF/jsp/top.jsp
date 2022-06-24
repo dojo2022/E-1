@@ -45,7 +45,19 @@
     </header>
     <img class="button_null" src="/dokogacha/img/button_null.png">
     <div class ="trend_review">
-		＃${image} ${review.genre}<br>${review.price}　${review.product_name}　<br>${review.good}　<br>
+	<table border="1" style="border-collapse: collapse">
+			<tr><td class="empty" colspan="10"></td></tr>
+			<c:forEach var="e" items="${trend_review}" >
+			<tr><td class="icon">${e.image}</td></tr>
+			<tr class="data">
+			<input type="hidden" name="review_id" value=${e.review_id}>
+				<td class="detail">
+				<div class="top">${e.genre_name} / ${e.price}</div><br>
+				<div class="middle">${e.puroduct_name}</div><br>
+				<div class="bottom">${e.good}</div></td>
+			</tr>
+			</c:forEach>
+		</table>
     </div>
     </div>
 </body>
