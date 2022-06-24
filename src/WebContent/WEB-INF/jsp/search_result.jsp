@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 //リクエストスコープからのデータの取得
-String genre = (String)request.getAttribute("genre");
+int genre = (int)request.getAttribute("genre");
 String word = (String)request.getAttribute("word");
 String address = (String)request.getAttribute("address");
 %>

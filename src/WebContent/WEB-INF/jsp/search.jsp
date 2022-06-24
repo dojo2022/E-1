@@ -26,7 +26,7 @@
  		  <select name="genre">
           <option value="0">----ジャンルを選択する----</option>
           <c:forEach var="genre" items="${genreList}" varStatus="N">
-          <option value="${genre.genre_id}" >${genre.genre_name}</option>
+          <option value=${genre.genre_id} >${genre.genre_name}</option>
           </c:forEach>
           </select>
 		</div>
