@@ -93,15 +93,15 @@ body{
 	left:50px;
 }
 .trend_review {
-	width :15em;
-	display: flex;
+	width :17em;
+	display:flex;
 	justify-content:center;
 	border: 1px solid black;
 	border-radius: 10px;
 	background-color: white;
 	position:relative;
-	bottom: -450px;
-	left : 300px;
+	bottom: -350px;
+	left : 275px;
 }
 .opcap img {
 	top: 3em;
@@ -151,4 +151,8 @@ body{
 }
 .opcap4:hover img:nth-of-type(2) {
 	opacity: 0;
+}
+.tr icon{
+	width:-30%;
+	height:10px;
 }
