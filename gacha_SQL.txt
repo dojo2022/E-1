@@ -1,4 +1,5 @@
-ユーザ
+--ユーザ
+--変更前
 create table user (
   id varchar(255) primary key not null,
   pw varchar(255) not null,
@@ -6,20 +7,23 @@ create table user (
   public varchar(5)
 );
 
-
-
-
-称号
+--変更後
+--ユーザ
+create table user (
+  id varchar(255)  not null,
+  pw varchar(255) not null,
+  user_image varchar(255),
+  public varchar(5),
+  UNIQUE (id)
+);
+--称号
 create table title (
   total_good int primary key not null,
   title_image varchar(255) not null,
   title_name varchar(255) not null
 );
 
-
-
-
-お気に入りジャンル
+--お気に入りジャンル
 create table favorite_genre (
   user_name varchar(255) not null,
   genre_id int not null,
@@ -27,10 +31,7 @@ create table favorite_genre (
   foreign key(user_name) references user(id)
 );
 
-
-
-
-お気に入り投稿
+--お気に入り投稿
 create table favorite_review (
   user_name varchar(255) not null,
   review_id int not null,
@@ -38,9 +39,7 @@ create table favorite_review (
   foreign key(user_name) references user(id)
 );
 
-
-
-お気に入り投稿者
+--お気に入り投稿者
 create table favorite_reviewer (
   user_name varchar(255) not null,
   reviewer_id varchar(255) null,
@@ -49,18 +48,13 @@ create table favorite_reviewer (
 );
 
 
-
-
-ジャンル
+--ジャンル
 create table genre (
   genre_id int primary key not null,
   genre_name varchar(255) not null
 );
 
-
-
-
-レビュー
+--レビュー
 create table review (
   review_id int primary key auto_increment,
   user_name varchar(255) not null,
@@ -77,15 +71,12 @@ create table review (
   foreign key(user_name) references user(id)
 );
 
-
 --レビュー画像
 create table review_image (
-  review_id int not null,
+  review_id int primary key not null,
   image varchar(255),
-  primary key(review_id,image),
   foreign key(review_id) references review(review_id)
 );
-
 
 挿入
 
@@ -133,23 +124,25 @@ drop table review_image;
 drop table review;
 drop table user;
 
-
-
+--登録例--------------------------------------------------------
+--ユーザ
 insert into user (id, pw, user_image, public ) values ('yamada', 'yamada123', 'a', 'no');
 insert into user (id, pw, user_image, public ) values ('suzuki', 'suzuki123', 'b', 'no');
 insert into user (id, pw, user_image, public ) values ('ishida', 'ishida123', 'c', 'no');
 insert into user (id, pw, user_image, public ) values ('inoue', 'inoue1234', 'd', 'no');
 insert into user (id, pw, user_image, public ) values ('maura', 'maura1234', 'e', 'no');
+
+--お気に入り投稿者
 insert into favorite_reviewer (user_name, reviewer_id) values ('maura', 'yamada');
 insert into favorite_reviewer (user_name, reviewer_id) values ('maura', 'suzuki');
 insert into favorite_reviewer (user_name, reviewer_id) values ('maura', 'takeda');
 
-称号
+--称号
 insert into title (total_good, title_image, title_name) values ( 10, 'shiro_panda.png','shiro_panda');
 insert into title (total_good, title_image, title_name) values ( 50, 'silver_panda.png','silver_panda');
 insert into title (total_good, title_image, title_name) values (100, 'gold_panda.png','gold_panda');
 
-ジャンル
+--ジャンル
 insert into genre (genre_id, genre_name) values (1, '車');
 insert into genre (genre_id, genre_name) values (2, 'トミカ');
 insert into genre (genre_id, genre_name) values (3, 'チョロQ');
@@ -158,7 +151,7 @@ insert into genre (genre_id, genre_name) values (5, '雑貨');
 insert into genre (genre_id, genre_name) values (6, '特撮');
 
 
-いいねが一番多い投稿のreview_idを取得するsql
+--いいねが一番多い投稿のreview_idを取得するsql
 
 SELECT * FROM REVIEW;
 select review_id from review where good = (select max(good) from review where review_day >= (NOW() - INTERVAL 30 DAY));
@@ -172,11 +165,5 @@ where  R.genre_id LIKE ? AND address LIKE ? AND user_name LIKE ? OR title LIKE ?
 
 GenreDao gDao = new GenreDao();
 String genre_name = gDao.GNselect(genre);
-
-
-
-
-
-
 
 
