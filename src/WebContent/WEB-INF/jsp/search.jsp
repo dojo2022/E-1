@@ -23,10 +23,10 @@
 
 <form method="POST" action="/dokogacha/SearchServlet">
 		<div class="capsule_genre"><img src="img/cap_genre.png" alt="genre" >
- 		  <select name="genre" required>
-          <option value="">----ジャンルを選択する----</option>
+ 		  <select name="genre">
+          <option value="0">----ジャンルを選択する----</option>
           <c:forEach var="genre" items="${genreList}" varStatus="N">
-          <option value="${N.count}" >${genre.genre_name}</option>
+          <option value="${genre.genre_id}" >${genre.genre_name}</option>
           </c:forEach>
           </select>
 		</div>
@@ -38,6 +38,7 @@
           <img src="img/cap_loc.png" alt="address" >
           <input type="text" name="address">
 		</div>
+		<input type="submit" id="search" name="submit" value="検索">
 	<div class="btn">
 	 <a href="search_result.jsp">
 		<img src="img/button_search2.png" alt="search" class="button_search2">
