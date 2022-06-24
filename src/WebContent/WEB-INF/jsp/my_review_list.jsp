@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>投稿一覧</title>
-<link rel="stylesheet" type="text/css" href="css/user_review_list.css">
+<link rel="stylesheet" type="text/css" href="css/my_review_list.css">
 <script src="js/user_review_list.js"></script>
 </head>
 <body>
@@ -21,7 +21,7 @@
 			<div class="slide">
 			<table border="1" style="border-collapse: collapse">
 			<tr><td class="empty" colspan="10"></td></tr>
-			<c:forEach var="e" items="${user_review_list}" >
+			<c:forEach var="e" items="${my_review_list}" >
 			<tr class="data">
 				<input type="hidden" name="review_id" value=${e.review_id}>
 				<input type="hidden" name="review" value="change">
