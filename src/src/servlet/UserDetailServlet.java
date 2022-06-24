@@ -67,9 +67,8 @@ public class UserDetailServlet extends HttpServlet {
 			user.setUser_image(user2.getUser_image());
 			user.setC_public(user2.getC_public());
 		}
-		String image = user.getUser_image();
 
-		if(image=="" ){
+		if(user.getUser_image() == null){
 			user.setUser_image("icon_panda.png");
 		}
 
