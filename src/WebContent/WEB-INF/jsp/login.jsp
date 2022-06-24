@@ -27,7 +27,7 @@
 		</div>
 		<div class="btn">
 		<input class="submit_login" type="image" name="login" src="/dokogacha/img/button_login2.png" onclick="submit_login()">
-		<img src="/dokogacha/img/button_login.png">
+		<input class="submit_login" type="image" name="login" src="/dokogacha/img/button_login.png" onclick="submit_login()">
 		</div>
 	</form>
 		<br>
