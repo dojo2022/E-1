@@ -26,7 +26,9 @@ table {
 td.selecting {
 	background-color: #ffd700;
 }
-
+.slide table{
+	height: 500px;
+}
 .slide td{
     white-space: nowrap;
     border-right: 1px solid #999;

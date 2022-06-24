@@ -64,7 +64,9 @@ public class SearchServlet extends HttpServlet {
 		String word = request.getParameter("word");
 		String address = request.getParameter("address");
 
-
+		request.setAttribute("genre",genre);
+		request.setAttribute("word",word);
+		request.setAttribute("address",address);
 
 		// 検索処理を行う
 		ReviewDao rDao = new ReviewDao();

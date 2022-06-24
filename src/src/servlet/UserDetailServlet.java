@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.Favorite_GenreDao;
 import dao.Favorite_ReviewerDao;
 import dao.ReviewDao;
 import dao.TitleDao;
@@ -32,7 +34,8 @@ public class UserDetailServlet extends HttpServlet {
 			throws ServletException, IOException
 	{
 		HttpSession session = request.getSession();
-		///*
+		//
+		/*
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/dokogacha/LoginServlet");
@@ -44,13 +47,14 @@ public class UserDetailServlet extends HttpServlet {
 		 *取得したreview_idからuser_name(id)を取得
 		 *取得してidからuser情報を取得
 		*/
+
 		request.setCharacterEncoding("UTF-8");
-		int review_id = (int)session.getAttribute("review_id");
+		int review_id =  1;  //(int)session.getAttribute("review_id");//
 		ReviewDao RDao = new ReviewDao();
 		List<Review> reviewList  = RDao.select(new Review(review_id));
 
 		//取得したユーザIdを格納する変数
-		String others_id ="";// "tanaka";//others.getId();
+		String others_id ="";//others.getId();
 
 		for(Review review : reviewList ){
 			others_id = review.getUser_name();
@@ -83,9 +87,18 @@ public class UserDetailServlet extends HttpServlet {
 
 		int total_good  = TDao.totalgood(others_id);
 
+		request.setAttribute("total_good", total_good);
+
 		Title title = TDao.select(total_good);
 
 		request.setAttribute("title", title);
+
+		//login_user_idのお気に入りジャンルの取得
+		Favorite_GenreDao FGDao = new Favorite_GenreDao();
+
+		ArrayList<String> FGList = FGDao.select(others_id);
+
+		request.setAttribute("FGList", FGList);
 
 		//他ユーザ詳細画面にフォワードする
 		//UserIDを取得 アイコン、名前、称号、お気に入り投稿、お気に入りジャンル累計いいね数、最新投稿、
@@ -97,7 +110,8 @@ public class UserDetailServlet extends HttpServlet {
 		throws ServletException, IOException
 	{
 		HttpSession session = request.getSession(); //リクエストを受けるのに必須
-		///*
+		//
+		/*
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/dokogacha/LoginServlet");
@@ -128,10 +142,10 @@ public class UserDetailServlet extends HttpServlet {
 		Favorite_ReviewerDao FRerDao = new Favorite_ReviewerDao();
 
 		if(!FRerDao.insert(login_user_id, others_id)) {
-			session.setAttribute("FavoriteRegisterMassage","フォロー登録済");
+			session.setAttribute("FavoriteRegisterMassage","followed");
 		}
 		else{
-			session.setAttribute("FavoriteRegisterMassage","フォロー登録完了");
+			session.setAttribute("FavoriteRegisterMassage","follow");
 
 		}
 		//他ユーザ詳細画面にフォワードする
