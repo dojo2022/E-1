@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import dao.ReviewDao;
 import model.LoginUser;
 import model.Review;
+import model.Review_List;
 
 @WebServlet("/ReviewServlet")
 public class ReviewServlet extends HttpServlet {
