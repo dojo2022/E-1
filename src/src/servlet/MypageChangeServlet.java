@@ -133,7 +133,6 @@ public class MypageChangeServlet extends HttpServlet {
 				part.write(new_image);//アップロードされた画像をディスクに書き込む
 			}
 
-
 			if(UDao.update(login_user_id, new_id, new_image , chose_public)) {
 				//1.5秒待つ→アップロードに時間がかかるため
 	      try {
