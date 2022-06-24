@@ -63,7 +63,6 @@ public class ReviewServlet extends HttpServlet {
 		String series = request.getParameter("series");
 		String thought = request.getParameter("thought");
 		String address = request.getParameter("address");
-		String image = request.getParameter("image");
 		/*if( price_Str.equals("") || price_Str == null ){
 			price = 0;
 		}*/
@@ -95,7 +94,6 @@ public class ReviewServlet extends HttpServlet {
 		else {
 			//price = Integer.parseInt(price_Str);
 			if(rDao.insert(new Review(0,user_name, genre_id, review_day, title, series, thought, star, good, address, product_name, price))) {
-				int review_id = Integer.parseInt(request.getParameter("review_id"));
 				if(rDao.insert_image(new Review_Image(review_id,image))) {
 					response.sendRedirect("/dokogacha/ReviewResultServlet");
 					return;

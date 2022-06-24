@@ -15,12 +15,12 @@ body{
 }
 .div_username{
 	position:relative;
-	bottom:40px;
+	top:5px;
 	margin-left:50px
 }
 .div_password{
 	position:relative;
-	bottom:10px;
+	top:30px;
 	margin-left:50px;
 }
 .h1_login{
@@ -41,13 +41,13 @@ body{
 }
 .text_username{
 	position:relative;
-	bottom:10px;
+	bottom:30px;
 	width:300px;
 	font-size:120%;
 }
 .password_password{
 	position:relative;
-	bottom:10px;
+	bottom:30px;
 	width:300px;
 	font-size:120%;
 }
@@ -73,12 +73,27 @@ body{
 .img_panda{
 	width:170px;
 	position:relative;
-	bottom:70px;
+	top:100px;
 	margin-left:330px;
 }
 #error_message{
 	color:red;
 	position:relative;
-	top:260px;
+	top:280px;
 	margin-left:200px;
+}
+
+.btn input {
+	position: absolute;
+	top: 640px;
+	left: 323px;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	width: 140px;
+	display: block;
+	-webkit-transition: .4s ease-in-out;
+	transition: .4s ease-in-out;
+}
+.btn:hover input:nth-of-type(2) {
+	opacity: 0;
 }

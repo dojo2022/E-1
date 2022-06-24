@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,7 +51,6 @@
 			<c:forEach var="e" items="${trend_review}" >
 			<tr><td class="icon">${e.image}</td></tr>
 			<tr class="data">
-			<input type="hidden" name="review_id" value=${e.review_id}>
 				<td class="detail">
 				<div class="top">${e.genre_name} / ${e.price}</div><br>
 				<div class="middle">${e.puroduct_name}</div><br>
