@@ -543,7 +543,7 @@ public List<Review_List> Tselect(int review_id) {
 
 		String sql = "select review.review_id, genre_name , price , puroduct_name , good , image "
 				+ "from review join review_image on review.review_id = review_image.review_id "
-				+ "right join genre on review.genre_id = genre.genre_id WHERE review_id = ?";//変更部分
+				+ "right join genre on review.genre_id = genre.genre_id WHERE review.review_id = ?";//変更部分
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		pStmt.setInt(1, review_id);//変更部分
