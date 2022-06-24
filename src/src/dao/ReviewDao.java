@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Review;
+import model.Review_Image;
 import model.Review_List;
 
 //--------------------------------------------------------------------------------------------
@@ -22,9 +23,9 @@ public class ReviewDao {
 		try {
 			Class.forName("org.h2.Driver");
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");  //DBと接続
-			String sql = "select R.review_id,image,G.genre_name,price,puroduct_name,good\r\n"
-					+ "from review as R join review_image as RI on R.review_id = RI.review_id \r\n"
-					+ "right join genre as G on R.genre_id = G.genre_id\r\n"
+			String sql = "select R.review_id,image,G.genre_name,price,puroduct_name,good "
+					+ "from review as R join review_image as RI on R.review_id = RI.review_id "
+					+ "right join genre as G on R.genre_id = G.genre_id "
 					+ "where R.genre_id LIKE ? AND address LIKE ? AND user_name LIKE ? OR title LIKE ? OR series_name LIKE ? OR thought LIKE ? OR puroduct_name LIKE ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			//もしも、genreに０が入力された場合、ワイルドカードの'％'を用いる。
@@ -213,7 +214,7 @@ public class ReviewDao {
 	//--------------------------------------------------------------------------------------------
 	//insert文
 	// 引数cardで指定されたレコードを登録し、成功したらtrueを返す
-	public boolean insert(Review review_id) {
+	public boolean insert(Review review) {
 
 		Connection conn = null;
 		boolean result = false;
@@ -226,64 +227,65 @@ public class ReviewDao {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
 
 			// SQL文を準備する<<ここを改造する>>
-			String sql = "INSERT INTO Review (user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price)\r\n"
+			String sql = "INSERT INTO Review (user_name, genre_id, review_day, title,"
+					+" series_name, thought, evalution, good, address, puroduct_name, price) "
 					+ "VALUES (?, ?, ?, ?, ?, ?, ?, 0, ?, ?, ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる<<改造する>>
-			if (review_id.getUser_name() != null && !review_id.getUser_name().equals("")) {
-				pStmt.setString(1, review_id.getUser_name());
+			if (review.getUser_name() != null && !review.getUser_name().equals("")) {
+				pStmt.setString(1, review.getUser_name());
 			}
 			else {
 				pStmt.setString(1, null);
 			}
-			if (review_id.getGenre_id() != 0) {
-				pStmt.setInt(2, review_id.getGenre_id());
+			if (review.getGenre_id() != 0) {
+				pStmt.setInt(2, review.getGenre_id());
 			}
-			if (review_id.getReview_day() != null && !review_id.getReview_day().equals("")) {
-				pStmt.setString(3, review_id.getReview_day());
+			if (review.getReview_day() != null && !review.getReview_day().equals("")) {
+				pStmt.setString(3, review.getReview_day());
 			}
 			else {
 				pStmt.setString(3, null);
 			}
-			if (review_id.getTitle() != null && !review_id.getTitle().equals("")) {
-				pStmt.setString(4, review_id.getTitle());
+			if (review.getTitle() != null && !review.getTitle().equals("")) {
+				pStmt.setString(4, review.getTitle());
 			}
 			else {
 				pStmt.setString(4, null);
 			}
-			if (review_id.getSeries_name() != null && !review_id.getSeries_name().equals("")) {
-				pStmt.setString(5, review_id.getSeries_name());
+			if (review.getSeries_name() != null && !review.getSeries_name().equals("")) {
+				pStmt.setString(5, review.getSeries_name());
 			}
 			else {
 				pStmt.setString(5, null);
 			}
-			if (review_id.getThought() != null && !review_id.getThought().equals("")) {
-				pStmt.setString(6, review_id.getThought());
+			if (review.getThought() != null && !review.getThought().equals("")) {
+				pStmt.setString(6, review.getThought());
 			}
 			else {
 				pStmt.setString(6, null);
 			}
-			if (review_id.getEvalution() != 0) {
-				pStmt.setInt(7, review_id.getEvalution());
+			if (review.getEvalution() != 0) {
+				pStmt.setInt(7, review.getEvalution());
 			}
 			else {
 				pStmt.setString(7, null);
 			}
-			if (review_id.getAddress() != null && !review_id.getAddress().equals("")) {
-				pStmt.setString(8, review_id.getAddress());
+			if (review.getAddress() != null && !review.getAddress().equals("")) {
+				pStmt.setString(8, review.getAddress());
 			}
 			else {
 				pStmt.setString(8, null);
 			}
-			if (review_id.getPuroduct_name() != null && !review_id.getPuroduct_name().equals("")) {
-				pStmt.setString(9, review_id.getPuroduct_name());
+			if (review.getPuroduct_name() != null && !review.getPuroduct_name().equals("")) {
+				pStmt.setString(9, review.getPuroduct_name());
 			}
 			else {
 				pStmt.setString(9, null);
 			}
-			if (review_id.getPrice() != 0) {
-				pStmt.setInt(10, review_id.getPrice());
+			if (review.getPrice() != 0) {
+				pStmt.setInt(10, review.getPrice());
 			}
 			else {
 				pStmt.setInt(10, 0);
@@ -316,6 +318,53 @@ public class ReviewDao {
 		// 結果を返す
 		return result;
 	}
+
+	//--------------------------------------------------------------------------------------------
+		//insert_image文
+	public boolean insert_image(Review_Image review) {
+		Connection conn = null;
+		boolean result = false;
+
+		try {
+			Class.forName("org.h2.Driver");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
+			String sql = "INSERT INTO review_image (review_id, image) VALUES (?,?)";
+
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setInt(1,review.getReview_id());
+
+			if(review.getImage() != "" || review.getImage() != null) {
+				pStmt.setString(2, review.getImage());
+			}else {
+				pStmt.setString(2, null);
+			}
+
+
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		return result;
+	}
+
 	//--------------------------------------------------------------------------------------------
 	//いいねボタン
 	public boolean goodcount(Review review_id) {
@@ -434,7 +483,54 @@ public class ReviewDao {
 
 //------------------------------------------------------------------------------------------
 //トレンドを呼び出す
-public List<Review_List> TRselect(Review_List review_id) {
+public int TRselect() {
+	/*public List<Review> select(Stirng genre, ){*/ //バラバラに呼び出すやり方
+
+	Connection conn = null;
+	int review_id = 0;
+
+
+	try {
+		Class.forName("org.h2.Driver");
+		conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
+
+		String sql = "select max(review_id) as review_id from review where good = (select max(good) from review where review_day >= (NOW() - INTERVAL 30 DAY))";
+				//変更部分
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		ResultSet rs = pStmt.executeQuery();
+
+
+		// 結果表をコレクションにコピーする<<ここ改造>>//変更部分
+		while (rs.next()) {
+				review_id = rs.getInt("review_id");
+		}
+	}
+	catch (SQLException e) {
+		e.printStackTrace();
+		review_id = 0;
+	}
+	catch (ClassNotFoundException e) {
+		e.printStackTrace();
+		review_id = 0;
+	}
+	finally {
+		// データベースを切断
+		if (conn != null) {
+			try {
+				conn.close();
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+				review_id = 0;
+			}
+		}
+	}
+
+	// 結果を返す
+	return review_id;
+  }
+public List<Review_List> Tselect(int review_id) {
 	/*public List<Review> select(Stirng genre, ){*/ //バラバラに呼び出すやり方
 
 	Connection conn = null;
@@ -445,12 +541,12 @@ public List<Review_List> TRselect(Review_List review_id) {
 		Class.forName("org.h2.Driver");
 		conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
 
-		String sql = "SELECT MAX(good=?) from review WHERE date < DATE_SUB(now(), INTERVAL 1 month)";//変更部分
+		String sql = "select review.review_id, genre_name , price , puroduct_name , good , image "
+				+ "from review join review_image on review.review_id = review_image.review_id "
+				+ "right join genre on review.genre_id = genre.genre_id WHERE review_id = ?";//変更部分
 		PreparedStatement pStmt = conn.prepareStatement(sql);
-		int id = review_id.getReview_id();//変更部分
 
-
-		pStmt.setInt(1, id);//変更部分
+		pStmt.setInt(1, review_id);//変更部分
 
 
 		// SQL文を実行し、結果表を取得する
@@ -458,16 +554,16 @@ public List<Review_List> TRselect(Review_List review_id) {
 
 		// 結果表をコレクションにコピーする<<ここ改造>>//変更部分
 		while (rs.next()) {
-			Review_List review  = new Review_List(
-					rs.getInt("review_id"),
-					rs.getString("image"),
-					rs.getString("genre_name"),
-					rs.getInt("price"),
-					rs.getString("puroduct_name"),
-					rs.getInt("good")
-					);
-			reviewList.add(review);
-		}
+			Review_List detail = new Review_List(
+			rs.getInt("review_id"),
+			rs.getString("image"),
+			rs.getString("genre_name"),
+			rs.getInt("price"),
+			rs.getString("puroduct_name"),
+			rs.getInt("good")
+			);
+			reviewList.add(detail);
+			}
 	}
 	catch (SQLException e) {
 		e.printStackTrace();
@@ -492,7 +588,7 @@ public List<Review_List> TRselect(Review_List review_id) {
 
 	// 結果を返す
 	return reviewList;
-  }
+}
 }
 
 

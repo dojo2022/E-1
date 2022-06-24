@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import dao.ReviewDao;
 import model.LoginUser;
 import model.Review;
-import model.Review_List;
+import model.Review_Image;
 
 @WebServlet("/ReviewServlet")
 public class ReviewServlet extends HttpServlet {
@@ -95,8 +95,11 @@ public class ReviewServlet extends HttpServlet {
 		else {
 			//price = Integer.parseInt(price_Str);
 			if(rDao.insert(new Review(0,user_name, genre_id, review_day, title, series, thought, star, good, address, product_name, price))) {
-				response.sendRedirect("/dokogacha/ReviewResultServlet");
-				return;
+				int review_id = Integer.parseInt(request.getParameter("review_id"));
+				if(rDao.insert_image(new Review_Image(review_id,image))) {
+					response.sendRedirect("/dokogacha/ReviewResultServlet");
+					return;
+				}
 			}
 			//rDaoにて、review_imageを追加
 		}
