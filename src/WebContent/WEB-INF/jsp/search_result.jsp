@@ -30,7 +30,7 @@ String address = (String)request.getAttribute("address");
 					</tr>
 				</c:forEach>
 			<tr class="menu">
-				<td colspan="2" class="back"><a href="/dokogacha/MypageServlet"><img src="/dokogacha/img/cap_back.png" alt="戻る"></a></td>
+				<td colspan="2" class="back"><a href="/dokogacha/SearchServlet"><img src="/dokogacha/img/cap_back.png" alt="戻る"></a></td>
 				<td colspan="6" class="emp"></td>
 				<td colspan="2" class="top"><a href="/dokogacha/TopServlet"><img src="/dokogacha/img/cap_top.png" alt="トップ"></a></td>
 			</tr>
