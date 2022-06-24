@@ -13,6 +13,7 @@ public class Review {
 	private String address;
 	private String puroduct_name;
 	private int price;
+
 	public Review(int review_id, String user_name, int genre_id, String review_day, String title, String series_name,
 			String thought, int evalution, int good, String address, String puroduct_name, int price) {
 		this.review_id = review_id;
