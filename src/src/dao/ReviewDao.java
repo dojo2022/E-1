@@ -176,15 +176,15 @@ public class ReviewDao {
 			// 結果表をコレクションにコピーする<<ここ改造>>//変更部分
 			while (rs.next()) {
 				Review_List detail = new Review_List(
-				rs.getInt("review_id"),
-				rs.getString("image"),
-				rs.getString("genre_name"),
-				rs.getInt("price"),
-				rs.getString("puroduct_name"),
-				rs.getInt("good")
-				);
+						rs.getInt("review_id"),
+						rs.getString("image"),
+						rs.getString("genre_name"),
+						rs.getInt("price"),
+						rs.getString("puroduct_name"),
+						rs.getInt("good")
+						);
 				reviewList.add(detail);
-				}
+			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
@@ -317,6 +317,51 @@ public class ReviewDao {
 		// 結果を返す
 		return result;
 	}
+
+	//--------------------------------------------------------------------------------------------
+	//Review ID の抽出
+	public int rev_id () {
+		Connection conn = null;
+		int review_id = 0;
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
+
+			// SQL文を準備する<<ここを改造する>>
+			String sql = "select MAX(review_id) from review";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			ResultSet rs = pStmt.executeQuery();
+			review_id = rs.getInt("MAX(review_id)");
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+
+			}
+
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return review_id;
+
+	}
 	//--------------------------------------------------------------------------------------------
 	//いいねボタン
 	public boolean goodcount(Review review_id) {
@@ -433,114 +478,114 @@ public class ReviewDao {
 		return reviewList;
 	}
 
-//------------------------------------------------------------------------------------------
-//トレンドを呼び出す
-public int TRselect() {
-	/*public List<Review> select(Stirng genre, ){*/ //バラバラに呼び出すやり方
+	//------------------------------------------------------------------------------------------
+	//トレンドを呼び出す
+	public int TRselect() {
+		/*public List<Review> select(Stirng genre, ){*/ //バラバラに呼び出すやり方
 
-	Connection conn = null;
-	int review_id = 0;
-
-
-	try {
-		Class.forName("org.h2.Driver");
-		conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
-
-		String sql = "select max(review_id) as review_id from review where good = (select max(good) from review where review_day >= (NOW() - INTERVAL 30 DAY))";
-				//変更部分
-		PreparedStatement pStmt = conn.prepareStatement(sql);
-
-		ResultSet rs = pStmt.executeQuery();
+		Connection conn = null;
+		int review_id = 0;
 
 
-		// 結果表をコレクションにコピーする<<ここ改造>>//変更部分
-		while (rs.next()) {
+		try {
+			Class.forName("org.h2.Driver");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
+
+			String sql = "select max(review_id) as review_id from review where good = (select max(good) from review where review_day >= (NOW() - INTERVAL 30 DAY))";
+			//変更部分
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			ResultSet rs = pStmt.executeQuery();
+
+
+			// 結果表をコレクションにコピーする<<ここ改造>>//変更部分
+			while (rs.next()) {
 				review_id = rs.getInt("review_id");
-		}
-	}
-	catch (SQLException e) {
-		e.printStackTrace();
-		review_id = 0;
-	}
-	catch (ClassNotFoundException e) {
-		e.printStackTrace();
-		review_id = 0;
-	}
-	finally {
-		// データベースを切断
-		if (conn != null) {
-			try {
-				conn.close();
-			}
-			catch (SQLException e) {
-				e.printStackTrace();
-				review_id = 0;
 			}
 		}
-	}
-
-	// 結果を返す
-	return review_id;
-  }
-public List<Review_List> Tselect(int review_id) {
-	/*public List<Review> select(Stirng genre, ){*/ //バラバラに呼び出すやり方
-
-	Connection conn = null;
-	List<Review_List> reviewList = new ArrayList<Review_List>();
-
-
-	try {
-		Class.forName("org.h2.Driver");
-		conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
-
-		String sql = "select review.review_id, genre_name , price , puroduct_name , good , image "
-				+ "from review join review_image on review.review_id = review_image.review_id "
-				+ "right join genre on review.genre_id = genre.genre_id WHERE review.review_id = ?";//変更部分
-		PreparedStatement pStmt = conn.prepareStatement(sql);
-
-		pStmt.setInt(1, review_id);//変更部分
-
-
-		// SQL文を実行し、結果表を取得する
-		ResultSet rs = pStmt.executeQuery();
-
-		// 結果表をコレクションにコピーする<<ここ改造>>//変更部分
-		while (rs.next()) {
-			Review_List detail = new Review_List(
-			rs.getInt("review_id"),
-			rs.getString("image"),
-			rs.getString("genre_name"),
-			rs.getInt("price"),
-			rs.getString("puroduct_name"),
-			rs.getInt("good")
-			);
-			reviewList.add(detail);
-			}
-	}
-	catch (SQLException e) {
-		e.printStackTrace();
-		reviewList = null;
-	}
-	catch (ClassNotFoundException e) {
-		e.printStackTrace();
-		reviewList = null;
-	}
-	finally {
-		// データベースを切断
-		if (conn != null) {
-			try {
-				conn.close();
-			}
-			catch (SQLException e) {
-				e.printStackTrace();
-				reviewList = null;
+		catch (SQLException e) {
+			e.printStackTrace();
+			review_id = 0;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			review_id = 0;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					review_id = 0;
+				}
 			}
 		}
-	}
 
-	// 結果を返す
-	return reviewList;
-}
+		// 結果を返す
+		return review_id;
+	}
+	public List<Review_List> Tselect(int review_id) {
+		/*public List<Review> select(Stirng genre, ){*/ //バラバラに呼び出すやり方
+
+		Connection conn = null;
+		List<Review_List> reviewList = new ArrayList<Review_List>();
+
+
+		try {
+			Class.forName("org.h2.Driver");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
+
+			String sql = "select review.review_id, genre_name , price , puroduct_name , good , image "
+					+ "from review join review_image on review.review_id = review_image.review_id "
+					+ "right join genre on review.genre_id = genre.genre_id WHERE review.review_id = ?";//変更部分
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			pStmt.setInt(1, review_id);//変更部分
+
+
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする<<ここ改造>>//変更部分
+			while (rs.next()) {
+				Review_List detail = new Review_List(
+						rs.getInt("review_id"),
+						rs.getString("image"),
+						rs.getString("genre_name"),
+						rs.getInt("price"),
+						rs.getString("puroduct_name"),
+						rs.getInt("good")
+						);
+				reviewList.add(detail);
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			reviewList = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			reviewList = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					reviewList = null;
+				}
+			}
+		}
+
+		// 結果を返す
+		return reviewList;
+	}
 }
 
 
