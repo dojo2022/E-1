@@ -39,8 +39,8 @@
           <input type="text" name="address">
 		</div>
 	<div class="btn">
-		<input class="button_search2" type="image" name="login" src="img/button_search2.png" onclick="submit_login()">
-		<input class="button_search" type="image" name="login" src="img/button_search.png" onclick="submit_login()">
+	<input class="submit_login" type="image" name="login" src="img/button_search2.png" onclick="submit_search()">
+	<input class="submit_login" type="image" name="login" src="img/button_search.png" onclick="submit_search()">
 	</div>
 </form>
 	<div class="opcap">
