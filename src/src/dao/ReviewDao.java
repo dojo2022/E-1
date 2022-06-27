@@ -333,16 +333,24 @@ public class ReviewDao {
 
 			// SQL文を準備する<<ここを改造する>>
 			String sql = "select MAX(review_id) from review";
+
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			ResultSet rs = pStmt.executeQuery();
-			review_id = rs.getInt("MAX(review_id)");
 
-			// SQL文を実行する
-			if (pStmt.executeUpdate() == 1) {
 
+			/*一件のデータ取得でも個の書き方が必要でした。(６/２７１９：００　田中)*/
+			while (rs.next()) {
+				review_id = rs.getInt("MAX(review_id)");
 			}
 
-		}catch (SQLException e) {
+			// SQL文を実行する
+			//executeUpdate()を実行するときはINSERT UPDATE DELETE文でする必要がある。
+		  /*if (pStmt.executeUpdate() == 1) {
+
+			}
+*/
+		}
+		catch (SQLException e) {
 			e.printStackTrace();
 		}
 		catch (ClassNotFoundException e) {
