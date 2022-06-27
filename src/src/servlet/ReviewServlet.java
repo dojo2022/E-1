@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.ReviewDao;
 import dao.Review_ImageDao;
 import model.LoginUser;
 import model.Review;
@@ -63,25 +64,15 @@ public class ReviewServlet extends HttpServlet {
 		String series = request.getParameter("series");
 		String thought = request.getParameter("thought");
 		String address = request.getParameter("address");
-		/*if( price_Str.equals("") || price_Str == null ){
-			price = 0;
-		}*/
-		/*else if( !price_Str.chars().allMatch( Character::isDigit) ){
-			//		↑id_Strに文字が含まれているか判定する(文字が含まれるとFalseを返す)
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/review.jsp");
-			dispatcher.forward(request, response);
-			return;
-		}
-		else{
-			price = Integer.parseInt(price_Str);
-		}
-		 */
-		SimpleDateFormat f =
-				new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		String image = request.getParameter("insert_image");
+		ReviewDao rDao = new ReviewDao();
+		Review_ImageDao riDao = new Review_ImageDao();
+
+		SimpleDateFormat f = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date now = new Date();
 		String review_day = f.format(now);
 
-		Review_ImageDao rDao = new Review_ImageDao();
+
 
 		//金額に文字が入力されていた場合のエラー処理
 		if(!price_Str.chars().allMatch(Character::isDigit)){
@@ -92,9 +83,10 @@ public class ReviewServlet extends HttpServlet {
 		}
 		//正常に動作した場合の処理
 		else {
-			//price = Integer.parseInt(price_Str);
+
 			if(rDao.insert(new Review(0,user_name, genre_id, review_day, title, series, thought, star, good, address, product_name, price))) {
-				if(rDao.insert_image(new Review_Image(review_id,image))) {
+				int rev_id = Integer.parseInt(request.getParameter("review_id"));
+				if(riDao.insert_image(new Review_Image(rev_id,image))) {
 					response.sendRedirect("/dokogacha/ReviewResultServlet");
 					return;
 				}
