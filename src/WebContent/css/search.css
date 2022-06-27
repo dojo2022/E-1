@@ -69,7 +69,7 @@ input{
 
 }
 
-.btn img {
+.btn input {
 	position: absolute;
 	top: 650px;
 	left: 37.5%;
@@ -80,7 +80,7 @@ input{
 	-webkit-transition: .4s ease-in-out;
 	transition: .4s ease-in-out;
 }
-.btn:hover img:nth-of-type(2) {
+.btn:hover input:nth-of-type(2) {
 	opacity: 0;
 }
 
