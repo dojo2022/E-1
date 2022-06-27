@@ -10,7 +10,6 @@
 </head>
 <body>
 
-<c:forEach var="e" items="${review_detailList}" >
 	<form method="POST" action="/dokogacha/ReviewDetailServlet">
 		<c:forEach var="review_image" items="${review_imageList}" >
 			<div class="review_image"><img src="${review_image.image}" alt="Not Image"></div>
@@ -33,7 +32,7 @@
 		</table>
 		</c:forEach>
 	</form>
-</c:forEach>
+
 
   <nav class="nav">
    <ul>

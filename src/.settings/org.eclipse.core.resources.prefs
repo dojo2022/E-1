@@ -5,6 +5,7 @@ encoding//src/dao/GenreDao.java=UTF-8
 encoding//src/dao/IdpwDao.java=UTF-8
 encoding//src/dao/ReviewDao.java=UTF-8
 encoding//src/dao/Review_ImageDao.java=UTF-8
+encoding//src/dao/TitleDao.java=UTF-8
 encoding//src/dao/UserDao.java=UTF-8
 encoding//src/dao/package-info.java=UTF-8
 encoding//src/model/Favorite_Genre.java=UTF-8
