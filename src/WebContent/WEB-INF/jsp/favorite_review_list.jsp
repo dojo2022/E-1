@@ -20,7 +20,9 @@
 			<tr><td class="empty" colspan="10"></td></tr>
 			<c:forEach var="e" items="${favorite_review_list}" >
 			<tr class="data">
-				<input type="hidden" name="review_id" value=${e.review_id}>
+				<c:set var="data" value="${favorite_review_list}" />
+				<c:out value="${data.review_id}" />
+
 				<input type="hidden" name="review" value="change">
 				<td class="icon" colspan="2"><a href="javascript:document.f.submit()">${e.image}</a></td>
 				<td class="detail" colspan="6"><a href="javascript:document.f.submit()">

@@ -68,11 +68,16 @@ input{
 	font-size:120%;
 
 }
-
-.btn img {
+.submit_search{
+	width:140px;
+	position:relative;
+	top:100px;
+	left:55px;
+}
+.btn input {
 	position: absolute;
-	top: 650px;
-	left: 37.5%;
+	top: 450px;
+	left:37px;
 	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 	width: 12%;
@@ -80,7 +85,7 @@ input{
 	-webkit-transition: .4s ease-in-out;
 	transition: .4s ease-in-out;
 }
-.btn:hover img:nth-of-type(2) {
+.btn:hover input:nth-of-type(2) {
 	opacity: 0;
 }
 

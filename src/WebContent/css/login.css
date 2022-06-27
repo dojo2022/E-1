@@ -55,7 +55,7 @@ body{
 	width:140px;
 	position:relative;
 	top:100px;
-	left:55px;
+	left:50px;
 }
 .img_regist{
 	width:110px;
@@ -86,7 +86,7 @@ body{
 .btn input {
 	position: absolute;
 	top: 640px;
-	left: 323px;
+	left: 510px;
 	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 	width: 140px;

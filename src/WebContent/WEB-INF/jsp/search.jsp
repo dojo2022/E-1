@@ -38,12 +38,9 @@
           <img src="img/cap_loc.png" alt="address" >
           <input type="text" name="address">
 		</div>
-		<input type="submit" id="search" name="submit" value="検索">
 	<div class="btn">
-	 <a href="search_result.jsp">
-		<img src="img/button_search2.png" alt="search" class="button_search2">
-		<img src="img/button_search.png" alt="search" class="button_search">
-	 </a>
+	<input class="submit_login" type="image" name="login" src="img/button_search2.png" onclick="submit_search()">
+	<input class="submit_login" type="image" name="login" src="img/button_search.png" onclick="submit_search()">
 	</div>
 </form>
 	<div class="opcap">
