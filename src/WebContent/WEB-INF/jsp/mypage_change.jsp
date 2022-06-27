@@ -8,20 +8,20 @@
 
 <title>どこがちゃ｜マイページ変更</title>
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/mypage_change.css">
-<!--<style>*{outline: 1px solid #ff0000;}</style>
- -->
+<!-- --><style>*{outline: 1px solid #ff0000;}</style>
+
 </head>
 <body>
 
 <div class="wapper">
-<form action="/dokogacha/MypageChangeServlet" method="post" enctype="multipart/form-data" class="form">
+<form id="form_change" action="/dokogacha/MypageChangeServlet" method="post" enctype="multipart/form-data" class="form">
 <table class="formtable">
 	<tr>
 	<td rowspan="3" class="image" >
 		<input type="file" name="IMAGE" accept="image/*" onchange="previewImage(this);"><br>
 		<canvas id="preview"></canvas><br>
 	</td>
-	<td class = "table1" >ユーザネーム<br><input type="text" name="user_id" value="${user.id}"></td>
+	<td class = "table1" >ユーザネーム<br><input type="text" name="user_id" value="${user.id}" readonly style="background-color: lightgray"></td>
 	</tr>
 	<tr><td>お気に入り公開/非公開</td></tr>
 	<tr><td class = "table1">
@@ -33,20 +33,24 @@
     </div>
 	</tr>
 </table>
-<input type="image" src="/dokogacha/img/button_change.png" name="button_change" alt="変更"  >
+<div>
+<input type="image" src="/dokogacha/img/button_change.png" name="button_change" alt="変更"
+		onclick= "submit_change(this)" class= "rotate">
+</div>
 </form>
 </div>
 </body>
+<script src="js/mypage_change.js"></script>
 <script>
-///*
-window.onload = function(){
+window.onload = function()
+{
 	// ページ読み込み時に実行したい処理
 	var fileReader = new FileReader();
 	// 読み込み後に実行する処理
 	// canvas にプレビュー画像を表示
 	var canvas = document.getElementById('preview');
-	var ctx = canvas.getContext('2d');// getContext()メソッドに引数"2d"を渡して実行すると、
-									  //2Dグラフィックを描画するためのメソッドやプロパティをもつオブジェクトを返す
+	var ctx = canvas.getContext('2d');	// getContext()メソッドに引数"2d"を渡して実行すると、
+										//2Dグラフィックを描画するためのメソッドやプロパティをもつオブジェクトを返す
 	var image = new Image();
 	image.src = "${'/dokogacha/img/user_image/'+= user.user_image}";
 	//image.src = fileReader.result;
@@ -57,39 +61,25 @@ window.onload = function(){
 		canvas.height = image.height;
 		ctx.drawImage(image, 0, 0);
 		});
-
 	// 画像読み込み
-	fileReader.readAsDataURL();
+	//fileReader.readAsDataURL();
 	//console.log(fileReader.result) // ← (確認用)null
-	}
-//*/
-function previewImage(obj){
-
-	var fileReader = new FileReader();
-
-	// 読み込み後に実行する処理
-	fileReader.onload = (function() {
-
-		// canvas にプレビュー画像を表示
-		var canvas = document.getElementById('preview');
-		var ctx = canvas.getContext('2d');// getContext()メソッドに引数"2d"を渡して実行すると、
-										  //2Dグラフィックを描画するためのメソッドやプロパティをもつオブジェクトを返す
-		var image = new Image();
-		image.src = fileReader.result;
-		//console.log(fileReader.result) // ← (確認用)
-
-		image.onload = (function () {
-			canvas.width = image.width;
-			canvas.height = image.height;
-			ctx.drawImage(image, 0, 0);
-		});
-	});
-	// 画像読み込み
-	fileReader.readAsDataURL(obj.files[0]);
-	//console.log(fileReader.result) // ← (確認用)null
-	console.log(obj.files[0].name);
-	console.log(obj.files[0]);
-
 }
+function submit_change(obj){
+// rotate()
+///*
+	document.querySelector('.rotate').animate(
+		[
+			{ transform: 'rotate(0deg)' },
+			{ transform: 'rotate(360deg)' }
+		],
+		{
+			duration: 3000,
+			easing: 'linear'
+		}
+	);
+}
+//*/
+
 </script>
 </html>
