@@ -69,9 +69,9 @@ public class ReviewDetailServlet extends HttpServlet {
 		} else {
 			Review_ImageDao riDao = new Review_ImageDao();
 			List<Review_Image> review_imageList = riDao.select(review_id);
-			request.setAttribute("review_imageList", review_imageList);
+			session.setAttribute("review_imageList", review_imageList);
 			List<Review> review_detailList = rDao.select(new Review(review_id));
-			request.setAttribute("review_detailList", review_detailList);
+			session.setAttribute("review_detailList", review_detailList);
 
 
 			// レビュー詳細ページにフォワードする
