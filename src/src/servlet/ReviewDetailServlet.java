@@ -13,7 +13,9 @@ import javax.servlet.http.HttpSession;
 
 import dao.Favorite_ReviewDao;
 import dao.ReviewDao;
+import dao.Review_ImageDao;
 import model.Review;
+import model.Review_Image;
 
 /**
  * Servlet implementation class ReviewDetailServlet
@@ -65,6 +67,9 @@ public class ReviewDetailServlet extends HttpServlet {
 		} else if (request.getParameter("favoritebutton").equals("お気に入りボタン")){
 			fDao.insert(user_name,review_id);
 		} else {
+			Review_ImageDao riDao = new Review_ImageDao();
+			List<Review_Image> review_imageList = riDao.select(review_id);
+			request.setAttribute("review_imageList", review_imageList);
 			List<Review> review_detailList = rDao.select(new Review(review_id));
 			request.setAttribute("review_detailList", review_detailList);
 

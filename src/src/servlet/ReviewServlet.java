@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.ReviewDao;
+import dao.Review_ImageDao;
 import model.LoginUser;
 import model.Review;
 import model.Review_Image;
@@ -81,7 +81,7 @@ public class ReviewServlet extends HttpServlet {
 		Date now = new Date();
 		String review_day = f.format(now);
 
-		ReviewDao rDao = new ReviewDao();
+		Review_ImageDao rDao = new Review_ImageDao();
 
 		//金額に文字が入力されていた場合のエラー処理
 		if(!price_Str.chars().allMatch(Character::isDigit)){

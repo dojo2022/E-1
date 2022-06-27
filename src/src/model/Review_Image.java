@@ -9,6 +9,10 @@ public class Review_Image {
 		this.image = image;
 	}
 
+	public Review_Image(String image) {
+		this.image = image;
+	}
+
 	public int getReview_id() {
 		return review_id;
 	}
