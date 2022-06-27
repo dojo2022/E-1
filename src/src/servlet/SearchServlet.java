@@ -64,7 +64,9 @@ public class SearchServlet extends HttpServlet {
 		String word = request.getParameter("word");
 		String address = request.getParameter("address");
 
-		request.setAttribute("genre",genre);
+		GenreDao gDao = new GenreDao();
+		String genre_name = gDao.GNselect(genre);
+		request.setAttribute("genre",genre_name);
 		request.setAttribute("word",word);
 		request.setAttribute("address",address);
 

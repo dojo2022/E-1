@@ -44,7 +44,7 @@ public class MypageChangeServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		LoginUser login_user = new LoginUser();
 		login_user = (LoginUser)session.getAttribute("id");
-		String login_user_id = login_user.getId();//"tanaka";
+		String login_user_id = login_user.getId();
 
 		//user_nameに該当するレコードを検出する。
 		UserDao UDao = new UserDao();
@@ -87,7 +87,7 @@ public class MypageChangeServlet extends HttpServlet {
 			request.setCharacterEncoding("UTF-8");
 			LoginUser login_user = new LoginUser();
 			login_user = (LoginUser)session.getAttribute("id");
-			String login_user_id = login_user.getId();//"tanaka";
+			String login_user_id = login_user.getId();
 
 
 			//user_nameに該当するレコードを検出する。
@@ -134,7 +134,7 @@ public class MypageChangeServlet extends HttpServlet {
 			}
 
 			if(UDao.update(login_user_id, new_id, new_image , chose_public)) {
-				//1.5秒待つ→アップロードに時間がかかるため
+				//5秒待つ→アップロードに時間がかかるため
 	      try {
 	          Thread.sleep( 5 * 1000 );
 	      } catch (InterruptedException e) {

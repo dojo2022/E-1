@@ -12,8 +12,7 @@
 </head>
 <body>
 <div class="wapper">
-<!-- 修正が必要 reviewIDを渡せたら行けそう-->
-<a href="#" onclick="history(-1);return false;"class="capsule_back"><img src="/dokogacha/img/cap_back.png" alt="戻る"></a>
+<a href="#" onclick="history.back(-1);return false;"class="capsule_back"><img src="/dokogacha/img/cap_back.png" alt="戻る"></a>
 <a href="/dokogacha/LogoutServlet" class="capsule_logout"><img src="/dokogacha/img/cap_logout.png" alt="ログアウト"></a>
 <!-- ナビゲーションバー -->
 <header class="header">
@@ -62,17 +61,22 @@
 	<!-- お気に入りボタン -->
 	<div class="follow">
 	<form method="post" action="/dokogacha/UserDetailServlet" enctype="multipart/form-data" class="form">
-		<input type="image" name="follow" src="/dokogacha/img/button_userfavo.png" alt="お気に入り">
+		<input type="image" name="follow" src="/dokogacha/img/button_userfavo.png" alt="お気に入り"
+			onclick= "submit_follow(this)" class= "rotate">
 	</form>
 	</div>
 	<!-- 最新投稿、投稿一覧リンクの表示 -->
 	<div class="review">
 		<img src="/dokogacha/img/opcap_null.png" >
 		<div class ="new_review">
-			＃${review.genre_name}<br>${review.price},${review.puroduct_name}<br>${review.good}<br>
+			<table>
+			<tr><td align="left">${review.genre_name}</td></tr>
+			<tr><td align="center">価格${review.price}円 [${review.puroduct_name}]</td></tr>
+			<tr><td align="right">${review.good}いいね</td></tr>
+			</table>
 		</div>
 		<div class ="review_list">
-			<a href="/dokogacha/MyReviewListServlet"><br>${user.id}の全投稿を表示</a>
+			<a href="/dokogacha/MyReviewListServlet">${user.id}の全投稿を表示</a>
 		</div>
 	</div>
 </div>
@@ -80,4 +84,22 @@
 <!-- フッター -->
 </div>
 </body>
+<script>
+///*
+function submit_follow(obj){
+// rotate()
+	document.querySelector(`.rotate`).animate(
+		[
+			{ transform: 'rotate(0deg)' },
+			{ transform: 'rotate(360deg)' }
+		],
+		{
+			duration: 3000,
+			easing: 'linear'
+		}
+	);
+}
+//*/
+
+</script>
 </html>
