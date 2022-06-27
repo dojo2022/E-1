@@ -98,14 +98,10 @@ public class MypageServlet extends HttpServlet {
 		//login_user_idの最新投稿を取得する
 		Review_List review = TDao.mynewreview(login_user_id);
 
-		String image= review.getImage();
-
-		System.out.println(image);
-
-		if(image == null ){
+		if(review.getImage() == null ){
 			review.setImage("icon_camera.png");
 		}
-		else if(image.equals("")){
+		else if(review.getImage().equals("")){
 			review.setImage("icon_camera.png");
 		}
 
