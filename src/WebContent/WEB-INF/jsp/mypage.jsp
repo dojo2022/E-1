@@ -35,7 +35,7 @@
 	</div>
 	<div class ="user_name_title">
 		<span class ="user_name">${user.id}</span>
-		<img src="+${'/dokogacha/img/'+=title.image}" alt="称号なし"  class="title" ><br> <!-- /dokogacha/img/shiro_panda.png -->
+		<img src="${'/dokogacha/img/'+=title.image}" alt="称号なし"  class="title" ><br> <!-- /dokogacha/img/shiro_panda.png -->
 		 <a href="/dokogacha/FavoriteReviewListServlet" class="favorite_review_list">お気に入り投稿一覧</a>
 	</div>
 </div>
@@ -58,28 +58,42 @@
 <!-- 編集ボタンと自分の最新投稿、自分の投稿一覧リンクの表示 -->
 <div class="user_inf3">
 	<!-- 編集ボタン -->
-	<div class="do_change"><a href="/dokogacha/MypageChangeServlet" >
-			<img src="/dokogacha/img/button_edit.png" alt="編集"
-				onmouseout="this.src='/dokogacha/img/button_edit.png'"
-				onmouseover ="this.src='/dokogacha/img/button_edit2.png'">
-				</a></div>
-
+		<form method="Post" action="/dokogacha/MypageServlet" enctype="multipart/form-data" class="do_change">
+		<input type="image" name="button_edit" src="/dokogacha/img/button_edit.png" alt="編集"
+			onclick= "submit_edit(this)" class= "rotate">
+	</form>
 	<!-- 自分の最新投稿、自分の投稿一覧リンクの表示 -->
 	<div class="review">
 		<img src="/dokogacha/img/opcap_null.png" >
 		<div class ="new_review">
 			<table>
 			<tr><td align="left">${review.genre_name}</td></tr>
-			<tr><td align="center">価格${review.price}円,${review.puroduct_name}</td></tr>
+			<tr><td align="center">価格${review.price}円 [${review.puroduct_name}]</td></tr>
 			<tr><td align="right">${review.good}いいね</td></tr>
 			</table>
 		</div>
 		<div class ="review_list">
-			<a href="/dokogacha/MyReviewListServlet" >自分の投稿一覧へ</a>
+			<a href="/dokogacha/MyReviewListServlet">自分の投稿一覧へ</a>
 		</div>
 	</div>
 </div>
 <!-- フッター -->
 </div>
 </body>
+<script>
+function submit_edit(obj){
+	// rotate()
+	///*
+		document.querySelector('.rotate').animate(
+			[
+				{ transform: 'rotate(0deg)' },
+				{ transform: 'rotate(360deg)' }
+			],
+			{
+				duration: 3000,
+				easing: 'linear'
+			}
+		);
+	}
+</script>
 </html>
