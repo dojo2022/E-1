@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>どこがちゃ｜マイページ</title>
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/mypage.css">
-<!--<style>*{outline: 1px solid #ff0000;}</style>-->
+<!----><style>*{outline: 1px solid #ff0000;}</style>
 
 </head>
 <body>
@@ -68,10 +68,14 @@
 	<div class="review">
 		<img src="/dokogacha/img/opcap_null.png" >
 		<div class ="new_review">
-			＃${review.genre_name}<br>＄${review.price},${review.puroduct_name}<br>${review.good}<br>
+			<table>
+			<tr><td align="left">${review.genre_name}</td></tr>
+			<tr><td align="center">価格${review.price}円,${review.puroduct_name}</td></tr>
+			<tr><td align="right">${review.good}いいね</td></tr>
+			</table>
 		</div>
 		<div class ="review_list">
-			<a href="/dokogacha/MyReviewListServlet"><br>自分の投稿一覧へ</a>
+			<a href="/dokogacha/MyReviewListServlet" >自分の投稿一覧へ</a>
 		</div>
 	</div>
 </div>
