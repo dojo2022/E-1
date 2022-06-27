@@ -132,7 +132,7 @@ public class TitleDao {
 
 			// 結果表をコレクションにコピーする<<ここ改造>>//変更部分
 			while (rs.next()) {
-				review_List.setGenre_name(rs.getString("ganre_name"));
+				review_List.setGenre_name(rs.getString("genre_name"));
 				review_List.setPrice(rs.getInt("price"));
 				review_List.setPuroduct_name(rs.getString("puroduct_name"));
 				review_List.setGood(rs.getInt("good"));
