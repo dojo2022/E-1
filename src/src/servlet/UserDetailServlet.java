@@ -34,9 +34,9 @@ public class UserDetailServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
 	{
+		System.out.println("DoGet_UserDetailServlet");
 		HttpSession session = request.getSession();
-		//
-		/*
+		//		/*
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/dokogacha/LoginServlet");
@@ -50,12 +50,12 @@ public class UserDetailServlet extends HttpServlet {
 		*/
 
 		request.setCharacterEncoding("UTF-8");
-		int review_id =  1;  //(int)session.getAttribute("review_id");//
+		int review_id = (int)session.getAttribute("review_id"); //1;  //
 		ReviewDao RDao = new ReviewDao();
 		List<Review> reviewList  = RDao.select(new Review(review_id));
 
 		//取得したユーザIdを格納する変数
-		String others_id ="tanaka";//others.getId();
+		String others_id = ""; //"tanaka";//
 
 		for(Review review : reviewList ){
 			others_id = review.getUser_name();
@@ -118,11 +118,6 @@ public class UserDetailServlet extends HttpServlet {
 
 		request.setAttribute("review", review);
 
-
-
-
-
-
 		//他ユーザ詳細画面にフォワードする
 		//UserIDを取得 アイコン、名前、称号、お気に入り投稿、お気に入りジャンル累計いいね数、最新投稿、
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/user_detail.jsp");
@@ -132,6 +127,7 @@ public class UserDetailServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException
 	{
+		System.out.println("DoPost_UserDetailServlet");
 		HttpSession session = request.getSession(); //リクエストを受けるのに必須
 		//
 		/*
@@ -144,18 +140,18 @@ public class UserDetailServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		LoginUser login_user = new LoginUser();
 		login_user = (LoginUser)session.getAttribute("id");
-		String login_user_id = login_user.getId();//"tanaka";
+		String login_user_id = login_user.getId();//"tanaka";//
 
 		/*ユーザ名の取得
 		 *review_idをセッションスコープから取得
 		 *取得したreview_idからuser_name(id)を取得
 		 *取得してidからuser情報を取得*/
-		int review_id = (int)session.getAttribute("review_id");
+		int review_id = 1; //(int)session.getAttribute("review_id");
 		ReviewDao RDao = new ReviewDao();
 		List<Review> reviewList  = RDao.select(new Review(review_id));
 
 		//取得したユーザIdを格納する変数
-		String others_id ="";// "tanaka";//others.getId();
+		String others_id ="";
 
 		for(Review review : reviewList ){
 			others_id = review.getUser_name();
@@ -171,6 +167,12 @@ public class UserDetailServlet extends HttpServlet {
 			session.setAttribute("FavoriteRegisterMassage","follow");
 
 		}
+		//5秒待つ→アップロードに時間がかかるため
+    try {
+        Thread.sleep( 3 * 1000 );
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
 		//他ユーザ詳細画面にフォワードする
 		doGet(request, response);
 	}

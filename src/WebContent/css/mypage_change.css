@@ -26,8 +26,11 @@
 }
 
 input[name="user_id"]{
+	display: flex;
+	align-items: center;
 	font-size: 30px;
 	width :9em;
+
 }
 
 input[name="button_change" ]{
@@ -38,5 +41,4 @@ input[name="button_change" ]{
 	top : 110px;
 
 }
-
 

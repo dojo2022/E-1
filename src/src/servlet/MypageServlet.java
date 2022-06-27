@@ -49,7 +49,7 @@ public class MypageServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		LoginUser login_user = new LoginUser();
 		login_user = (LoginUser)session.getAttribute("id");
-		String login_user_id = login_user.getId(); //"tanaka"; //
+		String login_user_id = login_user.getId();
 
 		//user_nameに該当するレコードを検出する。
 		UserDao UDao = new UserDao();
@@ -117,7 +117,14 @@ public class MypageServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException
 	{
-		doGet(request,response );
+		//5秒待つ→アップロードに時間がかかるため
+    try {
+        Thread.sleep( 3 * 1000 );
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+		//「マイメニュー変更画面」へのリダイレクト
+		response.sendRedirect("/dokogacha/MypageChangeServlet");
 	}
 	/*-------------end class-----------------------------------------------------------------*/
 }
