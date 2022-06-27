@@ -24,11 +24,11 @@
 			<tr>
 				<td><select name="genre" required>
 						<option value="">----ジャンルを選択する----</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
+						<option value="1">車</option>
+						<option value="2">船</option>
+						<option value="3">飛行機</option>
+						<option value="4">電車</option>
+						<option value="5">その他乗り物</option>
 				</select></td>
 			</tr>
 			<tr>
