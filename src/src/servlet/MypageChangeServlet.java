@@ -136,7 +136,7 @@ public class MypageChangeServlet extends HttpServlet {
 			if(UDao.update(login_user_id, new_id, new_image , chose_public)) {
 				//1.5秒待つ→アップロードに時間がかかるため
 	      try {
-	          Thread.sleep(5 * 1000 );
+	          Thread.sleep( 5 * 1000 );
 	      } catch (InterruptedException e) {
 	          e.printStackTrace();
 	      }
