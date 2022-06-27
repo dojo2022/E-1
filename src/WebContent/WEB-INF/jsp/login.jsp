@@ -25,12 +25,11 @@
 			<input class="password_password" type="password" name="pw"
 				placeholder="半角英数８文字以上１６文字以内">
 		</div>
-	</form>
 		<div class="btn">
 		<input class="submit_login" type="image" name="login" src="/dokogacha/img/button_login2.png" onclick="submit_login()">
 		<input class="submit_login" type="image" name="login" src="/dokogacha/img/button_login.png" onclick="submit_login()">
 		</div>
-
+	</form>
 		<br>
 		<img class="img_panda"src="/dokogacha/img/capout_panda.png">
 </div>
