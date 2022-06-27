@@ -29,6 +29,9 @@ public class Review {
 		this.puroduct_name = puroduct_name;
 		this.price = price;
 	}
+	public Review(int review_id) {
+		this.review_id = review_id;
+	}
 	public int getReview_id() {
 		return review_id;
 	}
