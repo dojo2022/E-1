@@ -100,7 +100,7 @@ body{
 	border-radius: 10px;
 	background-color: white;
 	position:relative;
-	bottom: -350px;
+	bottom: -330px;
 	left : 275px;
 }
 .opcap img {
@@ -152,7 +152,7 @@ body{
 .opcap4:hover img:nth-of-type(2) {
 	opacity: 0;
 }
-.tr icon{
-	width:-30%;
-	height:10px;
+.icon2{
+	width:50px;
+	height:auto;
 }
