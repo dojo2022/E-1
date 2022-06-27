@@ -21,17 +21,17 @@ String address = (String)request.getAttribute("address");
 			<tr><th class="fhead" colspan="10"><%= genre %><%= word %><%= address %>の検索結果</th></tr>
 			<tr><td class="empty1" colspan="10"></td></tr>
 			<tr><td class="empty2" colspan="10"></td></tr>
-				<c:forEach var="e" items="${reviewList}" >
-					<tr class="data">
-						<input type="hidden" name="review_id" value="${e.review_id}">
-						<input type="hidden" name="review" value="change">
-						<td class="icon" colspan="2"><a href="javascript:document.f.submit()"><img src="/dokogacha/img/${e.image}"></a></td>
-						<td class="detail" colspan="8"><a href="javascript:document.f.submit()">
-						<div class="top">ID:${e.review_id} ジャンル：${e.genre_name} / 値段：${e.price}円</div><br>
-						<div class="middle">商品名：${e.puroduct_name}</div><br>
-						<div class="bottom">いいね数：${e.good}</div></a></td>
-					</tr>
-				</c:forEach>
+			<c:forEach var="e" items="${reviewList}" >
+			<input type="hidden" name="review_id" value="${e.review_id}">
+			<input type="hidden" name="review" value="change">
+				<tr class="data">
+					<td class="icon" colspan="2"><a href="javascript:document.f.submit()"><img src="/dokogacha/img/${e.image}"></a></td>
+					<td class="detail" colspan="8"><a href="javascript:document.f.submit()">
+					<div class="top">ID:${e.review_id} ジャンル：${e.genre_name} / 値段：${e.price}円</div><br>
+					<div class="middle">商品名：${e.puroduct_name}</div><br>
+					<div class="bottom">いいね数：${e.good}</div></a></td>
+				</tr>
+			</c:forEach>
 			<tr class="menu">
 				<td colspan="2" class="back"><a href="/dokogacha/SearchServlet"><img src="/dokogacha/img/cap_back.png" alt="戻る"></a></td>
 				<td colspan="6" class="emp"></td>
