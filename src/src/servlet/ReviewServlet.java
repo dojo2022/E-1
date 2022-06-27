@@ -68,6 +68,7 @@ public class ReviewServlet extends HttpServlet {
 		ReviewDao rDao = new ReviewDao();
 		Review_ImageDao riDao = new Review_ImageDao();
 
+
 		SimpleDateFormat f = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date now = new Date();
 		String review_day = f.format(now);
@@ -83,9 +84,9 @@ public class ReviewServlet extends HttpServlet {
 		}
 		//正常に動作した場合の処理
 		else {
-
 			if(rDao.insert(new Review(0,user_name, genre_id, review_day, title, series, thought, star, good, address, product_name, price))) {
-				int rev_id = Integer.parseInt(request.getParameter("review_id"));
+				int rev_id = rDao.rev_id();
+				System.out.println(rev_id);
 				if(riDao.insert_image(new Review_Image(rev_id,image))) {
 					response.sendRedirect("/dokogacha/ReviewResultServlet");
 					return;
