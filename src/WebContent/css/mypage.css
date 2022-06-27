@@ -143,8 +143,6 @@ body{
 
 .new_review {
 	width :15em;
-	display: flex;
-	justify-content:center;
 	border: 1px solid black;
 	border-radius: 10px;
 	background-color: white;
@@ -152,12 +150,26 @@ body{
 	bottom: 150px;
 	right : 50px;
 }
+
+.review table{
+	width :30em;
+}
+
+
 .review_list{
-	display: flex;
+	height:2em;
+	width :16em;
+}
+
+
+.review_list a{
+	border: 1px solid black;
+	border-radius: 5px;
+	background-color: white;
 	justify-content:center;
 	position:relative;
-	bottom: 150px;
-	right : 70px;
+	bottom: 140px;
+	left : 10px;
 }
 /*--------------------------------*/
 

@@ -49,7 +49,7 @@ public class MypageServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		LoginUser login_user = new LoginUser();
 		login_user = (LoginUser)session.getAttribute("id");
-		String login_user_id = login_user.getId(); //"DOJO"; //
+		String login_user_id = login_user.getId(); //"tanaka"; //
 
 		//user_nameに該当するレコードを検出する。
 		UserDao UDao = new UserDao();
@@ -96,10 +96,9 @@ public class MypageServlet extends HttpServlet {
 		request.setAttribute("FGList", FGList);
 
 		//login_user_idの最新投稿を取得する
-
 		Review_List review = TDao.mynewreview(login_user_id);
 
-		if(review.getImage()==null) {
+		if(review.getImage() == null ){
 			review.setImage("icon_camera.png");
 		}
 		else if(review.getImage().equals("")){

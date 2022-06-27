@@ -19,6 +19,7 @@ import dao.TitleDao;
 import dao.UserDao;
 import model.LoginUser;
 import model.Review;
+import model.Review_List;
 import model.Title;
 import model.User;
 
@@ -54,7 +55,7 @@ public class UserDetailServlet extends HttpServlet {
 		List<Review> reviewList  = RDao.select(new Review(review_id));
 
 		//取得したユーザIdを格納する変数
-		String others_id ="";//others.getId();
+		String others_id ="tanaka";//others.getId();
 
 		for(Review review : reviewList ){
 			others_id = review.getUser_name();
@@ -66,6 +67,7 @@ public class UserDetailServlet extends HttpServlet {
 
 		User user = new User();
 
+		//取得したuserListからuser情報を取得
 		for(User user2 : userList){
 			user.setId(user2.getId());
 			user.setUser_image(user2.getUser_image());
@@ -99,6 +101,27 @@ public class UserDetailServlet extends HttpServlet {
 		ArrayList<String> FGList = FGDao.select(others_id);
 
 		request.setAttribute("FGList", FGList);
+
+		//login_user_idの最新投稿を取得する
+		Review_List review = TDao.mynewreview(others_id);
+
+		String image= review.getImage();
+
+		System.out.println(image);
+
+		if(image == null ){
+			review.setImage("icon_camera.png");
+		}
+		else if(image.equals("")){
+			review.setImage("icon_camera.png");
+		}
+
+		request.setAttribute("review", review);
+
+
+
+
+
 
 		//他ユーザ詳細画面にフォワードする
 		//UserIDを取得 アイコン、名前、称号、お気に入り投稿、お気に入りジャンル累計いいね数、最新投稿、
