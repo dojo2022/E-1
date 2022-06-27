@@ -68,7 +68,7 @@ public class Review_ImageDao {
 				Class.forName("org.h2.Driver");
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
 
-				String sql = "select review_id , image from review_image WHERE review_id = ?";//変更部分
+				String sql = "select * from review_image WHERE review_id = ?";//変更部分
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				pStmt.setInt(1, review_id);//変更部分

@@ -58,7 +58,7 @@ public class SearchResultServlet extends HttpServlet {
 			response.sendRedirect("/dokogacha/LoginServlet");
 			return;
 		}
-		
+
 		//画面遷移元からreview_idを取得して投稿詳細サーブレットへ
 		request.setCharacterEncoding("UTF-8");
 		int review_id = Integer.parseInt(request.getParameter("review_id"));

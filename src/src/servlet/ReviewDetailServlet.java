@@ -38,9 +38,13 @@ public class ReviewDetailServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		int review_id = (int) session.getAttribute("review_id");
 		System.out.println(review_id);
-			ReviewDao rDao = new ReviewDao();
+		ReviewDao rDao = new ReviewDao();
 		List<Review> review_detailList = rDao.select(new Review(review_id));
 		request.setAttribute("review_detailList", review_detailList);
+
+		Review_ImageDao riDao = new Review_ImageDao();
+		List<Review_Image> review_imageList = riDao.select(review_id);
+		session.setAttribute("review_imageList", review_imageList);
 
 
 
@@ -66,17 +70,10 @@ public class ReviewDetailServlet extends HttpServlet {
 
 		} else if (request.getParameter("favoritebutton").equals("お気に入りボタン")){
 			fDao.insert(user_name,review_id);
-		} else {
-			Review_ImageDao riDao = new Review_ImageDao();
-			List<Review_Image> review_imageList = riDao.select(review_id);
-			session.setAttribute("review_imageList", review_imageList);
-			List<Review> review_detailList = rDao.select(new Review(review_id));
-			session.setAttribute("review_detailList", review_detailList);
-
-
-			// レビュー詳細ページにフォワードする
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/review_detail.jsp");
-			dispatcher.forward(request, response);
 		}
+
+		// レビュー詳細ページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/review_detail.jsp");
+		dispatcher.forward(request, response);
 	}
 }

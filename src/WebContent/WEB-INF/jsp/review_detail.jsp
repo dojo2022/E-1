@@ -12,7 +12,7 @@
 
 	<form method="POST" action="/dokogacha/ReviewDetailServlet">
 		<c:forEach var="review_image" items="${review_imageList}" >
-			<div class="review_image"><img src="${review_image.image}" alt="Not Image"></div>
+			<div class="review_image"><img src="/dokogacha/img/${review_image.image}" alt="Not Image"></div>
 		</c:forEach>
 		<h2 class="goodbutton"><img id="goodbutton" name="goodbutton" value="いいねボタン" src="/dokogacha/img/good_shiro.png" height="80" width="180" onclick="change1()"></h2>
 		<h2 class="favoritebutton"><img id="favoritebutton" name="favoritebutton" value="お気に入りボタン" src="/dokogacha/img/favo_shiro.png" height="80" width="180" onclick="change2()"></h2>
