@@ -57,72 +57,57 @@ create table review_image (
 );
 
 //ジャンルのインサート文
-insert into genre (genre_id, genre_name) values (1, '車');
+insert into genre (genre_id, genre_name) values (1, '食べ物');
+insert into genre (genre_id, genre_name) values (2, '乗り物');
+insert into genre (genre_id, genre_name) values (3, '戦隊');
+insert into genre (genre_id, genre_name) values (4, 'アニメ');
+insert into genre (genre_id, genre_name) values (5, 'ゲーム');
 
 //ユーザーのインサート文
-insert into user (id, pw, user_image, public ) values ('yamada', 'ya', 'ya', 'no');
-insert into user (id, pw, user_image, public ) values ('ishida', 'ishi', 'ishi', 'no');
-insert into user (id, pw, user_image, public ) values ('suzuki', 'su', 'su', 'no');
-insert into user (id, pw, user_image, public ) values ('nakano', 'na', 'na', 'no');
-insert into user (id, pw, user_image, public ) values ('inoue', 'ino', 'ino', 'no');
-insert into user (id, pw, user_image, public ) values ('asada', 'asa', 'asa', 'no');
-insert into user (id, pw, user_image, public ) values ('yamashita', 'yama', 'yama', 'no');
-insert into user (id, pw, user_image, public ) values ('yamaguti', 'guti', 'guti', 'no');
-insert into user (id, pw, user_image, public ) values ('sugita', 'sugi', 'sugi', 'no');
+insert into user (id, pw, user_image, public ) values ('nakashima', '', 'ya', 'no');
+insert into user (id, pw, user_image, public ) values ('kojima', 'ishi', 'ishi', 'no');
+insert into user (id, pw, user_image, public ) values ('maura', 'su', 'su', 'no');
+insert into user (id, pw, user_image, public ) values ('tanaka', 'na', 'na', 'no');
+insert into user (id, pw, user_image, public ) values ('hirano', 'ino', 'ino', 'no');
+insert into user (id, pw, user_image, public ) values ('kashimori', 'asa', 'asa', 'no');
+
 
 
 //レビューのインサート文
 insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
-            values (1, 'yamada', 1, '20220620', 'タイトル', 'トミカシリーズ', 'かっこいい', 5, 10, '東京駅', 'トミカ', 200 );
+            values (2, 'nakashima', 1, '20220620', 'タイトル', 'ケーキパーティー', 'おいしそう', 5, 15, '東京駅', 'イチゴケーキ', 200 );
 insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
-            values (2, 'ishida', 1, '20220621', 'タイトル', '車', 'かわいい', 5, 100, '東京駅', 'トミカ', 300 );
+            values (3, 'kojima', 1, '20220621', 'タイトル', 'ケーキパーティー', 'かわいい', 5, 100, '東京駅', 'タルト', 200 );
 insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
-            values (3, 'suzuki', 1, '20220621', 'タイトル', '車', 'かっこかわいい', 5, 0, '東京駅', 'トミカ', 500 );
+            values (4, 'maura', 5, '20220621', 'タイトル', '原神', 'かっこかわいい', 5, 0, '東京駅', '夜蘭', 500 );
 insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
-            values (4, 'nakano', 1, '20220620', 'タイトル', 'トミカシリーズ', 'かっこいい', 5, 10, '東京駅', 'トミカ', 200 );
+            values (5, 'maura', 4, '20220620', 'タイトル', 'ウマ娘', 'かっこいい', 5, 10, '東京駅', 'シンボリルドルフ', 300 );
 insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
-            values (5, 'inoue', 1, '20220621', 'タイトル', '車', 'かわいい', 5, 100, '東京駅', 'トミカ', 300 );
-insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
-            values (6, 'asada', 1, '20220621', 'タイトル', '車', 'かっこかわいい', 5, 0, '東京駅', 'トミカ', 500 );
-insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
-            values (7, 'yamashita', 1, '20220620', 'タイトル', 'トミカシリーズ', 'かっこいい', 5, 10, '東京駅', 'トミカ', 200 );
-insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
-            values (8, 'yamaguti', 1, '20220621', 'タイトル', '車', 'かわいい', 5, 100, '東京駅', 'トミカ', 300 );
-insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
-            values (9, 'sugita', 1, '20220621', 'タイトル', '車', 'かっこかわいい', 5, 0, '東京駅', 'トミカ', 500 );
+            values (6, 'tanaka', 2, '20220621', 'タイトル', 'トミカ', 'かっこいい', 5, 100, '東京駅', 'パトカー', 300 );
 
 //レビュー画像のインサート
-insert into review_image (review_id, image) values (1 , 'cap_back.png');
-insert into review_image (review_id, image) values (1 , 'gold_panda.png');
-insert into review_image (review_id, image) values (2 , 'cap_back.png');
-insert into review_image (review_id, image) values (3 , 'cap_back.png');
-insert into review_image (review_id, image) values (4 , 'cap_back.png');
-insert into review_image (review_id, image) values (5 , 'cap_back.png');
-insert into review_image (review_id, image) values (6 , 'cap_back.png');
-insert into review_image (review_id, image) values (7 , 'cap_back.png');
-insert into review_image (review_id, image) values (8 , 'cap_back.png');
-insert into review_image (review_id, image) values (9 , 'cap_back.png');
+insert into review_image (review_id, image) values (2 , 'icon_camera.png');
+insert into review_image (review_id, image) values (3 , 'gold_panda.png');
+insert into review_image (review_id, image) values (4 , 'sample_car_brown.png');
+insert into review_image (review_id, image) values (5 , 'gold_panda.png');
+insert into review_image (review_id, image) values (6 , 'sample_car_brown.png');
+
 
 ログインしたユーザのレビューお気に入り登録
-insert into favorite_review (user_name, review_id) values ('omoti', 1);
-insert into favorite_review (user_name, review_id) values ('omoti', 2);
-insert into favorite_review (user_name, review_id) values ('omoti', 3);
-insert into favorite_review (user_name, review_id) values ('omoti', 4);
-insert into favorite_review (user_name, review_id) values ('omoti', 5);
-insert into favorite_review (user_name, review_id) values ('omoti', 6);
-insert into favorite_review (user_name, review_id) values ('omoti', 7);
+insert into favorite_review (user_name, review_id) values ('dojo', 2);
+insert into favorite_review (user_name, review_id) values ('dojo', 3);
+insert into favorite_review (user_name, review_id) values ('dojo', 4);
+insert into favorite_review (user_name, review_id) values ('dojo', 5);
+
 
 お気に入り未登録
 8,9
 
 ログインしたユーザのユーザお気に入り登録
-insert into favorite_reviewer (user_name, reviewer_id) values ('omoti', 'yamada');
-insert into favorite_reviewer (user_name, reviewer_id) values ('omoti', 'suzuki');
-insert into favorite_reviewer (user_name, reviewer_id) values ('omoti', 'ishida');
-insert into favorite_reviewer (user_name, reviewer_id) values ('omoti', 'inoue');
-insert into favorite_reviewer (user_name, reviewer_id) values ('omoti', 'yamashita');
-insert into favorite_reviewer (user_name, reviewer_id) values ('omoti', 'nakano');
-insert into favorite_reviewer (user_name, reviewer_id) values ('omoti', 'asada');
+insert into favorite_reviewer (user_name, reviewer_id) values ('dojo', 'kojima');
+insert into favorite_reviewer (user_name, reviewer_id) values ('dojo', 'maura');
+insert into favorite_reviewer (user_name, reviewer_id) values ('dojo', 'hirano');
+insert into favorite_reviewer (user_name, reviewer_id) values ('dojo', 'kashimori');
 
 お気に入り未登録
 sugita yamaguti
