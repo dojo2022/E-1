@@ -11,6 +11,7 @@ String address = (String)request.getAttribute("address");
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="css/search_result.css">
+<script src="js/review_result.js"></script>
 <meta charset="UTF-8">
 <title>検索結果</title>
 </head>
@@ -21,7 +22,7 @@ String address = (String)request.getAttribute("address");
 			<tr><th class="fhead" colspan="10"><%= genre %><%= word %><%= address %>の検索結果</th></tr>
 			<tr><td class="empty1" colspan="10"></td></tr>
 			<tr><td class="empty2" colspan="10"></td></tr>
-			<c:forEach var="e" items="${reviewList}" >
+			<c:forEach var="e" items="${reviewList}" varstate="s">
 			<input type="hidden" name="review_id" value="${e.review_id}">
 				<tr class="data">
 					<td class="icon" colspan="2"><a href="javascript:document.f.submit()"><img src="/dokogacha/img/${e.image}"></a></td>
