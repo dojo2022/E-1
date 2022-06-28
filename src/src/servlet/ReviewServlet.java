@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,8 +17,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import dao.GenreDao;
 import dao.ReviewDao;
 import dao.Review_ImageDao;
+import model.Genre;
 import model.LoginUser;
 import model.Review;
 import model.Review_Image;
@@ -31,6 +34,13 @@ public class ReviewServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// レビュー投稿ページにフォワードする
+		// 検索処理を行う
+		GenreDao gDao = new GenreDao();
+		List<Genre> genreList = gDao.select(); //改造する
+
+		// 検索結果をリクエストスコープに格納する
+		request.setAttribute("genreList", genreList);
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/review.jsp");
 		dispatcher.forward(request, response);
 	}
