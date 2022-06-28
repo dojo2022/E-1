@@ -66,20 +66,12 @@ insert into genre (genre_id, genre_name) values (3, '戦隊');
 insert into genre (genre_id, genre_name) values (4, 'アニメ');
 insert into genre (genre_id, genre_name) values (5, 'ゲーム');
 
-
-
-
-一旦ここまで
-発表用(dojoとか)
-nakashima
-kojima
-maura
-tanaka
-hirano
-kashimori
-でユーザ登録
-発表用でレビューを一つ投稿
-
+insert into user (id, pw, user_image, public ) values ('nakashima', '', 'ya', 'no');
+insert into user (id, pw, user_image, public ) values ('kojima', 'ishi', 'ishi', 'no');
+insert into user (id, pw, user_image, public ) values ('maura', 'su', 'su', 'no');
+insert into user (id, pw, user_image, public ) values ('tanaka', 'na', 'na', 'no');
+insert into user (id, pw, user_image, public ) values ('hirano', 'ino', 'ino', 'no');
+insert into user (id, pw, user_image, public ) values ('kashimori', 'asa', 'asa', 'no');
 
 
 insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
