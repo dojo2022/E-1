@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>どこがちゃ｜マイページ</title>
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/mypage.css">
-<!----><style>*{outline: 1px solid #ff0000;}</style>
+<!----<style>*{outline: 1px solid #ff0000;}</style>--->
 
 </head>
 <body>
