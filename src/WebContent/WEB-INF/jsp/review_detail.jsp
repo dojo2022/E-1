@@ -32,12 +32,12 @@
 		<h2 class="favoritebutton"><img id="favoritebutton" name="favoritebutton" value="お気に入りボタン" src="/dokogacha/img/favo_shiro.png" height="80" width="180" onclick="change2()"></h2>
 		<c:forEach var="e" items="${review_detailList}" >
 		<table class="review_detail">
-			<tr><td><input type="text" name="product_code" value="${e.puroduct_name}"></td></tr>
-			<tr><td><input type="text" name="title" value="${e.title}"></td></tr>
-			<tr><td><textarea name="thought" value="${e.thought}"></textarea></td></tr>
-			<tr><td><input type="text" name="price" value="${e.price}"></td></tr>
-			<tr><td><input type="text" name="address" value="${e.address}"></td></tr>
-			<tr><td><input type="radio" name="star" value="${e.evalution}"></td></tr>
+			<tr><td>商品名<input type="text" name="product_code" value="${e.puroduct_name}"></td></tr>
+			<tr><td>タイトル<input type="text" name="title" value="${e.title}"></td></tr>
+			<tr><td>感想・説明<input type="text" name="thought" value="${e.thought}"></td></tr>
+			<tr><td>値段（円）<input type="text" name="price" value="${e.price}"></td></tr>
+			<tr><td>住所<input type="text" name="address" value="${e.address}"></td></tr>
+			<tr><td>5段階評価<input type="text" name="star" value="${e.evalution}"></td></tr>
 		</table>
 		<table class="user_detail" >
 			<tr><td class="icon"><img src="/dokogacha/UserDatailServlet" alt="icon"></td>
