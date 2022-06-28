@@ -52,9 +52,9 @@
 			<tr><td class="icon"><img class="icon2" src="/dokogacha/img/${e.image}"></td></tr>
 			<tr class="data">
 				<td class="detail">
-				<div class="top">${e.genre_name} / ${e.price}</div><br>
-				<div class="middle">${e.puroduct_name}</div><br>
-				<div class="bottom">${e.good}</div></td>
+				<div class="top">ジャンル：${e.genre_name} / 値段：${e.price}</div><br>
+				<div class="middle">商品名：${e.puroduct_name}</div><br>
+				<div class="bottom">いいね数：${e.good}</div></td>
 			</tr>
 			</c:forEach>
 		</table>
