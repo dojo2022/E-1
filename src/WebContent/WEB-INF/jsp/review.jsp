@@ -22,14 +22,14 @@
 				<td><input type="text" name="title" placeholder="タイトル" required></td>
 			</tr>
 			<tr>
-				<td><select name="genre" required>
-						<option value="">----ジャンルを選択する----</option>
-						<option value="1">車</option>
-						<option value="2">船</option>
-						<option value="3">飛行機</option>
-						<option value="4">電車</option>
-						<option value="5">その他乗り物</option>
-				</select></td>
+				<td>
+					<select name="genre">
+          			<option value="0">----ジャンルを選択する----</option>
+          			<c:forEach var="genre" items="${genreList}" varStatus="N">
+          			<option value=${genre.genre_id} >${genre.genre_name}</option>
+          			</c:forEach>
+          			</select>
+          		</td>
 			</tr>
 			<tr>
 				<td><input type="text" name="series" placeholder="シリーズ"

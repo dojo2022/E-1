@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,8 +17,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import dao.GenreDao;
 import dao.ReviewDao;
 import dao.Review_ImageDao;
+import model.Genre;
 import model.LoginUser;
 import model.Review;
 import model.Review_Image;
@@ -31,6 +34,13 @@ public class ReviewServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// レビュー投稿ページにフォワードする
+		// 検索処理を行う
+		GenreDao gDao = new GenreDao();
+		List<Genre> genreList = gDao.select(); //改造する
+
+		// 検索結果をリクエストスコープに格納する
+		request.setAttribute("genreList", genreList);
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/review.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -87,13 +97,15 @@ public class ReviewServlet extends HttpServlet {
 		//画像関係の処理
 		String[] images = new String[4];
 		Collection<Part> parts = request.getParts();
+		Part[] parts_image = new Part[4];
 
 		int i = 0;
 		for(Part part : parts) {
 			if(part.getName().equals("insert_image")) {
 				images[i] = this.getFileName(part);
+				parts_image[i] = part;
 				//ファイルが存在しているか確かめる処理
-				File file = new File("C:/dojo6/src/WebContent/img/user_image/"+images[i]);//絶対パス出ないとダメそう
+				File file = new File("C:/dojo6/src/WebContent/img/review_image/"+images[i]);//絶対パス出ないとダメそう
 
 				if(file.exists()) {
 					// アイコン画像ファイルが存在している場合
@@ -103,24 +115,36 @@ public class ReviewServlet extends HttpServlet {
 					// ファイルが存在していない場合
 					// サーバの指定のファイルパスへファイルを保存
 					//場所はクラス名↑の上に指定してある
-					part.write(images[i]);//アップロードされた画像をディスクに書き込む
+					parts_image[i].write(images[i]);//アップロードされた画像をディスクに書き込む
 				}
 				i++;
 			}
 		}
-
-
 
 		//金額に文字が入力されていた場合のエラー処理
 		//正常に動作した場合の処理
 		if(rDao.insert(new Review(0,user_name, genre_id, review_day, title, series, thought, star, good, address, product_name, price))){
 			int rev_id = rDao.rev_id();
 			System.out.println(rev_id);
-			if(riDao.insert_image(new Review_Image(rev_id,image))) {
-				response.sendRedirect("/dokogacha/ReviewResultServlet");
-				return;
-				}
+			boolean flag = false;
+			for(String image : images){
+			if(!(image == null)) {
+			System.out.println(image);
 			//rDaoにて、review_imageを追加
+			flag = riDao.insert_image(new Review_Image(rev_id,image));
+			}
+			else {
+				break;
+			}
+			}
+			if(flag){
+				response.sendRedirect("/dokogacha/ReviewResultServlet");
+			}
+			else {
+				request.setAttribute("error_message","※入力に誤りがあります。");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/review.jsp");
+				dispatcher.forward(request, response);
+			}
 		}
 	}
 /*----------------------------------------------------------------------------------------------*/
