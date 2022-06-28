@@ -65,9 +65,12 @@ public class ReviewServlet extends HttpServlet {
 		String thought = request.getParameter("thought");
 		String address = request.getParameter("address");
 		String image = request.getParameter("insert_image");
+		String image2 = request.getParameter("insert_image");
 		ReviewDao rDao = new ReviewDao();
 		Review_ImageDao riDao = new Review_ImageDao();
 
+		System.out.println(image);
+		System.out.println(image2);
 
 		SimpleDateFormat f = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date now = new Date();
