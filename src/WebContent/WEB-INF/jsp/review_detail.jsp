@@ -12,7 +12,21 @@
 
 	<form method="POST" action="/dokogacha/ReviewDetailServlet">
 		<c:forEach var="review_image" items="${review_imageList}" >
-			<div class="review_image"><img src="/dokogacha/img/${review_image.image}" alt="Not Image"></div>
+			<div class="review_image">
+			<div class="out">
+			<img src="/dokogacha/img/${review_image.image}" alt="Not Image">
+				<input type=radio name="slide" id="slide1">
+    			<input type=radio name="slide" id="slide2">
+    			<input type=radio name="slide" id="slide3">
+    			<input type=radio name="slide" id="slide4">
+    		<div class="in">
+        		<label for="slide1"><span></span><a href="#1"><img src="/dokogacha/img/${review_image.image}" alt="Not Image1"></a></label>
+        		<label for="slide2"><span></span><a href="#2"><img src="/dokogacha/img/${review_image.image}" alt="Not Image2"></a></label>
+        		<label for="slide3"><span></span><a href="#3"><img src="/dokogacha/img/${review_image.image}" alt="Not Image3"></a></label>
+        		<label for="slide4"><span></span><a href="#4"><img src="/dokogacha/img/${review_image.image}" alt="Not Image4"></a></label>
+    		</div>
+			</div>
+			</div>
 		</c:forEach>
 		<h2 class="goodbutton"><img id="goodbutton" name="goodbutton" value="いいねボタン" src="/dokogacha/img/good_shiro.png" height="80" width="180" onclick="change1()"></h2>
 		<h2 class="favoritebutton"><img id="favoritebutton" name="favoritebutton" value="お気に入りボタン" src="/dokogacha/img/favo_shiro.png" height="80" width="180" onclick="change2()"></h2>
