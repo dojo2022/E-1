@@ -15,7 +15,9 @@ body{
 }
 
 .wrapper{
-	max-width: 100%;
+     max-width:100% ;
+     margin: 0 auto;
+     width: 580px ; /*580px*/
 }
 
 header nav{
@@ -36,23 +38,23 @@ header nav{
 }
 
 .capsule_genre img{
-	width: 6%;
-	height: 6%;
+	width: 15%;
+	height:6%;
 }
 .capsule_word img{
-	width: 6%;
+	width: 15%;
 	height: 6%;
 
 }
 .capsule_address img{
-	width: 6%;
+	width: 15%;
 	height: 6%;
-}
 
+}
 form{
 	position:relative;
 	top:130px;
-	left:470px;
+	left:110px;
 }
 
 select{
@@ -69,18 +71,18 @@ input{
 
 }
 .submit_search{
-	width:140px;
+	width:300px;
 	position:relative;
 	top:100px;
-	left:55px;
+	left:40px;
 }
 .btn input {
 	position: absolute;
 	top: 450px;
-	left:37px;
+	left:17px;
 	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
-	width: 12%;
+	width: 25%;
 	display: block;
 	-webkit-transition: .4s ease-in-out;
 	transition: .4s ease-in-out;
@@ -88,11 +90,15 @@ input{
 .btn:hover input:nth-of-type(2) {
 	opacity: 0;
 }
-
+.opcap{
+	position:relative;
+	bottom:350px;
+	left:40px;
+}
 .opcap img {
 	position: absolute;
-	top: 59px;
-	left: 66%;
+	top: 10px;
+	left: 450px;
 	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 	display: block;
@@ -103,10 +109,10 @@ input{
 	opacity: 0;
 }
 .opcapsule_logout{
-	width: 7%;
+	width:15%;
 
 }
 .capsule_logout{
-	width: 8%;
+	width: 18%;
 
 }
