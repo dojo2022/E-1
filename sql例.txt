@@ -1,0 +1,171 @@
+select id, user_image from user where id in (select reviewer_id from favorite_reviewer where user_name = 'maura');
+
+//テーブルのクリエイト文
+create table user (
+  id varchar(255) primary key not null,
+  pw varchar(255) not null,
+  user_image varchar(255),
+  public varchar(5)
+);
+create table title (
+  total_good int primary key not null,
+  title_image varchar(255) not null,
+  title_name varchar(255) not null
+);
+create table favorite_genre (
+  user_name varchar(255) not null,
+  genre_id int not null,
+  primary key(user_name,genre_id),
+  foreign key(user_name) references user(id)
+);
+create table favorite_review (
+  user_name varchar(255) not null,
+  review_id int not null,
+  primary key(user_name,review_id),
+  foreign key(user_name) references user(id)
+);
+create table favorite_reviewer (
+  user_name varchar(255) not null,
+  reviewer_id varchar(255) null,
+  primary key(user_name,reviewer_id),
+  foreign key(user_name) references user(id)
+);
+create table genre (
+  genre_id int primary key not null,
+  genre_name varchar(255) not null
+);
+create table review (
+  review_id int primary key auto_increment,
+  user_name varchar(255) not null,
+  genre_id int not null,
+  review_day varchar(255),
+  title varchar(255) not null,
+  series_name varchar(255) not null,
+  thought varchar(255),
+  evalution int,
+  good int default 0,
+  address varchar(255),
+  puroduct_name varchar(255) not null,
+  price int,
+  foreign key(user_name) references user(id)
+);
+create table review_image (
+  review_id int not null,
+  image varchar(255),
+  primary key(review_id,image),
+  foreign key(review_id) references review(review_id)
+);
+
+//ジャンルのインサート文
+insert into genre (genre_id, genre_name) values (1, '車');
+
+//ユーザーのインサート文
+insert into user (id, pw, user_image, public ) values ('yamada', 'ya', 'ya', 'no');
+insert into user (id, pw, user_image, public ) values ('ishida', 'ishi', 'ishi', 'no');
+insert into user (id, pw, user_image, public ) values ('suzuki', 'su', 'su', 'no');
+insert into user (id, pw, user_image, public ) values ('nakano', 'na', 'na', 'no');
+insert into user (id, pw, user_image, public ) values ('inoue', 'ino', 'ino', 'no');
+insert into user (id, pw, user_image, public ) values ('asada', 'asa', 'asa', 'no');
+insert into user (id, pw, user_image, public ) values ('yamashita', 'yama', 'yama', 'no');
+insert into user (id, pw, user_image, public ) values ('yamaguti', 'guti', 'guti', 'no');
+insert into user (id, pw, user_image, public ) values ('sugita', 'sugi', 'sugi', 'no');
+
+
+//レビューのインサート文
+insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
+            values (1, 'yamada', 1, '20220620', 'タイトル', 'トミカシリーズ', 'かっこいい', 5, 10, '東京駅', 'トミカ', 200 );
+insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
+            values (2, 'ishida', 1, '20220621', 'タイトル', '車', 'かわいい', 5, 100, '東京駅', 'トミカ', 300 );
+insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
+            values (3, 'suzuki', 1, '20220621', 'タイトル', '車', 'かっこかわいい', 5, 0, '東京駅', 'トミカ', 500 );
+insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
+            values (4, 'nakano', 1, '20220620', 'タイトル', 'トミカシリーズ', 'かっこいい', 5, 10, '東京駅', 'トミカ', 200 );
+insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
+            values (5, 'inoue', 1, '20220621', 'タイトル', '車', 'かわいい', 5, 100, '東京駅', 'トミカ', 300 );
+insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
+            values (6, 'asada', 1, '20220621', 'タイトル', '車', 'かっこかわいい', 5, 0, '東京駅', 'トミカ', 500 );
+insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
+            values (7, 'yamashita', 1, '20220620', 'タイトル', 'トミカシリーズ', 'かっこいい', 5, 10, '東京駅', 'トミカ', 200 );
+insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
+            values (8, 'yamaguti', 1, '20220621', 'タイトル', '車', 'かわいい', 5, 100, '東京駅', 'トミカ', 300 );
+insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
+            values (9, 'sugita', 1, '20220621', 'タイトル', '車', 'かっこかわいい', 5, 0, '東京駅', 'トミカ', 500 );
+
+//レビュー画像のインサート
+insert into review_image (review_id, image) values (1 , 'cap_back.png');
+insert into review_image (review_id, image) values (1 , 'gold_panda.png');
+insert into review_image (review_id, image) values (2 , 'cap_back.png');
+insert into review_image (review_id, image) values (3 , 'cap_back.png');
+insert into review_image (review_id, image) values (4 , 'cap_back.png');
+insert into review_image (review_id, image) values (5 , 'cap_back.png');
+insert into review_image (review_id, image) values (6 , 'cap_back.png');
+insert into review_image (review_id, image) values (7 , 'cap_back.png');
+insert into review_image (review_id, image) values (8 , 'cap_back.png');
+insert into review_image (review_id, image) values (9 , 'cap_back.png');
+
+ログインしたユーザのレビューお気に入り登録
+insert into favorite_review (user_name, review_id) values ('omoti', 1);
+insert into favorite_review (user_name, review_id) values ('omoti', 2);
+insert into favorite_review (user_name, review_id) values ('omoti', 3);
+insert into favorite_review (user_name, review_id) values ('omoti', 4);
+insert into favorite_review (user_name, review_id) values ('omoti', 5);
+insert into favorite_review (user_name, review_id) values ('omoti', 6);
+insert into favorite_review (user_name, review_id) values ('omoti', 7);
+
+お気に入り未登録
+8,9
+
+ログインしたユーザのユーザお気に入り登録
+insert into favorite_reviewer (user_name, reviewer_id) values ('omoti', 'yamada');
+insert into favorite_reviewer (user_name, reviewer_id) values ('omoti', 'suzuki');
+insert into favorite_reviewer (user_name, reviewer_id) values ('omoti', 'ishida');
+insert into favorite_reviewer (user_name, reviewer_id) values ('omoti', 'inoue');
+insert into favorite_reviewer (user_name, reviewer_id) values ('omoti', 'yamashita');
+insert into favorite_reviewer (user_name, reviewer_id) values ('omoti', 'nakano');
+insert into favorite_reviewer (user_name, reviewer_id) values ('omoti', 'asada');
+
+お気に入り未登録
+sugita yamaguti
+
+ログインしたユーザ自身の投稿
+insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
+            values (10, 'omoti', 1, '20220621', 'タイトル', '車', 'かわいい', 5, 100, '東京駅', 'トミカ', 300 );
+insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
+            values (11, 'omoti', 1, '20220621', 'タイトル', '車', 'かっこかわいい', 5, 0, '東京駅', 'トミカ', 500 );
+
+ログインしたユーザ自身の投稿画像
+insert into review_image (review_id, image) values (10 , 'cap_back.png');
+insert into review_image (review_id, image) values (11 , 'cap_back.png');
+
+
+
+
+
+select genre_name , price , puroduct_name , good , image 
+from review join review_image on review.review_id = review_image.review_id 
+right join genre on review.genre_id = genre.genre_id 
+where review.review_id in 
+(select favorite_review.review_id from favorite_review where user_name = 'yamada');
+
+
+IF R.genre_id = 0 THEN 処理文
+    ELSE 処理文
+END IF
+
+
+
+select user_name, R.genre_id, G.genre_name, price, puroduct_name, good, address, review_id, review_day, title, series_name, thought, evalution 
+from genre AS G, review AS R
+where G.genre_id = R.genre_id AND R.genre_id LIKE ? AND address LIKE ? AND user_name LIKE ? OR title LIKE ? OR series_name LIKE ? OR thought LIKE ? OR puroduct_name LIKE ?
+
+
+select review.review_id , genre_name , price , puroduct_name , good , image 
+from review join review_image on review.review_id = review_image.review_id 
+right join genre on review.genre_id = genre.genre_id 
+where review.review_id in (select favorite_review.review_id from favorite_review where user_name = ?)
+
+
+select  review.review_id , user_name , genre_name , title , series_name , thought , evalution , good , image , address , puroduct_name , price , image
+from review join review_image on review.review_id = review_image.review_id 
+right join genre on review.genre_id = genre.genre_id 
+WHERE review.review_id = 1;
