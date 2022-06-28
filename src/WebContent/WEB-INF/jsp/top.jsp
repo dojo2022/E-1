@@ -49,7 +49,7 @@
 	<table border="1" style="border-collapse: collapse">
 			<tr><td class="empty"></td></tr>
 			<c:forEach var="e" items="${trend_review}" >
-			<tr><td class="icon"><img class="icon2">${e.image}</td></tr>
+			<tr><td class="icon"><img class="icon2" src="/dokogacha/img/${e.image}"></td></tr>
 			<tr class="data">
 				<td class="detail">
 				<div class="top">${e.genre_name} / ${e.price}</div><br>
