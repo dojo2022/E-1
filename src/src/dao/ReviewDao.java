@@ -499,7 +499,13 @@ public class ReviewDao {
 			Class.forName("org.h2.Driver");
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");
 
-			String sql = "select max(review_id) as review_id from review where good = (select max(good) from review where review_day >= (NOW() - INTERVAL 30 DAY))";
+			//String sql = "select max(review_id) as review_id from review where good = (select max(good) from review where review_day >= (NOW() - INTERVAL 30 DAY))";
+
+			String sql = "select max(review_id) as review_id\r\n"
+									+ "from review where good = \r\n"
+									+ "(select max(good) from review where review_day >= \r\n"
+									+ "((select TO_CHAR((NOW() - INTERVAL 30 DAY), 'yyyy/MM/dd HH24:MI:SS'))))";
+
 			//変更部分
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
