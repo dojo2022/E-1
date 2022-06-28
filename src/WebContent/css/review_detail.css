@@ -11,8 +11,6 @@ body {
     font-weight: bold;
     border: solid 3px #000000;
 }
-<<<<<<< HEAD
-
 
 .out{
     position: relative;
@@ -109,17 +107,14 @@ body {
     animation-play-state:paused;/* マウスを載せると一時停止 */
 }
 
-
-
-
-
-=======
 .review_image img {
 	width: 300px;
 	height: 250px;
 	position: center;
 }
->>>>>>> dde39eb4eb089a7d39cfb0fa2c0538a2467b38ff
+
+
+
 /*いいね、お気に入りボタン配置*/
 h2 {
     display: inline-block;
