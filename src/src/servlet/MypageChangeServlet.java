@@ -116,6 +116,7 @@ public class MypageChangeServlet extends HttpServlet {
 
 			String new_image = this.getFileName(part);
 
+			//ファイルが存在しているか確かめる処理
 			File file = new File("C:/dojo6/src/WebContent/img/user_image/"+new_image);//絶対パス出ないとダメそう
 
 			if (new_image.equals("")){
