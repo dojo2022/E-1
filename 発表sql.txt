@@ -1,0 +1,107 @@
+drop table title;
+drop table favorite_genre;
+drop table favorite_review;
+drop table favorite_reviewer;
+drop table genre;
+drop table review_image;
+drop table review;
+drop table user;
+create table user (
+  id varchar(255) primary key not null,
+  pw varchar(255) not null,
+  user_image varchar(255),
+  public varchar(5)
+);
+create table title (
+  total_good int primary key not null,
+  title_image varchar(255) not null,
+  title_name varchar(255) not null
+);
+create table favorite_genre (
+  user_name varchar(255) not null,
+  genre_id int not null,
+  primary key(user_name,genre_id),
+  foreign key(user_name) references user(id)
+);
+create table favorite_review (
+  user_name varchar(255) not null,
+  review_id int not null,
+  primary key(user_name,review_id),
+  foreign key(user_name) references user(id)
+);
+create table favorite_reviewer (
+  user_name varchar(255) not null,
+  reviewer_id varchar(255) null,
+  primary key(user_name,reviewer_id),
+  foreign key(user_name) references user(id)
+);
+create table genre (
+  genre_id int primary key not null,
+  genre_name varchar(255) not null
+);
+create table review (
+  review_id int primary key auto_increment,
+  user_name varchar(255) not null,
+  genre_id int not null,
+  review_day varchar(255),
+  title varchar(255) not null,
+  series_name varchar(255) not null,
+  thought varchar(255),
+  evalution int,
+  good int default 0,
+  address varchar(255),
+  puroduct_name varchar(255) not null,
+  price int,
+  foreign key(user_name) references user(id)
+);
+create table review_image (
+  review_id int not null,
+  image varchar(255),
+  primary key(review_id,image),
+  foreign key(review_id) references review(review_id)
+);
+insert into genre (genre_id, genre_name) values (1, '食べ物');
+insert into genre (genre_id, genre_name) values (2, '乗り物');
+insert into genre (genre_id, genre_name) values (3, '戦隊');
+insert into genre (genre_id, genre_name) values (4, 'アニメ');
+insert into genre (genre_id, genre_name) values (5, 'ゲーム');
+
+
+
+
+一旦ここまで
+発表用(dojoとか)
+nakashima
+kojima
+maura
+tanaka
+hirano
+kashimori
+でユーザ登録
+発表用でレビューを一つ投稿
+
+
+
+insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
+            values (2, 'nakashima', 1, '20220620', 'タイトル', 'ケーキパーティー', 'おいしそう', 5, 15, '東京駅', 'イチゴケーキ', 200 );
+insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
+            values (3, 'kojima', 1, '20220621', 'タイトル', 'ケーキパーティー', 'かわいい', 5, 100, '東京駅', 'タルト', 200 );
+insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
+            values (4, 'maura', 5, '20220621', 'タイトル', '原神', 'かっこかわいい', 5, 0, '東京駅', '夜蘭', 500 );
+insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
+            values (5, 'maura', 4, '20220620', 'タイトル', 'ウマ娘', 'かっこいい', 5, 10, '東京駅', 'シンボリルドルフ', 300 );
+insert into review (review_id, user_name, genre_id, review_day, title, series_name, thought, evalution, good, address, puroduct_name, price) 
+            values (6, 'tanaka', 2, '20220621', 'タイトル', 'トミカ', 'かっこいい', 5, 100, '東京駅', 'パトカー', 300 );
+insert into review_image (review_id, image) values (2 , 'icon_camera.png');
+insert into review_image (review_id, image) values (3 , 'gold_panda.png');
+insert into review_image (review_id, image) values (4 , 'sample_car_brown.png');
+insert into review_image (review_id, image) values (5 , 'gold_panda.png');
+insert into review_image (review_id, image) values (6 , 'sample_car_brown.png');
+insert into favorite_review (user_name, review_id) values ('dojo', 2);
+insert into favorite_review (user_name, review_id) values ('dojo', 3);
+insert into favorite_review (user_name, review_id) values ('dojo', 4);
+insert into favorite_review (user_name, review_id) values ('dojo', 5);
+insert into favorite_reviewer (user_name, reviewer_id) values ('dojo', 'kojima');
+insert into favorite_reviewer (user_name, reviewer_id) values ('dojo', 'maura');
+insert into favorite_reviewer (user_name, reviewer_id) values ('dojo', 'hirano');
+insert into favorite_reviewer (user_name, reviewer_id) values ('dojo', 'kashimori');
