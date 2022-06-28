@@ -11,7 +11,7 @@
 <body>
 	<h1>投稿情報の入力</h1>
 	<h4 class="gacha_name">ガチャ名※全項目必須</h4>
-	<form method="POST" action="/dokogacha/ReviewServlet" id="review_form">
+	<form method="POST" action="/dokogacha/ReviewServlet" id="review_form" enctype="multipart/form-data">
 		<span id="error_message">${error_message}</span>
 		<table class="info">
 			<tr>
@@ -65,7 +65,7 @@
 				<td><p>
 						<strong>画像の挿入</strong><br>
 					</p> <input type="file" name="insert_image" accept='image/*'
-					multiple="multiple" onchange="loadImage(this);b">
+					multiple="multiple" onchange="loadImage(this);">
 					<p id="insert_image"></p></td>
 			</tr>
 			<tr>

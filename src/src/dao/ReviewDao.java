@@ -23,9 +23,9 @@ public class ReviewDao {
 			Class.forName("org.h2.Driver");
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/data/dokogacha", "sa", "");  //DBと接続
 			String sql = "select R.review_id, image,G.genre_name,price,puroduct_name,good "
-					+ "from review as R join review_image as RI on R.review_id = RI.review_id "
+					+ "from review as R left join review_image as RI on R.review_id = RI.review_id "
 					+ "right join genre as G on R.genre_id = G.genre_id "
-					+ "where R.genre_id LIKE ? AND address LIKE ? AND user_name LIKE ? OR title LIKE ? OR series_name LIKE ? OR thought LIKE ? OR puroduct_name LIKE ?";
+					+ "where R.genre_id LIKE ? AND address LIKE ? AND (user_name LIKE ? OR title LIKE ? OR series_name LIKE ? OR thought LIKE ? OR puroduct_name LIKE ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			//もしも、genreに０が入力された場合、ワイルドカードの'％'を用いる。
 			//そして、genreに０以外が入力された場合、そのままその値を格納する。

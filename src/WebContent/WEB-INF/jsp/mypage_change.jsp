@@ -8,7 +8,11 @@
 
 <title>どこがちゃ｜マイページ変更</title>
 <link rel= "stylesheet" type="text/css" href ="/dokogacha/css/mypage_change.css">
+<<<<<<< HEAD
 <!--<style>*{outline: 1px solid #ff0000;}</style> -->
+=======
+<!-- <style>*{outline: 1px solid #ff0000;}</style>-->
+>>>>>>> eb04878cf38011a33842558106e166f3c00ba38e
 
 </head>
 <body>
