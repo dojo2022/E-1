@@ -1,5 +1,6 @@
 package servlet;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
@@ -84,21 +85,30 @@ public class ReviewServlet extends HttpServlet {
 
 
 		//画像関係の処理
-		Part part = request.getPart("insert_image");
-		String image = this.getFileName(part);
-
 		String[] images = new String[4];
-
-
 		Collection<Part> parts = request.getParts();
 
 		int i = 0;
-		for(Part part2 : parts) {
-			if(part2.getName().equals("insert_image")) {
-				images[i] = this.getFileName(part2);
+		for(Part part : parts) {
+			if(part.getName().equals("insert_image")) {
+				images[i] = this.getFileName(part);
+				//ファイルが存在しているか確かめる処理
+				File file = new File("C:/dojo6/src/WebContent/img/user_image/"+images[i]);//絶対パス出ないとダメそう
+
+				if(file.exists()) {
+					// アイコン画像ファイルが存在している場合
+					System.out.println(images[i]+" has already been uploaded");
+				}
+				else{
+					// ファイルが存在していない場合
+					// サーバの指定のファイルパスへファイルを保存
+					//場所はクラス名↑の上に指定してある
+					part.write(images[i]);//アップロードされた画像をディスクに書き込む
+				}
 				i++;
 			}
 		}
+
 
 
 		//金額に文字が入力されていた場合のエラー処理
