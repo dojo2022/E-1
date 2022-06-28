@@ -60,7 +60,7 @@
 	<!-- 編集ボタン -->
 		<form method="Post" action="/dokogacha/MypageServlet" enctype="multipart/form-data" class="do_change">
 		<input type="image" name="button_edit" src="/dokogacha/img/button_edit.png" alt="編集"
-			onclick= "submit_edit(this)" class= "rotate">
+			onclick= "submit_edit(this);" class= "rotate">
 	</form>
 	<!-- 自分の最新投稿、自分の投稿一覧リンクの表示 -->
 	<div class="review">
@@ -91,7 +91,10 @@ function submit_edit(obj){
 			],
 			{
 				duration: 3000,
-				easing: 'linear'
+				easing: 'linear',
+				complete: function(obj){
+				 window.confirm("hello");
+				}
 			}
 		);
 	}
