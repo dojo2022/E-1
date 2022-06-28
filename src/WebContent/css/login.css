@@ -86,7 +86,7 @@ body{
 .btn input {
 	position: absolute;
 	top: 640px;
-	left: 510px;
+	left: 690px;
 	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 	width: 140px;
@@ -96,4 +96,10 @@ body{
 }
 .btn:hover input:nth-of-type(2) {
 	opacity: 0;
+}
+.btn{
+	position:relative;
+	bottom:470px;
+	width:115px;
+	left:-560px;
 }
