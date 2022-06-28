@@ -19,7 +19,7 @@ String address = (String)request.getAttribute("address");
 <div class="wrapper">
 	<form name=f method=POST action="/dokogacha/SearchResultServlet">
 		<table border="1" style="border-collapse: collapse">
-			<tr><th class="fhead" colspan="10"><%= genre %><%= word %><%= address %>の検索結果</th></tr>
+			<tr><th class="fhead" colspan="10"><%= genre %>/<%= word %>/<%= address %>の検索結果</th></tr>
 			<tr><td class="empty1" colspan="10"></td></tr>
 			<tr><td class="empty2" colspan="10"></td></tr>
 			<c:forEach var="e" items="${reviewList}">
