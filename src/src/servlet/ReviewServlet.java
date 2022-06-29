@@ -27,7 +27,7 @@ import model.Review_Image;
 
 
 //↓アップロードファイルの一時的な保存先
-@MultipartConfig(location = "C:/dojo6/src/WebContent/img/review_image")
+@MultipartConfig(location = "C:/dojo6/src/WebContent/img")
 @WebServlet("/ReviewServlet")
 public class ReviewServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
