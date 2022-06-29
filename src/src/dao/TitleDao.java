@@ -136,6 +136,7 @@ public class TitleDao {
 				review_List.setPrice(rs.getInt("price"));
 				review_List.setPuroduct_name(rs.getString("puroduct_name"));
 				review_List.setGood(rs.getInt("good"));
+				review_List.setImage(rs.getString("image"));
 			}
 		}
 		catch (SQLException e) {
