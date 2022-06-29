@@ -123,15 +123,15 @@ th.fhead {
 
 
 .opback {
-		width: 9%;
+	width: 9%;
 	position: absolute;
-    left: 245px;
+    left: 350px;
     top:680px;
 }
 .capback{
 	width: 10%;
 	position: absolute;
-    left: 245px;
+    left: 350px;
     top:680px;
 }
 .opcap1 img {
@@ -146,16 +146,16 @@ th.fhead {
 }
 
 .optop {
-		width: 9%;
+    width: 9%;
 	position: absolute;
-    left: 735px;
-       top:680px;
+    left: 1000px;
+    top:680px;
 }
 .captop{
 	width: 10%;
 	position: absolute;
-    left: 735px;
-       top:680px;
+    left: 1000px;
+    top:680px;
 }
 .opcap2 img {
 	-webkit-transform: translate(-50%, -50%);
