@@ -4,10 +4,10 @@ html{
 	font-family: Meiryo;
 }
 body{
-	background-repeat: no-repeat;
-	background-size: contain;
+	background-repeat: no-repeat,repeat;
+	background-size: contain, 300px;
 	background-position:center center;
-	background-image: url(/dokogacha/img/template_gacha.png);
+	background-image: url(/dokogacha/img/template_gacha.png),url(/dokogacha/img/haikei.png);
 	width:100%;
 	height:800px;
 	margin: 0 0 0 0;
