@@ -22,6 +22,9 @@
 				<tr class="data">
 					<input type="hidden" name="user" value=${e.id}>
 					<input type="hidden" name="review" value="change">
+					<c:if test="${e.user_image == null}">
+						<input type="hidden" value="${e.user_image = "icon_panda.png"}">
+					</c:if>
 					<td class="icon" colspan="2"><a href="javascript:document.f.submit()"><img src="/dokogacha/img/${e.user_image}"></a></td>
 					<td class="uname" colspan="6"><a href="javascript:document.f.submit()">ユーザ名：${e.id}</a></td>
 					<td class="delete" colspan="2"><input type="submit" name="follow_state" value="お気に入り解除" class="check" formaction="/dokogacha/FavoriteUserListServlet"></td>
