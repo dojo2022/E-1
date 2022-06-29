@@ -21,7 +21,7 @@ body{
 }
 .div_password{
 	position:relative;
-	top:75px;
+	top:70px;
 	left:80px;
 }
 .h1_regist{
@@ -69,5 +69,5 @@ body{
 	color:red;
 	position:relative;
 	top:380px;
-	margin-left:200px;
+	margin-left:120px;
 }

@@ -1,4 +1,4 @@
-function submit_regist(){
+function submit_regist(obj){
 	var formObj = document.getElementById('form_regist');
 	var errorMessageObj = document.getElementById('error_message');
 	if(!formObj.id.value || !formObj.pw.value){
@@ -11,5 +11,16 @@ function submit_regist(){
 		return false;
 	}else if(formObj.id.value != "" && formObj.id.value != ""){
 		errorMessageObj.textContent=null;
+
+		obj.animate(
+		[
+		{ transform: 'rotate(0deg)' },
+		{ transform: 'rotate(360deg)' }
+		],
+		{ duration: 3000,
+		  easing: 'linear'
+		}
+		);
 	}
+
 };
