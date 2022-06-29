@@ -21,7 +21,7 @@
 				<img class="img_password" src="/dokogacha/img/cap_password.png">
 				<input class="password_password" type="password" name="pw" placeholder="半角英数８文字以上１６文字以内">
 			</div>
-			<input class="submit_regist" type="image" name="regist" src="/dokogacha/img/button_resist.png" onclick="submit_regist()">
+			<input class="submit_regist rotate" type="image" name="regist" src="/dokogacha/img/button_resist.png" onclick="submit_regist(this)">
 		</form>
 	  </div>
 	</body>
