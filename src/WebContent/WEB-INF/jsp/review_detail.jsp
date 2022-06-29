@@ -40,8 +40,8 @@
 			<tr><td>5段階評価<input type="text" name="star" value="${e.evalution}"></td></tr>
 		</table>
 		<table class="user_detail" >
-			<tr><td class="icon"><img src="/dokogacha/UserDatailServlet" alt="icon"></td>
-			<td class="user_name"><input type="text" name="user_name" value="${e.user_name}"></td>
+			<tr><td class="icon"><img src="/dokogacha/img/icon_panda.png" alt="icon" width="50" height="50"></td>
+			<td class="user_name"><input type="text" name="user_name" value="${e.user_name}" disabled></td>
 			<td class="user_detail"><a href="/dokogacha/UserDetailServlet"><img src="/dokogacha/img/detail_user.png" height="50" width="180"></a></td></tr>
 		</table>
 		</c:forEach>
