@@ -14,7 +14,7 @@
 		<nav class="nav">
 		<ul>
 		    <li><a href="/dokogacha/TopServlet">トップ</a><li>
-		    <li><a href="/dokogachaSearchServlet">検索</a></li>
+		    <li><a href="/dokogacha/SearchServlet">検索</a></li>
 		    <li><a href="/dokogacha/ReviewServlet">投稿</a></li>
 		    <li><a href="/dokogacha/MypageServlet">マイページ</a></li>
 		</ul>
