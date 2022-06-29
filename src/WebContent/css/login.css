@@ -1,17 +1,17 @@
 @charset "UTF-8";
 body{
-	background-repeat: no-repeat;
-	background-size: contain;
+	background-image: url(/dokogacha/img/template_gacha.png),url(/dokogacha/img/haikei.png);
+	background-repeat: no-repeat,repeat;
+	background-size: contain, 300px;
 	background-position:center center;
-	background-image: url(/dokogacha/img/template_gacha.png);
 	width:100%;
 	height:800px;
 	margin: 0 0 0 0;
 	background-color: #eeece9;
 }
 .wapper{
-  margin: 0 auto;
-  width: 580px ; /*580px*/
+  	margin: 0 auto;
+  	width: 580px ; /*580px*/
 }
 .div_username{
 	position:relative;
