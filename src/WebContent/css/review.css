@@ -2,7 +2,7 @@
 
 body {
 		width: 960px;
-		margin-left: 200px;
+		margin: 0 auto;
 		background: #e6e6fa;
 }
 
@@ -18,27 +18,7 @@ h1 {
 }
 
 /*input枠なくす、サイズ*/
-input[name="product_name"] {
-	border: none;
-	width: 70em;
-	height: 30px;
-}
-input[name="title"] {
-	border: none;
-	width: 70em;
-	height: 30px;
-}
-input[name="series"] {
-	border: none;
-	width: 70em;
-	height: 30px;
-}
-input[name="price"] {
-	border: none;
-	width: 70em;
-	height: 30px;
-}
-input[name="address"] {
+input[type="text"] {
 	border: none;
 	width: 70em;
 	height: 30px;
@@ -59,6 +39,7 @@ textarea {
 
 ::placeholder {
 	text-align: center;
+	font-size: 20px;
 }
 
 /*select*/

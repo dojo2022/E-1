@@ -2,7 +2,7 @@
 
 body {
 		width: 960px;
-		margin-left: 200px;
+		margin: 0 auto;
 		background: #e6e6fa;
 }
 .review_image {
