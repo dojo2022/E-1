@@ -123,16 +123,16 @@ th.fhead {
 
 
 .opback {
-	width: 9%;
+	width: 8%;
 	position: absolute;
-    left: 350px;
-    top:680px;
+    left: 430px;
+    top:720px;
 }
 .capback{
-	width: 10%;
+	width: 9%;
 	position: absolute;
-    left: 350px;
-    top:680px;
+    left: 430px;
+    top:720px;
 }
 .opcap1 img {
 	-webkit-transform: translate(-50%, -50%);
@@ -146,16 +146,16 @@ th.fhead {
 }
 
 .optop {
-    width: 9%;
+    width: 8%;
 	position: absolute;
-    left: 1000px;
-    top:680px;
+    left: 1400px;
+    top:720px;
 }
 .captop{
-	width: 10%;
+	width: 9%;
 	position: absolute;
-    left: 1000px;
-    top:680px;
+    left: 1400px;
+    top:720px;
 }
 .opcap2 img {
 	-webkit-transform: translate(-50%, -50%);
