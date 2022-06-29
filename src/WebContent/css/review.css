@@ -28,8 +28,9 @@ input[type="submit"] {
 	color: red;
 	border: none;
 	background: #FF9872;
-	width: 70em;
+	width: 45em;
 	height: 30px;
+	font-size: 20px;
 }
 
 textarea {
@@ -44,8 +45,9 @@ textarea {
 
 /*select*/
 select {
-	width: 70em;
+	width: 45em;
 	height: 30px;
+	font-size: 20px;
 }
 option {
 	text-align: center;

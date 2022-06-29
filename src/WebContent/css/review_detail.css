@@ -129,6 +129,7 @@ h2 {
 /*review_detailクラステーブル*/
 .review_detail {
 		border-collapse: collapse;
+		font-size: 22px;
 }
 .review_detail th, .review_detail td {
 	padding: 8px;
@@ -138,14 +139,16 @@ h2 {
 
 input[type="text"] {
 	border: none;
-	width: 70em;
+	width: 45em;
 	height: 30px;
+	font-size: 20px;
   text-align: center;
 }
 input[name="user_name"] {
 	border: none;
-	width: 40em;
+	width: 35em;
 	height: 30px;
+	font-size: 20px;
 }
 textarea {
 	width: 70em;

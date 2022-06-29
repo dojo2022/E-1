@@ -10,7 +10,7 @@
 </head>
 <body>
 	<h1>投稿情報の入力</h1>
-	<h4 class="gacha_name">ガチャ名※全項目必須</h4>
+	<h3 class="gacha_name">ガチャ名※全項目必須</h3>
 	<form method="POST" action="/dokogacha/ReviewServlet" id="review_form" enctype="multipart/form-data">
 		<span id="error_message">${error_message}</span>
 		<table class="info">
@@ -37,7 +37,7 @@
 			</tr>
 		</table>
 
-		<h4 class="gacha_detail">ガチャ詳細</h4>
+		<h3 class="gacha_detail">ガチャ詳細</h3>
 		<table class="detail">
 			<tr>
 				<td><textarea name="thought" id="thought"
