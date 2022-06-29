@@ -105,7 +105,7 @@ public class ReviewServlet extends HttpServlet {
 				images[i] = this.getFileName(part);
 				parts_image[i] = part;
 				//ファイルが存在しているか確かめる処理
-				File file = new File("C:/dojo6/src/WebContent/img/review_image/"+images[i]);//絶対パス出ないとダメそう
+				File file = new File("C:/dojo6/src/WebContent/img/"+images[i]);//絶対パス出ないとダメそう
 
 				if(file.exists()) {
 					// アイコン画像ファイルが存在している場合
