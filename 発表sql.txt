@@ -97,3 +97,9 @@ insert into favorite_reviewer (user_name, reviewer_id) values ('dojo', 'kojima')
 insert into favorite_reviewer (user_name, reviewer_id) values ('dojo', 'maura');
 insert into favorite_reviewer (user_name, reviewer_id) values ('dojo', 'hirano');
 insert into favorite_reviewer (user_name, reviewer_id) values ('dojo', 'kashimori');
+
+--称号
+insert into title (total_good, title_image, title_name) values ( 10, 'shiro_panda.png','shiro_panda');
+insert into title (total_good, title_image, title_name) values ( 50, 'silver_panda.png','silver_panda');
+insert into title (total_good, title_image, title_name) values (100, 'gold_panda.png','gold_panda');
+
