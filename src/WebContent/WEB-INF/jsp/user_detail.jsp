@@ -76,7 +76,7 @@
 			</table>
 		</div>
 		<div class ="review_list">
-			<a href="/dokogacha/MyReviewListServlet">${user.id}の全投稿を表示</a>
+			<a href="/dokogacha/UserReviewListServlet">${user.id}の全投稿を表示</a>
 		</div>
 	</div>
 </div>
