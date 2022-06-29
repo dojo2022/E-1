@@ -29,10 +29,13 @@ body{
 	bottom:-180px;
 	left:60px
 }
+.btn{
+	position:relative;
+}
 .btn img {
 	position: absolute;
-	top: 650px;
-	left: 37.8%;
+	top: 450px;
+	left:130px;
 	-webkit-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 	display: block;
@@ -43,8 +46,8 @@ body{
 	opacity: 0;
 }
 .button_top{
-	width:11%
+	width:25%
 }
 .button_top2{
-	width:10.5%
+	width:25%
 }
