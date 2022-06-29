@@ -1,0 +1,5 @@
+﻿ログインに利用するIDとパスワード
+【ID】	dojo
+【PW】	password
+
+
